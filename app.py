@@ -158,8 +158,20 @@ def screen_live(summary, top_n):
     trials = json.load(open(TRIALS_FILE))
     record = {"patient_id": "UI", "summary": summary.strip()}
     try:
+        print("[eligio] new screening request", flush=True)
         yield "<p>Step 1 of 3 · Reading the patient summary…</p>"
-        profile = screener.call_llm(screener.PARSER_PROMPT, f"PATIENT SUMMARY:\n{summary}")
+        profile = None
+        for attempt in range(3):              # the parser can also return malformed JSON
+            try:
+                profile = screener.call_llm(screener.PARSER_PROMPT, f"PATIENT SUMMARY:\n{summary}")
+                if isinstance(profile, dict):
+                    break
+            except screener.DailyQuotaExceeded:
+                raise
+            except ValueError as e:
+                print(f"[eligio] parser retry {attempt + 1}: {e}", flush=True)
+        if not isinstance(profile, dict):
+            raise RuntimeError("The AI could not read this summary. Please try again.")
         kept, removed = screener.prefilter(trials, profile)
         top, _ = screener.rank_trials(kept, profile, int(top_n))
         results = []
@@ -170,12 +182,11 @@ def screen_live(summary, top_n):
                                   "screened_by_llm": len(top)}}
             yield render(partial, f"Step 3 of 3 · Checking trial {i} of {len(top)} ({t['nct_id']})…")
             try:
-                r = screener.validate_screening_response(screener.call_llm(
-                    screener.SCREENER_PROMPT,
-                    f"PATIENT SUMMARY:\n{summary}\n\n---\n\n{screener.trial_text(t)}"))
+                r = screener.screen_one(summary, t)
             except screener.DailyQuotaExceeded:
                 raise
             except Exception as e:
+                print(f"[eligio] trial {t['nct_id']} could not be assessed: {e}", flush=True)
                 r = {"summary": f"Could not assess this trial: {e}", "criteria": [], "open_questions": []}
             r.update(screener.score_checklist(r))
             r.update({"nct_id": t["nct_id"], "title": t["title"], "url": t["url"],
@@ -192,7 +203,11 @@ def screen_live(summary, top_n):
         yield ("<p><b>The free daily limit for the AI model has been reached.</b> Use the "
                "<i>Saved results</i> tab, or try again tomorrow.</p>")
     except Exception as e:
-        yield f"<p><b>Something went wrong:</b> {esc(e)}</p>"
+        import traceback
+        traceback.print_exc()
+        print(f"[eligio] screening failed: {e}", flush=True)
+        yield (f"<p><b>Something went wrong:</b> {esc(e)}</p><p class='tm-meta'>If the site was "
+               f"asleep, it may still be starting: wait 30 seconds and click the button again.</p>")
 
 
 # ------------------------------------------------------------------ saved results
@@ -255,11 +270,11 @@ def launch():
     auth = ("coordinator", pw) if pw else None
     if os.environ.get("RENDER") and os.environ.get("PORT"):   # Render sets both
         build().queue().launch(server_name="0.0.0.0", server_port=int(os.environ["PORT"]),
-                               auth=auth, share=False)
+                               auth=auth, share=False, show_error=True)
     elif os.environ.get("SPACE_ID"):    # Hugging Face Spaces
         build().queue().launch(auth=auth)
     else:                               # Colab: temporary public share link
-        build().queue().launch(share=True, debug=False, auth=auth)
+        build().queue().launch(share=True, debug=False, auth=auth, show_error=True)
 
 
 if __name__ == "__main__":

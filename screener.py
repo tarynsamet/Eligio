@@ -179,8 +179,8 @@ def _get_api_key():
         pass
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
-        raise SystemExit("No GEMINI_API_KEY found. Add it in Colab Secrets "
-                         "(key icon, left sidebar) and enable notebook access.")
+        raise RuntimeError("No GEMINI_API_KEY found. Add it as an environment variable "
+                           "(Render) or in Colab Secrets (key icon, notebook access on).")
     return key
 
 
@@ -280,6 +280,25 @@ def validate_screening_response(result):
     if not isinstance(result.get("open_questions"), list):
         raise ValueError("Missing or invalid open_questions")
     return result
+
+
+def screen_one(summary, trial, attempts=3):
+    """Ask the LLM to screen one trial; retry if the answer is malformed or incomplete.
+    DailyQuotaExceeded is passed straight up (retrying today will not help)."""
+    last = None
+    for i in range(attempts):
+        try:
+            r = validate_screening_response(call_llm(
+                SCREENER_PROMPT, f"PATIENT SUMMARY:\n{summary}\n\n---\n\n{trial_text(trial)}"))
+            r["model"] = LAST_MODEL_USED
+            return r
+        except DailyQuotaExceeded:
+            raise
+        except (ValueError, KeyError, TypeError) as e:   # bad JSON / failed validation
+            last = e
+            print(f"      malformed answer for {trial.get('nct_id')} (try {i + 1}/{attempts}): "
+                  f"{str(e)[:120]}", flush=True)
+    raise ValueError(f"No valid answer after {attempts} tries: {last}")
 
 
 # ================================================================ step 2: pre-filter
@@ -559,10 +578,8 @@ def screen_patient(patient_record, trials, top_n=TOP_N, fresh=False):
             continue
         print(f"  [4] ({i}/{len(top)}) screening {t['nct_id']}...", flush=True)
         try:
-            r = validate_screening_response(call_llm(
-                SCREENER_PROMPT, f"PATIENT SUMMARY:\n{summary}\n\n---\n\n{trial_text(t)}"))
-            r["model"] = LAST_MODEL_USED
-            models_used.add(LAST_MODEL_USED)
+            r = screen_one(summary, t)
+            models_used.add(r["model"])
         except DailyQuotaExceeded:
             save_outputs(build_out(results, complete=False))
             print(f"  STOPPED: daily request limit reached. {len(results)} of {len(top)} "
