@@ -1,0 +1,27 @@
+[
+  {
+    "patient_id": "P01",
+    "label": "Metastatic HR+/HER2-low, PIK3CA-mutant, progressed on CDK4/6 inhibitor",
+    "summary": "58-year-old postmenopausal woman with metastatic invasive ductal carcinoma of the left breast. Originally diagnosed with stage IIB (T2N1) disease in 2019, treated with lumpectomy, adjuvant AC-T chemotherapy, radiation, and 5 years of anastrozole. In March 2024 developed bone metastases (spine, pelvis) and two liver lesions. Biopsy of liver lesion: ER 90%, PR 40%, HER2 IHC 1+ (HER2-low), Ki-67 25%. Tumor NGS: PIK3CA H1047R mutation; ESR1 mutation status not tested. Started first-line letrozole + palbociclib in April 2024; scans in October 2026 show progression in the liver. No prior chemotherapy for metastatic disease. No brain imaging on file; no neurologic symptoms. ECOG performance status 1. Labs (Oct 2026): ANC 2.1, hemoglobin 11.8, platelets 190, AST/ALT 1.4x ULN, bilirubin normal, HbA1c 5.9%. Creatinine not yet resulted. History of well-controlled hypertension. No known germline testing."
+  },
+  {
+    "patient_id": "P02",
+    "label": "Metastatic triple-negative, germline BRCA1, recurred after neoadjuvant pembrolizumab",
+    "summary": "41-year-old premenopausal woman with triple-negative breast cancer (ER 0%, PR 0%, HER2 IHC 0). Germline BRCA1 pathogenic variant. Diagnosed with stage IIB disease in January 2024; received neoadjuvant carboplatin/paclitaxel + pembrolizumab followed by AC + pembrolizumab, then mastectomy with residual disease (not a pathologic complete response), followed by adjuvant capecitabine and completion of pembrolizumab in March 2025. In September 2026 found to have multiple lung nodules; biopsy confirmed recurrent TNBC. PD-L1 CPS 15. No treatment yet for metastatic disease. Brain MRI October 2026: no brain metastases. ECOG 0. Labs normal. No autoimmune disease; had grade 2 hypothyroidism from pembrolizumab, now on levothyroxine."
+  },
+  {
+    "patient_id": "P03",
+    "label": "Early-stage premenopausal HR+/HER2-, Oncotype 21, post-lumpectomy",
+    "summary": "44-year-old premenopausal woman with newly diagnosed stage IIA (pT2 pN0, 2.4 cm) invasive ductal carcinoma of the right breast, grade 2. ER 95%, PR 80%, HER2 IHC 2+ with FISH not amplified (HER2-negative). Oncotype DX recurrence score 21. Underwent lumpectomy with sentinel node biopsy in October 2026; margins negative, 0/2 nodes positive. Has not yet started radiation or any systemic therapy; adjuvant plan under discussion. No germline testing done yet. ECOG 0. No significant medical history. Regular menstrual cycles."
+  },
+  {
+    "patient_id": "P04",
+    "label": "Metastatic HER2+ with treated brain metastases, progressed on T-DXd",
+    "summary": "63-year-old woman with metastatic HER2-positive breast cancer (HER2 IHC 3+, ER 10%, PR 0%). Diagnosed de novo metastatic in 2023 with liver and bone metastases. First-line docetaxel + trastuzumab + pertuzumab (2023-2024), then maintenance trastuzumab + pertuzumab. In August 2025 developed 3 brain metastases treated with stereotactic radiosurgery; brain stable on most recent MRI (September 2026), off steroids. Second-line trastuzumab deruxtecan (T-DXd) from September 2025, with progression in the liver in October 2026. No history of interstitial lung disease. LVEF 58% on echo in July 2026. ECOG 1. Labs: normal blood counts, bilirubin normal, creatinine normal."
+  },
+  {
+    "patient_id": "P05",
+    "label": "Male, metastatic HR+/HER2-, ESR1-mutant",
+    "summary": "67-year-old man with metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0). Initially stage II in 2020, treated with mastectomy and tamoxifen. Bone-only metastatic recurrence in 2023, treated first-line with anastrozole + leuprolide + ribociclib with progression in September 2026. Circulating tumor DNA (Guardant360, October 2026) shows ESR1 Y537S mutation; PIK3CA wild-type; no BRCA alterations. ECOG 1. Labs within normal limits. History of type 2 diabetes controlled on metformin."
+  }
+]
