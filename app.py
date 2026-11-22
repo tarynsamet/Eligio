@@ -140,7 +140,7 @@ def render(out, status=""):
     missing = out.get("profile", {}).get("missing_information") or []
     head = f"""<style>{CSS}</style>
 {DISCLAIMER}
-<p class='tm-meta'>{esc(status)}</p>
+<p class='tm-meta' style='font-size:13px'>{esc(status)}</p>
 <p><b>Searched:</b> {f.get('all_trials', '?')} recruiting breast cancer treatment trials with an open NYC site →
 {f.get('after_prefilter', '?')} after rules (age, sex, treatment trials) → {f.get('screened_by_llm', '?')} checked in detail.</p>
 <table class='tm-sum'><tr><th>Result</th><th>Trials</th></tr>{rows}</table>
@@ -148,41 +148,233 @@ def render(out, status=""):
     return head + "".join(card(i, r) for i, r in enumerate(out["results"], 1))
 
 
-# ------------------------------------------------------------------ live screening
-def screen_live(summary, top_n):
+# ------------------------------------------------------------------ key-facts form
+# The form is optional. Coordinators can use the summary only, the form only, or both.
+# When both are used, the SUMMARY WINS: form values only fill gaps the summary leaves.
+SETTINGS = ["Early, before surgery", "Early, after surgery", "Locally advanced / unresectable", "Metastatic"]
+RECEPTOR = ["Positive", "Low (1-10%)", "Negative", "Unknown"]
+PR_OPTS = ["Positive", "Negative", "Unknown"]
+HER2_OPTS = ["0", "1+ (HER2-low)", "2+ ISH negative (HER2-low)", "2+ ISH positive", "3+", "Unknown"]
+LINES = ["0", "1", "2", "3+"]
+ECOG = ["0", "1", "2", "3", "4"]
+BRAIN = ["None", "Treated, stable", "Active", "Not imaged"]
+TREATMENTS = ["Endocrine therapy", "CDK4/6 inhibitor", "Chemotherapy", "Anti-HER2 antibody",
+              "T-DXd or other ADC", "HER2 TKI (e.g. tucatinib)", "Immunotherapy (PD-1/PD-L1)",
+              "PARP inhibitor", "PI3K/AKT/mTOR inhibitor"]
+MARKER_OPTS = ["Mutation / positive", "Tested negative", "Not tested"]
+MARKERS = [("brca", "BRCA1/2 or PALB2"), ("pik3ca", "PIK3CA"), ("esr1", "ESR1"), ("pdl1", "PD-L1 (TNBC)")]
+FIELDS = ["age", "sex", "meno", "setting", "er", "pr", "her2", "lines", "ecog", "brain",
+          "treatments", "brca", "pik3ca", "esr1", "pdl1", "other"]
+EMPTY = [None, None, None, None, None, None, None, None, None, None, [], None, None, None, None, ""]
+
+FORM_FILL_PROMPT = f"""You fill in a structured form from a breast cancer patient summary for clinical
+trial screening. Use only what the summary states; use null when it does not say. Never guess.
+Return JSON with exactly these keys, each value exactly one of the allowed options or null:
+  "age": integer
+  "sex": "Female" | "Male"
+  "meno": "Pre" | "Post" | "Unknown"
+  "setting": {SETTINGS}
+  "er": {RECEPTOR}      (Low means 1-10% staining)
+  "pr": {PR_OPTS}
+  "her2": {HER2_OPTS}
+  "lines": {LINES}      (number of prior treatment lines for metastatic disease)
+  "ecog": {ECOG}
+  "brain": {BRAIN}      ("Not imaged" if brain imaging is not mentioned)
+  "treatments": a list with any of {TREATMENTS} that the patient has received, in any setting
+  "brca": {MARKER_OPTS}   (germline or tumor BRCA1, BRCA2 or PALB2)
+  "pik3ca": {MARKER_OPTS}
+  "esr1": {MARKER_OPTS}
+  "pdl1": {MARKER_OPTS}   (Mutation / positive means PD-L1 positive, e.g. CPS >= 10)
+  "other": short text listing other named genomic alterations, or ""
+"""
+
+
+def _form(values):
+    return dict(zip(FIELDS, values))
+
+
+def form_is_empty(f):
+    return all(v in (None, "", []) for v in f.values())
+
+
+def form_profile(f):
+    """Translate the form into the screener's patient profile (only what was filled in)."""
+    prof = {}
+    if f.get("age") not in (None, ""):
+        prof["age"] = int(f["age"])
+    if f.get("sex"):
+        prof["sex"] = f["sex"].upper()
+    if f.get("meno") in ("Pre", "Post"):
+        prof["menopausal_status"] = "premenopausal" if f["meno"] == "Pre" else "postmenopausal"
+    if f.get("setting"):
+        prof["disease_setting"] = "early" if f["setting"].startswith("Early") else "metastatic"
+    er, pr, her2 = f.get("er"), f.get("pr"), f.get("her2")
+    hr_pos = er in ("Positive", "Low (1-10%)") or pr == "Positive"
+    if her2 in ("2+ ISH positive", "3+"):
+        prof["subtype"] = "HER2+"
+    elif hr_pos:
+        prof["subtype"] = "HR+/HER2-"
+    elif er == "Negative" and pr == "Negative" and her2 in ("0", "1+ (HER2-low)", "2+ ISH negative (HER2-low)"):
+        prof["subtype"] = "TNBC"
+    if her2 and her2 != "Unknown":
+        prof["her2_low"] = her2 in ("1+ (HER2-low)", "2+ ISH negative (HER2-low)")
+    if f.get("lines"):
+        prof["lines_of_therapy_metastatic"] = 3 if f["lines"] == "3+" else int(f["lines"])
+    if f.get("ecog"):
+        prof["ecog"] = int(f["ecog"])
+    if f.get("brain"):
+        prof["brain_metastases"] = {"None": "none", "Treated, stable": "treated_stable",
+                                    "Active": "active", "Not imaged": "unknown"}[f["brain"]]
+    if f.get("treatments"):
+        prof["prior_therapies"] = list(f["treatments"])
+    markers = []
+    for key, name in MARKERS:
+        if f.get(key) == "Mutation / positive":
+            markers.append(f"{name} positive")
+        elif f.get(key) == "Tested negative":
+            markers.append(f"{name} tested negative")
+    if (f.get("other") or "").strip():
+        markers.append(f["other"].strip())
+    if markers:
+        prof["biomarkers"] = markers
+    return prof
+
+
+def form_text(f):
+    """Plain-language version of the form for the AI's detailed check."""
+    parts = []
+    if f.get("age") not in (None, "") or f.get("sex"):
+        parts.append(f"{f.get('age') or 'Age not given'}-year-old {(f.get('sex') or 'patient').lower()}"
+                     + (f", {f['meno'].lower()}menopausal" if f.get("meno") in ("Pre", "Post") else "") + ".")
+    if f.get("setting"):
+        parts.append(f"Disease setting: {f['setting']}.")
+    rec = [f"ER {f['er']}" if f.get("er") else "", f"PR {f['pr']}" if f.get("pr") else "",
+           f"HER2 {f['her2']}" if f.get("her2") else ""]
+    if any(rec):
+        parts.append("Receptors: " + ", ".join(x for x in rec if x) + ".")
+    if f.get("lines"):
+        parts.append(f"Prior treatment lines for metastatic disease: {f['lines']}.")
+    if f.get("treatments"):
+        parts.append("Prior treatment received: " + ", ".join(f["treatments"]) + ".")
+    if f.get("ecog"):
+        parts.append(f"ECOG performance status {f['ecog']}.")
+    if f.get("brain"):
+        parts.append(f"Brain metastases: {f['brain']}.")
+    for key, name in MARKERS:
+        if f.get(key):
+            parts.append(f"{name}: {f[key].lower()}.")
+    if (f.get("other") or "").strip():
+        parts.append(f"Other genomic alterations: {f['other'].strip()}.")
+    return " ".join(parts)
+
+
+def merge_profiles(from_summary, from_form):
+    """Summary wins. The form fills only what the summary left empty. Returns (profile, conflicts)."""
+    merged, conflicts = dict(from_summary), []
+    labels = {"age": "age", "sex": "sex", "subtype": "subtype", "disease_setting": "disease setting",
+              "ecog": "ECOG", "brain_metastases": "brain metastases",
+              "lines_of_therapy_metastatic": "prior lines for metastatic disease"}
+    for k, v in from_form.items():
+        sv = merged.get(k)
+        if sv in (None, "", [], "unknown"):
+            merged[k] = v
+        elif k in labels and str(sv).lower() != str(v).lower():
+            conflicts.append(f"{labels[k]} (form: {v}; summary: {sv})")
+        elif k == "biomarkers":
+            have = " ".join(sv).upper()
+            merged[k] = list(sv) + [b for b in v if b.split()[0].upper() not in have]
+    return merged, conflicts
+
+
+def fill_from_summary(summary):
+    """'Fill from summary' button: the AI pre-fills the form; the coordinator checks it."""
     if not summary or len(summary.strip()) < 40:
-        yield ("<p>Please paste a patient summary (a few sentences: diagnosis, receptors, "
-               "stage, biomarkers, prior treatments, performance status, labs), or load an "
-               "example patient.</p>")
+        return [gr.update() for _ in FIELDS] + ["<p class='tm-meta'>Paste a summary first, then click Fill from summary.</p>"]
+    try:
+        d = screener.call_llm(FORM_FILL_PROMPT, f"PATIENT SUMMARY:\n{summary}")
+    except screener.DailyQuotaExceeded:
+        return [gr.update() for _ in FIELDS] + ["<p><b>The free daily AI limit has been reached.</b></p>"]
+    except Exception as e:
+        return [gr.update() for _ in FIELDS] + [f"<p><b>Could not fill the form:</b> {esc(e)}</p>"]
+    allowed = {"sex": ["Female", "Male"], "meno": ["Pre", "Post", "Unknown"], "setting": SETTINGS,
+               "er": RECEPTOR, "pr": PR_OPTS, "her2": HER2_OPTS, "lines": LINES, "ecog": ECOG,
+               "brain": BRAIN, "brca": MARKER_OPTS, "pik3ca": MARKER_OPTS, "esr1": MARKER_OPTS,
+               "pdl1": MARKER_OPTS}
+    out = []
+    for k in FIELDS:
+        v = d.get(k)
+        if k == "age":
+            v = int(v) if isinstance(v, (int, float)) or (isinstance(v, str) and v.isdigit()) else None
+        elif k == "treatments":
+            v = [t for t in (v or []) if t in TREATMENTS]
+        elif k == "other":
+            v = v if isinstance(v, str) else ""
+        elif k in ("lines", "ecog") and v is not None:
+            v = str(v)
+            v = v if v in allowed[k] else None
+        else:
+            v = v if v in allowed.get(k, []) else None
+        out.append(v)
+    return out + ["<p class='tm-meta'>Form filled from the summary. Please check it, and correct anything wrong.</p>"]
+
+
+def clear_form():
+    return list(EMPTY) + [""]
+
+
+# ------------------------------------------------------------------ live screening
+def screen_live(summary, top_n, *form_values):
+    summary = (summary or "").strip()
+    f = _form(form_values)
+    has_summary, has_form = len(summary) >= 40, not form_is_empty(f)
+    if not has_summary and not has_form:
+        yield ("<p>Paste a patient summary, fill in the key-facts form, or both "
+               "(or load an example patient).</p>")
         return
     trials = json.load(open(TRIALS_FILE))
-    record = {"patient_id": "UI", "summary": summary.strip()}
     try:
-        print("[eligio] new screening request", flush=True)
-        yield "<p>Step 1 of 3 · Reading the patient summary…</p>"
-        profile = None
-        for attempt in range(3):              # the parser can also return malformed JSON
-            try:
-                profile = screener.call_llm(screener.PARSER_PROMPT, f"PATIENT SUMMARY:\n{summary}")
-                if isinstance(profile, dict):
-                    break
-            except screener.DailyQuotaExceeded:
-                raise
-            except ValueError as e:
-                print(f"[eligio] parser retry {attempt + 1}: {e}", flush=True)
-        if not isinstance(profile, dict):
-            raise RuntimeError("The AI could not read this summary. Please try again.")
+        mode = ("summary + form" if has_summary and has_form else "summary only" if has_summary else "form only")
+        print(f"[eligio] new screening request ({mode})", flush=True)
+        conflicts = []
+        if has_summary:
+            yield "<p>Step 1 of 3 · Reading the patient summary…</p>"
+            profile = None
+            for attempt in range(3):          # the parser can also return malformed JSON
+                try:
+                    profile = screener.call_llm(screener.PARSER_PROMPT, f"PATIENT SUMMARY:\n{summary}")
+                    if isinstance(profile, dict):
+                        break
+                except screener.DailyQuotaExceeded:
+                    raise
+                except ValueError as e:
+                    print(f"[eligio] parser retry {attempt + 1}: {e}", flush=True)
+            if not isinstance(profile, dict):
+                raise RuntimeError("The AI could not read this summary. Please try again.")
+            if has_form:
+                profile, conflicts = merge_profiles(profile, form_profile(f))
+        else:
+            profile = form_profile(f)
+        # text the AI reads for the detailed check
+        if has_summary and has_form:
+            text = (summary + "\n\nAdditional facts entered by the coordinator (use only where the "
+                    "summary above is silent; the summary takes precedence): " + form_text(f))
+        else:
+            text = summary if has_summary else form_text(f)
+
         kept, removed = screener.prefilter(trials, profile)
         top, _ = screener.rank_trials(kept, profile, int(top_n))
+        note = f"Used: {mode}."
+        if conflicts:
+            note += " The form and the summary disagree on " + "; ".join(conflicts) + ". Eligio used the summary."
         results = []
         for i, (rel, why, t) in enumerate(top, 1):
             partial = {"results": sorted(results, key=lambda r: screener.CATEGORY_ORDER[r["category"]]),
                        "profile": profile,
                        "funnel": {"all_trials": len(trials), "after_prefilter": len(kept),
                                   "screened_by_llm": len(top)}}
-            yield render(partial, f"Step 3 of 3 · Checking trial {i} of {len(top)} ({t['nct_id']})…")
+            yield render(partial, f"{note} Step 3 of 3 · Checking trial {i} of {len(top)} ({t['nct_id']})…")
             try:
-                r = screener.screen_one(summary, t)
+                r = screener.screen_one(text, t)
             except screener.DailyQuotaExceeded:
                 raise
             except Exception as e:
@@ -198,7 +390,7 @@ def screen_live(summary, top_n):
         out = {"results": results, "profile": profile,
                "funnel": {"all_trials": len(trials), "after_prefilter": len(kept),
                           "screened_by_llm": len(top)}}
-        yield render(out, f"Done · model {screener.MODEL}")
+        yield render(out, f"{note} Done · model {screener.MODEL}")
     except screener.DailyQuotaExceeded:
         yield ("<p><b>The free daily limit for the AI model has been reached.</b> Use the "
                "<i>Saved results</i> tab, or try again tomorrow.</p>")
@@ -232,10 +424,6 @@ def example_text(pid):
     return ""
 
 
-def example_from_event(evt: gr.SelectData):
-    return example_text(evt.value)
-
-
 def build():
     pids = [p["patient_id"] for p in json.load(open(PATIENTS_FILE))]
     with gr.Blocks(title=f"{BRAND} · {TAGLINE}") as demo:
@@ -243,18 +431,52 @@ def build():
         with gr.Tab("Screen a patient"):
             with gr.Row():
                 with gr.Column(scale=2):
-                    summary = gr.Textbox(label="De-identified patient summary", lines=9,
+                    summary = gr.Textbox(label="De-identified patient summary", lines=7,
                                          placeholder="Age, sex, diagnosis, ER/PR/HER2, stage, biomarkers, "
                                                      "prior treatments, performance status, labs…")
+                    with gr.Accordion("Key patient facts (optional)", open=True):
+                        gr.HTML("<div style='font-size:13px;color:#5d5670;margin:-4px 0 6px'>Use the "
+                                "summary, this form, or both. <b>*</b> marks the facts that matter most "
+                                "for matching. If the form and the summary disagree, Eligio uses the "
+                                "summary.</div>")
+                        with gr.Row():
+                            fill = gr.Button("✨ Fill from summary", size="sm")
+                            clear = gr.Button("Clear form", size="sm")
+                        fill_msg = gr.HTML()
+                        with gr.Row():
+                            age = gr.Number(label="Age *", precision=0, value=None, minimum=0, maximum=120)
+                            sex = gr.Radio(["Female", "Male"], label="Sex *", value=None)
+                            meno = gr.Radio(["Pre", "Post", "Unknown"], label="Menopausal status", value=None)
+                        with gr.Row():
+                            setting = gr.Dropdown(SETTINGS, label="Disease setting *", value=None)
+                            er = gr.Dropdown(RECEPTOR, label="ER *", value=None)
+                            pr = gr.Dropdown(PR_OPTS, label="PR *", value=None)
+                            her2 = gr.Dropdown(HER2_OPTS, label="HER2 *", value=None)
+                        with gr.Row():
+                            lines = gr.Dropdown(LINES, label="Prior lines for metastatic disease", value=None)
+                            ecog = gr.Dropdown(ECOG, label="ECOG", value=None)
+                            brain = gr.Dropdown(BRAIN, label="Brain metastases", value=None)
+                        treatments = gr.CheckboxGroup(TREATMENTS, label="Prior treatment received (any setting)", value=[])
+                        gr.HTML("<div style='font-size:14px;font-weight:600;margin-top:6px'>Biomarkers</div>")
+                        with gr.Row():
+                            brca = gr.Dropdown(MARKER_OPTS, label="BRCA1/2 or PALB2", value=None)
+                            pik3ca = gr.Dropdown(MARKER_OPTS, label="PIK3CA", value=None)
+                            esr1 = gr.Dropdown(MARKER_OPTS, label="ESR1", value=None)
+                            pdl1 = gr.Dropdown(MARKER_OPTS, label="PD-L1 (TNBC)", value=None)
+                        other = gr.Textbox(label="Other alterations (e.g. TP53 Y220C, AKT1, PTEN loss)", value="")
                 with gr.Column(scale=1):
-                    ex = gr.Dropdown(pids, label="Or load a synthetic example patient")
+                    ex = gr.Dropdown(pids, value=None, label="Or load a synthetic example patient")
                     top_n = gr.Slider(3, 15, value=8, step=1, label="Trials to check in detail")
                     go = gr.Button("Find matching trials", variant="primary", elem_id="tl-go")
                     gr.Markdown("<small>About 10 seconds per trial checked.</small>")
             live = gr.HTML()
-            ex.change(example_text, ex, summary)
-            ex.select(example_from_event, None, summary)
-            go.click(screen_live, [summary, top_n], live)
+            form = [age, sex, meno, setting, er, pr, her2, lines, ecog, brain, treatments,
+                    brca, pik3ca, esr1, pdl1, other]
+            # loading an example fills the summary and clears the form
+            ex.change(lambda pid: [example_text(pid)] + clear_form(), ex, [summary] + form + [fill_msg])
+            fill.click(fill_from_summary, summary, form + [fill_msg])
+            clear.click(clear_form, None, form + [fill_msg])
+            go.click(screen_live, [summary, top_n] + form, live)
         with gr.Tab("Saved results (demo)"):
             ids = saved_ids()
             pick = gr.Dropdown(ids, value=ids[0] if ids else None, label="Synthetic patient")

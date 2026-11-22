@@ -345,6 +345,8 @@ def biomarker_terms(biomarkers):
     """'PIK3CA H1047R' -> 'PIK3CA'; 'germline BRCA1' -> 'BRCA1' (gene names only)."""
     genes = set()
     for b in biomarkers or []:
+        if re.search(r"wild[- ]?type|tested negative|negative|not detected|no mutation|\bwt\b", b, re.I):
+            continue          # e.g. 'PIK3CA wild-type' must not boost PIK3CA-mutation trials
         for tok in re.findall(r"\b[A-Z][A-Z0-9]{2,}\b", b):
             if tok not in {"CPS", "IHC", "ISH", "FISH", "NGS", "DNA", "TPS", "HER2"}:
                 genes.add(tok)
