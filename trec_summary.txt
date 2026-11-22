@@ -1,0 +1,13 @@
+TREC 2021 physician labels vs our screener (gemini-3.5-flash-lite), 48 pairs scored
+
+Overall agreement (eligible vs not eligible): 36/48 = 75%
+Eligible pairs found (sensitivity):           10/18 = 56%
+Ineligible pairs ruled out (specificity):     26/30 = 87%
+When we say eligible, physicians agree (PPV): 10/14 = 71%
+
+Our category (rows) vs physician label (columns):
+                                      eligible  excluded not relev.
+Eligible                                     0         0          0
+Likely eligible - needs review              10         2          2
+Likely ineligible - needs review             0         0          0
+Not eligible                                 8        18          8

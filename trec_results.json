@@ -1,0 +1,502 @@
+{
+ "64|NCT00361179": {
+  "topic": 64,
+  "nct_id": "NCT00361179",
+  "label": "eligible",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "Long Term Effects of Peginterferon Alfa-2a Plus Ribavirin for Chronic Hepatitis C/B Co-Infection and Chronic Hepatitis C",
+  "fail_reasons": "",
+  "summary": "The patient is a 55-year-old man with chronic HCV and HBV coinfection currently receiving antiviral treatment. However, eligibility for trial NCT00361179 strictly requires patients to have been randomized, treated, and followed up in the specific predecessor protocol ML17862, which is not mentioned in the patient summary."
+ },
+ "70|NCT04006834": {
+  "topic": 70,
+  "nct_id": "NCT04006834",
+  "label": "eligible",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "Hypersomnia in Major Depressive Disorder",
+  "fail_reasons": "",
+  "summary": "The patient is a 46-year-old woman with Major Depressive Disorder (MDD) who meets the age requirement and has no reported history of exclusionary psychiatric conditions, though routine screening for bipolar disorder and substance history should be formally documented. She appears to be a potential fit for the trial, but further clinical evaluation is needed to confirm complete eligibility regarding the exclusion criteria."
+ },
+ "4|NCT00797810": {
+  "topic": 4,
+  "nct_id": "NCT00797810",
+  "label": "eligible",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "Intensification Therapy of Mature B-ALL, Burkitt and Burkitt Like and Other High Grade Non-Hodgkin's Lymphoma in Adults",
+  "fail_reasons": "",
+  "summary": "The patient is a 44-year-old female with primary cardiac Burkitt's lymphoma who meets the age and disease subtype inclusion criteria. However, eligibility cannot be fully determined due to missing laboratory values required to assess organ function, baseline comorbidities (such as history of viral encephalitis, ICH, stroke, and DVT), and prior treatment details."
+ },
+ "64|NCT03884816": {
+  "topic": 64,
+  "nct_id": "NCT03884816",
+  "label": "eligible",
+  "category": "Unable to assess - screening error",
+  "predicted": "error",
+  "trial_title": "HIV and STIs Clinical Study in Germany",
+  "fail_reasons": "",
+  "summary": "failed: Invalid criterion type at 13"
+ },
+ "15|NCT01606631": {
+  "topic": 15,
+  "nct_id": "NCT01606631",
+  "label": "eligible",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "Role of Beta-blockers in the Prevention on the Arisen of a Severe Sepsis (TESS)",
+  "fail_reasons": "",
+  "summary": "The patient is a 70-year-old woman presenting with an intra-abdominal mass found to be pancreatic adenocarcinoma, along with fevers/rigors, bandemia, and suspected infected diverticular abscess or fluid collection treated with IV antibiotics. However, it is unclear whether she was hospitalized via the ICU for a community infectious pathology meeting the trial's specific case/control definitions for severe sepsis/septic shock originating from community-acquired infections, leading to several UNKN"
+ },
+ "17|NCT02909036": {
+  "topic": 17,
+  "nct_id": "NCT02909036",
+  "label": "eligible",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Study of Captisol Enabled Melphalan and Pharmacokinetics for Patients With Multiple Myeloma or Light Chain Amyloidosis That Are Receiving an Autologous Transplant.",
+  "fail_reasons": "Receiving an Autologous Hematopoietic Progenitor Cell Transplant | Creatinine clearance \u2265 40 ml/min (24 hour urine collection)",
+  "summary": "The patient is a 64-year-old woman with multiple myeloma and systemic amyloidosis who has previously undergone an allogeneic transplant and is currently on hemodialysis for ESRD. This trial is specifically designed for patients receiving an autologous hematopoietic progenitor cell transplant (AHCT), but the patient has a history of prior allogeneic transplant and her current eligibility for another transplant (autologous) with active ESRD on hemodialysis and severe organ involvement is highly qu"
+ },
+ "15|NCT02206360": {
+  "topic": 15,
+  "nct_id": "NCT02206360",
+  "label": "eligible",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Pancreatic Cancer Early Detection Program",
+  "fail_reasons": "Patient meets familial or genetic high-risk inclusion criteria for pancreatic cancer early detection | No previous radiographic or histologic diagnosis of pancreatic cancer | No clinical suspicion of pancreatic cancer | Renal insufficiency with serum creatinine greater than 2.0 mg/dl",
+  "summary": "The patient is a 70-year-old woman recently diagnosed with pancreatic adenocarcinoma at the head of the pancreas. However, she does not meet any of the familial/genetic high-risk inclusion criteria for this early detection program (such as known deleterious mutations, familial pancreatic cancer kindred, or chronic pancreatitis syndrome), and she is explicitly excluded due to a current clinical diagnosis and histologic confirmation of pancreatic cancer."
+ },
+ "11|NCT02442661": {
+  "topic": 11,
+  "nct_id": "NCT02442661",
+  "label": "eligible",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "Clinical Validation of a Predictive Model for the Presence of Cervical Lymph Node Metastasis in Papillary Thyroid Cancer",
+  "fail_reasons": "",
+  "summary": "The patient has a diagnosis of metastatic papillary thyroid cancer, but the trial NCT02442661 specifically evaluates a predictive model for cervical lymph node metastasis using sonographic examinations. The patient summary mentions metastatic disease to lymph nodes and a neck mass resection, but does not provide details regarding whether a sonographic examination of the cervical lymph nodes meeting study criteria was performed or if the patient is already enrolled. Thus, key eligibility criteria"
+ },
+ "17|NCT00256776": {
+  "topic": 17,
+  "nct_id": "NCT00256776",
+  "label": "eligible",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "MMVAR - Velcade: Study of Velcade for the Treatment of Myeloma Patients After Autologous Transplantation",
+  "fail_reasons": "Creatinine clearance < 30 mL/minute",
+  "summary": "The patient is a 64-year-old woman with multiple myeloma, prior autologous and allogeneic stem cell transplants, and relapsed disease, but she has end-stage renal disease on hemodialysis (CrCl < 30 mL/min) and significant cardiovascular/systemic amyloidosis involvement. She fails the creatinine clearance exclusion criterion and has several unknown lab and performance status values."
+ },
+ "11|NCT04462471": {
+  "topic": 11,
+  "nct_id": "NCT04462471",
+  "label": "eligible",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Vemurafenib Plus Copanlisib in Radioiodine-Refractory (RAIR) Thyroid Cancers",
+  "fail_reasons": "Able to swallow and retain an orally administered pill without clinically significant GI abnormalities",
+  "summary": "The patient is a 75-year-old male with metastatic papillary thyroid cancer who presents with dysphagia and requires evaluation for BRAF V600 mutation and radioiodine-refractory (RAIR) status, which are currently unknown from the summary. Key eligibility items such as ECOG performance status, recent lab values, and exact timelines of prior RAI and XRT must be verified before determining study enrollment."
+ },
+ "4|NCT00669877": {
+  "topic": 4,
+  "nct_id": "NCT00669877",
+  "label": "eligible",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "Rituximab and Hyper-CVAD (Cyclophosphamide, Vincristine, Adriamycin, and Dexamethasone) for Burkitt's and Burkitt's -Like Leukemia/Lymphoma",
+  "fail_reasons": "",
+  "summary": "The patient is a 44-year-old female with primary cardiac Burkitt's lymphoma. She appears to meet the diagnosis, but important eligibility details regarding her performance status, liver function, and renal function are missing from the summary."
+ },
+ "61|NCT00096291": {
+  "topic": 61,
+  "nct_id": "NCT00096291",
+  "label": "eligible",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Neoadjuvant Chemotherapy Using Doxorubicin and Paclitaxel in Treating Women With Large Breast Cancer",
+  "fail_reasons": "No distant metastases",
+  "summary": "The patient has invasive breast cancer that is \u2265 3 cm with positive lymph nodes, which generally fits the trial's target population. However, the trial is a neoadjuvant study requiring no distant metastases, but the patient's chest X-ray was remarkable for metastatic lesions, directly violating an exclusion/inclusion requirement. Additionally, several routine baseline laboratory and cardiac assessments (like LVEF and blood counts) are missing."
+ },
+ "70|NCT04239963": {
+  "topic": 70,
+  "nct_id": "NCT04239963",
+  "label": "eligible",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "Behavioral and Electrophysiological Effects of Ketamine in Treatment-Resistant Depression",
+  "fail_reasons": "",
+  "summary": "The patient is a 46-year-old woman with MDD and treatment-resistant symptoms, but she cannot be fully evaluated for the trial due to missing information regarding formal diagnostic interviews (SCID-5), specific rating scales like the IDS-C30, handedness, and whether she has decided to receive clinical ketamine treatment."
+ },
+ "1|NCT01711580": {
+  "topic": 1,
+  "nct_id": "NCT01711580",
+  "label": "eligible",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "Re-irradiation of High Grade Gliomas: a Quality of Life Study",
+  "fail_reasons": "",
+  "summary": "The patient has anaplastic astrocytoma of the spine (T-L spine) and has received prior radiation and systemic therapies, but it is not stated if they are scheduled for re-irradiation, which is a core requirement of this trial. Additionally, performance status and life expectancy are not documented in the summary."
+ },
+ "56|NCT04522180": {
+  "topic": 56,
+  "nct_id": "NCT04522180",
+  "label": "eligible",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "A Study to Assess the Safety, Tolerability, and Efficacy of IONIS-GHR-LRx Administered in Patients With Acromegaly",
+  "fail_reasons": "",
+  "summary": "The patient is a 41-year-old man with acromegaly who underwent transsphenoidal surgery 4 months ago and has residual tumor with an IGF-1 level of 4.5 x ULN. He appears to meet the primary diagnosis, age, prior surgery timing, and IGF-1 level criteria, but eligibility depends on verifying specific medication washout periods, central lab IGF-1 confirmation, and lack of tumor progression or optic chiasm compression."
+ },
+ "17|NCT00003153": {
+  "topic": 17,
+  "nct_id": "NCT00003153",
+  "label": "eligible",
+  "category": "Unable to assess - screening error",
+  "predicted": "error",
+  "trial_title": "Biological Therapy in Treating Patients With Multiple Myeloma That Has Recurred Following Bone Marrow Transplantation",
+  "fail_reasons": "",
+  "summary": "failed: Invalid criterion type at 6"
+ },
+ "64|NCT00957866": {
+  "topic": 64,
+  "nct_id": "NCT00957866",
+  "label": "eligible",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "Prospective Anti-Hepatitis C Virus (Anti-HCV) Trial of Peg-Interferon and Ribavirin in Subjects of First Nations, Metis and Caucasian Ethnicity",
+  "fail_reasons": "",
+  "summary": "The patient is a 55-year-old man with chronic hepatitis C and B coinfection currently receiving antiviral therapy including Peg-interferon and ribavirin. Based on the limited trial criteria, he is an adult being treated for chronic hepatitis C, but his ethnicity (First Nations, Metis, or Caucasian descent) is not specified in the summary."
+ },
+ "61|NCT00233974": {
+  "topic": 61,
+  "nct_id": "NCT00233974",
+  "label": "eligible",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Molecular Marker Profiling of Axillary Lymph Nodes in Predicting Response in Patients With Locally Advanced or Metastatic Breast Cancer Who Are Undergoing Chemotherapy Followed By Surgery",
+  "fail_reasons": "Planning to receive neoadjuvant chemotherapy for locally advanced or early metastatic disease",
+  "summary": "The patient has locally advanced/metastatic breast cancer and is planning to undergo tumor resection prior to chemotherapy. However, the trial explicitly requires patients to undergo neoadjuvant chemotherapy followed by surgery, making the patient's planned sequence of surgery prior to chemotherapy a mismatch."
+ },
+ "15|NCT03028181": {
+  "topic": 15,
+  "nct_id": "NCT03028181",
+  "label": "eligible",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "The Evaluation of Pro/Antioxidative Profile and Diagnostic Parameters in the Patients With Pancreatic Disease",
+  "fail_reasons": "Diagnosis of acute pancreatitis based on clinical symptoms, laboratory tests, and imaging | Absence of other accompanied diseases than acute pancreatitis (for patient groups)",
+  "summary": "The patient is a 70-year-old woman with biopsy-proven pancreatic adenocarcinoma presenting with an abdominal mass, fevers, and bandemia, rather than acute pancreatitis. Because the trial specifically requires patients to have acute pancreatitis or be healthy volunteers, she fails the core disease condition for the patient cohort."
+ },
+ "70|NCT03846674": {
+  "topic": 70,
+  "nct_id": "NCT03846674",
+  "label": "eligible",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Depression Symptoms Among Ever Married Females Attending Primary Health Care Units in Dairut City",
+  "fail_reasons": "Cases diagnosed with mental disorders",
+  "summary": "The patient is a 46-year-old ever-married female presenting with depressive symptoms and a HAM-D score of 20, but she has a documented diagnosis of Major Depressive Disorder (MDD). Since the trial excludes cases diagnosed with mental disorders, the patient fails the key exclusion criterion."
+ },
+ "11|NCT03813706": {
+  "topic": 11,
+  "nct_id": "NCT03813706",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "the Dissection of Lymph Node Posterior to Right Recurrent Laryngeal Nerve for Papillary Thyroid Carcinoma",
+  "fail_reasons": "Primary treatment of patients with right or bilateral PTC (first operation) | Non first operation patients | Distant metastasis",
+  "summary": "The patient is a 75-year-old male with metastatic papillary thyroid cancer who has already undergone prior neck surgery, neck radiation therapy, and radioiodine ablation. Because the trial requires patients undergoing their primary treatment (first operation) and specifically excludes patients with distant metastases (the patient has adrenal and lymph node metastases), he fails multiple key eligibility criteria."
+ },
+ "1|NCT00352313": {
+  "topic": 1,
+  "nct_id": "NCT00352313",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "ATN-161 and Carboplatin in Treating Patients With Recurrent Malignant Glioma",
+  "fail_reasons": "Histologically confirmed intracranial malignant glioma",
+  "summary": "The patient is a 45-year-old man with anaplastic astrocytoma of the spine (spinal cord conus) who has received prior radiation and multiple lines of chemotherapy. However, the trial requires patients to have a histologically confirmed intracranial malignant glioma. Because the tumor is located in the spine rather than the brain (intracranial), the patient fails the core disease location requirement."
+ },
+ "27|NCT00901524": {
+  "topic": 27,
+  "nct_id": "NCT00901524",
+  "label": "excluded",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "ANRS HC20 Effectiveness of an Optimized Anti HCV PegIFN-alpha2a + Ribavirin on Sustained Virological Response in Patients With HCV Genotype 1 and 4 Non Responders and Co-infected With HIV",
+  "fail_reasons": "",
+  "summary": "The patient is a 53-year-old man with chronic HCV infection currently receiving antiviral therapy. However, the clinical trial requires documented HIV infection and specific HCV genotypes, which are not reported in the patient summary, and the patient's HIV status is unknown."
+ },
+ "31|NCT03293628": {
+  "topic": 31,
+  "nct_id": "NCT03293628",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Comparing Two Techniques of Haemostasis After Cervical Conization",
+  "fail_reasons": "Indication of cervical conization",
+  "summary": "The patient is a 37-year-old woman diagnosed with stage 1B cervical cancer who was offered a radical hysterectomy rather than cervical conization. Because the trial specifically requires an indication for cervical conization, the patient does not meet the core interventional eligibility requirement."
+ },
+ "25|NCT01853748": {
+  "topic": 25,
+  "nct_id": "NCT01853748",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "T-DM1 vs Paclitaxel/Trastuzumab for Breast (ATEMPT Trial)",
+  "fail_reasons": "HER2-positive Stage I histologically confirmed invasive carcinoma of the breast",
+  "summary": "The patient has HER2-positive, ER/PR-negative Stage II breast cancer (1 positive lymph node out of 12) treated with lumpectomy. The trial (ATEMPT) is specifically designed for Stage I breast cancer. Therefore, the patient fails the stage inclusion criterion."
+ },
+ "34|NCT01506037": {
+  "topic": 34,
+  "nct_id": "NCT01506037",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Bioequivalence Study for Desloratadine OD Tablets 5 mg Under Fed Condition",
+  "fail_reasons": "Healthy, normal adult man or woman volunteering to participate | Within 18 to 45 years of age, inclusive | Serious psychological illness",
+  "summary": "The patient is a 47-year-old woman presenting with symptoms consistent with major depressive disorder (HAM-D score 20), which directly violates the healthy volunteer requirement and triggers the exclusion for serious psychological illness. Additionally, she is 47 years old, exceeding the upper age limit of 45 for this bioequivalence study. Therefore, she is ineligible for this trial."
+ },
+ "31|NCT00039338": {
+  "topic": 31,
+  "nct_id": "NCT00039338",
+  "label": "excluded",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "Chemotherapy Followed By Surgery Vs Radiotherapy Plus Chemotherapy in Patients With Stage IB or II Cervical Cancer",
+  "fail_reasons": "",
+  "summary": "The patient is a 37-year-old woman with newly diagnosed stage 1B cervical cancer who is otherwise healthy and has no prior cancer therapy. However, the exact FIGO substage (specifically whether it is stage IB1 or IB2) and histological subtype are not specified in the summary, leading to unknown eligibility regarding key disease characteristics."
+ },
+ "31|NCT01544478": {
+  "topic": 31,
+  "nct_id": "NCT01544478",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "V501 Safety and Efficacy Study in Japanese Women Aged 16 to 26 Years (V501-110)",
+  "fail_reasons": "Age 16 to 26 years | Healthy Japanese females | Prior abnormal Papanicolaou smear (PAP) or biopsy showing CIN | Known history of positive test for HPV",
+  "summary": "The patient is a 37-year-old woman with stage 1B cervical cancer and a history of HPV 16 infection, who is ineligible for this trial because the protocol specifically requires healthy participants aged 16 to 26 years without a history of abnormal Pap smears, cervical cancer, or HPV infection."
+ },
+ "34|NCT03407053": {
+  "topic": 34,
+  "nct_id": "NCT03407053",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Effect of Ultra Processed Versus Unprocessed Diets on Energy Intake",
+  "fail_reasons": "Eating disorders or psychological conditions, such as (but not limited to) clinical depression",
+  "summary": "The patient is a 47-year-old woman presenting with symptoms of clinical depression and a HAM-D score of 20, which directly violates the exclusion criteria for psychological conditions or clinical depression. Additionally, she has experienced a 5 kg weight loss recently, making her weight stability over the past 6 months unknown. Therefore, she is not eligible for this trial."
+ },
+ "34|NCT01506791": {
+  "topic": 34,
+  "nct_id": "NCT01506791",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Bioequivalence Study of Desloratadine and Pseudoephedrine Extended-release Tablets Under Fed Conditions",
+  "fail_reasons": "Is the individual a healthy, normal adult? | Is s/he within 18 to 45 years of age, inclusive? | Does s/he have serious psychological illness?",
+  "summary": "The patient is a 47-year-old woman presenting with symptoms of depression (HAM-D score of 20) and is outside the age limit for this healthy volunteer trial (18 to 45 years). Additionally, she fails the core target condition of being a 'healthy' adult due to her active depressive illness."
+ },
+ "27|NCT02176525": {
+  "topic": 27,
+  "nct_id": "NCT02176525",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Multiple Oral Doses of BI 207127 NA in Treatment na\u00efve and Treatment-experienced Hepatitis C Virus (HCV)-Infected Patients",
+  "fail_reasons": "Patients treated with any interferon (IFN) or Ribavirin within 3 months prior to screening",
+  "summary": "The patient is a 53-year-old man with chronic HCV infection who is currently receiving interferon plus ribavirin and direct antiviral drugs. He is likely ineligible for this trial due to active concurrent treatment with interferons and ribavirin within 3 months prior to screening, and potentially prior HCV-polymerase inhibitor use. Furthermore, key eligibility criteria such as HCV genotype, HCV RNA load, and specific lab values are missing."
+ },
+ "1|NCT00100802": {
+  "topic": 1,
+  "nct_id": "NCT00100802",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Radiation Therapy, Temozolomide, and Lomustine in Treating Young Patients With Newly Diagnosed Gliomas",
+  "fail_reasons": "Newly diagnosed high-grade glioma (anaplastic astrocytoma, glioblastoma multiforme, or gliosarcoma) | No prior chemotherapy | No prior biologic agents",
+  "summary": "The patient is a 45-year-old man with an anaplastic astrocytoma of the spine who has already received prior radiation and multiple lines of chemotherapy (temozolomide, CPT-11, and Avastin). Because the trial strictly requires newly diagnosed high-grade gliomas with no prior chemotherapy, the patient fails multiple eligibility criteria."
+ },
+ "27|NCT03587714": {
+  "topic": 27,
+  "nct_id": "NCT03587714",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Prevalence of Hepatitis c Virus Infection Among Rheumatological Patients",
+  "fail_reasons": "Consecutive patients with different rheumatologic diseases from seven- geographically different- rheumatology departments | None of the patients was known to have previous HCV infection",
+  "summary": "The patient is a 53-year-old man with a known chronic HCV infection for 2 years, currently receiving combination antiviral therapy. However, he does not meet the core inclusion criterion for the trial, which requires consecutive rheumatological patients with no known previous HCV infection."
+ },
+ "4|NCT00057811": {
+  "topic": 4,
+  "nct_id": "NCT00057811",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Rituximab, Rasburicase, and Combination Chemotherapy in Treating Young Patients With Newly Diagnosed Advanced B-Cell Leukemia or Lymphoma",
+  "fail_reasons": "Young patients / pediatric age group appropriate for the trial | FAB prognostic group B (intermediate risk) or Group C (high risk with bone marrow or CNS involvement)",
+  "summary": "The patient is a 44-year-old female with newly diagnosed primary cardiac Burkitt's lymphoma (CD20-positive). However, this trial specifically targets pediatric and young patients with childhood B-cell leukemia or lymphoma and requires specific FAB prognostic grouping (Group B intermediate risk or Group C high risk, which includes bone marrow or CNS involvement, both of which are negative in this patient). Therefore, the patient is likely ineligible due to age and disease staging criteria."
+ },
+ "13|NCT01367886": {
+  "topic": 13,
+  "nct_id": "NCT01367886",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Comparative Urine Proteomic Studies of Overactive Bladder in Humans",
+  "fail_reasons": "Female sex | No neurological conditions: stroke, spinal cord injury | No urinary retention requiring catheterization, indwelling catheter or self-cath | No recurrent UTIs > 3/year",
+  "summary": "The patient is a 62-year-old male with a history of CVA, neurogenic bladder with an indwelling suprapubic catheter, and recurrent UTIs. The trial is restricted to female participants aged 18 and older, and therefore the patient is ineligible."
+ },
+ "13|NCT01852045": {
+  "topic": 13,
+  "nct_id": "NCT01852045",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Study of OnabotulinumtoxinA (BOTOX\u00ae) for Urinary Incontinence Due to Neurogenic Detrusor Overactivity in Pediatric Patients",
+  "fail_reasons": "Pediatric patient population | Regularly using clean intermittent catheterization to empty the bladder | Use of an indwelling catheter for urinary incontinence instead of using clean intermittent catheterization",
+  "summary": "The patient is a 62-year-old male with neurogenic bladder managed with an indwelling suprapubic catheter rather than clean intermittent catheterization (CIC). This directly conflicts with multiple key inclusion and exclusion criteria of this pediatric trial, which specifically requires CIC and excludes patients using indwelling catheters."
+ },
+ "25|NCT04849871": {
+  "topic": 25,
+  "nct_id": "NCT04849871",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Single Fraction Accelerated Partial Breast Irradiation vs. Five Fraction Accelerated Partial Breast Irradiation for Low-risk Stage 0 and I Breast Carcinoma",
+  "fail_reasons": "AJCC 7th Edition stage 0 or I (TisN0 <= 2 cm or T1N0) with no positive axillary lymph nodes and at least 6 axillary lymph nodes assessed | Invasive histologies (lesions <= 2 cm) that are estrogen and/or progesterone receptor positive and do not exhibit HER2/neu gene amplification | Age >= 50 years at diagnosis | Histologically confirmed positive axillary nodes in the ipsilateral axilla",
+  "summary": "The patient is a 42-year-old pre/perimenopausal-aged woman (reported as postmenopausal in the summary, but age 42 fails the age requirement) with a 1.8 cm HER2-positive, ER/PR-negative invasive ductal carcinoma and 1 positive axillary lymph node out of 12 sampled. She fails multiple key eligibility criteria for this low-risk Stage 0 and I trial, including the node-negative requirement, hormone receptor positivity/HER2-negativity requirement, and age \u2265 50 years."
+ },
+ "56|NCT00615004": {
+  "topic": 56,
+  "nct_id": "NCT00615004",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Cardiovascular Outcome After Surgery or Somatostatin Analogues",
+  "fail_reasons": "Achieving control of the disease | Available follow-up after 12 months of treatment | Requiring surgery or SSA as second-line treatment before completion of 12 months or follow-up shorter than 6 months after surgery",
+  "summary": "The patient is a 41-year-old man with acromegaly who underwent transsphenoidal surgery 4 months ago and has residual pituitary tumor with elevated IGF-1 (4.5 ULN), indicating active disease rather than disease control. He does not meet the inclusion criterion requiring achievement of disease control, and his follow-up duration of 4 months is less than the required 6-12 months for second-line or follow-up evaluations in this trial."
+ },
+ "61|NCT00517361": {
+  "topic": 61,
+  "nct_id": "NCT00517361",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Phase II Study of Carboplatin and Bevacizumab (Avastin) for ER Neg, PR Neg, and HER2/Neu Neg Metastatic Breast Cancer",
+  "fail_reasons": "ER, PR and HER2/neu negative metastatic breast cancer | Patients with major surgery, open biopsy, or significant traumatic injury within 28 days or anticipated need for surgery",
+  "summary": "The patient is not eligible for this trial because the trial specifically requires ER-negative, PR-negative, and HER2/neu-negative metastatic breast cancer, whereas the patient's tumor is HER2-positive. Additionally, the patient has not yet received or had surgery and is listed as a candidate for tumor resection, which conflicts with typical metastatic study settings and recent surgery exclusion criteria."
+ },
+ "13|NCT02698332": {
+  "topic": 13,
+  "nct_id": "NCT02698332",
+  "label": "excluded",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Effect of a Diagnostic Algorithm for Urinary Tract Infection in General Practice",
+  "fail_reasons": "Patients presenting in general practice with symptoms of UTI | No acute admission to hospital",
+  "summary": "The patient is a 62-year-old male with a history of recurrent urinary tract infections presenting to the hospital (acute admission) with urosepsis, which makes them ineligible for a trial restricted to general practice patients and explicitly excluding acute hospital admissions."
+ },
+ "25|NCT00902954": {
+  "topic": 25,
+  "nct_id": "NCT00902954",
+  "label": "not relevant",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Study of Exemestane After Anastrozole or Letrozole Treatment of Postmenopausal Women With Hormone Responsive Breast Cancer",
+  "fail_reasons": "Hormone receptor-positive tumors (any detectable ER or PR expression; patients who are PR positive and ER negative are eligible) | The date of randomization must be no less than 2 years of letrozole and no more than 3 years letrozole treatment",
+  "summary": "The patient is a 42-year-old postmenopausal woman with a HER2-positive and ER/PR-negative infiltrating ductal breast carcinoma who underwent a lumpectomy and axillary sampling with 1 positive lymph node. NCT00902954 is a study evaluating exemestane after 2 to 3 years of letrozole or anastrozole treatment in postmenopausal women with hormone-responsive (hormone receptor-positive) breast cancer. Because the patient's tumor is ER-negative and PR-negative, she does not meet the core hormone-responsi"
+ },
+ "56|NCT03764072": {
+  "topic": 56,
+  "nct_id": "NCT03764072",
+  "label": "not relevant",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "A Dose-ranging Study to Evaluate Efficacy and Safety of VX-150 in Subjects With Acute Pain Following Bunionectomy",
+  "fail_reasons": "Scheduled to undergo or has undergone a primary unilateral first metatarsal bunionectomy repair",
+  "summary": "The patient is a 41-year-old man with acromegaly who is post-transsphenoidal surgery for a pituitary adenoma. The clinical trial NCT03764072 is exclusively designed for subjects with acute pain following a bunionectomy surgery. Since the patient does not have a bunionectomy and is being evaluated for acromegaly, he fails the core disease/procedure requirement for this surgical pain trial."
+ },
+ "60|NCT00030602": {
+  "topic": 60,
+  "nct_id": "NCT00030602",
+  "label": "not relevant",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Vaccine Therapy in Treating Patients With Recurrent Prostate Cancer",
+  "fail_reasons": "Previously treated with radical prostatectomy at least 3 months ago",
+  "summary": "The patient presents with acute urinary retention and a newly diagnosed large prostate with a PSA of 3.5 ng/mL, awaiting TURP. He is not eligible for this trial because the trial requires patients with recurrent prostate cancer previously treated with radical prostatectomy at least 3 months ago, whereas this patient has not had a radical prostatectomy and has newly presenting benign/obstructive symptoms."
+ },
+ "68|NCT04699513": {
+  "topic": 68,
+  "nct_id": "NCT04699513",
+  "label": "not relevant",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "The Effect of Preemptive APRV on Patients With High Risk for ARDS",
+  "fail_reasons": "",
+  "summary": "The patient is a 23-year-old man with atypical hemolytic uremic syndrome who developed respiratory failure requiring mechanical ventilation and acute kidney injury. He is being evaluated for a trial on preemptive APRV for patients at high risk for ARDS who require invasive mechanical ventilation. However, the trial inclusion criteria specifically require a Lung Injury Prediction Score (LIPS) > 7 and an ICU stay of more than 24 hours, neither of which are documented in the provided summary."
+ },
+ "9|NCT02119637": {
+  "topic": 9,
+  "nct_id": "NCT02119637",
+  "label": "not relevant",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Effects of Transcranial Magnetic Stimulation (TMS) on Somatosensory Perception",
+  "fail_reasons": "Target population: Healthy Volunteer | Able to provide written informed consent | Has a major medical condition, such as kidney, liver, cardiovascular, autonomic, pulmonary, or neurological problems | Participant has or had psychiatric disorders such as major depression | Personal history of a seizure or first degree relative with a seizure disorder | Use of neuro-active drugs including anticonvulsants/antiepileptics, antidepressants",
+  "summary": "The patient is a 41-year-old man who is fundamentally ineligible for this healthy volunteer trial assessing transcranial magnetic stimulation and MRI, as he has a documented personal history of epilepsy and seizures, a major neurological condition (anoxic brain injury, atrophic changes, CHF, depression), and takes neuro-active medications including anticonvulsants."
+ },
+ "48|NCT04655391": {
+  "topic": 48,
+  "nct_id": "NCT04655391",
+  "label": "not relevant",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Glasdegib-Based Treatment Combinations for the Treatment of Patients With Relapsed Acute Myeloid Leukemia Who Have Undergone Hematopoietic Cell Transplantation",
+  "fail_reasons": "Diagnosis of histologically confirmed AML with relapsed disease after alloHCT",
+  "summary": "The patient is a 41-year-old male presenting with tinea pedis (athlete's foot) and no history of acute myeloid leukemia (AML). Because this trial is exclusively for patients with relapsed acute myeloid leukemia after hematopoietic cell transplantation, the patient is completely ineligible."
+ },
+ "20|NCT03306849": {
+  "topic": 20,
+  "nct_id": "NCT03306849",
+  "label": "not relevant",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Ultrasonographic Evaluation of Anovulatory Disorders in Lean and Overweight Women",
+  "fail_reasons": "Target condition: evaluation of anovulatory disorders in lean and overweight women (PCOS/menstrual cycle abnormalities) | Use of medications or supplements known or suspected to interfere with reproductive function and/or glucose and lipid metabolism in the past 3 months",
+  "summary": "The patient is a 35-year-old woman with a newly diagnosed pituitary macroadenoma causing acromegaly (elevated IGF-1 and GH, physical features) and secondary menstrual irregularity. She is being evaluated for a clinical trial (NCT03306849) investigating anovulatory disorders in lean and overweight women, but her primary endocrinological condition is acromegaly due to a pituitary macroadenoma, which makes her a poor fit for a trial targeting primary anovulatory disorders/PCOS."
+ },
+ "7|NCT03448770": {
+  "topic": 7,
+  "nct_id": "NCT03448770",
+  "label": "not relevant",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "To Compare Efficacy and Safety of Lactulose Versus Polyethylene Glycol for Treatment of Overt Hepatic Encephalopathy in Cirrhotics.",
+  "fail_reasons": "Patient who have developed encephalopathy post bleed",
+  "summary": "The patient is a 60-year-old male with HCV cirrhosis and a presumptive diagnosis of hepatic encephalopathy presenting with slurred speech and tangential thought processes. However, his encephalopathy developed in the setting of a recent upper gastrointestinal bleed (UGIB), which is an explicit exclusion criterion for this trial comparing lactulose versus PEG for overt hepatic encephalopathy in cirrhotics."
+ },
+ "21|NCT04079777": {
+  "topic": 21,
+  "nct_id": "NCT04079777",
+  "label": "not relevant",
+  "category": "Likely eligible - needs review",
+  "predicted": "eligible",
+  "trial_title": "Relationship Between Acute Severe Pancreatitis and Mitochondrial DNA",
+  "fail_reasons": "",
+  "summary": "The patient is a 57-year-old man presenting with acute abdominal pain, vomiting, and significantly elevated amylase (1200) and CRP (145), consistent with acute pancreatitis within 20 hours of symptom onset. However, there is insufficient clinical documentation in the summary to confirm the severity as 'severe' acute pancreatitis per trial criteria, or to rule out several exclusion criteria such as immunosuppressive state or acute liver failure."
+ },
+ "7|NCT02636647": {
+  "topic": 7,
+  "nct_id": "NCT02636647",
+  "label": "not relevant",
+  "category": "Not eligible",
+  "predicted": "not eligible",
+  "trial_title": "Fecal Transplant in Recurrent Hepatic Encephalopathy",
+  "fail_reasons": "Hospitalization for any non-elective cause within the last 3 months",
+  "summary": "The patient is a 60-year-old male with HCV cirrhosis and grade II esophageal varices who was recently admitted for acute hepatic encephalopathy and NSAID gastritis. He is potentially eligible for this fecal microbiota transplant trial for recurrent hepatic encephalopathy, but key details such as his exact MELD score, precise history of prior HE episodes, and recent hospitalization timeline require clarification."
+ }
+}

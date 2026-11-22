@@ -1,0 +1,2224 @@
+{
+  "patient_id": "P04",
+  "label": "Metastatic HER2+ with treated brain metastases, progressed on T-DXd",
+  "summary": "63-year-old woman with metastatic HER2-positive breast cancer (HER2 IHC 3+, ER 10%, PR 0%). Diagnosed de novo metastatic in 2023 with liver and bone metastases. First-line docetaxel + trastuzumab + pertuzumab (2023-2024), then maintenance trastuzumab + pertuzumab. In August 2025 developed 3 brain metastases treated with stereotactic radiosurgery; brain stable on most recent MRI (September 2026), off steroids. Second-line trastuzumab deruxtecan (T-DXd) from September 2025, with progression in the liver in October 2026. No history of interstitial lung disease. LVEF 58% on echo in July 2026. ECOG 1. Labs: normal blood counts, bilirubin normal, creatinine normal.",
+  "profile": {
+    "age": 63,
+    "sex": "FEMALE",
+    "menopausal_status": null,
+    "subtype": "HER2+",
+    "her2_low": false,
+    "disease_setting": "metastatic",
+    "biomarkers": [],
+    "prior_therapies": [
+      "docetaxel",
+      "trastuzumab",
+      "pertuzumab",
+      "stereotactic radiosurgery",
+      "trastuzumab deruxtecan"
+    ],
+    "lines_of_therapy_metastatic": 2,
+    "ecog": 1,
+    "brain_metastases": "treated_stable",
+    "notable_comorbidities": [],
+    "missing_information": [
+      "menopausal status"
+    ]
+  },
+  "experiment": {
+    "timestamp_utc": "2026-11-22T19:03:53.486526+00:00",
+    "configured_model": "gemini-3.5-flash-lite",
+    "models_actually_used": [
+      "gemini-3.5-flash-lite"
+    ],
+    "top_n_default": 15,
+    "trial_database_sha256": "0f4e31b385355c81a4a96cbd0f53124c5fa0c543e157759bbeff0a4aa9c888ef",
+    "trial_count": 183,
+    "patient_record_sha256": "aa200ee5bdb84c637b7ad1454a49652660c561bb7976438a2afa426d73cd6b17",
+    "parser_prompt_sha256": "6c358859eddf6a2344b24d6ec7a6be18339d417f9b9475fdb51d247512c7f339",
+    "screener_prompt_sha256": "0e5914f84b5c92fc28b72d1544c633b8924c380d2631bbf76fa38a86de83e59e"
+  },
+  "complete": true,
+  "funnel": {
+    "all_trials": 183,
+    "after_prefilter": 139,
+    "removed": {
+      "not_treatment": 40,
+      "sex": 1,
+      "age": 3
+    },
+    "screened_by_llm": 15
+  },
+  "results": [
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who experienced disease progression on second-line therapy. However, the trial (NCT04585750) strictly requires advanced solid tumors harboring a TP53 Y220C mutation, which is not mentioned in the patient summary, making eligibility uncertain pending biomarker testing.",
+      "criteria": [
+        {
+          "criterion": "Locally advanced or metastatic solid malignancy with a TP53 Y220C mutation",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has metastatic breast cancer, but tumor TP53 Y220C mutation status is not reported.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Eastern Cooperative Oncology Group (ECOG) status of 0 or 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Previously treated with one or more lines of anticancer therapy and progressive disease",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Received first-line docetaxel+trastuzumab+pertuzumab and second-line T-DXd with progression in the liver in October 2026.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate organ function",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Normal blood counts, normal bilirubin, normal creatinine, and LVEF 58%.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Measurable disease per RECIST v1.1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Liver and bone metastases with progression in the liver.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Anti-cancer therapy within 21 days of receiving study drug",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Second-line T-DXd progressed in October 2026, but the exact date of the last dose is not specified relative to screening.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Radiotherapy within 14 days of receiving study drug",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain metastases treated with SRS in August 2025, well outside the 14-day window.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Brain metastases, unless neurologically stable and do not require steroids",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain metastases treated with SRS in 2025, stable on September 2026 MRI, off steroids.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of leptomeningeal disease or spinal cord compression",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of leptomeningeal disease mentioned (summary notes 3 brain metastases).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of (non-infectious) or active pneumonitis / interstitial lung disease that required steroids",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of interstitial lung disease.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Was tumor tissue tested for the TP53 Y220C mutation?",
+        "What was the exact date of the last dose of anti-cancer therapy (T-DXd)?",
+        "Are measurable disease dimensions per RECIST v1.1 documented by recent imaging?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 80,
+      "n_pass": 8,
+      "n_fail": 0,
+      "n_unknown": 2,
+      "n_unknown_important": 2,
+      "nct_id": "NCT04585750",
+      "title": "The Evaluation of PC14586 in Patients With Advanced Solid Tumors Harboring a TP53 Y220C Mutation (PYNNACLE)",
+      "url": "https://clinicaltrials.gov/study/NCT04585750",
+      "phases": [
+        "PHASE1",
+        "PHASE2"
+      ],
+      "relevance_score": 7,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HER2+ match",
+        "solid-tumor basket"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Alison Schram, MD",
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "PMV Pharma Clinical Study Information Center",
+        "phone": "(609) 235-4038",
+        "email": "clinicaltrials@pmvpharma.com"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who has progressed on second-line therapy (trastuzumab deruxtecan). However, her HER2 status is based on IHC 3+ (overexpression/amplification), whereas the trial (NCT06253871) specifically targets HER2-altered (mutated) malignancies. Therefore, her eligibility regarding the specific required HER2 alteration is unknown and needs confirmation.",
+      "criteria": [
+        {
+          "criterion": "Age >= 18 years",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "63-year-old woman",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Have relapsed/refractory HER2-altered malignancy",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has HER2-positive breast cancer (HER2 IHC 3+), but trial targets HER2-altered tumors; it is not stated if a specific HER2 mutation (rather than overexpression/amplification) is present.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Progression of disease after last systemic therapy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Progression in the liver in October 2026 on second-line trastuzumab deruxtecan.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Radiographically measurable disease by RECIST v1.1 and/or RANO-BM",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary mentions progression in the liver and stable brain metastases, but does not explicitly confirm that lesions meet RECIST v1.1 measurable criteria.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance score 0-1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate baseline hematologic, liver and renal function",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Normal blood counts, bilirubin normal, creatinine normal",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Left ventricular ejection fraction (LVEF) >= 50%",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "LVEF 58% on echo in July 2026",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Clinically significant cardiac disease",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "LVEF is 58%; no history of clinically significant cardiac disease reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Infection with HIV-1 or HIV-2",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "HIV status not reported in the summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Current active liver disease including hepatitis A, hepatitis B, or hepatitis C",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Bilirubin normal, no active liver disease reported other than liver metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior history of non-infectious interstitial lung disease (ILD)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of interstitial lung disease",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Participants requiring immediate local therapy for brain metastases",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Treated with SRS in August 2025; brain stable on most recent MRI (September 2026), off steroids; no immediate local therapy required.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Does the patient have a qualifying HER2 mutation (as opposed to standard HER2 overexpression/amplification by IHC/FISH) required for this trial?",
+        "Are the liver lesions confirmed to be radiographically measurable per RECIST v1.1?",
+        "What are the patient's HIV and viral hepatitis serology results?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 75,
+      "n_pass": 9,
+      "n_fail": 0,
+      "n_unknown": 3,
+      "n_unknown_important": 2,
+      "nct_id": "NCT06253871",
+      "title": "A Phase 1/2 Study of IAM1363 in HER2 Cancers",
+      "url": "https://clinicaltrials.gov/study/NCT06253871",
+      "phases": [
+        "PHASE1",
+        "PHASE2"
+      ],
+      "relevance_score": 7,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HER2+ match",
+        "solid-tumor basket"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Icahn School of Medicine at Mount Sinai",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10029",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Kayla Grzybowski Iambic Therapeutics, Inc., Medical Director",
+        "phone": "619-330-5499",
+        "email": "ClinicalTrials@Iambic.ai"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who has progressed on first-line taxane/HER2-targeted therapy and second-line T-DXd. She has treated, stable brain metastases, normal organ function, and an ECOG performance status of 1, making her potentially eligible for Beamion BCGC-1 (likely matching a breast cancer cohort), though exact cohort assignment, measurable lesion status under RECIST 1.1, and recent echocardiogram/QTc values need confirmation.",
+      "criteria": [
+        {
+          "criterion": "Age >= 18 years",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient is 63 years old.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Documented HER2+ metastatic breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Metastatic HER2-positive breast cancer (HER2 IHC 3+) diagnosed in 2023.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Documented investigator assessed progression in palliative setting",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Progression in the liver in October 2026 on second-line trastuzumab deruxtecan.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Presence of at least one measurable lesion according to RECIST 1.1",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary notes progression in the liver in October 2026, but does not explicitly state if there is a measurable lesion per RECIST 1.1.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Eastern Cooperative Oncology Group (ECOG) score of 0 or 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 1.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate organ function based on laboratory values",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Normal blood counts, bilirubin normal, creatinine normal.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Mean resting corrected QT interval (QTcF) >470 msec",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "No QTc interval data provided in the patient summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Ejection fraction <50% or below institutional LLN within 28 days prior to randomization",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "LVEF was 58% on echo in July 2026, but this was more than 28 days prior to potential study screening/randomization.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "History of (non-infectious) interstitial lung disease (ILD)/pneumonitis requiring steroids, current ILD/pneumonitis, or suspected ILD/pneumonitis",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of interstitial lung disease.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Does the patient have at least one measurable lesion according to RECIST 1.1?",
+        "What is the patient's current QTc interval on screening ECG?",
+        "Is a repeat echocardiogram required to assess LVEF within 28 days prior to randomization?",
+        "Which specific trial cohort (A-K, O, P) is most appropriate for this patient based on prior therapies?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 67,
+      "n_pass": 6,
+      "n_fail": 0,
+      "n_unknown": 3,
+      "n_unknown_important": 2,
+      "nct_id": "NCT06324357",
+      "title": "Beamion BCGC-1: A Study to Find a Suitable Dose of Zongertinib Used Alone and in Combination With Other Treatments to Test Whether it Helps People With Different Types of HER2+ Cancer That Has Spread",
+      "url": "https://clinicaltrials.gov/study/NCT06324357",
+      "phases": [
+        "PHASE1",
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HER2+ match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan-Kettering Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Boehringer Ingelheim",
+          "contact_phone": "833-602-2368",
+          "contact_email": "unitedstates@bitrialsupport.com"
+        }
+      ],
+      "central_contact": {
+        "name": "Boehringer Ingelheim",
+        "phone": "1-800-243-0127",
+        "email": "clintriage.rdg@boehringer-ingelheim.com"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who has progressed on T-DXd and meets key criteria including ECOG performance status 1 and adequate LVEF. However, specific information regarding the central laboratory HER2 confirmation, measurable disease per RECIST v1.1, precise number of prior metastatic lines, and creatinine clearance numbers are currently unknown.",
+      "criteria": [
+        {
+          "criterion": "Unresectable or metastatic HER2-positive breast cancer who have progressed on, or are intolerant to, previous T-DXd treatment",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Metastatic HER2-positive breast cancer with progression in the liver on second-line T-DXd.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Histologically confirmed HER2-positive breast cancer evaluated by a sponsor-designated central laboratory",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Local HER2 IHC 3+ reported, but central laboratory evaluation is not mentioned.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Must have received at least 2 lines of HER2-directed therapy for their metastatic disease and no more than 4 lines",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Received first-line docetaxel + trastuzumab + pertuzumab followed by maintenance, and second-line T-DXd (total 2 lines in metastatic setting).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has measurable disease per RECIST version 1.1",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Mentions liver and bone metastases and liver progression, but RECIST 1.1 measurability is not explicitly stated.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Has LVEF >= 50% within 4 weeks before first dose",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "LVEF was 58% on echo in July 2026, but a recent echo within 4 weeks prior to study start is needed.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Has creatinine clearance >= 50 mL/minute",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Creatinine is reported as 'normal', but precise clearance value is not provided.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Has ECOG performance status of 0 or 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 1.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of treated or clinically inactive CNS metastases are eligible",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Developed 3 brain metastases in August 2025 treated with SRS; stable on September 2026 MRI, off steroids.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has clinically confirmed leptomeningeal disease",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain metastases treated with SRS, no mention of leptomeningeal disease.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has history of interstitial lung disease or toxicity not resolved to <= Grade 1",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of interstitial lung disease.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Has the HER2-positive status been confirmed by a sponsor-designated central laboratory?",
+        "Do the liver metastases meet RECIST v1.1 measurable disease criteria?",
+        "What is the patient's exact calculated creatinine clearance?",
+        "Can a repeat echocardiogram or MUGA scan be performed within 4 weeks before the first dose to confirm LVEF >= 50%?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 60,
+      "n_pass": 6,
+      "n_fail": 0,
+      "n_unknown": 4,
+      "n_unknown_important": 3,
+      "nct_id": "NCT06435429",
+      "title": "A Study Comparing the Efficacy and Safety of Zanidatamab to Trastuzumab, Each in Combination With Physician's Choice Chemotherapy, for the Treatment of Participants With Metastatic HER2-positive Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT06435429",
+      "phases": [
+        "PHASE3"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HER2+ match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Perlmutter Cancer Center 160 E 34th St",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016-4744",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "The Mount Sinai Hospital",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10029",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Columbia University Medical Center 161 Fort Washington",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10032-3729",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Memorial Sloan Kettering",
+          "city": "Long Island City",
+          "state": "New York",
+          "zip": "11101",
+          "site_status": "RECRUITING",
+          "distance_mi": 3.7,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Clinical Trial Disclosure & Transparency",
+        "phone": "215-832-3750",
+        "email": "ClinicalTrialDisclosure@JazzPharma.com"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who has progressed on second-line T-DXd. She is potentially eligible for this trial evaluating evorpacept, trastuzumab, and chemotherapy, but key unknowns remain regarding a required post-T-DXd tumor biopsy, measurable disease status, and exact washout timing following her recent October 2026 progression.",
+      "criteria": [
+        {
+          "criterion": "Histologically confirmed invasive HER2+ breast cancer based on a biopsy obtained after cessation of T-DXd and <= 6 months prior to C1D1",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient is HER2-positive and stopped T-DXd after progression in October 2026, but there is no mention of a post-T-DXd tumor tissue biopsy obtained.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Received no more than 4 prior lines of HER2-directed therapy including at least one prior line of T-DXd for locally advanced/metastatic HER2+ breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient received 2 prior lines of HER2-directed therapy for metastatic disease: first-line docetaxel + trastuzumab + pertuzumab followed by maintenance, and second-line T-DXd.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Progressed on or following the most recent line of therapy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient experienced progression in the liver in October 2026 on second-line T-DXd.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Measurable disease as defined by RECIST v1.1",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has liver and bone metastases, but RECIST v1.1 measurability of the lesions is not explicitly specified.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "LVEF >= 50%",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "LVEF was 58% on echo in July 2026.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG Performance Status 0 to 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG performance status is 1.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate renal function: estimated creatinine clearance >= 30 mL/min",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Creatinine normal is reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate liver function: Total bilirubin <= 1.5 x ULN and AST/ALT <= 3 x ULN (<= 5 x ULN if liver involved)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Bilirubin normal and transaminases are within acceptable limits given liver metastasis involvement.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Untreated CNS metastases (Exclusion)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient developed 3 brain metastases in August 2025 which were treated with stereotactic radiosurgery and are stable on most recent MRI in September 2026 (off steroids).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior exposure to any anti-CD47 or anti-SIRPalpha agent (Exclusion)",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "No mention of prior anti-CD47 or anti-SIRPalpha exposure in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Washout from prior anti-cancer therapy: antibody-drug conjugates / monoclonal antibodies within 28 days or 5 half-lives",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient progressed on T-DXd in October 2026, but the exact date of the last dose of T-DXd is not provided to confirm the 28-day washout.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "History of interstitial lung disease (ILD) / pneumonitis evaluation",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of interstitial lung disease.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Has a tumor tissue biopsy been obtained since cessation of T-DXd and within 6 months prior to C1D1?",
+        "What is the exact date of the last dose of T-DXd to ensure adequate washout before study entry?",
+        "Are the liver and/or bone metastases measurable by RECIST v1.1?",
+        "Does the patient have any prior exposure to anti-CD47 or anti-SIRPalpha agents?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 67,
+      "n_pass": 8,
+      "n_fail": 0,
+      "n_unknown": 4,
+      "n_unknown_important": 4,
+      "nct_id": "NCT07007559",
+      "title": "ASPEN-09-03: A Study of Evorpacept in Combination With Trastuzumab and Chemotherapy in Metastatic HER2-Positive Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT07007559",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HER2+ match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10022",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Cheng Quah, MD",
+        "phone": "650-466-7125",
+        "email": "info@alxoncology.com"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who has progressed on first-line taxane/trastuzumab/pertuzumab and second-line T-DXd. She meets several key inclusion criteria including ECOG performance status 1, prior anti-HER2 therapies (including an ADC), stable treated brain metastases, and adequate LVEF, but central laboratory confirmation of HER2 status and RECIST measurable disease status remain unverified.",
+      "criteria": [
+        {
+          "criterion": "Pathologically documented locally advanced inoperable or metastatic breast cancer with confirmed HER2-positive status by central laboratory",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has metastatic HER2-positive breast cancer (HER2 IHC 3+) locally, but central laboratory confirmation is not reported in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Measurable disease as per RECIST v1.1",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary notes progression in the liver in October 2026, but does not explicitly state if lesions meet RECIST v1.1 measurable criteria.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Previously treated (stable or progressive) or previously untreated CNS metastases, or leptomeningeal metastases",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Developed 3 brain metastases treated with stereotactic radiosurgery; brain stable on most recent MRI (September 2026), off steroids.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "At least one prior line of anti-HER2-based therapy for LAI or metastatic disease",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Received first-line docetaxel + trastuzumab + pertuzumab and second-line trastuzumab deruxtecan (T-DXd) for metastatic disease.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior anti-HER2 antibody-drug conjugate (ADC), such as T-DXd or T-DM1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Received second-line trastuzumab deruxtecan (T-DXd) from September 2025.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior tyrosine kinase inhibitor (TKI) not permitted for LAI/MBC",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Prior therapies listed are docetaxel, trastuzumab, pertuzumab, and T-DXd; no prior TKI is mentioned.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance status 0 or 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 1.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Baseline left ventricular ejection fraction (LVEF) >= 50%",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "LVEF 58% on echo in July 2026.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has protocol-defined adequate organ and bone marrow function",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Normal blood counts, bilirubin normal, creatinine normal.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No concurrent anti-cancer treatment, or treatment with investigational therapy within 28 days prior to study treatment",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Current medications and exact washout timing from T-DXd progression in October 2026 are not detailed.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No known active/untreated hepatitis B or C or chronic liver disease",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Hepatitis status and history of chronic liver disease are not mentioned in the summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No clinically significant cardiovascular disease or risk, including heart failure (NYHA >= II), ischemic heart disease, or arrhythmias",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "LVEF is 58%; no history of significant cardiovascular disease is reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No clinically significant electrolyte abnormalities or family history of long QT syndrome",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Electrolyte levels (potassium, magnesium, calcium) are not reported.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No concomitant use of any drug or herbal medicine known to strongly inhibit or induce CYP3A4 or CYP2C8 activity, or oral coumarin anticoagulants",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Current concomitant medications and herbal supplements are not listed.",
+          "fail_confidence": null,
+          "importance": "important"
+        }
+      ],
+      "open_questions": [
+        "Has the patient's HER2-positive status been confirmed by a central laboratory as required?",
+        "Do the liver metastases meet RECIST v1.1 measurable disease criteria?",
+        "What is the exact date of the last dose of T-DXd or any subsequent therapy to evaluate the 28-day washout requirement?",
+        "Are there any concurrent medications that are strong CYP3A4/CYP2C8 inhibitors or inducers?",
+        "What are the baseline serum electrolyte levels (potassium, magnesium, calcium) and viral hepatitis serologies?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 57,
+      "n_pass": 8,
+      "n_fail": 0,
+      "n_unknown": 6,
+      "n_unknown_important": 4,
+      "nct_id": "NCT07413939",
+      "title": "RO7771950 Versus Tucatinib in Combination With Trastuzumab and Capecitabine in People With Locally Advanced or Metastatic Breast Cancer That is Human Epidermal Growth Factor Receptor 2 (HER2)-Positive",
+      "url": "https://clinicaltrials.gov/study/NCT07413939",
+      "phases": [
+        "PHASE2",
+        "PHASE3"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HER2+ match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Montefiore Einstein Cancer Center",
+          "city": "The Bronx",
+          "state": "New York",
+          "zip": "10461",
+          "site_status": "RECRUITING",
+          "distance_mi": 12.0,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Reference Study ID Number: WO46069 https://forpatients.roche.com/ No attachments to email below.",
+        "phone": "888-662-6728 (U.S. only)",
+        "email": "global-roche-genentech-trials@gene.com"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who has progressed on 1 prior line of anti-HER2-directed therapy in the advanced setting (T-DXd). The trial requires at least 2 prior lines of anti-HER2-directed therapy for HER2-positive breast cancer, meaning she currently falls short of this requirement unless 1 line qualifies under the exception clause. Additionally, measurable disease status by RECIST v1.1 is currently unknown.",
+      "criteria": [
+        {
+          "criterion": "Locally advanced and unresectable or metastatic HER2-positive advanced breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient summary states: '63-year-old woman with metastatic HER2-positive breast cancer (HER2 IHC 3+, ER 10%, PR 0%)'.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Measurable disease by RECIST v1.1",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary mentions progression in the liver in October 2026, but does not explicitly confirm measurable disease per RECIST v1.1 criteria.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance status (PS) 0-1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Summary states: 'ECOG 1'.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate LVEF assessed by ECHO or MUGA",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Summary states: 'LVEF 58% on echo in July 2026'.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Stable brain metastases",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Summary states: 'brain stable on most recent MRI (September 2026), off steroids.'",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "HER2-positive aBC: Must have had at least 2 prior lines of anti-HER2-directed therapy (or 1 if no other regionally available SoC)",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient had first-line docetaxel + trastuzumab + pertuzumab, and second-line trastuzumab deruxtecan (T-DXd). This represents only 2 lines total in the metastatic setting, but T-DXd is the second line (meaning 1 prior line of anti-HER2 therapy, or 2 lines depending on how maintenance is counted; however, the summary lists 'First-line docetaxel + trastuzumab + pertuzumab... Second-line trastuzumab deruxtecan').",
+          "fail_confidence": "LOW",
+          "importance": null
+        },
+        {
+          "criterion": "Patients with untreated and/or non-stable brain metastases",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain metastases were treated with SRS and are stable on recent MRI, off steroids.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate hematologic and organ function labs",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Summary notes normal blood counts, normal bilirubin, and normal creatinine.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of interstitial lung disease",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Summary explicitly states: 'No history of interstitial lung disease.'",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Confirm exact count of prior lines of anti-HER2-directed therapy in the advanced/metastatic setting to determine if she meets the requirement of at least 2 prior lines or qualifies for the 1-line exception.",
+        "Verify whether the liver progression constitutes measurable disease per RECIST v1.1."
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely ineligible - needs review",
+      "fit_score": 0,
+      "n_pass": 7,
+      "n_fail": 1,
+      "n_unknown": 1,
+      "n_unknown_important": 1,
+      "nct_id": "NCT06625775",
+      "title": "Open-Label Study of BBO-10203 in Subjects With Advanced Solid Tumors",
+      "url": "https://clinicaltrials.gov/study/NCT06625775",
+      "phases": [
+        "PHASE1"
+      ],
+      "relevance_score": 7,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HER2+ match",
+        "solid-tumor basket"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Columbia University Irving Medical Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10032",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "BBOT (BridgeBio Oncology Therapeutics)",
+        "phone": "650-405-8440",
+        "email": "Breaker-101ct.gov@bridgebiooncology.com"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who has experienced disease progression in the liver after second-line therapy and has a history of treated brain metastases. She fails the trial's exclusion criterion regarding intracranial disease and does not meet the inclusion criteria requiring an isolated site of progression and a history of sustained response without progression for at least 6 months prior to progression.",
+      "criteria": [
+        {
+          "criterion": "Metastatic breast cancer, biopsy proven, HER2+ (regardless of ER status)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Metastatic HER2-positive breast cancer (HER2 IHC 3+, ER 10%, PR 0%), diagnosed de novo metastatic in 2023.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of at least 6 months, sustained response to systemic therapy (complete or stable response without progression)",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient had first-line therapy from 2023-2024, but developed brain metastases in August 2025 and progression in the liver in October 2026 on T-DXd; however, the exact duration of sustained response prior to the recent progression is not fully detailed to confirm a stable 6-month pre-progression window without any progression.",
+          "fail_confidence": "LOW",
+          "importance": null
+        },
+        {
+          "criterion": "Isolated site of disease progression on FDG PET scan",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Progression occurred in the liver in October 2026, but brain metastases were also previously developed and treated, and PET scan findings are not reported.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status 0-1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 1.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Intracranial disease (including previous intracranial involvement)",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "In August 2025 developed 3 brain metastases treated with stereotactic radiosurgery.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Pregnancy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "63-year-old woman.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Serious medical comorbidity precluding radiation, including connective tissue disorders",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of connective tissue disorders or serious medical comorbidities mentioned other than normal baseline labs and LVEF 58%.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Was the site of progression truly isolated on an FDG PET scan?",
+        "Does the patient have any prior radiotherapy to the intended treatment site in the liver?",
+        "What was the exact timeline of response duration before the most recent progression?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 4,
+      "n_fail": 3,
+      "n_unknown": 0,
+      "n_unknown_important": 0,
+      "nct_id": "NCT05534438",
+      "title": "A Study on Adding Precisely Targeted Radiation Therapy (Stereotactic Body Radiation Therapy) to the Usual Treatment Approach (Drug Therapy) in People With Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT05534438",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HER2+ match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center (All Protocol Activities)",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Amy Xu, MD, PhD",
+          "contact_phone": "646-888-6863",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Amy Xu, MD, PhD",
+        "phone": "646-888-6863",
+        "email": "xua@mskcc.org"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who has received two lines of systemic therapy and has progressed after second-line trastuzumab deruxtecan. She is ineligible for this trial because the study specifically requires oligometastatic disease (\u22645 lesions) without CNS involvement during the first 3-12 months of first-line systemic therapy, and patients who have progressed or escalated to second-line therapy are explicitly excluded. Furthermore, the patient has a history of treated brain metastases and liver progression.",
+      "criteria": [
+        {
+          "criterion": "Age >= 18 years",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient is 63 years old.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Pathologically-confirmed metastatic breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Metastatic HER2-positive breast cancer diagnosed de novo in 2023.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Oligometastatic breast cancer (<=5 discrete metastatic lesions) without CNS involvement during initial workup and monitoring prior to registration",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient had liver and bone metastases (number not specified as <=5) and developed 3 brain metastases in August 2025.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Enrolled at least 3 months (and up to 12 months) after initiation of first-line systemic therapy AND without evidence of progression during this window",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "First-line therapy started in 2023, and the patient is currently presenting in late 2026 after second-line progression, well past the 3-12 month first-line enrollment window.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Escalation of systemic therapy line due to progressive disease (i.e. initiated second-line therapy prior to enrollment) is excluded",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "Patient initiated second-line trastuzumab deruxtecan from September 2025 due to progression.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Intracranial or intrathecal/intramedullary spinal disease (CNS involvement is excluded)",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "Patient developed 3 brain metastases in August 2025 treated with stereotactic radiosurgery.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status 0-2",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG performance status is 1.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Are there any other active treatment protocols or expanded access programs the patient may be eligible for given second-line progression?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 3,
+      "n_fail": 4,
+      "n_unknown": 0,
+      "n_unknown_important": 0,
+      "nct_id": "NCT07053085",
+      "title": "A Study of Surgery and Radiotherapy in People With Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT07053085",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HER2+ match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center (All protocol activites)",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Lior Braunstein, MD",
+          "contact_phone": "201-775-7446",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Lior Braunstein, MD",
+        "phone": "201-775-7446",
+        "email": "braunstl@mskcc.org"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic triple-positive (ER+, PR+, HER2+) breast cancer who has progressed on prior therapies, including T-DXd. She is potentially eligible, but requires confirmation of her exact PR status to meet the strict inclusion threshold, and evaluation of prior SERD exposure.",
+      "criteria": [
+        {
+          "criterion": "Age >= 18 and female",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "63-year-old woman",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Triple-positive breast cancer (ER+, PR+, HER2+ as defined)",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "ER 10%, PR 0% (PR is not >1% as required by inclusion criteria)",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Disease progression on or after at least one line of NCCN recommended prior therapy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Progression in the liver on second-line trastuzumab deruxtecan (T-DXd)",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status <= 2",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate hematologic function (Hemoglobin >=9, ANC >=1.5, Platelets >=100)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Normal blood counts",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Baseline LVEF >= 50% within 28 days prior to study treatment",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "LVEF was 58% on echo in July 2026, but current screening window requires it within 28 days prior to treatment (current date is after October 2026 progression)",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Prior treatment with a SERD",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Prior therapies listed are docetaxel, trastuzumab, pertuzumab, and T-DXd; no SERD mentioned",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior treatment with more than two lines of chemotherapy for metastatic disease, including ADCs",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Received 2 lines of metastatic therapy (docetaxel-based regimen and T-DXd), which is not more than two lines",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Untreated and/or active CNS metastases",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain metastases were treated with SRS in August 2025, stable on September 2026 MRI, and patient is off steroids",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of other malignancies within the past 5 years",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Diagnosed de novo metastatic breast cancer in 2023; no other malignancies mentioned",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Inability to take oral medications or GI conditions impacting absorption",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No reported GI conditions or inability to take oral medications",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Uncontrolled active infection or intercurrent illness",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No active infections or intercurrent illnesses reported",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Does the patient have any documented history of prior SERD treatment (e.g., fulvestrant)?",
+        "Can a repeat echocardiogram be performed to obtain an LVEF measurement within 28 days prior to study treatment?",
+        "Is there any archival or repeat biopsy data showing PR positivity >1% to satisfy the strict inclusion requirement, or can PI approval be obtained for ER >10% without PR positivity?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 10,
+      "n_fail": 1,
+      "n_unknown": 1,
+      "n_unknown_important": 1,
+      "nct_id": "NCT07612215",
+      "title": "Elacestrant in Advanced Triple Positive Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT07612215",
+      "phases": [
+        "PHASE1",
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HER2+ match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "NYU Langone Health",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Adriana Borges-Uba",
+        "phone": "646-754-7147",
+        "email": "Adriana.borges-uba@nyulangone.org"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer and treated parenchymal brain metastases. However, there is no mention of newly diagnosed leptomeningeal metastasis, which is the core target condition of the RADIATE-LM trial. Therefore, the patient fails the primary disease-setting inclusion criterion.",
+      "criteria": [
+        {
+          "criterion": "Newly diagnosed leptomeningeal metastasis established through positive CSF cytology or radiographic/clinical criteria (core trial target)",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient summary reports parenchymal brain metastases treated with stereotactic radiosurgery and stable on MRI, but does not mention leptomeningeal metastasis.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Pathologically proven diagnosis of breast cancer or NSCLC",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "63-year-old woman with metastatic HER2-positive breast cancer.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Candidates for radiation therapy for the treatment of leptomeningeal metastasis",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Leptomeningeal metastasis status is not reported in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Age >= 18",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient is 63 years old.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Karnofsky performance status >= 60 (or ECOG equivalent)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 1 corresponds to a KPS of roughly 80, which is >= 60.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Hemoglobin >= 8.0 g/dl",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Labs report normal blood counts.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Absolute neutrophil count (ANC) >= 1,000/mm^3",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Labs report normal blood counts.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Platelets >= 100,000/mm^3",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Labs report normal blood counts.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Total bilirubin <= 1.5 x ULN",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Bilirubin normal.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "AST and ALT <= 3 x ULN",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Liver transaminases (AST/ALT) are not explicitly reported (only bilirubin is noted as normal).",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No prior treatment for leptomeningeal metastasis",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient had prior treatment for parenchymal brain metastases (SRS), but no leptomeningeal metastasis or treatment is reported.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "New York Heart Association Functional Classification II or better",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "LVEF is 58% and no heart failure symptoms are noted.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Not pregnant and not nursing / negative pregnancy test",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Pregnancy test results and menopausal status are not stated (though age 63 suggests likely postmenopausal, it is not explicitly confirmed).",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No active infection currently requiring IV antibiotics",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "No active infection is mentioned in the clinical summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No CTCAE v5.0 >= grade 2 encephalopathy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Brain stable, off steroids, no encephalopathy reported.",
+          "fail_confidence": null,
+          "importance": "routine"
+        }
+      ],
+      "open_questions": [
+        "Does the patient have newly diagnosed leptomeningeal metastases confirmed by CSF cytology or EANO-ESMO criteria?",
+        "What are the patient's exact AST and ALT levels?",
+        "Has the patient undergone formal menopausal assessment or pregnancy testing within 14 days prior to registration?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 11,
+      "n_fail": 1,
+      "n_unknown": 3,
+      "n_unknown_important": 1,
+      "nct_id": "NCT06500481",
+      "title": "Testing Proton Craniospinal Radiation Therapy Versus the Usual Radiation Therapy for Leptomeningeal Metastasis, RADIATE-LM Trial",
+      "url": "https://clinicaltrials.gov/study/NCT06500481",
+      "phases": [
+        "PHASE3"
+      ],
+      "relevance_score": 5,
+      "relevance_reasons": [
+        "metastatic setting",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Laura and Isaac Perlmutter Cancer Center at NYU Langone",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Site Public Contact",
+          "contact_phone": null,
+          "contact_email": "CancerTrials@nyulangone.org"
+        },
+        {
+          "facility": "New York Proton Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10035",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Site Public Contact",
+          "contact_phone": "646-968-9031",
+          "contact_email": "ichoi@nyproton.com"
+        },
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Site Public Contact",
+          "contact_phone": "212-639-7592",
+          "contact_email": null
+        },
+        {
+          "facility": "NYU Langone Hospital - Brooklyn",
+          "city": "Brooklyn",
+          "state": "New York",
+          "zip": "11220",
+          "site_status": "RECRUITING",
+          "distance_mi": 5.2,
+          "contact_name": "Site Public Contact",
+          "contact_phone": "646-754-4624",
+          "contact_email": "david.wallach@nyulangone.org"
+        },
+        {
+          "facility": "Montefiore Medical Center-Einstein Campus",
+          "city": "The Bronx",
+          "state": "New York",
+          "zip": "10461",
+          "site_status": "RECRUITING",
+          "distance_mi": 12.0,
+          "contact_name": "Site Public Contact",
+          "contact_phone": "718-379-6866",
+          "contact_email": "eskwak@montefiore.org"
+        },
+        {
+          "facility": "Montefiore Medical Center - Moses Campus",
+          "city": "The Bronx",
+          "state": "New York",
+          "zip": "10467",
+          "site_status": "RECRUITING",
+          "distance_mi": 12.0,
+          "contact_name": "Site Public Contact",
+          "contact_phone": "718-379-6866",
+          "contact_email": "eskwak@montefiore.org"
+        }
+      ],
+      "central_contact": {
+        "name": null,
+        "phone": null,
+        "email": null
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who has received prior treatment with trastuzumab deruxtecan (T-DXd), an antibody-drug conjugate with a topoisomerase I inhibitor payload. Because the trial explicitly excludes patients with prior treatment with topoisomerase I inhibitors/ADCs such as T-DXd, she is ineligible.",
+      "criteria": [
+        {
+          "criterion": "Locally advanced, unresectable or metastatic breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient summary states 'metastatic HER2-positive breast cancer ... diagnosed de novo metastatic in 2023 with liver and bone metastases.'",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Confirmed HER2 status and documented history consistent with subgroup definitions",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient has confirmed HER2-positive breast cancer (HER2 IHC 3+).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Measurable disease defined by RECIST v1.1",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary mentions 'progression in the liver in October 2026', but does not explicitly state whether lesions meet RECIST v1.1 measurable criteria.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Left ventricular ejection fraction (LVEF) >= 55% within 28 days before randomization",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "LVEF 58% on echo in July 2026, though a more recent echo may be needed closer to enrollment.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No history of small bowel obstruction requiring hospitalization within the past 3 months",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of small bowel obstruction reported in the summary.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No history of (non-infectious) interstitial lung disease (ILD)/pneumonitis that required steroids, current ILD, or suspected ILD",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient summary explicitly states: 'No history of interstitial lung disease.'",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No prior treatment with topoisomerase I inhibitors, including antibody-drug conjugates with topoisomerase I inhibitor payloads such as trastuzumab deruxtecan",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "Patient received second-line trastuzumab deruxtecan (T-DXd) from September 2025, which is an antibody-drug conjugate with a topoisomerase I inhibitor payload.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "No prior treatment with BNT323",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No prior treatment with BNT323 mentioned; investigational drug for this study.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No systemic corticosteroids at a dosage greater than 10 mg/day of prednisone or equivalent within 3 weeks prior to initiation",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient is off steroids following stereotactic radiosurgery for brain metastases.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Are the liver lesions formally measurable per RECIST v1.1?",
+        "Is a fresh echocardiogram required to assess LVEF within 28 days prior to randomization, given the last echo was in July 2026?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 7,
+      "n_fail": 1,
+      "n_unknown": 1,
+      "n_unknown_important": 1,
+      "nct_id": "NCT06827236",
+      "title": "A Clinical Study to Find the Optimal Dose of an Investigational Treatment Called BNT323 When Used in Combination With Another Investigational Treatment, BNT327, and to Test if That Combination Treatment is Safe and Beneficial for Patients With Advanced Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT06827236",
+      "phases": [
+        "PHASE1",
+        "PHASE2"
+      ],
+      "relevance_score": 5,
+      "relevance_reasons": [
+        "metastatic setting",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Beth Israel Comprehensive Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10011",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Mount Sinai Medical Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10019",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Icahn School of Medicine at Mount Sinai PRIME",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10029-6503",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Memorial Sloan Kettering Hospital",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Memorial Sloan Kettering Commack",
+          "city": "New York",
+          "state": "New York",
+          "zip": "11725",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "BioNTech clinical trials patient information",
+        "phone": "+49 6131 9084",
+        "email": "patients@biontech.de"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who has received prior systemic lines of therapy and has a history of treated brain metastases. She fails several key eligibility criteria, including prior systemic anti-cancer therapy, prior anti-HER2 therapy, known CNS metastases, and surgical candidacy requirements for this specific trial.",
+      "criteria": [
+        {
+          "criterion": "Must be deemed medically fit for surgery and be surgical candidates upfront, or potentially operable if there is response to induction therapy",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary notes metastatic breast cancer with liver and bone metastases and progression in the liver, but does not explicitly state whether she is deemed a surgical candidate.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Have an Eastern Cooperative Oncology Group (ECOG) performance status of 0 to 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior exposure to anti-HER2 therapy of any kind or any systemic anti-cancer treatment of any kind for breast cancer",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "First-line docetaxel + trastuzumab + pertuzumab (2023-2024), maintenance trastuzumab + pertuzumab, and second-line trastuzumab deruxtecan (T-DXd).",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Has known CNS metastases and/or leptomeningeal carcinomatosis",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "In August 2025 developed 3 brain metastases treated with stereotactic radiosurgery.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Has a left ventricular ejection fraction (LVEF) below the institutional normal range of 50%, as determined by multigated acquisition (MUGA) or echocardiogram (ECHO)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "LVEF 58% on echo in July 2026",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Stage IV at the diagnosis (i.e., de novo metastatic) as per AJCC 8",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Diagnosed de novo metastatic in 2023",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "HER2 IHC results of 3+",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "HER2 IHC 3+",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has a history or evidence of active pneumonitis or interstitial lung disease that required steroids or has current pneumonitis/interstitial lung disease",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of interstitial lung disease",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate organ function: Hematological, Renal, and Hepatic laboratories within protocol limits",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Normal blood counts, bilirubin normal, creatinine normal",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Must have measurable disease per PERCIST 1.0",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Progression in the liver in October 2026 is mentioned, but formal PERCIST 1.0 measurable disease assessment details are not provided.",
+          "fail_confidence": null,
+          "importance": "important"
+        }
+      ],
+      "open_questions": [
+        "Is the patient considered a surgical candidate for upfront or post-induction surgery per the trial protocol?",
+        "Does the patient have measurable disease per PERCIST 1.0 criteria?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 6,
+      "n_fail": 2,
+      "n_unknown": 2,
+      "n_unknown_important": 2,
+      "nct_id": "NCT07459673",
+      "title": "HERizon-Breast: A ctDNA-Guided Adaptive Study of Sequential Anti-HER2 Therapies and CNS Prophylaxis to Induce Long-Term Remission",
+      "url": "https://clinicaltrials.gov/study/NCT07459673",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HER2+ match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center (All Protocol Activites)",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Pedram Razavi, MD, PhD",
+          "contact_phone": "646-888-4821",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Pedram Razavi, MD, PhD",
+        "phone": "646-888-4821",
+        "email": "razavip@mskcc.org"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who has received two prior lines of therapy (docetaxel/trastuzumab/pertuzumab and T-DXd). The trial requires HER2-positive patients to have been previously treated with at least 3 regimens containing at least two anti-HER2 and at least one chemotherapy-containing regimen. Because she has only received 2 prior lines, she fails this specific prior therapy requirement.",
+      "criteria": [
+        {
+          "criterion": "Age >= 18 years",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient is 63 years old.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Histological confirmation of breast cancer with metastatic disease and HER2 positive status previously treated with at least 3 regimens containing at least two anti-HER2 and at least one chemotherapy-containing regimen",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient has metastatic HER2-positive breast cancer and has received 2 prior regimens (docetaxel + trastuzumab + pertuzumab, and T-DXd), which is fewer than the required 3 regimens.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Brain metastases clinically stable without evidence of progressive disease for at least 4 weeks and off steroids for at least 2 weeks prior to first dose",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Brain metastases treated with SRS in August 2025; brain stable on MRI in September 2026 and off steroids.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Expected survival of at least 4 months",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Expected survival is not explicitly stated in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "ECOG performance status of 0, 1 or 2",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG is 1.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No concurrent or recent chemotherapy, immunotherapy or major surgery within 21 days prior to first dose",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Exact date of last T-DXd dose relative to anticipated study start is not specified (progression noted in October 2026, current date unknown).",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No radiotherapy within 14 days of first dose",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Radiotherapy (SRS) was administered in August 2025, well beyond 14 days.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Toxicity of prior therapy recovered to <= Grade 1 or baseline",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No unresolved toxicities noted; patient has no history of interstitial lung disease.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Serum creatinine <= 2.0 x ULN or CrCl >= 30 mL/min",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Creatinine is normal.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Absolute granulocyte count >= 1000; platelets >= 80,000; hemoglobin > 7 g/L",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Normal blood counts.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Bilirubin < 2x ULN, ALP < 5x ULN, ALT/AST < 3x ULN (or < 5x ULN if hepatic metastases)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Bilirubin is normal, and liver function tests are not reported as significantly elevated despite liver metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "New York Heart Association stage 3 or 4 cardiac disease",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "LVEF is 58% (normal), and no NYHA class 3 or 4 heart failure is reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Negative serum pregnancy test within 7 days prior to starting treatment for women of childbearing potential",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Pregnancy test results and menopausal status details not provided.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "History of other malignancy within 2 years of study entry",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No other malignancies reported; breast cancer diagnosed de novo in 2023.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No active infections requiring systemic therapy within the past 14 days",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Recent active infections are not mentioned in the summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        }
+      ],
+      "open_questions": [
+        "Has the patient received any additional lines of systemic therapy beyond the two mentioned (docetaxel-based and T-DXd)?",
+        "What is the exact date of the last dose of T-DXd to assess the 21-day washout requirement?",
+        "What is the patient's exact menopausal status and current serum pregnancy test result?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 10,
+      "n_fail": 1,
+      "n_unknown": 4,
+      "n_unknown_important": 2,
+      "nct_id": "NCT06072612",
+      "title": "Study of the Bria-IMT Regimen and CPI vs Physicians' Choice in Advanced Metastatic Breast Cancer.",
+      "url": "https://clinicaltrials.gov/study/NCT06072612",
+      "phases": [
+        "PHASE3"
+      ],
+      "relevance_score": 5,
+      "relevance_reasons": [
+        "metastatic setting",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Manhattan Hematology /Oncology Associates",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Patricia Mccullough, RN",
+          "contact_phone": "212-689-6791",
+          "contact_email": "patriciarose13@gmail.com"
+        },
+        {
+          "facility": "New York Cancer and Blood Specialists_North Shore Hematology Oncology Assocaites P.C (NY)",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10028",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Lauren Gianelli",
+          "contact_phone": null,
+          "contact_email": "lgianelli@nycancer.com"
+        },
+        {
+          "facility": "NYU Langone's Perlmutter Cancer Center",
+          "city": "Manhattan",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 5.3,
+          "contact_name": "Clevester Haynesworth, CCRC",
+          "contact_phone": "929-455-2451",
+          "contact_email": "Clevester.Haynesworth@nyulangone.org"
+        },
+        {
+          "facility": "New York Cancer and Blood Specialists_North Shore Hematology Oncology Assocaites P.C (Brox)",
+          "city": "The Bronx",
+          "state": "New York",
+          "zip": "10469",
+          "site_status": "RECRUITING",
+          "distance_mi": 12.0,
+          "contact_name": "Lauren Gianelli",
+          "contact_phone": "855-528-7322",
+          "contact_email": "lgianelli@nycancer.com"
+        }
+      ],
+      "central_contact": {
+        "name": "Malobika Bhowmick",
+        "phone": "1-888-485-6340",
+        "email": "mbhowmick@briacell.com"
+      }
+    },
+    {
+      "summary": "The patient is a 63-year-old woman with metastatic HER2-positive breast cancer who has received prior taxane, HER2-targeted therapies, and T-DXd. She does not meet the trial's core target requirements as there is no mention of PIK3CA/AKT1/PTEN genetic alterations or prior CDK4/6 inhibitor treatment combined with endocrine therapy, which are mandatory for NCT06638307.",
+      "criteria": [
+        {
+          "criterion": "Advanced (locoregionally recurrent or metastatic) breast cancer not amenable to curative therapy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Diagnosed de novo metastatic in 2023 with liver and bone metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Presence of genetic alterations in PIK3CA/AKT1/PTEN in participants' tumor tissue",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Tumor genomic profile for PIK3CA, AKT1, or PTEN mutations is not mentioned in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Participant must have received at least 1 prior line of endocrine therapy for advanced/metastatic disease or recurrence within 12 months of adjuvant endocrine therapy",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient's tumor is ER 10%, but prior endocrine therapy history is not detailed in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Progression on previous cyclin-dependent kinase 4 and 6 (CDK4/6) inhibitor treatment in combination with fulvestrant or aromatase inhibitor",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Prior treatments listed are docetaxel, trastuzumab, pertuzumab, and trastuzumab deruxtecan (T-DXd); no mention of CDK4/6 inhibitor or endocrine combination therapy.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Active or newly diagnosed central nervous system metastases",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Treated with SRS in August 2025; brain stable on most recent MRI (September 2026) and off steroids, indicating treated/inactive CNS metastases rather than active or newly diagnosed.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Participants with advanced, symptomatic visceral spread at risk of life-threatening complications, including liver involvement >50%",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has liver metastases with recent progression in October 2026, but the exact percentage of liver involvement is not specified.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Toxicities related to prior radiation therapy resolved to baseline or Grade <=1 (except alopecia and peripheral sensory neuropathy <=2)",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Prior brain SRS was performed in August 2025, but the resolution of related toxicities is not explicitly documented.",
+          "fail_confidence": null,
+          "importance": "routine"
+        }
+      ],
+      "open_questions": [
+        "Does the patient's tumor harbor PIK3CA, AKT1, or PTEN genetic alterations?",
+        "Has the patient received prior CDK4/6 inhibitor treatment in combination with endocrine therapy?",
+        "What is the exact percentage of liver involvement by tumor?",
+        "Have any toxicities from prior radiation therapy fully resolved?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 2,
+      "n_fail": 1,
+      "n_unknown": 4,
+      "n_unknown_important": 3,
+      "nct_id": "NCT06638307",
+      "title": "A First-in-Human Study of MEN2312 in Adults With Advanced Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT06638307",
+      "phases": [
+        "PHASE1"
+      ],
+      "relevance_score": 5,
+      "relevance_reasons": [
+        "metastatic setting",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Laura & Isaac Perlmutter Cancer Center at NYU Langone Health",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Nancy Chan",
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Sherry Shen",
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Perlmutter Cancer Center - Sunset Park",
+          "city": "Brooklyn",
+          "state": "New York",
+          "zip": "11220",
+          "site_status": "RECRUITING",
+          "distance_mi": 5.2,
+          "contact_name": "Nancy Chan",
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Stemline Trials",
+        "phone": "1-877-332-7961",
+        "email": "clinicaltrials@menarinistemline.com"
+      }
+    }
+  ]
+}

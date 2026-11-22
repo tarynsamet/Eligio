@@ -1,0 +1,2133 @@
+{
+  "patient_id": "P02",
+  "label": "Metastatic triple-negative, germline BRCA1, recurred after neoadjuvant pembrolizumab",
+  "summary": "41-year-old premenopausal woman with triple-negative breast cancer (ER 0%, PR 0%, HER2 IHC 0). Germline BRCA1 pathogenic variant. Diagnosed with stage IIB disease in January 2024; received neoadjuvant carboplatin/paclitaxel + pembrolizumab followed by AC + pembrolizumab, then mastectomy with residual disease (not a pathologic complete response), followed by adjuvant capecitabine and completion of pembrolizumab in March 2025. In September 2026 found to have multiple lung nodules; biopsy confirmed recurrent TNBC. PD-L1 CPS 15. No treatment yet for metastatic disease. Brain MRI October 2026: no brain metastases. ECOG 0. Labs normal. No autoimmune disease; had grade 2 hypothyroidism from pembrolizumab, now on levothyroxine.",
+  "profile": {
+    "age": 41,
+    "sex": "FEMALE",
+    "menopausal_status": "premenopausal",
+    "subtype": "TNBC",
+    "her2_low": false,
+    "disease_setting": "metastatic",
+    "biomarkers": [
+      "germline BRCA1",
+      "PD-L1 CPS 15"
+    ],
+    "prior_therapies": [
+      "carboplatin",
+      "paclitaxel",
+      "pembrolizumab",
+      "AC",
+      "capecitabine"
+    ],
+    "lines_of_therapy_metastatic": 0,
+    "ecog": 0,
+    "brain_metastases": "none",
+    "notable_comorbidities": [
+      "hypothyroidism"
+    ],
+    "missing_information": []
+  },
+  "experiment": {
+    "timestamp_utc": "2026-11-22T18:51:14.635163+00:00",
+    "configured_model": "gemini-3.5-flash-lite",
+    "models_actually_used": [
+      "gemini-3.5-flash-lite"
+    ],
+    "top_n_default": 15,
+    "trial_database_sha256": "0f4e31b385355c81a4a96cbd0f53124c5fa0c543e157759bbeff0a4aa9c888ef",
+    "trial_count": 183,
+    "patient_record_sha256": "8514ccf4ab51ad73b98a63eed16bb99fd5426b6adf2c3afe69cadec3d38b4278",
+    "parser_prompt_sha256": "6c358859eddf6a2344b24d6ec7a6be18339d417f9b9475fdb51d247512c7f339",
+    "screener_prompt_sha256": "0e5914f84b5c92fc28b72d1544c633b8924c380d2631bbf76fa38a86de83e59e"
+  },
+  "complete": true,
+  "funnel": {
+    "all_trials": 183,
+    "after_prefilter": 137,
+    "removed": {
+      "not_treatment": 40,
+      "sex": 1,
+      "age": 5
+    },
+    "screened_by_llm": 15
+  },
+  "results": [
+    {
+      "summary": "The patient is a 41-year-old woman with recurrent metastatic triple-negative breast cancer (TNBC) and a germline BRCA1 mutation, with an ECOG performance status of 0 and normal labs. Assuming evaluation for Module 1, Part A (or Module 3, Panel 3) for germline BRCA-mutated HER2-negative breast cancer, she meets key performance and disease criteria, but important questions remain regarding prior platinum-based chemotherapy timing, prior PARPi exposure, and exact measurable disease details.",
+      "criteria": [
+        {
+          "criterion": "Histologically or cytologically confirmed HER2-negative carcinoma of the breast with recurrent locally advanced or metastatic disease and evidence of a predicted loss of function germline or tumour mutation in BRCA1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Germline BRCA1 pathogenic variant, HER2 IHC 0, recurrent TNBC with multiple lung nodules.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Eastern Cooperative Oncology Group performance status (ECOG PS) 0 or 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 0.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate organ and marrow function",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Labs normal.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Must have evaluable/measurable disease",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Multiple lung nodules confirmed on biopsy as recurrent TNBC.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Have received > one prior line of therapy in any setting with a PARPi-based regimen (Module 1, Part A Exclusion)",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Prior treatments listed include carboplatin/paclitaxel, pembrolizumab, AC, capecitabine, but PARPi use is not mentioned.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Participants who have received prior platinum-based chemotherapy as neo-adjuvant/adjuvant treatment are eligible provided at least 12 months have elapsed between the last dose of platinum-based treatment and first dose of study intervention (Module 1, Part B)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Received neoadjuvant carboplatin, completed adjuvant therapy in March 2025; exact date of last platinum dose needs confirmation to verify the 12-month interval for Part B, though Part A does not explicitly state this exact 12-month rule.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No unresolved toxicities from prior therapy greater than CTCAE Grade 1 (except alopecia)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Had grade 2 hypothyroidism from pembrolizumab, now on levothyroxine and clinically stable; no other unresolved toxicities noted.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Active infection including hepatitis B, hepatitis C and human immunodeficiency virus (HIV)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Labs normal, no active infection reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Participants with leptomeningeal disease (LMD) unless low volume/treated and asymptomatic",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain MRI October 2026 shows no brain metastases and no mention of LMD.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Any concurrent anti-cancer therapy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No treatment yet for metastatic disease.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Has the patient received any prior PARPi therapy (e.g., olaparib or talazoparib)?",
+        "What was the exact date of the last dose of platinum-based chemotherapy (carboplatin) administered in the neoadjuvant setting?",
+        "Are the lung nodules measurable by RECIST 1.1 (at least 10 mm in longest diameter)?",
+        "Confirm current status of grade 2 hypothyroidism and ensure all other immune-related adverse events from pembrolizumab have resolved to Grade <= 1."
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 80,
+      "n_pass": 8,
+      "n_fail": 0,
+      "n_unknown": 2,
+      "n_unknown_important": 2,
+      "nct_id": "NCT05417594",
+      "title": "Study of AZD9574 as Monotherapy and in Combination With Anti-cancer Agents in Participants With Advanced Solid Malignancies",
+      "url": "https://clinicaltrials.gov/study/NCT05417594",
+      "phases": [
+        "PHASE1",
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "BRCA1 mentioned",
+        "solid-tumor basket"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Research Site",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10040",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Research Site",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "AstraZeneca Clinical Study Information Center",
+        "phone": "1-877-240-9479",
+        "email": "information.center@astrazeneca.com"
+      }
+    },
+    {
+      "summary": "The patient is a 41-year-old woman with metastatic triple-negative breast cancer (TNBC) who has not yet received systemic therapy for her metastatic recurrence. While she meets basic demographic, performance status, and prior therapy requirements, her eligibility is currently UNKNOWN because her tumor's Androgen Receptor (AR) status and local AR testing methodology have not been reported, which is a mandatory inclusion criterion for this trial.",
+      "criteria": [
+        {
+          "criterion": "Pathologically confirmed invasive breast cancer that is unresectable, locally advanced, or metastatic TNBC",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Biopsy in September 2026 confirmed recurrent TNBC (ER 0%, PR 0%, HER2 IHC 0) with multiple lung nodules.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Tumor must be AR positive (\u226510% of cell nuclei immunoreactive by protocol-specified IHC methodology)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "The summary notes triple-negative breast cancer, but does not mention Androgen Receptor (AR) testing results or methodology.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Evaluable or measurable disease per RECIST version 1.1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "In September 2026 found to have multiple lung nodules (measurable metastatic disease).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Patients may have received up to 2 prior lines of chemotherapy for metastatic breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "No treatment yet for metastatic disease (0 prior lines for metastatic disease).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Patients with PD-L1 positive breast cancer (CPS \u2265 10) should have received prior treatment with a checkpoint inhibitor setting unless there is a contraindication",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "PD-L1 CPS is 15; patient received prior neoadjuvant pembrolizumab (checkpoint inhibitor).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status 0-2",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 0.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Age \u226518 years",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "41-year-old premenopausal woman.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate organ and marrow function (ANC \u22651000, Hb \u22659, platelets \u2265100k, bilirubin \u22641.5x ULN, AST/ALT \u22643x ULN, creatinine \u22641.5x ULN)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Labs normal.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of brain metastases or leptomeningeal disease",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain MRI October 2026: no brain metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior antiandrogen therapy (AR antagonist or CYP17 inhibitors)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Prior treatments include carboplatin, paclitaxel, pembrolizumab, AC, and capecitabine; no antiandrogen therapy mentioned.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Seizure disorder or any condition that may predispose to seizure",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No seizure disorder or predisposing conditions reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Use of concurrent or chronic daily corticosteroid use",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient is on levothyroxine for hypothyroidism; no chronic systemic corticosteroids mentioned.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Representative FFPE tumor specimen available for AR testing/screening",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Biopsy confirmed recurrent TNBC in September 2026, but availability of an adequate tissue block or specific slide count for protocol requirements is not stated.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Agreement to research biopsy at study entry",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Willingness to undergo protocol-mandated research biopsy is not mentioned.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Cortisol within normal limits",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient had grade 2 hypothyroidism from pembrolizumab; basal cortisol levels are not reported.",
+          "fail_confidence": null,
+          "importance": "routine"
+        }
+      ],
+      "open_questions": [
+        "Has the metastatic tumor tissue been tested for Androgen Receptor (AR) expression using the protocol-specified IHC methodology, and is it AR-positive (\u226510%)?",
+        "Is a representative FFPE tissue block or the required number of unstained slides available from the recent metastatic biopsy?",
+        "Are baseline cortisol levels within normal limits, especially given the history of pembrolizumab-induced hypothyroidism?",
+        "Is the patient willing to undergo the mandatory research biopsy at study entry?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 73,
+      "n_pass": 11,
+      "n_fail": 0,
+      "n_unknown": 4,
+      "n_unknown_important": 2,
+      "nct_id": "NCT06099769",
+      "title": "A Study of Enzalutamide, Enzalutamide in Combination With Mifepristone, or Chemotherapy in People With Metastatic Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT06099769",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center (All Protocol Activities)",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Tiffany Traina, MD",
+          "contact_phone": "646-888-4558",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Tiffany Traina, MD",
+        "phone": "646-888-4558",
+        "email": "trainat@mskcc.org"
+      }
+    },
+    {
+      "summary": "The patient is a 41-year-old premenopausal woman with metastatic triple-negative breast cancer (TNBC) who has received one prior line of systemic therapy in the early-stage setting (neoadjuvant/adjuvant) and none for metastatic disease. She has an ECOG performance status of 0, normal labs, no brain metastases, and well-managed grade 2 hypothyroidism from prior pembrolizumab. She appears to be a strong candidate for this trial, pending confirmation of measurable disease and washout timing.",
+      "criteria": [
+        {
+          "criterion": "Histologically or cytologically-confirmed TNBC (ER <5%, PR <5%, HER-2 zero/1+)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ER 0%, PR 0%, HER2 IHC 0, triple-negative breast cancer",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Metastatic or recurrent TNBC",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Diagnosed with recurrent TNBC in September 2026 with multiple lung nodules",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status 0 to 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 0",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No more than 3 prior lines of systemic therapy for inoperable/recurrent or metastatic disease in TNBC cohort",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "No treatment yet for metastatic disease (prior therapies were in the neoadjuvant/adjuvant setting)",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Measurable disease based on RECIST 1.1 with at least one non-bone metastatic lesion not undergoing RT",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary mentions 'multiple lung nodules' but does not explicitly state if they are measurable per RECIST 1.1 or if there is a specific non-bone lesion designated for follow-up.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Adequate organ function laboratory values",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Labs normal",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Washout period from prior systemic anti-cancer therapy (minimum 2 weeks)",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Adjuvant capecitabine and pembrolizumab completed in March 2025, but exact date of any subsequent systemic therapy or confirmation of the 2-week washout prior to trial start is not specified.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Active autoimmune disease requiring systemic treatment in past 2 years",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No autoimmune disease; had grade 2 hypothyroidism from pembrolizumab, now on levothyroxine (replacement therapy is allowed)",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of non-infectious pneumonitis requiring steroids or current pneumonitis",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary mentions grade 2 hypothyroidism from pembrolizumab but does not explicitly state whether she ever had immune-mediated pneumonitis.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Symptomatic uncontrolled brain metastases",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain MRI October 2026: no brain metastases",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Archival tumor tissue sample or newly obtained biopsy available",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Biopsy confirmed recurrent TNBC in September 2026, but availability of FFPE block or slide samples for the study is not explicitly mentioned.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Participant receiving corticosteroids must be on a stable dose for at least 4 weeks prior to initiating protocol therapy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "On levothyroxine for hypothyroidism; no mention of systemic corticosteroid use",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Are the lung nodules confirmed to be measurable disease per RECIST 1.1?",
+        "Is there an available tissue block or sample from the September 2026 lung nodule biopsy for trial correlatives/screening?",
+        "Has the patient received any systemic therapy for metastatic disease since the September 2026 recurrence that would require a washout period?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 67,
+      "n_pass": 8,
+      "n_fail": 0,
+      "n_unknown": 4,
+      "n_unknown_important": 3,
+      "nct_id": "NCT04683679",
+      "title": "A Study of Radiation Therapy With Pembrolizumab and Olaparib or Other Radiosensitizers in Women Who Have Triple-Negative or Hormone-Receptor Positive/Her2 Negative Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT04683679",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center (All Protocol Activities)",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Atif Khan, MD",
+          "contact_phone": "848-225-6334",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Atif Khan, MD",
+        "phone": "848-225-6334",
+        "email": "khana7@mskcc.org"
+      }
+    },
+    {
+      "summary": "The patient is a 41-year-old woman with metastatic triple-negative breast cancer presenting with multiple lung nodules in September 2026, with no systemic therapy yet initiated for her metastatic disease. She meets key eligibility criteria including ECOG performance status 0 and absence of brain metastases, but several important criteria regarding the exact number and measurability of metastatic sites, technical amenability to SBRT, and baseline organ function/pregnancy status remain unknown.",
+      "criteria": [
+        {
+          "criterion": "Metastatic breast cancer (all subtypes) with metastatic disease detected on imaging and histologically confirmed",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "In September 2026 found to have multiple lung nodules; biopsy confirmed recurrent TNBC.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Newly diagnosed metastatic disease, or non-progressive disease on systemic therapy (for at least 3 months on systemic imaging)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "No treatment yet for metastatic disease (newly diagnosed metastatic disease).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Measurable disease at baseline (RECIST or PERCIST 2.0) and with 5 or fewer discrete disease sites technically amenable to SBRT",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary states 'multiple lung nodules', but exact number of lesions and RECIST measurability are not specified.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "For de novo stage IV patients, primary disease must be treatable with local therapy; or if previously treated, new local/regional recurrence technically treatable with SBRT/hypofractionated radiation",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient had prior mastectomy, but status of local/regional recurrence in the breast/chest wall versus distant lung-only recurrence is not fully detailed.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Patients with brain metastases are eligible if these lesions have been treated prior to enrollment",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Brain MRI October 2026: no brain metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG Performance status 0 - 2",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 0.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Age >= 18 years",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "41-year-old premenopausal woman.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Female subjects must be of non-reproductive potential or have a negative serum pregnancy test within 2 weeks prior to starting treatment",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient is premenopausal, and a recent serum pregnancy test within 2 weeks prior to starting treatment is not mentioned.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Adequate baseline organ function to allow SBRT to all relevant targets, as determined by treating radiation oncologist",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary states 'Labs normal', but specific organ function assessment for SBRT planning by radiation oncology is not explicitly documented.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Serious medical co-morbidities precluding radiotherapy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No autoimmune disease; had grade 2 hypothyroidism from pembrolizumab, now on levothyroxine. No serious medical co-morbidities precluding RT reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Pregnant or lactating women",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Pregnancy status is not explicitly reported for this premenopausal patient.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Other active malignancy within the last year, even if without evidence of disease",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No other active malignancy reported other than TNBC.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Clinical or radiological evidence of spinal cord compression",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No clinical or radiological evidence of spinal cord compression mentioned (metastases limited to lung nodules).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Malignant pleural effusion or ascites",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Multiple lung nodules noted; malignant pleural effusion or ascites not reported.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "What is the exact number and size of the metastatic lung nodules to confirm if there are 5 or fewer discrete sites and if they are measurable by RECIST 2.0?",
+        "Are there any local or regional disease recurrences in addition to the metastatic lung nodules?",
+        "Has a serum pregnancy test been performed within 2 weeks prior to starting treatment?",
+        "Has the treating radiation oncologist formally evaluated baseline organ function and lesion location/proximity for SBRT planning?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 64,
+      "n_pass": 9,
+      "n_fail": 0,
+      "n_unknown": 5,
+      "n_unknown_important": 3,
+      "nct_id": "NCT03808337",
+      "title": "Investigating the Effectiveness of Stereotactic Body Radiotherapy (SBRT) in Addition to Standard of Care Treatment for Cancer That Has Spread Beyond the Original Site of Disease",
+      "url": "https://clinicaltrials.gov/study/NCT03808337",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Amy Xu, MD, PhD",
+          "contact_phone": "646-888-6863",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Amy Xu, MD, PhD",
+        "phone": "646-888-6863",
+        "email": "xua@mskcc.org"
+      }
+    },
+    {
+      "summary": "The patient is a 41-year-old woman with recurrent metastatic triple-negative breast cancer (TNBC) and a germline BRCA1 mutation, with an ECOG performance status of 0 and no prior systemic therapy for metastatic disease. She appears to be potentially eligible for Cohort A1 or Cohort C of trial NCT06465069, but key requirements such as disease measurability details, archival tissue availability, and exact prior therapy details for metastatic settings must be confirmed.",
+      "criteria": [
+        {
+          "criterion": "Have one of the specified solid tumor cancers (TNBC for Cohort A1 or C)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient summary states: 'recurrent TNBC' (triple-negative breast cancer).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior Systemic Therapy Criteria for Cohort A1/C: received all standard therapies deemed appropriate or no standard therapy available",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient had prior neoadjuvant/adjuvant therapy (carboplatin/paclitaxel, pembrolizumab, AC, capecitabine) and is treatment-naive for metastatic disease, but it is not explicitly stated whether she has received all standard therapies appropriate for metastatic TNBC or if standard therapies remain available.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Measurable disease as defined by RECIST v1.1 (Cohort A1 permits non-measurable disease, but other cohorts require measurable disease)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary mentions 'multiple lung nodules' in September 2026, but does not state whether these lesions meet RECIST v1.1 criteria for measurability, nor which specific cohort (A1 vs C) is being evaluated.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient summary states: 'ECOG 0'.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate archival tumor tissue sample available or undergo a screening biopsy",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary mentions a biopsy confirmed recurrent TNBC in September 2026, but does not specify if adequate archival tissue is available or if a screening biopsy will be performed.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No known or suspected uncontrolled CNS metastases",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient summary states: 'Brain MRI October 2026: no brain metastases.'",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Any serious unresolved toxicities from prior therapy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient had grade 2 hypothyroidism from pembrolizumab, now on levothyroxine; no other serious unresolved toxicities are reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of pneumonitis/interstitial lung disease",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "The summary does not explicitly state whether the patient has a history of pneumonitis or interstitial lung disease (though she received pembrolizumab without reported pulmonary toxicity).",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Prolongation of QT interval corrected for heart rate using Fridericia's formula (QTcF) >= 470 ms",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary states 'Labs normal' but does not report ECG or QTcF interval measurements.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Individuals who are pregnant, breastfeeding or plan to breastfeed",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Pregnancy status and breastfeeding plans are not mentioned in the summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        }
+      ],
+      "open_questions": [
+        "Which specific study cohort (e.g., Cohort A1 or Cohort C) is being targeted for this patient?",
+        "Do the lung nodules identified in September 2026 meet RECIST v1.1 measurable disease criteria?",
+        "Is there an adequate archival tissue sample available from the recent lung biopsy?",
+        "Is there any history of pneumonitis or interstitial lung disease associated with prior pembrolizumab therapy?",
+        "What is the baseline QTcF interval on a recent ECG?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 40,
+      "n_pass": 4,
+      "n_fail": 0,
+      "n_unknown": 6,
+      "n_unknown_important": 3,
+      "nct_id": "NCT06465069",
+      "title": "A Study of LY4052031 in Participants With Advanced or Metastatic Urothelial Cancer or Other Solid Tumors",
+      "url": "https://clinicaltrials.gov/study/NCT06465069",
+      "phases": [
+        "PHASE1"
+      ],
+      "relevance_score": 7,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "solid-tumor basket"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "NYU Langone Medical Center - Perlmutter Cancer Center (NYU Cancer Institute)",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Icahn School of Medicine at Mount Sinai",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10029-6574",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Columbia University Irving Medical Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10032-3729",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Trial questions or participation questions: 1-877-CTLILLY (1-877-285-4559) or",
+        "phone": "1-317-615-4559",
+        "email": "LillyTrials@Lilly.com"
+      }
+    },
+    {
+      "summary": "The patient is a 41-year-old premenopausal woman with metastatic triple-negative breast cancer (recurrent in the lungs) and a germline BRCA1 mutation who has not yet received systemic therapy for metastatic disease. She appears potentially eligible for this study combining pembrolizumab and ablation, provided her lung nodules are deemed amenable to cryoablation by an Interventional Radiologist and pembrolizumab is planned as standard of care.",
+      "criteria": [
+        {
+          "criterion": "Confirmed histologic diagnosis of metastatic TNBC or locally advanced inoperable TNBC",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "In September 2026 found to have multiple lung nodules; biopsy confirmed recurrent TNBC.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Patients >= 18 years of age",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "41-year-old premenopausal woman",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "1 site amenable cryoablation of at least 1.5 cm in size as determined by an Interventional Radiologist",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Multiple lung nodules found in September 2026, but the exact sizes and formal suitability for cryoablation by an Interventional Radiologist are not stated.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Physically fit (clinically eligible) to undergo ablation as per usual clinical practice",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 0, labs normal, no brain metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Pembrolizumab therapy planned as part of standard of care as first, second, or third line of therapy",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "No treatment yet for metastatic disease; the summary notes a PD-L1 CPS of 15, but does not explicitly state if pembrolizumab is currently planned by the medical oncologist for the metastatic setting.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Pregnancy testing for females 11-50 years of age within 2 weeks before ablation",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient is 41 years old and premenopausal, but the timing of a pregnancy test relative to a future ablation date is not specified.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Patient not eligible for PD-1 inhibitor per the patient's medical oncologist",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "PD-L1 CPS 15 and history of prior pembrolizumab response; had grade 2 hypothyroidism managed on levothyroxine, which typically does not preclude continuation unless severe, and patient is generally considered eligible based on CPS 15.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No disease amenable for ablation",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Multiple lung nodules are present, but formal evaluation by an Interventional Radiologist regarding amenability to ablation is not reported.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Pembrolizumab therapy not planned as part of standard of care",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "It is not explicitly stated whether pembrolizumab is planned for her newly diagnosed metastatic recurrence.",
+          "fail_confidence": null,
+          "importance": "important"
+        }
+      ],
+      "open_questions": [
+        "Does the interventional radiologist confirm that at least one lung nodule is >= 1.5 cm and amenable to cryoablation?",
+        "Is pembrolizumab therapy planned as part of the standard of care for her metastatic recurrence by her medical oncologist?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 44,
+      "n_pass": 4,
+      "n_fail": 0,
+      "n_unknown": 5,
+      "n_unknown_important": 4,
+      "nct_id": "NCT06246968",
+      "title": "A Study of Pembrolizumab and Ablation (Cryoablation or Histotripsy) in People With Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT06246968",
+      "phases": [
+        "PHASE1"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center (All protocol activites)",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Yolanda Bryce, MD",
+          "contact_phone": "212-639-6530",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Yolanda Bryce, MD",
+        "phone": "212-639-6530",
+        "email": "brycey@mskcc.org"
+      }
+    },
+    {
+      "summary": "The patient is a 41-year-old woman with recurrent metastatic triple-negative breast cancer who has received no prior systemic therapy in the metastatic setting. However, eligibility cannot be fully determined because the patient summary does not report her BMI or HbA1c (metabolic dysfunction criteria), measurable disease status per RECIST 1.1, specific platelet count or liver function labs, and whether she meets the prior anthracycline/taxane requirement.",
+      "criteria": [
+        {
+          "criterion": "Histologically/cytologically confirmed triple-negative metastatic breast cancer (ER/PR <=10%, HER2 IHC 0-1+)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient has triple-negative breast cancer (ER 0%, PR 0%, HER2 IHC 0) with recurrent metastatic disease confirmed by biopsy.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Advanced or metastatic stage with up to 2 prior lines of therapy in the advanced or metastatic setting",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Recurrent metastatic TNBC with 0 prior lines of therapy for metastatic disease.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Received prior anthracycline and taxane chemotherapy in neoadjuvant, adjuvant, or metastatic settings (or otherwise ineligible/de novo)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient received carboplatin/paclitaxel + pembrolizumab followed by AC (doxorubicin/cyclophosphamide) + pembrolizumab in the neoadjuvant setting, but it is not explicitly confirmed if this satisfies the protocol's prior anthracycline and taxane requirement without full verification.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Evidence of metabolic dysfunction defined as HbA1c > 5.5 and/or BMI >= 30 kg/m^2",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Neither BMI nor HbA1c is reported in the patient summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Measurable disease per RECIST 1.1 or at least one evaluable, predominantly lytic bone lesion",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary notes 'multiple lung nodules' confirmed by biopsy, but RECIST 1.1 measurability is not explicitly confirmed.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Eastern Cooperative Oncology Group Performance Status (ECOG-PS) <=1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG is 0.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate bone marrow and organ function (ANC, platelets, hemoglobin, calcium, magnesium, potassium, ALT/AST, bilirubin, creatinine)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary states 'Labs normal', but specific values for platelets, bilirubin, and exact liver enzymes/electrolytes are not provided.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Three or greater prior lines of therapy for metastatic TNBC",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient has had 0 prior lines of therapy for metastatic disease.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Known primary brain malignancy, brain metastases or active CNS pathology",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain MRI from October 2026 shows no brain metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Body mass index < 18.5 kg/m2",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient's BMI is not reported in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Established diagnosis of diabetes mellitus type I or uncontrolled or insulin-dependent type II",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of diabetes mellitus reported; only grade 2 hypothyroidism from pembrolizumab.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Concurrent malignancy or malignancy within 3 years of randomization",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Primary breast cancer was diagnosed in January 2024 (recurrent TNBC in 2026); no other concurrent malignancies reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Clinically significant, uncontrolled heart disease and/or recent cardiac events / LVEF <45%",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient received AC (doxorubicin), but no recent LVEF measurement or cardiac history evaluation is reported.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "History of acute pancreatitis within 1 year or past medical history of chronic pancreatitis",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of pancreatitis reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Pregnant patients",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient is a 41-year-old premenopausal woman; pregnancy status not explicitly flagged as positive, and routine screening applies.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "What is the patient's current BMI and HbA1c level to assess metabolic dysfunction criteria?",
+        "Do the lung nodules meet RECIST 1.1 criteria for measurable disease?",
+        "What are the exact screening laboratory values for platelets, total bilirubin, transaminases, and electrolytes?",
+        "What is the patient's current LVEF given prior anthracycline (AC) exposure?",
+        "Can the prior neoadjuvant regimen (carboplatin/paclitaxel followed by AC) be formally documented as meeting the protocol's prior anthracycline and taxane requirement?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 60,
+      "n_pass": 9,
+      "n_fail": 0,
+      "n_unknown": 6,
+      "n_unknown_important": 5,
+      "nct_id": "NCT05570253",
+      "title": "A Study of SDX-7320 in Combination With Eribulin for People With Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT05570253",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center (All Protocol Activities)",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Sherry Shen, MD",
+          "contact_phone": "646-888-5134",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Sherry Shen, MD",
+        "phone": "646-888-5134",
+        "email": "shens1@mskcc.org"
+      }
+    },
+    {
+      "summary": "The patient is a 41-year-old woman with recurrent metastatic triple-negative breast cancer (TNBC) and an ECOG performance status of 0. However, the trial consists of specific parts (Parts 1A, 1B, 2A for breast cancer) requiring prior endocrine therapy and CDK4/6 inhibitors or specific biomarker profiles (HR+/HER2-) not fitting her TNBC/BRCA1 profile, or lack of clarity on exact study cohort applicability. Her metastatic measurability is also unconfirmed.",
+      "criteria": [
+        {
+          "criterion": "Age 18 years or older",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "41-year-old premenopausal woman",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Advanced or metastatic cancer of the breast or colon fitting study parts (e.g., HR+/HER2- or specific prior therapies)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has metastatic TNBC with prior neoadjuvant/adjuvant chemo/immunotherapy, but specific trial parts (1A, 1B, 2A) specify HR+/HER2- or prior endocrine/CDK4/6 inhibitor therapy which does not match her TNBC status.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Measurable disease",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Multiple lung nodules found on biopsy-proven recurrent TNBC, but specific RECIST measurability is not explicitly stated.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "ECOG performance status 0 or 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 0",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Active malignancy within 3 years prior to enrollment",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "Diagnosed with stage IIB breast cancer in January 2024 and recurrent metastatic TNBC in September 2026, representing an active malignancy within 3 years.",
+          "fail_confidence": "LOW",
+          "importance": null
+        },
+        {
+          "criterion": "Known symptomatic brain metastases requiring steroids",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain MRI October 2026 shows no brain metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Advanced/metastatic, symptomatic, visceral spread, at risk of life-threatening complications",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Multiple lung nodules present, but no symptoms or life-threatening complications described.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Renal impairment",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Labs normal",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Hepatic dysfunction",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Labs normal",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Hypertension that cannot be controlled",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Blood pressure and hypertension history are not mentioned in the summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        }
+      ],
+      "open_questions": [
+        "Which specific trial cohort/part (e.g., Part 1A, 1B, 2A) is being considered, given the trial's focus on HR+/HER2- breast cancer or specific prior lines?",
+        "Do the lung nodules meet formal RECIST v1.1 criteria for measurable disease?",
+        "Is there any history of hypertension or cardiovascular abnormalities?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely ineligible - needs review",
+      "fit_score": 0,
+      "n_pass": 6,
+      "n_fail": 1,
+      "n_unknown": 3,
+      "n_unknown_important": 2,
+      "nct_id": "NCT07318805",
+      "title": "A Study to Learn About the Study Medicine Called PF-08032562 in People With Advanced or Metastatic Solid Tumors",
+      "url": "https://clinicaltrials.gov/study/NCT07318805",
+      "phases": [
+        "PHASE1"
+      ],
+      "relevance_score": 7,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "solid-tumor basket"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center - David H. Koch Center for Cancer Care (74th Street).",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10021",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center 53rd street.",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10022",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center - Main Campus",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center - Investigational Drug Service Pharmacy",
+          "city": "Long Island City",
+          "state": "New York",
+          "zip": "11101",
+          "site_status": "RECRUITING",
+          "distance_mi": 3.7,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Pfizer CT.gov Call Center",
+        "phone": "1-800-718-1021",
+        "email": "ClinicalTrials.gov_Inquiries@pfizer.com"
+      }
+    },
+    {
+      "summary": "The patient is a 41-year-old premenopausal woman with metastatic triple-negative breast cancer (TNBC) who has not received prior systemic therapy for metastatic disease, making her a potential candidate for this clinical trial. However, her PD-L1 status is positive (CPS 15), whereas the trial inclusion criteria specifically require patients to be PD-L1 negative.",
+      "criteria": [
+        {
+          "criterion": "Histologically confirmed diagnosis of metastatic invasive triple-negative breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "In September 2026 found to have multiple lung nodules; biopsy confirmed recurrent TNBC.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "PD-L1 negative by a CLIA approved laboratory",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "PD-L1 CPS 15",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "No prior therapy for metastatic TNBC",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "No treatment yet for metastatic disease.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Taxane-based adjuvant therapy disease-free interval of at least 12 months",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Completed neoadjuvant carboplatin/paclitaxel followed by other treatments until March 2025, and lung recurrence found in September 2026 (interval > 12 months from taxane completion to recurrence).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status =< 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 0",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No active brain metastases",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain MRI October 2026: no brain metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate organ function and lab values (ANC, platelets, hemoglobin, bilirubin, transaminases, creatinine clearance)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Labs normal.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Stable dose of supplemental therapy for grade >= 2 endocrinological AEs for at least 2 weeks",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "had grade 2 hypothyroidism from pembrolizumab, now on levothyroxine.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Active autoimmune disease requiring systemic treatment in the past 2 years",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No autoimmune disease; had grade 2 hypothyroidism... now on levothyroxine (replacement therapy is an exception).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Available tumor tissue for biomarker testing or new biopsy",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Biopsy confirmed recurrent TNBC, but availability of sufficient archived tissue or willingness/feasibility of a new biopsy is not explicitly stated in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        }
+      ],
+      "open_questions": [
+        "Confirm whether the PD-L1 assay used (CPS 15) defines the patient as PD-L1 negative per the specific trial assay requirements, or if this score excludes her based on the protocol's definition.",
+        "Verify whether sufficient archived tissue is available from the recent lung nodule biopsy or if a new biopsy is needed."
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 8,
+      "n_fail": 1,
+      "n_unknown": 1,
+      "n_unknown_important": 1,
+      "nct_id": "NCT03606967",
+      "title": "Testing the Addition of an Individualized Vaccine to Durvalumab and Tremelimumab and Chemotherapy in Patients With Metastatic Triple Negative Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT03606967",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "NYP/Weill Cornell Medical Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Site Public Contact",
+          "contact_phone": "212-746-1848",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": null,
+        "phone": null,
+        "email": null
+      }
+    },
+    {
+      "summary": "The patient is a 41-year-old woman with recurrent metastatic triple-negative breast cancer and PD-L1 CPS 15 who has not received prior systemic therapy for metastatic disease. However, her treatment-free interval from curative-intent completion in March 2025 to recurrence in September 2026 is approximately 6 months, and her prior exposure to pembrolizumab and specific recurrence timing requires verification against protocol recurrence criteria. Overall, she is a potential candidate pending confirmation of measurable disease and central PD-L1 testing.",
+      "criteria": [
+        {
+          "criterion": "Locally recurrent inoperable or metastatic TNBC",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Multiple lung nodules confirmed as recurrent TNBC by biopsy.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG PS 0 or 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 0.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "PD-L1 positive TNBC (CPS >= 10) from central laboratory",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has PD-L1 CPS 15, but central laboratory confirmation using the 22C3 assay is required.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No prior systemic anti-cancer therapy for metastatic or locally recurrent inoperable breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "No treatment yet for metastatic disease.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": ">=6 months elapsed between completion of treatment with curative intent and first documented recurrence",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Completed adjuvant therapy in March 2025 and recurrence documented in September 2026 (approximately 18 months elapsed).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Measurable disease as per RECIST 1.1",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Multiple lung nodules found, but specific measurements per RECIST 1.1 are not provided.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Adequate bone marrow reserve and organ function",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Labs normal.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Active or prior documented autoimmune or inflammatory disorders",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "Had grade 2 hypothyroidism from pembrolizumab, now on levothyroxine, representing a prior immune-mediated/autoimmune adverse event.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Prior exposure to any treatment including ADC containing a chemotherapeutic agent targeting topoisomerase I and TROP2-targeted therapy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Prior therapy consisted of carboplatin, paclitaxel, pembrolizumab, AC, and capecitabine; no prior TROP2-directed ADC mentioned.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of non-infectious ILD/pneumonitis that required steroids, current ILD/pneumonitis, or suspected ILD/pneumonitis",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of ILD or pneumonitis reported.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Has the PD-L1 CPS >= 10 been confirmed by a sponsor-designated central laboratory using the 22C3 assay?",
+        "Do the lung nodules meet RECIST 1.1 criteria for measurable disease?",
+        "Does the grade 2 hypothyroidism from prior pembrolizumab exclude the patient under the autoimmune/inflammatory disorders exclusion criterion?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 7,
+      "n_fail": 1,
+      "n_unknown": 2,
+      "n_unknown_important": 2,
+      "nct_id": "NCT06103864",
+      "title": "A Phase III Study of Dato-DXd With or Without Durvalumab Compared With Investigator's Choice of Chemotherapy in Combination With Pembrolizumab in Patients With PD-L1 Positive Locally Recurrent Inoperable or Metastatic Triple-negative Breast Cancer (TROPION-Breast05)",
+      "url": "https://clinicaltrials.gov/study/NCT06103864",
+      "phases": [
+        "PHASE3"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Research Site",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "AstraZeneca Clinical Study Information Center",
+        "phone": "1-877-240-9479",
+        "email": "information.center@astrazeneca.com"
+      }
+    },
+    {
+      "summary": "The patient is a 41-year-old woman with recurrent metastatic triple-negative breast cancer (TNBC) who previously received adjuvant pembrolizumab and taxane-based therapy ending in March 2025, with metastatic recurrence diagnosed in September 2026 (18 months post-adjuvant completion). She is a potential candidate for the dose expansion cohort pending confirmation of measurable disease per RECIST 1.1, verification of neuropathy grade, and review of concomitant medications.",
+      "criteria": [
+        {
+          "criterion": "Histologically or cytologically confirmed diagnosis of TNBC (ER/PR < 10%, HER2-negative)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Triple-negative breast cancer (ER 0%, PR 0%, HER2 IHC 0).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Disease that is unresectable locally advanced or metastatic",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Diagnosed with multiple lung nodules; biopsy confirmed recurrent TNBC in metastatic setting.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "DOSE EXPANSION COHORT: PD-L1 status must be negative",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "PD-L1 CPS 15, which is not negative.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "DOSE EXPANSION COHORT: 0-1 prior lines of systemic therapy in the metastatic setting",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "No treatment yet for metastatic disease (0 prior lines in metastatic setting).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "DOSE EXPANSION COHORT: Participants must have measurable disease per RECIST 1.1 criteria",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary notes multiple lung nodules, but RECIST 1.1 measurability is not explicitly confirmed.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Age >= 18 years",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "41-year-old premenopausal woman.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status =< 2",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 0.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Organ function and laboratory parameters within protocol limits",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Labs normal.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Peripheral neuropathy grade =< 1",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Prior paclitaxel treatment received, but current peripheral neuropathy grade is not reported.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Active autoimmune disease requiring systemic treatment in the past 2 years",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No autoimmune disease; had grade 2 hypothyroidism from pembrolizumab, now on levothyroxine (replacement therapy is permitted).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "DOSE EXPANSION COHORT: Prior exposure to immune checkpoint inhibitors in metastatic setting, or < 12 months elapsed since neo-/adjuvant end to metastatic disease",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No prior immune checkpoint inhibitor in metastatic setting; adjuvant pembrolizumab completed in March 2025 and metastatic disease found in September 2026 (18 months elapsed, which is >= 12 months).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "DOSE EXPANSION COHORT: Prior exposure to taxane-based therapy in metastatic setting, or < 12 months elapsed since neo-/adjuvant taxane end to metastatic disease",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No prior taxane in metastatic setting; neoadjuvant paclitaxel completed prior to surgery/adjuvant therapy in early 2024, with 18 months elapsing before metastatic recurrence in Sept 2026.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Strong inhibitors or inducers of CYP3A4",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Current concomitant medications (other than levothyroxine) are not mentioned.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Recent systemic steroid therapy or immunosuppressive therapy within 7 days",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Only on levothyroxine for hypothyroidism; no systemic steroids or immunosuppressive therapy mentioned.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Negative serum or urine pregnancy test within 2 weeks prior to registration for women of childbearing potential",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Recent pregnancy test result within the last 2 weeks is not reported.",
+          "fail_confidence": null,
+          "importance": "routine"
+        }
+      ],
+      "open_questions": [
+        "Are the lung nodules confirmed to be measurable disease per RECIST 1.1?",
+        "Does the patient have any residual peripheral neuropathy > grade 1 from prior paclitaxel?",
+        "What are the patient's current concomitant medications, specifically regarding potential strong CYP3A4 inhibitors/inducers?",
+        "What is the result of a recent pregnancy test?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 10,
+      "n_fail": 1,
+      "n_unknown": 4,
+      "n_unknown_important": 2,
+      "nct_id": "NCT05422794",
+      "title": "Testing the Addition of Anti-Cancer Drug, ZEN003694 (ZEN-3694) and PD-1 Inhibitor (Pembrolizumab), to Standard Chemotherapy (Nab-Paclitaxel) Treatment in Patients With Advanced Triple-Negative Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT05422794",
+      "phases": [
+        "PHASE1"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Laura and Isaac Perlmutter Cancer Center at NYU Langone",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Site Public Contact",
+          "contact_phone": null,
+          "contact_email": "CancerTrials@nyulangone.org"
+        }
+      ],
+      "central_contact": {
+        "name": null,
+        "phone": null,
+        "email": null
+      }
+    },
+    {
+      "summary": "The patient is a 41-year-old woman with recurrent metastatic triple-negative breast cancer. However, the trial requires patients to have received prior treatment with an antibody-drug conjugate with a topoisomerase inhibitor payload, which is not mentioned in her treatment history (she received taxane, platinum, anthracycline, pembrolizumab, and capecitabine). Therefore, she does not meet this critical inclusion criterion, resulting in a FAIL.",
+      "criteria": [
+        {
+          "criterion": "Recurrent or metastatic triple-negative breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Biopsy confirmed recurrent TNBC in September 2026.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior treatment with a taxane and an antibody-drug conjugate with a topoisomerase inhibitor payload",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient received prior taxane, carboplatin, AC, pembrolizumab, and capecitabine, but no antibody-drug conjugate with a topoisomerase inhibitor payload is reported.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Measurable disease by RECIST v1.1",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Multiple lung nodules found on scan, but RECIST v1.1 measurability is not explicitly confirmed.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No more than 3 prior lines of cytotoxic therapy in the locally advanced or metastatic setting",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "No treatment yet for metastatic disease; prior cytotoxic therapy was in the neoadjuvant/adjuvant setting.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status 0-1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 0.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate hematologic and organ function",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Labs normal.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Unstable CNS metastasis requiring treatment in the last 28 days",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain MRI October 2026 shows no brain metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Grade >=2 peripheral neuropathy",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Peripheral neuropathy status is not mentioned in the summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Any systemic anticancer therapy in the last 28 days prior to first administration of study drug",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Adjuvant therapy completed in March 2025; no treatment yet for metastatic disease.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Provision of archival tumor tissue or fresh tumor biopsy",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Biopsy confirmed recurrent TNBC in September 2026, but provision of tissue for the study is not explicitly confirmed.",
+          "fail_confidence": null,
+          "importance": "important"
+        }
+      ],
+      "open_questions": [
+        "Has the patient received any prior antibody-drug conjugate with a topoisomerase inhibitor payload (such as sacituzumab govitecan)?",
+        "Are the lung nodules measurable by RECIST v1.1?",
+        "Does the patient have any grade >=2 peripheral neuropathy?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 6,
+      "n_fail": 1,
+      "n_unknown": 3,
+      "n_unknown_important": 2,
+      "nct_id": "NCT06908928",
+      "title": "A Dose Randomization Study of Bulumtatug Fuvedotin in TNBC Patients Previously Treated With ADCs",
+      "url": "https://clinicaltrials.gov/study/NCT06908928",
+      "phases": [
+        "PHASE1"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10021",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": "646-888-6885",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Matthew Brobeck",
+        "phone": "801-201-4911",
+        "email": "matthew.brobeck@mabwell.com"
+      }
+    },
+    {
+      "summary": "The patient is a 41-year-old woman with recurrent metastatic triple-negative breast cancer and a germline BRCA1 mutation, previously treated with neoadjuvant chemo/pembrolizumab, surgery, and adjuvant capecitabine/pembrolizumab. She completed adjuvant therapy in March 2025 and developed metastatic recurrence in September 2026 (an interval of 6 months). However, her tumor is PD-L1 positive with a CPS of 15, which directly violates an exclusion criterion for this specific trial cohort (which excludes TNBC with PD-L1 CPS >= 10). Therefore, she is ineligible.",
+      "criteria": [
+        {
+          "criterion": "Has locally recurrent unresectable or metastatic TNBC that cannot be treated with curative intent",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "In September 2026 found to have multiple lung nodules; biopsy confirmed recurrent TNBC, no treatment yet for metastatic disease.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has not received systemic treatment for locally recurrent unresectable or metastatic breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "No treatment yet for metastatic disease.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Completed all prior therapy for early-stage breast cancer with curative intent at least 6 months before first disease recurrence",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Completed adjuvant therapy in March 2025 and recurrence found in September 2026 (6 months interval).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has TNBC with evaluable tumor programmed death ligand 1 (PD-L1) expression at combined positive score (CPS) >= 10",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "PD-L1 CPS 15",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status 0-1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "ECOG 0",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate organ function and normal baseline labs",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Labs normal.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has Grade >= 2 peripheral neuropathy",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Neuropathy status not mentioned in patient summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Active autoimmune disease that has required systemic treatment in the past 2 years (replacement allowed)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No autoimmune disease; had grade 2 hypothyroidism from pembrolizumab, now on levothyroxine (replacement therapy allowed).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has known active central nervous system (CNS) metastases and/or carcinomatous meningitis",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Brain MRI October 2026: no brain metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has a history of (noninfectious) pneumonitis/interstitial lung disease (ILD) that required steroids",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Pneumonitis or ILD history not mentioned.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Is a candidate for treatment with pembrolizumab and one of the TPC options (paclitaxel, nab-paclitaxel, gemcitabine + carboplatin)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Specific physician intent or suitability for these exact chemotherapy partner options not explicitly stated.",
+          "fail_confidence": null,
+          "importance": "important"
+        }
+      ],
+      "open_questions": [
+        "Confirm exact date of completion of adjuvant therapy to verify the 6-month recurrence window precisely.",
+        "Assess for any history of peripheral neuropathy or pneumonitis.",
+        "Verify physician intent and patient candidacy for the protocol-specified chemotherapy options (paclitaxel, nab-paclitaxel, or gemcitabine + carboplatin)."
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 7,
+      "n_fail": 1,
+      "n_unknown": 3,
+      "n_unknown_important": 3,
+      "nct_id": "NCT06841354",
+      "title": "A Study of Sacituzumab Tirumotecan (Sac-TMT, MK-2870) as Monotherapy and in Combination With Pembrolizumab (MK-3475) in Participants With Triple-Negative Breast Cancer (MK-2870-011/TroFuse-011)",
+      "url": "https://clinicaltrials.gov/study/NCT06841354",
+      "phases": [
+        "PHASE3"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Laura and Isaac Perlmutter Cancer Center ( Site 0003)",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Study Coordinator",
+          "contact_phone": "212-731-6126",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Toll Free Number",
+        "phone": "1-888-577-8839",
+        "email": "Trialsites@msd.com"
+      }
+    },
+    {
+      "summary": "Screening failed: Invalid criterion type at 3",
+      "criteria": [],
+      "open_questions": [],
+      "model": null,
+      "category": "Unable to assess - screening error",
+      "fit_score": 0,
+      "n_pass": 0,
+      "n_fail": 0,
+      "n_unknown": 0,
+      "n_unknown_important": 0,
+      "nct_id": "NCT07173751",
+      "title": "ROSETTA Breast-01: The Effects and Safety of Pumitamig in Patients With Triple-Negative Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT07173751",
+      "phases": [
+        "PHASE3"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Paradigm New York Cancer and Blood Specialists",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10028",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Paradigm New York Cancer and Blood Specialists",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10469",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Paradigm New York Cancer and Blood Specialists",
+          "city": "New York",
+          "state": "New York",
+          "zip": "11042",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Paradigm New York Cancer and Blood Specialists",
+          "city": "New York",
+          "state": "New York",
+          "zip": "11210",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Paradigm New York Cancer and Blood Specialists",
+          "city": "New York",
+          "state": "New York",
+          "zip": "11702",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Paradigm New York Cancer and Blood Specialists",
+          "city": "New York",
+          "state": "New York",
+          "zip": "11772",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Paradigm New York Cancer and Blood Specialists",
+          "city": "New York",
+          "state": "New York",
+          "zip": "11776",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Paradigm New York Cancer and Blood Specialists",
+          "city": "New York",
+          "state": "New York",
+          "zip": "11901",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Montefiore Medical Center",
+          "city": "The Bronx",
+          "state": "New York",
+          "zip": "10461",
+          "site_status": "RECRUITING",
+          "distance_mi": 12.0,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "BioNTech clinical trials patient information",
+        "phone": "+49 6131 9084",
+        "email": "patients@biontech.de"
+      }
+    },
+    {
+      "summary": "Screening failed: Expecting value: line 58 column 21 (char 2863)",
+      "criteria": [],
+      "open_questions": [],
+      "model": null,
+      "category": "Unable to assess - screening error",
+      "fit_score": 0,
+      "n_pass": 0,
+      "n_fail": 0,
+      "n_unknown": 0,
+      "n_unknown_important": 0,
+      "nct_id": "NCT06134375",
+      "title": "A Study of Tetrathiomolybdate (TM) Plus Capecitabine",
+      "url": "https://clinicaltrials.gov/study/NCT06134375",
+      "phases": [
+        "PHASE1",
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "TNBC match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "NYU Langone perimutter Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Nancy Chan, MD",
+          "contact_phone": "212-731-5349",
+          "contact_email": "Nancy.chan29@nyulangone.org"
+        }
+      ],
+      "central_contact": {
+        "name": "Raven J Lavoie, RN",
+        "phone": "(603) 653-3661",
+        "email": "Raven.M.Lavoie@hitchcock.org"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+﻿patient_id,label,trials_in_database,after_rules,screened,Eligible,Likely elig.,Likely inel.,Not eligible,Error,complete,models
+P01,"Metastatic HR+/HER2-low, PIK3CA-mutant, progressed on CDK4/6 inhibitor",183,140,15,0,6,1,7,1,True,gemini-3.5-flash-lite
+P02,"Metastatic triple-negative, germline BRCA1, recurred after neoadjuvant pembrolizumab",183,137,15,0,7,1,5,2,True,gemini-3.5-flash-lite
+P03,"Early-stage premenopausal HR+/HER2-, Oncotype 21, post-lumpectomy",183,137,15,1,3,0,10,1,True,gemini-3.5-flash-lite
+P04,"Metastatic HER2+ with treated brain metastases, progressed on T-DXd",183,139,15,0,6,1,8,0,True,gemini-3.5-flash-lite
+P05,"Male, metastatic HR+/HER2-, ESR1-mutant",183,114,15,0,2,0,12,1,True,gemini-3.5-flash-lite
