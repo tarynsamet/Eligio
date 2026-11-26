@@ -62,10 +62,12 @@ def load_qrels(txt):
     return out
 
 
-def sample_pairs(topics, qrels, n, seed=42):
+def sample_pairs(topics, qrels, n, seed=42, exclude_topics=()):
     """Balanced sample: 40% eligible, 40% excluded, 20% not relevant; cancer topics first;
-    at most 3 pairs per topic so many different patients are covered."""
+    at most 3 pairs per topic so many different patients are covered.
+    exclude_topics: patients used before (for a held-out test on new patients)."""
     rng = random.Random(seed)
+    topics = {t: v for t, v in topics.items() if t not in set(exclude_topics)}
     want = {2: round(n * 0.4), 1: round(n * 0.4)}
     want[0] = n - want[2] - want[1]
     cancer_topics = {t for t, txt in topics.items() if CANCER.search(txt)}
@@ -107,6 +109,10 @@ def main():
     ap.add_argument("--out", default=OUT, help="results folder (new folder = fresh run)")
     ap.add_argument("--compare", default="trec_results_v4.json",
                     help="earlier trec_results.json to compare against, if present")
+    ap.add_argument("--seed", type=int, default=42, help="sampling seed (42 = original sample)")
+    ap.add_argument("--exclude", nargs="*", default=[],
+                    help="earlier trec_results*.json files: their patients (topics) are left out, "
+                         "so the test uses only NEW patients and trials")
     args = ap.parse_args()
     OUT = args.out
     os.makedirs(OUT, exist_ok=True)
@@ -119,7 +125,15 @@ def main():
 
     done_path = f"{OUT}/trec_results.json"
     done = json.load(open(done_path)) if os.path.exists(done_path) else {}
-    pairs = sample_pairs(topics, qrels, args.pairs)
+    used = set()
+    for path in args.exclude:
+        if os.path.exists(path):
+            used |= {int(k.split("|")[0]) for k in json.load(open(path))}
+        else:
+            raise SystemExit(f"--exclude file not found: {path}")
+    if used:
+        print(f"Held-out test: leaving out {len(used)} patients used in earlier runs")
+    pairs = sample_pairs(topics, qrels, args.pairs, seed=args.seed, exclude_topics=used)
     print(f"Sample: {len(pairs)} pairs ({sum(p[2]==2 for p in pairs)} eligible, "
           f"{sum(p[2]==1 for p in pairs)} excluded, {sum(p[2]==0 for p in pairs)} not relevant); "
           f"{sum(f'{t}|{n}' in done for t, n, _ in pairs)} already done")
@@ -176,7 +190,8 @@ def main():
 
     cats = [screener.ELIGIBLE, screener.LIKELY_ELIGIBLE, screener.LIKELY_INELIGIBLE,
             screener.NOT_ELIGIBLE]
-    lines = [f"TREC 2021 physician labels vs our screener ({screener.MODEL}), {n} pairs scored",
+    lines = [f"TREC 2021 physician labels vs our screener ({screener.MODEL}), {n} pairs scored"
+             + (f" [HELD-OUT: new patients only, seed {args.seed}]" if used else ""),
              "",
              f"Overall agreement (eligible vs not eligible): {agree}/{n} = {pct(agree, n)}",
              f"Eligible pairs found (sensitivity):           {tp}/{tp + fn} = {pct(tp, tp + fn)}",
@@ -202,7 +217,7 @@ def main():
               f"{hidden}/{len(elig)} = {pct(hidden, len(elig))}",
               f"Physician-eligible pairs still shown for review (any category except Not eligible): "
               f"{len(elig) - hidden}/{len(elig)} = {pct(len(elig) - hidden, len(elig))}"]
-    if os.path.exists(args.compare):
+    if os.path.exists(args.compare) and not used:      # no overlap on a held-out test
         old = json.load(open(args.compare))
         changed = [(k, old[k]["category"], done[k]["category"], done[k]["label"])
                    for k in done if k in old and old[k].get("category") != done[k].get("category")]

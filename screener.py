@@ -146,6 +146,11 @@ Evidence quality for FAIL (Version 5):
     could change before enrollment.
 20. Every HIGH fail must name both sides in its evidence, in the form
     "Patient: <documented fact> | Trial: <requirement it contradicts>".
+21. Patient group versus healthy-control group. Some trials enroll both people WITH
+    the condition being studied and healthy controls. If the patient has that
+    condition, judge them only against the patient group's criteria; never fail them
+    on a control-group criterion (e.g. "control cohort: depression score <= 7" or "no
+    psychiatric history" for controls in a depression study).
 
 For every FAIL, assign a fail_confidence:
 - HIGH: A documented patient fact directly contradicts an unambiguous mandatory
@@ -495,6 +500,24 @@ def _absence_evidence(evidence):
     return re.search(ABSENCE_RX, evidence, re.I) is not None
 
 
+LAB_RX = (r"creatinine|clearance|\bcrcl\b|\begfr\b|\bgfr\b|\banc\b|neutrophil|platelet|"
+          r"ha?emoglobin|bilirubin|\bast\b|\balt\b|transaminase|albumin|\binr\b|\blvef\b|"
+          r"ejection fraction|\bqtc\b|potassium|sodium|glucose|hba1c|\bldh\b|\buln\b|"
+          r"ml/min|mg/dl|g/dl|x\s*10\^?9")
+AGE_RX = r"\b\d{1,3}[- ]?(years?|yrs?)([- ]old)?\b|\baged? \d{1,3}\b"
+
+
+def _unmeasured_threshold(criterion, evidence):
+    """Safety net (V5): a HIGH fail on a lab / measured threshold needs an actual
+    number on the patient's side. 'On hemodialysis' vs 'CrCl >= 40' stays
+    'Likely ineligible - needs review' until a measured value is given."""
+    if not re.search(LAB_RX, criterion or "", re.I):
+        return False
+    patient_side = re.split(r"\|\s*trial\s*:", evidence, flags=re.I)[0]
+    patient_side = re.sub(AGE_RX, "", patient_side, flags=re.I)
+    return re.search(r"\d", patient_side) is None
+
+
 def score_checklist(result):
     """Coordinator-facing category from the checklist (V4).
     Not eligible   : a HIGH-confidence FAIL backed by a documented fact
@@ -521,6 +544,7 @@ def score_checklist(result):
         decisive = any(c["status"] == "FAIL" and c.get("fail_confidence") == "HIGH"
                        and isinstance(c.get("evidence"), str) and c["evidence"].strip()
                        and not _absence_evidence(c["evidence"])
+                       and not _unmeasured_threshold(c.get("criterion"), c["evidence"])
                        for c in crit)
         category = NOT_ELIGIBLE if decisive else LIKELY_INELIGIBLE
     elif n_unk_imp:
