@@ -1,0 +1,26 @@
+TREC 2021 physician labels vs our screener (gemini-3.5-flash-lite), 50 pairs scored
+
+Overall agreement (eligible vs not eligible): 39/50 = 78%
+Eligible pairs found (sensitivity):           12/20 = 60%
+Ineligible pairs ruled out (specificity):     27/30 = 90%
+When we say eligible, physicians agree (PPV): 12/15 = 80%
+
+Our category (rows) vs physician label (columns):
+                                      eligible  excluded not relev.
+Eligible                                     0         0          0
+Likely eligible - needs review              12         1          2
+Likely ineligible - needs review             2         1          0
+Not eligible                                 6        18          8
+
+Technical failures (no usable answer): 0/50 attempted pairs = 0% (excluded from the numbers above)
+Physician-eligible pairs marked 'Not eligible' (i.e. not flagged for review): 6/20 = 30%
+Physician-eligible pairs still shown for review (any category except Not eligible): 14/20 = 70%
+
+Changes vs trec_results_v4.json: 7 pair(s) changed category
+  64|NCT03884816   Unable to assess - screening error -> Likely eligible - needs review   (physicians: eligible)
+  17|NCT00256776   Not eligible -> Likely ineligible - needs review   (physicians: eligible)
+  11|NCT04462471   Not eligible -> Likely eligible - needs review   (physicians: eligible)
+  70|NCT04239963   Likely eligible - needs review -> Not eligible   (physicians: eligible)
+  17|NCT00003153   Unable to assess - screening error -> Likely eligible - needs review   (physicians: eligible)
+  61|NCT00233974   Not eligible -> Likely ineligible - needs review   (physicians: eligible)
+  31|NCT00039338   Likely eligible - needs review -> Likely ineligible - needs review   (physicians: excluded)
