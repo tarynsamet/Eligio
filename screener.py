@@ -126,6 +126,27 @@ Check what the trial is FOR (Version 4):
     has already had surgery; a trial for patients ineligible for PD-1 therapy when
     the patient's PD-L1 result makes them eligible for it.
 
+Evidence quality for FAIL (Version 5):
+16. A symptom is not proof of incapacity. A complaint or symptom does not show the
+    patient lacks an ability unless the summary says so directly. Example: "difficulty
+    swallowing solid food" does NOT mean the patient cannot swallow a tablet; use
+    UNKNOWN (important) for a pill-swallowing requirement.
+17. Measured thresholds: if a criterion needs a measured value (creatinine clearance,
+    ANC, LVEF, bilirubin, etc.) and the summary gives no value, never invent one.
+    If strong indirect evidence makes failure very likely (e.g. hemodialysis versus a
+    minimum creatinine clearance), mark FAIL with LOW confidence and say "verify the
+    measured value". Otherwise use UNKNOWN. A HIGH fail on a threshold needs a stated
+    value that breaks it.
+18. Absent history is not negative history. If a trial requires a history, risk
+    factor or prior treatment (e.g. family or genetic high risk) and the summary is
+    silent on it, use UNKNOWN (important), not FAIL.
+19. Plans that could change. If the conflict is with a PLANNED treatment, a treatment
+    sequence or a choice not yet carried out (e.g. surgery planned before
+    chemotherapy for a pre-surgery trial), mark FAIL with LOW confidence: the plan
+    could change before enrollment.
+20. Every HIGH fail must name both sides in its evidence, in the form
+    "Patient: <documented fact> | Trial: <requirement it contradicts>".
+
 For every FAIL, assign a fail_confidence:
 - HIGH: A documented patient fact directly contradicts an unambiguous mandatory
   requirement for the applicable trial cohort.
@@ -252,7 +273,38 @@ def parse_json(text):
     """Parse model output, tolerating ```json fences."""
     text = text.strip()
     text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text)
-    return json.loads(text)
+    data = json.loads(text)
+    # Gemini occasionally wraps the object in a list: [{...}] -> {...}
+    if isinstance(data, list) and len(data) == 1 and isinstance(data[0], dict):
+        data = data[0]
+    return data
+
+
+def _normalize_criterion(c):
+    """Fix harmless formatting slips (V5) before validation: 'Inclusion' -> 'inclusion',
+    'fail' -> 'FAIL', 'high' -> 'HIGH', 'null'/'' -> None. Real content errors still fail."""
+    def clean(v):
+        if isinstance(v, str):
+            v = v.strip()
+            return None if v.lower() in ("", "null", "none", "n/a") else v
+        return v
+    t = clean(c.get("type"))
+    if isinstance(t, str):
+        tl = t.lower()
+        c["type"] = "exclusion" if tl.startswith("excl") else "inclusion" if tl.startswith("incl") else t
+    s = clean(c.get("status"))
+    c["status"] = s.upper() if isinstance(s, str) else s
+    fc = clean(c.get("fail_confidence"))
+    c["fail_confidence"] = fc.upper() if isinstance(fc, str) else fc
+    imp = clean(c.get("importance"))
+    c["importance"] = imp.lower() if isinstance(imp, str) else imp
+    if c.get("status") != "FAIL":
+        c["fail_confidence"] = None
+    if c.get("status") != "UNKNOWN":
+        c["importance"] = None
+    if c.get("status") == "UNKNOWN" and c.get("importance") is None:
+        c["importance"] = "important"        # cautious default
+    return c
 
 
 def validate_screening_response(result):
@@ -265,6 +317,7 @@ def validate_screening_response(result):
     for i, criterion in enumerate(criteria, start=1):
         if not isinstance(criterion, dict):
             raise ValueError(f"Criterion {i} is not a dictionary")
+        _normalize_criterion(criterion)
         if criterion.get("type") not in {"inclusion", "exclusion"}:
             raise ValueError(f"Invalid criterion type at {i}")
         if criterion.get("status") not in {"PASS", "FAIL", "UNKNOWN"}:
@@ -430,6 +483,18 @@ NOT_ELIGIBLE = "Not eligible"
 ERROR_CATEGORY = "Unable to assess - screening error"
 
 
+ABSENCE_RX = (r"\bnot (mentioned|reported|documented|stated|provided|specified|available|given|known)\b"
+              r"|\bno (information|data|value|mention|documentation)\b|\bunknown\b|\bmissing\b"
+              r"|\bdoes not (mention|state|report|specify)\b|\bwithout (a )?(value|measurement)\b")
+
+
+def _absence_evidence(evidence):
+    """Safety net (V5): evidence that only says something is missing cannot make a
+    FAIL decisive, even if the model labelled it HIGH. The trial stays 'Likely
+    ineligible - needs review' instead of 'Not eligible'."""
+    return re.search(ABSENCE_RX, evidence, re.I) is not None
+
+
 def score_checklist(result):
     """Coordinator-facing category from the checklist (V4).
     Not eligible   : a HIGH-confidence FAIL backed by a documented fact
@@ -455,6 +520,7 @@ def score_checklist(result):
     if n_fail:
         decisive = any(c["status"] == "FAIL" and c.get("fail_confidence") == "HIGH"
                        and isinstance(c.get("evidence"), str) and c["evidence"].strip()
+                       and not _absence_evidence(c["evidence"])
                        for c in crit)
         category = NOT_ELIGIBLE if decisive else LIKELY_INELIGIBLE
     elif n_unk_imp:

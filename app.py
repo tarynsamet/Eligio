@@ -14,6 +14,7 @@ import glob
 import html
 import json
 import os
+import re
 
 import gradio as gr
 
@@ -290,32 +291,84 @@ def fill_from_summary(summary):
     """'Fill from summary' button: the AI pre-fills the form; the coordinator checks it."""
     if not summary or len(summary.strip()) < 40:
         return [gr.update() for _ in FIELDS] + ["<p class='tm-meta'>Paste a summary first, then click Fill from summary.</p>"]
+    keep = [gr.update() for _ in FIELDS]          # leaves whatever is in the form untouched
     try:
         d = screener.call_llm(FORM_FILL_PROMPT, f"PATIENT SUMMARY:\n{summary}")
     except screener.DailyQuotaExceeded:
-        return [gr.update() for _ in FIELDS] + ["<p><b>The free daily AI limit has been reached.</b></p>"]
+        return keep + ["<p><b>The free daily AI limit has been reached.</b> The form was not changed; "
+                       "you can still fill it in by hand.</p>"]
     except Exception as e:
-        return [gr.update() for _ in FIELDS] + [f"<p><b>Could not fill the form:</b> {esc(e)}</p>"]
-    allowed = {"sex": ["Female", "Male"], "meno": ["Pre", "Post", "Unknown"], "setting": SETTINGS,
-               "er": RECEPTOR, "pr": PR_OPTS, "her2": HER2_OPTS, "lines": LINES, "ecog": ECOG,
-               "brain": BRAIN, "brca": MARKER_OPTS, "pik3ca": MARKER_OPTS, "esr1": MARKER_OPTS,
-               "pdl1": MARKER_OPTS}
-    out = []
-    for k in FIELDS:
-        v = d.get(k)
-        if k == "age":
-            v = int(v) if isinstance(v, (int, float)) or (isinstance(v, str) and v.isdigit()) else None
-        elif k == "treatments":
-            v = [t for t in (v or []) if t in TREATMENTS]
-        elif k == "other":
-            v = v if isinstance(v, str) else ""
-        elif k in ("lines", "ecog") and v is not None:
-            v = str(v)
-            v = v if v in allowed[k] else None
+        log_error("fill_from_summary: AI call", e)
+        return keep + [f"<p><b>Could not fill the form</b> (the form was not changed): {esc(str(e)[:200])}</p>"]
+    if isinstance(d, list) and d and isinstance(d[0], dict):
+        d = d[0]
+    if not isinstance(d, dict):
+        log_error("fill_from_summary: unexpected answer", TypeError(repr(d)[:300]))
+        return keep + ["<p><b>The AI returned an answer Eligio couldn't read.</b> The form was not "
+                       "changed. Please try again, or fill it in by hand.</p>"]
+    try:
+        out = [_coerce_field(k, d.get(k)) for k in FIELDS]
+    except Exception as e:                      # should never happen; never crash the form
+        log_error("fill_from_summary: coercion", e)
+        return keep + ["<p><b>Could not fill the form</b> (the form was not changed). Please fill it in by hand.</p>"]
+    n = sum(1 for v in out if v not in (None, "", []))
+    return out + [f"<p class='tm-meta'>Filled {n} field(s) from the summary. Fields the summary doesn't "
+                  "mention are left blank. Please check everything, and correct anything wrong.</p>"]
+
+
+FILL_ALLOWED = {"sex": ["Female", "Male"], "meno": ["Pre", "Post", "Unknown"], "setting": SETTINGS,
+                "er": RECEPTOR, "pr": PR_OPTS, "her2": HER2_OPTS, "lines": LINES, "ecog": ECOG,
+                "brain": BRAIN, "brca": MARKER_OPTS, "pik3ca": MARKER_OPTS, "esr1": MARKER_OPTS,
+                "pdl1": MARKER_OPTS}
+
+
+def _match_option(v, options):
+    """Exact or case-insensitive match to one allowed option, else None."""
+    if isinstance(v, (int, float)) and not isinstance(v, bool):
+        v = str(int(v)) if float(v).is_integer() else str(v)
+    if not isinstance(v, str):
+        return None
+    v = v.strip()
+    for o in options:
+        if v == o or v.lower() == o.lower():
+            return o
+    return None
+
+
+def _coerce_field(k, v):
+    """Turn one AI value into something the form component accepts (or blank)."""
+    if isinstance(v, dict):                     # e.g. {"value": "Positive"}
+        v = v.get("value")
+    if k == "age":
+        if isinstance(v, bool):
+            return None
+        if isinstance(v, (int, float)):
+            age = int(v)
         else:
-            v = v if v in allowed.get(k, []) else None
-        out.append(v)
-    return out + ["<p class='tm-meta'>Form filled from the summary. Please check it, and correct anything wrong.</p>"]
+            m = re.match(r"\s*(\d{1,3})(\.0+)?\b", str(v or ""))
+            age = int(m.group(1)) if m else None
+        return age if age is not None and 18 <= age <= 110 else None
+    if k == "treatments":
+        if isinstance(v, str):
+            v = [v]
+        if not isinstance(v, list):
+            return []
+        picked = [_match_option(t, TREATMENTS) for t in v]
+        return [t for t in TREATMENTS if t in picked]      # form order, no duplicates
+    if k == "other":
+        if isinstance(v, list):
+            v = ", ".join(str(x) for x in v if x)
+        return v.strip()[:300] if isinstance(v, str) else ""
+    if k == "lines" and isinstance(v, (int, float)) and not isinstance(v, bool) and v >= 3:
+        return "3+"
+    return _match_option(v, FILL_ALLOWED.get(k, []))
+
+
+def log_error(where, e):
+    """Print a full traceback to the Render log so failures can be diagnosed."""
+    import traceback
+    print(f"[Eligio error] {where}: {type(e).__name__}: {e}", flush=True)
+    traceback.print_exception(e)
 
 
 def clear_form():
