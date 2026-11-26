@@ -21,8 +21,7 @@
       "adjuvant AC-T chemotherapy",
       "radiation",
       "anastrozole",
-      "letrozole",
-      "palbociclib"
+      "letrozole + palbociclib"
     ],
     "lines_of_therapy_metastatic": 1,
     "ecog": 1,
@@ -33,11 +32,12 @@
     "missing_information": [
       "ESR1 mutation status",
       "germline BRCA testing",
-      "creatinine"
+      "creatinine result",
+      "brain imaging"
     ]
   },
   "experiment": {
-    "timestamp_utc": "2026-11-22T18:45:43.783121+00:00",
+    "timestamp_utc": "2026-11-26T17:19:08.897974+00:00",
     "configured_model": "gemini-3.5-flash-lite",
     "models_actually_used": [
       "gemini-3.5-flash-lite"
@@ -47,7 +47,7 @@
     "trial_count": 183,
     "patient_record_sha256": "595b72c732aa8e7fdb5838fc1d44f751bc9eff4491527612d03d5138ed5e5ee3",
     "parser_prompt_sha256": "6c358859eddf6a2344b24d6ec7a6be18339d417f9b9475fdb51d247512c7f339",
-    "screener_prompt_sha256": "0e5914f84b5c92fc28b72d1544c633b8924c380d2631bbf76fa38a86de83e59e"
+    "screener_prompt_sha256": "da38322c0a1602c45c0f4338c4d179af851404f4f9dfe2fe84e29963f8480dc2"
   },
   "complete": true,
   "funnel": {
@@ -62,21 +62,13 @@
   },
   "results": [
     {
-      "summary": "The patient is a 58-year-old postmenopausal woman with HR+, HER2-low metastatic breast cancer harboring a PIK3CA H1047R mutation, progressing on first-line letrozole and palbociclib. She has an ECOG performance status of 1 and adequate organ function. While she meets several core criteria for the trial's breast cancer combination arms, key eligibility elements such as exact disease measurability details per RECIST v1.1 and creatinine labs are currently missing or unconfirmed.",
+      "summary": "The patient is a 58-year-old postmenopausal woman with HR+, HER2-low metastatic breast cancer with a PIK3CA H1047R mutation, progressing on first-line letrozole and palbociclib. She appears to be a strong potential candidate for a combination arm (such as RLY-2608 + endocrine therapy + CDK4/6 inhibitor), but exact eligibility depends on confirming measurable disease per RECIST v1.1, creatinine clearance/labs, and specific prior treatment intervals.",
       "criteria": [
         {
           "criterion": "Histologically or cytologically confirmed diagnosis of HR+, HER2- unresectable or metastatic breast cancer",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Metastatic invasive ductal carcinoma of the left breast, ER 90%, PR 40%, HER2 IHC 1+.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Documented primary oncogenic PIK3CA mutation(s) in blood and/or tumor",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Tumor NGS showed PIK3CA H1047R mutation.",
+          "evidence": "Patient: Metastatic invasive ductal carcinoma of the left breast, ER 90%, PR 40%, HER2 IHC 1+ (HER2-low) | Trial: HR+, HER2- unresectable or metastatic breast cancer",
           "fail_confidence": null,
           "importance": null
         },
@@ -84,84 +76,100 @@
           "criterion": "ECOG performance status of 0-1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG performance status 1.",
+          "evidence": "Patient: ECOG performance status 1 | Trial: ECOG performance status of 0-1",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Prior treatment with \u22641 line of chemotherapy in the metastatic setting",
+          "criterion": "One or more documented primary oncogenic PIK3CA mutation(s)",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "No prior chemotherapy for metastatic disease.",
+          "evidence": "Patient: Tumor NGS shows PIK3CA H1047R mutation | Trial: One or more documented primary oncogenic PIK3CA mutation(s) in blood and/or tumor",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Prior treatment with \u22651 CDK4/6 inhibitor in adjuvant and/or metastatic setting",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Received palbociclib in the metastatic setting (April 2024 to October 2026).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Prior treatment with \u22651 antiestrogen therapy in adjuvant and/or metastatic setting",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Received 5 years of adjuvant anastrozole followed by letrozole + palbociclib.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No prior treatment with PI3K\u03b1, AKT, or mTOR inhibitors (for applicable arms)",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No prior mention of PI3K, AKT, or mTOR inhibitor treatment.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Type 1 or Type 2 diabetes requiring antihyperglycemic medication, or fasting plasma glucose \u2265140 mg/dL and HbA1c \u22657.0%",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "HbA1c is 5.9%; no mention of diabetes or antihyperglycemic medication.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "CNS metastases or primary CNS tumor associated with progressive neurologic symptoms",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No brain imaging on file; no neurologic symptoms.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Evaluable or measurable disease per RECIST v1.1",
+          "criterion": "Measurable or evaluable disease per RECIST v1.1",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Scans show 'two liver lesions' and bone metastases, but formal RECIST v1.1 measurability has not been explicitly stated in the summary.",
+          "evidence": "Summary mentions 'two liver lesions' and 'progression in the liver', but does not explicitly state if they meet RECIST v1.1 measurable disease criteria.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "Adequate organ function (specifically renal function via creatinine)",
+          "criterion": "Prior treatment with <=1 line of chemotherapy in the metastatic setting",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: No prior chemotherapy for metastatic disease | Trial: <=1 line of chemotherapy in the metastatic setting",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior treatment with >=1 CDK4/6 inhibitor in adjuvant and/or metastatic setting",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Currently progressing on letrozole + palbociclib in the metastatic setting | Trial: >=1 CDK4/6 inhibitor in either the adjuvant and/or metastatic setting",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior treatment with >=1 antiestrogen therapy in adjuvant and/or metastatic setting",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Treated with 5 years of adjuvant anastrozole and first-line letrozole | Trial: >=1 antiestrogen therapy including aromatase inhibitors",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No prior PI3Kalpha, AKT, or mTOR inhibitors (for applicable arms)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Prior therapy only includes anastrozole, letrozole, palbociclib, and adjuvant AC-T chemotherapy; no PI3K/AKT/mTOR inhibitors mentioned | Trial: Prior treatment with PI3Kalpha, AKT, or mTOR inhibitors",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No Type 1 or Type 2 diabetes requiring medication, or fasting glucose >=140 and HbA1c >=7.0%",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: HbA1c is 5.9% and no diabetes medication mentioned | Trial: HbA1c <7.0% and no diabetes requiring antihyperglycemic medication",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate organ function: Serum creatinine / creatinine clearance",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Creatinine not yet resulted; other labs (ANC, hemoglobin, platelets, AST/ALT, bilirubin) are reported.",
+          "evidence": "Patient: 'Creatinine not yet resulted' | Trial: Specific creatinine or creatinine clearance threshold required",
           "fail_confidence": null,
           "importance": "routine"
+        },
+        {
+          "criterion": "No active or progressive CNS metastases",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No brain imaging on file; no neurologic symptoms | Trial: CNS metastases or primary CNS tumor that is associated with progressive neurologic symptoms",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No past medical history of or ongoing ILD, or pneumonitis requiring intervention",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No history of ILD or pneumonitis reported | Trial: Past medical history of or ongoing ILD, or pneumonitis requiring intervention",
+          "fail_confidence": null,
+          "importance": null
         }
       ],
       "open_questions": [
-        "Are the liver lesions and bone metastases formally measurable or evaluable per RECIST v1.1?",
-        "What are the patient's current serum creatinine and calculated creatinine clearance values?",
-        "Which specific trial arm and cohort is being targeted for this patient?"
+        "Are the liver lesions measurable per RECIST v1.1?",
+        "What is the patient's current serum creatinine or calculated creatinine clearance?",
+        "What specific combination arm (doublet vs. triplet and exact drug pairing) is planned, and are there any specific cohort-level prior treatment constraints that apply?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Likely eligible - needs review",
-      "fit_score": 82,
-      "n_pass": 9,
+      "fit_score": 83,
+      "n_pass": 10,
       "n_fail": 0,
       "n_unknown": 2,
       "n_unknown_important": 1,
@@ -220,284 +228,13 @@
       }
     },
     {
-      "summary": "The patient is a 58-year-old postmenopausal woman with metastatic ER+/HER2- breast cancer who progressed on first-line letrozole and palbociclib. However, the trial specifically requires an ESR1 mutation, and the patient's ESR1 mutation status has not been tested. Additionally, creatinine results are pending, preventing a full assessment of organ function.",
-      "criteria": [
-        {
-          "criterion": "Locally advanced and/or metastatic ER+ breast cancer with progression on an AI plus palbociclib or ribociclib as first hormonal treatment for metastatic disease",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Started first-line letrozole + palbociclib in April 2024; scans in October 2026 show progression in the liver.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "At least 1 or more ESR1 point mutations in the ESR1 ligand binding domain",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Tumor NGS: ESR1 mutation status not tested. No ctDNA testing reported.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Histological or cytological confirmation of ER+/HER2- disease",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Biopsy of liver lesion: ER 90%, PR 40%, HER2 IHC 1+ (HER2-low).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No evidence of progression for at least 6 months on an AI/CDKi combination for advanced breast cancer",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Started letrozole + palbociclib in April 2024 and progressed in October 2026 (over 2 years of disease control).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "At least 1 measurable lesion according to RECIST 1.1",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Two liver lesions noted on scans.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance score of 0 or 1",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ECOG performance status 1.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Adequate organ function",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Labs show ANC 2.1, Hgb 11.8, Plt 190, AST/ALT 1.4x ULN, bilirubin normal. Creatinine not yet resulted.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Brain metastases parameters (asymptomatic, treated, no steroids, stable >3 months)",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "No brain imaging on file; no neurologic symptoms.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Visceral crisis in need of cytotoxic chemotherapy",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Liver lesions present with no mention of visceral crisis; started on endocrine therapy previously.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Prior progression of disease on abemaciclib, fulvestrant, or other SERD therapy",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Prior therapy was letrozole + palbociclib; no prior abemaciclib, fulvestrant, or SERD.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "History of malignancy within the past 5 years (excluding breast cancer)",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Originally diagnosed with stage IIB breast cancer in 2019 (7 years ago); no other malignancies reported.",
-          "fail_confidence": null,
-          "importance": null
-        }
-      ],
-      "open_questions": [
-        "Has ctDNA or tissue NGS been performed to check for an ESR1 mutation?",
-        "What is the patient's current serum creatinine level?",
-        "Should brain MRI be ordered to rule out asymptomatic brain metastases given the lack of prior brain imaging?"
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Likely eligible - needs review",
-      "fit_score": 73,
-      "n_pass": 8,
-      "n_fail": 0,
-      "n_unknown": 3,
-      "n_unknown_important": 2,
-      "nct_id": "NCT05696626",
-      "title": "Evaluation of Lasofoxifene Combined With Abemaciclib Compared With Fulvestrant Combined With Abemaciclib in Locally Advanced or Metastatic ER+/HER2- Breast Cancer With an ESR1 Mutation",
-      "url": "https://clinicaltrials.gov/study/NCT05696626",
-      "phases": [
-        "PHASE3"
-      ],
-      "relevance_score": 8,
-      "relevance_reasons": [
-        "metastatic setting",
-        "HR+ / HER2-low match",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "The Blavatnik Family - Chelsea Medical Center at Mount Sinai",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10011",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Amy Tiersten",
-          "contact_phone": "(212) 241-3300",
-          "contact_email": "amy.tiersten@mssm.edu"
-        },
-        {
-          "facility": "Icahn School of Medicine at Mount Sinai",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10029",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Amy Tiersten",
-          "contact_phone": null,
-          "contact_email": "amy.tiersten@mssm.edu"
-        },
-        {
-          "facility": "David H. Koch Center for Cancer Care at Memorial Sloan Kettering Cancer Center",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10065",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Sherry Shen",
-          "contact_phone": null,
-          "contact_email": "shens1@mskcc.org"
-        }
-      ],
-      "central_contact": {
-        "name": "Simon Daggett - Senior Vice President, Clinical Operations",
-        "phone": "(909) 374-3793",
-        "email": "clinicaltrials@leonabio.com"
-      }
-    },
-    {
-      "summary": "The patient is a 58-year-old postmenopausal woman with HR-positive, HER2-low (IHC 1+) metastatic breast cancer with a PIK3CA mutation, progressing on first-line letrozole + palbociclib. She appears to be potentially eligible for the BBO-10203 + Fulvestrant combination cohort for HR-positive, HER2-negative aBC (confirmed PIK3CA mutation, prior CDK4/6 inhibitor), but eligibility remains UNKNOWN due to missing creatinine and brain imaging results.",
-      "criteria": [
-        {
-          "criterion": "Locally advanced and unresectable or metastatic HER2-positive aBC, HR-positive/HER2-negative aBC, KRAS mutant aCRC, or KRAS mutant aNSCLC",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Metastatic invasive ductal carcinoma of the breast, ER 90%, PR 40%, HER2 IHC 1+ (HR-positive/HER2-negative).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Measurable disease by RECIST v1.1 (or evaluable bone-only for HR+ HER2- aBC)",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Two liver lesions and bone metastases (spine, pelvis) documented on scans.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance status 0-1",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ECOG performance status 1.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Stable brain metastases (if present)",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "No brain imaging on file; no neurologic symptoms.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "BBO-10203 + Fulvestrant combination cohort for HR-positive, HER2-negative aBC: confirmed PIK3CA mutation and prior CDK4/6i treatment",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Tumor NGS showed PIK3CA H1047R mutation; patient was treated with first-line letrozole + palbociclib (CDK4/6 inhibitor).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Adequate organ function and laboratory parameters",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "ANC 2.1, hemoglobin 11.8, platelets 190, AST/ALT 1.4x ULN, bilirubin normal, HbA1c 5.9%. Creatinine not yet resulted.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "No untreated and/or non-stable brain metastases",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "No brain imaging on file to rule out untreated brain metastases.",
-          "fail_confidence": null,
-          "importance": "important"
-        }
-      ],
-      "open_questions": [
-        "What are the results of the serum creatinine test?",
-        "Has brain imaging (MRI or CT) been performed to rule out untreated or unstable brain metastases?"
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Likely eligible - needs review",
-      "fit_score": 57,
-      "n_pass": 4,
-      "n_fail": 0,
-      "n_unknown": 3,
-      "n_unknown_important": 2,
-      "nct_id": "NCT06625775",
-      "title": "Open-Label Study of BBO-10203 in Subjects With Advanced Solid Tumors",
-      "url": "https://clinicaltrials.gov/study/NCT06625775",
-      "phases": [
-        "PHASE1"
-      ],
-      "relevance_score": 11,
-      "relevance_reasons": [
-        "metastatic setting",
-        "HR+ / HER2-low match",
-        "PIK3CA mentioned",
-        "solid-tumor basket"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "Columbia University Irving Medical Center",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10032",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": null,
-          "contact_phone": null,
-          "contact_email": null
-        },
-        {
-          "facility": "Memorial Sloan Kettering Cancer Center",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10065",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": null,
-          "contact_phone": null,
-          "contact_email": null
-        }
-      ],
-      "central_contact": {
-        "name": "BBOT (BridgeBio Oncology Therapeutics)",
-        "phone": "650-405-8440",
-        "email": "Breaker-101ct.gov@bridgebiooncology.com"
-      }
-    },
-    {
-      "summary": "The patient is a 58-year-old woman with HR+/HER2- (HER2-low) metastatic breast cancer who progressed on first-line endocrine therapy plus a CDK4/6 inhibitor (letrozole + palbociclib) and has received no prior chemotherapy for metastatic disease. She meets most major eligibility criteria including ECOG performance status 1 and prior treatment history, though laboratory evaluation for creatinine is incomplete and central confirmation of HR+/HER2- status and specific viral/autoimmune exclusions require verification.",
+      "summary": "The patient is a 58-year-old woman with HR+/HER2-low metastatic breast cancer who experienced progression on first-line endocrine therapy plus a CDK4/6 inhibitor and has not received prior chemotherapy for metastatic disease, making her a strong potential candidate for trial NCT06312176 (Cohort evaluating Sacituzumab Tirumotecan). Key missing items include central confirmation of HR/HER2 status, exact creatinine value, and baseline brain imaging.",
       "criteria": [
         {
           "criterion": "Has unresectable locally advanced or metastatic centrally-confirmed hormone receptor positive (HR+)/human epidermal growth factor receptor 2 negative (HER2-) breast cancer",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Patient has metastatic invasive ductal carcinoma with ER 90%, PR 40%, HER2 IHC 1+ locally, but central confirmation has not been performed or reported.",
+          "evidence": "Patient has metastatic ER+/PR+/HER2-low breast cancer, but central confirmation of receptor status is not reported in the summary.",
           "fail_confidence": null,
           "importance": "important"
         },
@@ -505,7 +242,7 @@
           "criterion": "Has radiographic disease progression on one or more lines of endocrine therapy for unresectable locally advanced/metastatic HR+/HER2- breast cancer, with one in combination with a CDK4/6 inhibitor",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Developed bone and liver metastases in March 2024, started first-line letrozole + palbociclib in April 2024, and scans in October 2026 show progression in the liver.",
+          "evidence": "Patient progressed on first-line letrozole plus palbociclib for metastatic disease.",
           "fail_confidence": null,
           "importance": null
         },
@@ -513,7 +250,7 @@
           "criterion": "Is a chemotherapy candidate",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "No prior chemotherapy for metastatic disease and patient has received prior adjuvant AC-T chemotherapy successfully; no contraindications to chemotherapy noted.",
+          "evidence": "Patient has no contraindications to chemotherapy mentioned and is being considered for trial therapy.",
           "fail_confidence": null,
           "importance": null
         },
@@ -521,7 +258,7 @@
           "criterion": "Has an eastern cooperative oncology group (ECOG) performance status of 0 to 1 assessed within 7 days before randomization",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG performance status 1.",
+          "evidence": "Patient has an ECOG performance status of 1.",
           "fail_confidence": null,
           "importance": null
         },
@@ -529,7 +266,7 @@
           "criterion": "Has adequate organ function",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "ANC 2.1, hemoglobin 11.8, platelets 190, AST/ALT 1.4x ULN, bilirubin normal, but creatinine has not yet resulted.",
+          "evidence": "Labs show ANC 2.1, Hgb 11.8, Plt 190, AST/ALT 1.4x ULN, and normal bilirubin, but creatinine has not yet resulted.",
           "fail_confidence": null,
           "importance": "routine"
         },
@@ -537,7 +274,7 @@
           "criterion": "Has breast cancer amenable to treatment with curative intent",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Patient has metastatic disease (bone and liver metastases), which is not amenable to treatment with curative intent.",
+          "evidence": "Patient has metastatic disease (bone and liver lesions), which is not amenable to curative intent.",
           "fail_confidence": null,
           "importance": null
         },
@@ -545,7 +282,7 @@
           "criterion": "Has experienced an early recurrence (<6 months after completing adjuvant/neoadjuvant chemotherapy) and therefore is eligible to receive second-line (2L) treatment",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Original diagnosis was in 2019 with completion of adjuvant therapy well over 6 months before metastatic recurrence in March 2024.",
+          "evidence": "Adjuvant chemotherapy was completed in 2019, and metastatic recurrence occurred in March 2024 (well over 6 months).",
           "fail_confidence": null,
           "importance": null
         },
@@ -553,7 +290,7 @@
           "criterion": "Has symptomatic advanced/metastatic visceral spread at risk of rapidly evolving into life-threatening complications",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Has two liver lesions and bone metastases with progression, but no symptoms or life-threatening visceral crisis described.",
+          "evidence": "Patient has two liver lesions with progression on scans, but no symptoms of rapidly evolving life-threatening visceral crisis are described.",
           "fail_confidence": null,
           "importance": null
         },
@@ -561,7 +298,7 @@
           "criterion": "Has received prior chemotherapy for unresectable locally advanced or metastatic breast cancer",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No prior chemotherapy for metastatic disease (only adjuvant AC-T in 2019).",
+          "evidence": "Patient has received prior adjuvant chemotherapy in 2019, but no prior chemotherapy for metastatic disease.",
           "fail_confidence": null,
           "importance": null
         },
@@ -569,17 +306,17 @@
           "criterion": "Active autoimmune disease that has required systemic treatment in the past 2 years",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "History of well-controlled hypertension mentioned, but autoimmune disease history is not explicitly addressed.",
+          "evidence": "Summary does not mention a history of autoimmune disease.",
           "fail_confidence": null,
-          "importance": "important"
+          "importance": "routine"
         },
         {
           "criterion": "History of (noninfectious) pneumonitis/interstitial lung disease that requires steroids, or has current pneumonitis/interstitial lung disease",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "No mention of pneumonitis or interstitial lung disease history in the summary.",
+          "evidence": "Summary does not mention pneumonitis or interstitial lung disease history.",
           "fail_confidence": null,
-          "importance": "important"
+          "importance": "routine"
         },
         {
           "criterion": "Has an active infection requiring systemic therapy",
@@ -591,10 +328,9 @@
         }
       ],
       "open_questions": [
-        "Can local pathology be sent for central confirmation of HR+ and HER2- status?",
-        "What are the results of the pending serum creatinine test?",
-        "Does the patient have any history of active autoimmune disease requiring systemic treatment in the past 2 years?",
-        "Is there any history of pneumonitis or interstitial lung disease?"
+        "Has central pathology confirmed the HR+ and HER2-negative status?",
+        "What are the results of the pending creatinine lab?",
+        "Is baseline brain imaging required by the trial, and if so, can it be performed since none is currently on file?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Likely eligible - needs review",
@@ -602,7 +338,7 @@
       "n_pass": 8,
       "n_fail": 0,
       "n_unknown": 4,
-      "n_unknown_important": 3,
+      "n_unknown_important": 1,
       "nct_id": "NCT06312176",
       "title": "A Study of Sacituzumab Tirumotecan (MK-2870) as a Single Agent and in Combination With Pembrolizumab (MK-3475) Versus Treatment of Physician's Choice in Participants With HR+/HER2- Unresectable Locally Advanced or Metastatic Breast Cancer (MK-2870-010)",
       "url": "https://clinicaltrials.gov/study/NCT06312176",
@@ -646,13 +382,183 @@
       }
     },
     {
-      "summary": "The patient is a 58-year-old postmenopausal woman with metastatic HR+/HER2- (HER2-low) breast cancer harboring a PIK3CA H1047R mutation, who progressed on first-line letrozole plus palbociclib. While she meets several key inclusion criteria including ECOG performance status 1, a known PIK3CA mutation, and progression on one prior line of CDK4/6i plus endocrine therapy in the advanced setting, her eligibility cannot be fully confirmed due to missing information regarding measurable disease status, baseline creatinine, brain imaging (though asymptomatic), and potential prior therapies (such as prior mTOR or PI3K pathway inhibitors, not explicitly ruled out).",
+      "summary": "The patient is a 58-year-old woman with HR-positive, HER2-low metastatic breast cancer who experienced progression on first-line endocrine therapy plus a CDK4/6 inhibitor. She has a PIK3CA mutation and has not received prior chemotherapy for metastatic disease, making her a potential candidate pending verification of her HER2 testing assay, tissue biopsy collection timing, and creatinine clearance.",
       "criteria": [
         {
-          "criterion": "Histologically or cytologically confirmed diagnosis of HR+/HER2- locally advanced or metastatic breast cancer with progression",
+          "criterion": "Unresectable or metastatic HR+ HER2-low or HER2-ultralow breast cancer with HER2 result from unresectable/metastatic setting",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Biopsy of liver lesion showed ER 90%, PR 40%, HER2 IHC 1+; patient has metastatic invasive ductal carcinoma with progression in the liver on letrozole + palbociclib.",
+          "evidence": "Patient: Metastatic invasive ductal carcinoma with liver lesion biopsy showing ER 90%, PR 40%, HER2 IHC 1+ (HER2-low) in the metastatic setting. | Trial: Unresectable or metastatic HR+, HER2-low breast cancer with HER2 result from unresectable or metastatic setting.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Pretreatment tumor tissue sample from a lesion not previously irradiated, collected since progression with most recent systemic therapy",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "A liver lesion biopsy was performed in March 2024, but liver progression occurred in October 2026. It is unknown if tissue was collected after the October 2026 progression.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Documented radiologic disease progression per RECIST v1.1 during or after most recent treatment",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Scans in October 2026 show progression in the liver on letrozole + palbociclib. | Trial: Documented radiologic disease progression per RECIST v1.1.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Documented refractoriness to endocrine therapy in unresectable or metastatic setting",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Disease progression in October 2026 after receiving first-line letrozole + palbociclib in the metastatic setting. | Trial: Disease progression on one or more line of endocrine therapy in the unresectable or metastatic setting.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior treatment with a CDK4/6 inhibitor in any setting",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Received first-line letrozole + palbociclib starting April 2024. | Trial: Prior treatment with a Cyclin-dependent kinase 4 and 6 (CDK4/6) inhibitor in any setting.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Received corresponding approved targeted therapy for genomic alterations (PIK3CA, etc.) prior to enrollment unless contraindicated or not accessible",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has a PIK3CA H1047R mutation, but the summary does not state whether a PI3K inhibitor (such as alpelisib) was received, contraindicated, or not accessible.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No prior chemotherapy for unresectable or metastatic breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: No prior chemotherapy for metastatic disease (prior AC-T was adjuvant in 2019). | Trial: No prior chemotherapy for unresectable or metastatic breast cancer.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status 0 or 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG performance status 1. | Trial: ECOG performance status 0 or 1 at the time of Screening.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has >= 1 measurable lesion on CT or MRI per RECIST v1.1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Two liver lesions and bone metastases (spine, pelvis). | Trial: Has >=1 measurable lesion on CT or MRI per RECIST v1.1.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate bone marrow reserve and organ function based on local laboratory data",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "ANC, hemoglobin, platelets, and AST/ALT are provided, but creatinine has not yet resulted.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No prior treatment with an anti-HER3 antibody and/or ADC with a topoisomerase I inhibitor",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Prior treatments include lumpectomy, adjuvant AC-T, radiation, anastrozole, and letrozole + palbociclib; no anti-HER3 or topoisomerase I inhibitor ADC. | Trial: Prior treatment with an anti-HER3 antibody and/or ADC with a topoisomerase I inhibitor.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No history of or current interstitial lung disease (ILD)/pneumonitis",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No mention of ILD or pneumonitis in summary. Wait, absence is not negative history, but let's evaluate based on silent history: summary states no respiratory symptoms or ILD history reported. Since rule 18 says absent history is not negative history, this should be UNKNOWN if unmentioned.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No evidence of clinically active and symptomatic brain metastases or spinal cord compression",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No neurologic symptoms and no brain imaging on file (asymptomatic, no clinical signs). | Trial: Clinically active and symptomatic brain metastases or spinal cord compression.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Receiving chronic systemic corticosteroids >10 mg prednisone daily or equivalent",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Not reported to be receiving chronic corticosteroids. | Trial: Is receiving chronic systemic corticosteroids dosed at >10 mg prednisone daily equivalent.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of other active malignancy within 3 years prior to randomization",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Only history of stage IIB breast cancer diagnosed in 2019 (>3 years ago). | Trial: History of other active malignancy within 3 years.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "What is the patient's current creatinine and creatinine clearance level?",
+        "Was a tumor tissue biopsy obtained after the October 2026 liver progression?",
+        "Did the patient receive, or was she considered for, targeted therapy (e.g., PI3K inhibitor) for her PIK3CA mutation?",
+        "Has the local HER2 IHC 1+ test been performed using the Ventana PATHWAY 4B5 assay as required for Part 1?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 80,
+      "n_pass": 12,
+      "n_fail": 0,
+      "n_unknown": 3,
+      "n_unknown_important": 2,
+      "nct_id": "NCT07701941",
+      "title": "A Study of Patritumab Deruxtecan (HER3-DXd) in Combination With Trastuzumab Deruxtecan (T-DXd) in Participants With HR-Positive, HER2-Low or HER2-Ultralow Unresectable or Metastatic Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT07701941",
+      "phases": [
+        "PHASE1",
+        "PHASE2"
+      ],
+      "relevance_score": 12,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HR+ / HER2-low match",
+        "PIK3CA mentioned",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "David H. Koch Center for Cancer Care at Memorial Sloan Kettering Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Daiichi Sankyo Contact for Clinical Trial Information",
+        "phone": "9089926400",
+        "email": "CTRinfo_us@daiichisankyo.com"
+      }
+    },
+    {
+      "summary": "The patient is a 58-year-old postmenopausal woman with metastatic HR+/HER2- breast cancer, a PIK3CA mutation (H1047R), and progression on first-line letrozole + palbociclib. She meets the ECOG performance status requirement and has confirmed PIK3CA mutation and HR+/HER2- disease, but eligibility remains unconfirmed due to lack of reported brain imaging, creatinine results, measurable disease confirmation, and potential prior therapies details.",
+      "criteria": [
+        {
+          "criterion": "ECOG performance status of 0-1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG performance status 1 | Trial: Patient has ECOG performance status of 0-1",
           "fail_confidence": null,
           "importance": null
         },
@@ -660,15 +566,23 @@
           "criterion": "One or more known primary oncogenic PIK3CA mutation(s)",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Tumor NGS showed PIK3CA H1047R mutation.",
+          "evidence": "Patient: Tumor NGS shows PIK3CA H1047R mutation | Trial: One or more known primary oncogenic PIK3CA mutation(s)",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Patient has ECOG performance status of 0-1",
+          "criterion": "Postmenopausal adult female (or premenopausal amenable to GnRH agonist)",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG performance status 1.",
+          "evidence": "Patient: 58-year-old postmenopausal woman | Trial: Adult females, pre- and/or post-menopausal",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "HR+/HER2- locally advanced or metastatic breast cancer with evidence of progression",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Metastatic invasive ductal carcinoma, ER 90%, PR 40%, HER2 IHC 1+ (HER2-low), progression in the liver on letrozole + palbociclib | Trial: Histologically or cytologically confirmed diagnosis of HR+/HER2- locally advanced or metastatic breast cancer (ABC) with radiological or objective evidence of recurrence or progression",
           "fail_confidence": null,
           "importance": null
         },
@@ -676,96 +590,63 @@
           "criterion": "Measurable disease per RECIST v1.1 or evaluable bone-only disease",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Summary mentions bone metastases and two liver lesions, but does not explicitly state if they meet RECIST v1.1 measurable criteria (e.g., size requirements).",
+          "evidence": "Patient summary mentions 'two liver lesions' and 'bone metastases (spine, pelvis)' but does not specify if they meet RECIST v1.1 measurable disease criteria.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "Radiological evidence of progression on prior treatment for HR+/HER2- ABC with appropriate lines of endocrine therapy and exactly 1 prior line of CDK4/6 inhibitor therapy",
+          "criterion": "Prior endocrine therapy and CDK4/6 inhibitor requirements in ABC setting",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Progressed on first-line letrozole + palbociclib in the metastatic setting.",
+          "evidence": "Patient: Received 5 years of adjuvant anastrozole, then first-line letrozole + palbociclib for metastatic disease with progression | Trial: Must have radiological evidence of progression on or after previous treatment for HR+/HER2- ABC with at least 1 and no more than 2 lines of ET and only 1 prior line of CDK4/6 inhibitor therapy in the ABC setting.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Adult female, post-menopausal",
-          "type": "inclusion",
+          "criterion": "No prior PI3K, AKT, or mTOR inhibitors",
+          "type": "exclusion",
           "status": "PASS",
-          "evidence": "58-year-old postmenopausal woman.",
+          "evidence": "Patient: Prior treatment includes lumpectomy, adjuvant AC-T, radiation, anastrozole, letrozole + palbociclib; no PI3K, AKT, or mTOR inhibitors listed | Trial: Prior treatment with PIK3, AKT, or mTOR inhibitors...",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Prior treatment with PIK3, AKT, or mTOR inhibitors",
+          "criterion": "HbA1c < 7.0% and no Type 1/Type 2 diabetes requiring antihyperglycemic medication",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: HbA1c 5.9%; no mention of diabetes requiring antihyperglycemic medication | Trial: Type 1 diabetes, or Type 2 diabetes requiring antihyperglycemic medication... or glycosylated hemoglobin (HbA1c) >= 7.0%",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No known active uncontrolled or symptomatic CNS metastases",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "Prior adjuvant therapy included AC-T, radiation, and anastrozole; metastatic therapy was letrozole + palbociclib. Specific screening for any prior clinical trial exposure to PI3K/AKT/mTOR inhibitors is not explicitly confirmed.",
+          "evidence": "Patient: No neurologic symptoms, but 'No brain imaging on file' | Trial: Known active uncontrolled or symptomatic CNS metastases...",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "HbA1c < 7.0%",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "HbA1c 5.9% (Oct 2026).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Type 1 diabetes, or Type 2 diabetes requiring antihyperglycemic medication, or fasting plasma glucose >= 140 mg/dL",
+          "criterion": "Organ function and routine laboratory parameters (Creatinine)",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "No mention of fasting plasma glucose or history of diabetes/antihyperglycemic medication use (though HbA1c is 5.9%).",
+          "evidence": "Patient: Creatinine not yet resulted | Trial: Requires adequate organ function labs",
           "fail_confidence": null,
           "importance": "routine"
-        },
-        {
-          "criterion": "Known active uncontrolled or symptomatic CNS metastases",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No neurologic symptoms; summary notes no brain imaging on file, but patient is asymptomatic and trial specifies active uncontrolled or symptomatic CNS metastases.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Adequate organ function: Creatinine not elevated (renal function)",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Creatinine not yet resulted.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Adequate organ function: Liver function (bilirubin, transaminases)",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "AST/ALT 1.4x ULN, bilirubin normal.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Known activating AKT mutations, loss-of-function PTEN mutations, or loss of PTEN expression",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Tumor NGS showed PIK3CA mutation, but PTEN and AKT mutation/expression status are not reported.",
-          "fail_confidence": null,
-          "importance": "important"
         }
       ],
       "open_questions": [
-        "Are the liver lesions or bone metastases measurable per RECIST v1.1?",
-        "What is the patient's current serum creatinine level?",
-        "Were PTEN and AKT mutation/expression status evaluated on the tumor NGS panel?",
-        "Has the patient had any prior exposure to investigational PI3K, AKT, or mTOR inhibitors?"
+        "Do the liver lesions meet RECIST v1.1 criteria for measurable disease?",
+        "What are the patient's current serum creatinine and creatinine clearance levels?",
+        "Has brain imaging been performed to formally rule out active CNS metastases?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Likely eligible - needs review",
-      "fit_score": 62,
-      "n_pass": 8,
+      "fit_score": 70,
+      "n_pass": 7,
       "n_fail": 0,
-      "n_unknown": 5,
-      "n_unknown_important": 3,
+      "n_unknown": 3,
+      "n_unknown_important": 2,
       "nct_id": "NCT06982521",
       "title": "Phase 3 Study of RLY-2608 + Fulvestrant vs Capivasertib + Fulvestrant as Treatment for Locally Advanced or Metastatic PIK3CA-mutant HR+/HER2- Breast Cancer",
       "url": "https://clinicaltrials.gov/study/NCT06982521",
@@ -832,266 +713,86 @@
       }
     },
     {
-      "summary": "The patient is a 58-year-old postmenopausal woman with HR-positive, HER2-low metastatic breast cancer who progressed on first-line letrozole and palbociclib, with a PIK3CA mutation and no prior metastatic chemotherapy. She is a potential candidate for the study, but eligibility currently cannot be fully confirmed due to missing information regarding the specific assay used for her local HER2 testing, availability of a recent archival or fresh tissue biopsy, creatinine levels, and an LVEF assessment.",
+      "summary": "The patient is a 58-year-old woman with HR-positive, HER2-low metastatic breast cancer harboring a PIK3CA mutation who progressed on letrozole plus palbociclib. She meets the advanced disease setting, PIK3CA mutation, and prior CDK4/6 inhibitor requirements, but eligibility depends on clarifying her prior endocrine therapy lines for advanced disease and ensuring organ function and brain metastasis status are fully evaluated.",
       "criteria": [
         {
-          "criterion": "HR-positive and HER2-low or HER2-ultralow unresectable or metastatic breast cancer assessed from a tumor sample in the metastatic setting",
+          "criterion": "Participant has advanced (locoregionally recurrent or metastatic) breast cancer not amenable to curative therapy.",
           "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Developed bone metastases and two liver lesions in March 2024 from metastatic invasive ductal carcinoma | Trial: Advanced breast cancer not amenable to curative therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Presence of genetic alterations in PIK3CA/AKT1/PTEN in participants' tumor tissue.",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Tumor NGS showed PIK3CA H1047R mutation | Trial: Presence of genetic alterations in PIK3CA/AKT1/PTEN",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Participant must have received at least 1 prior line of endocrine therapy for advanced/metastatic disease or relapsed within 12 months of adjuvant endocrine therapy.",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Received letrozole for metastatic disease starting April 2024, and also completed 5 years of adjuvant anastrozole ending prior to March 2024 (relapse within 12 months of adjuvant ET) | Trial: At least 1 prior line of ET for advanced/metastatic disease or progression during/within 12 months from end of adjuvant ET",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Progression on previous cyclin-dependent kinase 4 and 6 inhibitor treatment in combination with fulvestrant or aromatase inhibitor is required.",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Progression on first-line letrozole (aromatase inhibitor) plus palbociclib (CDK4/6 inhibitor) in October 2026 | Trial: Progression on previous CDK4/6 inhibitor treatment in combination with fulvestrant or aromatase inhibitor",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Active or newly diagnosed central nervous system metastases.",
+          "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "Patient has metastatic breast cancer with ER 90%, PR 40%, HER2 IHC 1+ (HER2-low) from a March 2024 liver biopsy. However, it is unknown if the local HER2 test used the specific required assay (Ventana PATHWAY anti-HER2/neu 4B5) for Part 1.",
+          "evidence": "No brain imaging is on file, though the patient has no neurologic symptoms.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "Provides a pretreatment tumor tissue sample (archival biopsy since progression or fresh biopsy)",
-          "type": "inclusion",
+          "criterion": "Participants with advanced, symptomatic visceral spread, who are at risk of life-threatening complications in the short term, including liver involvement >50%.",
+          "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "A liver biopsy was performed in March 2024 at the time of metastatic diagnosis, but it is not specified if this tissue is available as an archival sample collected since progression or if a fresh biopsy will be obtained.",
+          "evidence": "Patient has two liver lesions and liver progression, but the exact percentage of liver involvement is not specified in the summary.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "Documented radiologic disease progression per RECIST v1.1 during or after most recent treatment",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Scans in October 2026 show progression in the liver on letrozole plus palbociclib.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Documented refractoriness to endocrine therapy in the unresectable or metastatic setting (disease progression on >=1 line)",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Patient progressed on first-line letrozole plus palbociclib in the metastatic setting.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Prior treatment with a CDK4/6 inhibitor in any setting",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Patient was treated with first-line palbociclib (a CDK4/6 inhibitor).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Genomic alterations (PIK3CA, PTEN, AKT, BRCA1/2): patients eligible for approved targeted therapies must have received corresponding therapy prior to enrollment",
-          "type": "inclusion",
+          "criterion": "Participants with any toxicities related to prior radiation therapy that have not resolved to baseline or Grade <=1.",
+          "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "Tumor NGS shows a PIK3CA H1047R mutation. It is not mentioned whether she received an approved PIK3CA inhibitor (such as alpelisib) or if it was contraindicated/inaccessible.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "No prior chemotherapy for unresectable or metastatic breast cancer",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "No prior chemotherapy for metastatic disease (she received adjuvant AC-T in 2019).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "ECOG performance status 0 or 1",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ECOG performance status is 1.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Has >=1 measurable lesion on CT or MRI per RECIST v1.1",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Patient has two liver lesions.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Adequate bone marrow reserve and organ function based on local laboratory data",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "ANC 2.1, Hgb 11.8, Plt 190, AST/ALT 1.4x ULN, bilirubin normal. However, serum creatinine has not yet resulted.",
+          "evidence": "Summary mentions prior radiation for 2019 stage IIB disease, but does not state the current status of any related toxicities.",
           "fail_confidence": null,
           "importance": "routine"
         },
         {
-          "criterion": "No prior treatment with an anti-HER3 antibody and/or topoisomerase I inhibitor ADC (e.g., T-DXd)",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Prior therapies include AC-T, radiation, anastrozole, and letrozole + palbociclib; no prior HER3-DXd or T-DXd mentioned.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No history of interstitial lung disease (ILD)/pneumonitis or current ILD",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No history of ILD or pneumonitis reported.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No evidence of clinically active and symptomatic spinal cord compression or brain metastases",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No neurologic symptoms; no brain imaging on file, but no symptoms reported.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No uncontrolled or significant cardiovascular disease (including LVEF >50%)",
-          "type": "exclusion",
+          "criterion": "Adequate organ function: Creatinine / renal function",
+          "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "History of well-controlled hypertension is noted, but LVEF and ECG/QTc interval are not reported.",
+          "evidence": "Creatinine not yet resulted.",
           "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "No history of other active malignancy within 3 years prior to randomization",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Only history is invasive ductal carcinoma of the breast diagnosed in 2019 (>3 years ago).",
-          "fail_confidence": null,
-          "importance": null
+          "importance": "routine"
         }
       ],
       "open_questions": [
-        {
-          "question": "Was the local HER2 IHC 1+ test performed using the Ventana PATHWAY anti-HER2/neu (4B5) assay required for Part 1 eligibility?"
-        },
-        {
-          "question": "Is a suitable archival pretreatment tumor tissue sample available from a biopsy collected since progression on letrozole/palbociclib, or is a fresh biopsy required?"
-        },
-        {
-          "question": "Did the patient receive a PIK3CA inhibitor (e.g., alpelisib) for her PIK3CA mutation, or was it contraindicated/inaccessible?"
-        },
-        {
-          "question": "What are the patient's current serum creatinine level, LVEF, and QTc interval from screening labs/tests?"
-        },
-        {
-          "question": "Does the patient require baseline brain imaging to rule out asymptomatic brain metastases per institutional screening guidelines?"
-        }
+        "What is the exact percentage of liver involvement by tumor?",
+        "Has brain imaging been performed to definitively rule out CNS metastases?",
+        "What are the results of the pending creatinine lab?",
+        "Are there any lingering toxicities from prior radiation therapy?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Likely eligible - needs review",
-      "fit_score": 67,
-      "n_pass": 10,
+      "fit_score": 50,
+      "n_pass": 4,
       "n_fail": 0,
-      "n_unknown": 5,
-      "n_unknown_important": 4,
-      "nct_id": "NCT07701941",
-      "title": "A Study of Patritumab Deruxtecan (HER3-DXd) in Combination With Trastuzumab Deruxtecan (T-DXd) in Participants With HR-Positive, HER2-Low or HER2-Ultralow Unresectable or Metastatic Breast Cancer",
-      "url": "https://clinicaltrials.gov/study/NCT07701941",
-      "phases": [
-        "PHASE1",
-        "PHASE2"
-      ],
-      "relevance_score": 12,
-      "relevance_reasons": [
-        "metastatic setting",
-        "HR+ / HER2-low match",
-        "PIK3CA mentioned",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "David H. Koch Center for Cancer Care at Memorial Sloan Kettering Cancer Center",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10065",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": null,
-          "contact_phone": null,
-          "contact_email": null
-        }
-      ],
-      "central_contact": {
-        "name": "Daiichi Sankyo Contact for Clinical Trial Information",
-        "phone": "9089926400",
-        "email": "CTRinfo_us@daiichisankyo.com"
-      }
-    },
-    {
-      "summary": "The patient has advanced hormone receptor-positive, HER2-low breast cancer with a PIK3CA mutation and progression on first-line letrozole plus palbociclib. However, she does not meet the requirement for prior progression specifically on a CDK4/6 inhibitor in combination with fulvestrant or aromatase inhibitor as outlined in the trial (her prior CDK4/6 inhibitor was given with letrozole as first-line therapy for metastatic disease, but the inclusion criteria require prior CDK4/6 inhibitor with fulvestrant or an aromatase inhibitor, or she may need clarification on her exact prior lines). Additionally, creatinine and brain imaging are missing.",
-      "criteria": [
-        {
-          "criterion": "Advanced (locoregionally recurrent or metastatic) breast cancer not amenable to curative therapy",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Metastatic invasive ductal carcinoma of the left breast with bone and liver metastases.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Presence of genetic alterations in PIK3CA/AKT1/PTEN in participants' tumor tissue",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Tumor NGS showed a PIK3CA H1047R mutation.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "At least 1 prior line of endocrine therapy for advanced/metastatic disease or recurrence/progression during or within 12 months from adjuvant endocrine therapy",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Received letrozole for metastatic disease starting April 2024 (progressed in October 2026), and also completed 5 years of adjuvant anastrozole.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Progression on previous cyclin-dependent kinase 4 and 6 (CDK4/6) inhibitor treatment in combination with fulvestrant or aromatase inhibitor",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Patient received palbociclib (CDK4/6 inhibitor) in combination with letrozole (an aromatase inhibitor) as first-line therapy for metastatic disease, but the trial specifies progression on previous CDK4/6 inhibitor treatment in combination with fulvestrant or aromatase inhibitor - wait, letrozole is an aromatase inhibitor. Let me re-read: letrozole is an aromatase inhibitor, so she did progress on a CDK4/6i + AI. However, she received it as first-line metastatic therapy. Let's evaluate if she meets the exact wording: 'Progression on previous cyclin-dependent kinase 4 and 6 inhibitor treatment in combination with fulvestrant or aromatase inhibitor is required.' She received palbociclib + letrozole. Therefore, she satisfies combination with an aromatase inhibitor.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Active or newly diagnosed central nervous system metastases",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "No brain imaging on file; no neurologic symptoms reported.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Advanced, symptomatic visceral spread, who are at risk of life-threatening complications in the short term, including liver involvement >50%",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Two liver lesions noted; no mention of massive liver involvement >50% or life-threatening visceral crisis.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Unresolved toxicities from prior radiation therapy > Grade 1",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Treated with radiation in 2019 with no ongoing significant toxicities reported.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Adequate organ function (creatinine and other laboratory parameters)",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Creatinine not yet resulted. ANC, hemoglobin, platelets, AST/ALT, bilirubin are available.",
-          "fail_confidence": null,
-          "importance": "routine"
-        }
-      ],
-      "open_questions": [
-        "Has brain imaging been performed to formally rule out active CNS metastases?",
-        "What is the current serum creatinine level to assess renal function?",
-        "Confirm the exact prior treatment regimens and lines for advanced/metastatic disease."
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Likely ineligible - needs review",
-      "fit_score": 0,
-      "n_pass": 5,
-      "n_fail": 1,
-      "n_unknown": 2,
-      "n_unknown_important": 1,
+      "n_unknown": 4,
+      "n_unknown_important": 2,
       "nct_id": "NCT06638307",
       "title": "A First-in-Human Study of MEN2312 in Adults With Advanced Breast Cancer",
       "url": "https://clinicaltrials.gov/study/NCT06638307",
@@ -1146,37 +847,410 @@
       }
     },
     {
-      "summary": "The patient is a 58-year-old postmenopausal woman with metastatic hormone receptor-positive, HER2-low breast cancer who has received first-line CDK4/6 inhibitor plus endocrine therapy for metastatic disease. She has a PIK3CA mutation (H1047R) and has received prior adjuvant endocrine therapy. She fails the trial's inclusion criteria requiring patients to be treatment-naive in the metastatic setting and to lack a PIK3CA mutation (the trial requires PIK3CA non-mutated with chromosome 8p loss for its specific cohort/investigation).",
+      "summary": "The patient is a 58-year-old postmenopausal woman with metastatic ER+/HER2- breast cancer who progressed on an aromatase inhibitor plus palbociclib. However, her trial eligibility is currently uncertain because her ESR1 mutation status has not been tested, which is a mandatory inclusion criterion for this specific trial.",
       "criteria": [
         {
-          "criterion": "Histologically or cytologically confirmed locally advanced or metastatic breast cancer not amenable to curative surgery/radiation",
+          "criterion": "Postmenopausal woman",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Metastatic invasive ductal carcinoma of the left breast with bone and liver metastases.",
+          "evidence": "Patient: 58-year-old postmenopausal woman | Trial: Pre- or postmenopausal women or men",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Documented ER-positive and/or PR-positive tumor (>=1% stained positive)",
+          "criterion": "Progression on an AI in combination with palbociclib or ribociclib as first hormonal treatment for metastatic disease",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Liver lesion biopsy: ER 90%, PR 40%.",
+          "evidence": "Patient: Progression on first-line letrozole + palbociclib for metastatic disease in October 2026 | Trial: Progression on an AI in combination with either palbociclib or ribociclib as their first hormonal treatment for metastatic disease",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "No prior systemic therapy for locally advanced unresectable or metastatic breast cancer (mBC)",
+          "criterion": "Histological or cytological confirmation of ER+/HER2- disease",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Biopsy of liver lesion showed ER 90%, PR 40%, HER2 IHC 1+ (HER2-low) | Trial: Histological or cytological confirmation of ER+/HER2- disease",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No evidence of progression for at least 6 months on an AI/CDKi combination for advanced breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Started letrozole + palbociclib in April 2024 and progressed in October 2026 (approx. 30 months) | Trial: No evidence of progression for at least 6 months on an AI/CDKi combination",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "At least 1 or more ESR1 point mutations in the ESR1 ligand binding domain",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient: ESR1 mutation status not tested | Trial: At least 1 or more ESR1 point mutations in the ESR1 ligand binding domain as assessed in cell-free ctDNA or tissue",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "At least 1 measurable lesion according to RECIST 1.1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Two liver lesions and bone metastases (spine, pelvis) | Trial: At least 1 measurable lesion (according to RECIST 1.1)",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance score of 0 or 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG performance status 1 | Trial: Eastern Cooperative Oncology Group (ECOG) performance score of 0 or 1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate organ function",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient: ANC 2.1, Hgb 11.8, Plt 190, AST/ALT 1.4x ULN, bilirubin normal; creatinine not yet resulted | Trial: Adequate organ function",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Able to swallow tablets",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary does not mention tablet swallowing ability | Trial: Able to swallow tablets",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Brain metastases criteria (if applicable)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient: No brain imaging on file; no neurologic symptoms | Trial: Brain metastases allowed if asymptomatic, definitively treated, without steroids, and stable >3 months",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Prior progression of disease on abemaciclib, fulvestrant, or other SERD therapy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Prior therapy was letrozole and palbociclib only, no prior abemaciclib, fulvestrant, or other SERD | Trial: Prior progression of disease on abemaciclib, fulvestrant, or other selective estrogen receptor degrader (SERD) therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of malignancy within the past 5 years (excluding breast cancer)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Original diagnosis of breast cancer in 2019, no other malignancy reported | Trial: History of malignancy within the past 5 years (excluding breast cancer)",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of long QTc syndrome or QTc >480 msec",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary does not mention QTc interval or ECG findings | Trial: History of long QTc syndrome or a QTc of >480 msec",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "History of thromboembolic events (PE, DVT, thrombophilia)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: History of well-controlled hypertension; no history of PE, DVT, or thrombophilia reported | Trial: History of a pulmonary embolus (PE), deep vein thrombosis (DVT), or any known thrombophilia",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Fasting lipid and triglyceride screening levels",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient: HbA1c 5.9% reported, but fasting triglycerides and cholesterol levels are not provided | Trial: Fasting triglyceride and cholesterol thresholds",
+          "fail_confidence": null,
+          "importance": "routine"
+        }
+      ],
+      "open_questions": [
+        "Has cell-free ctDNA or breast cancer tissue been tested for ESR1 mutations?",
+        "What is the patient's serum creatinine level to confirm adequate renal function?",
+        "Does the patient have any baseline ECG/QTc measurements or a history of long QTc syndrome?",
+        "What are the patient's fasting triglyceride and cholesterol levels?",
+        "Has the patient had brain imaging to formally rule out central nervous system metastases?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 60,
+      "n_pass": 9,
+      "n_fail": 0,
+      "n_unknown": 6,
+      "n_unknown_important": 3,
+      "nct_id": "NCT05696626",
+      "title": "Evaluation of Lasofoxifene Combined With Abemaciclib Compared With Fulvestrant Combined With Abemaciclib in Locally Advanced or Metastatic ER+/HER2- Breast Cancer With an ESR1 Mutation",
+      "url": "https://clinicaltrials.gov/study/NCT05696626",
+      "phases": [
+        "PHASE3"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HR+ / HER2-low match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "The Blavatnik Family - Chelsea Medical Center at Mount Sinai",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10011",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Amy Tiersten",
+          "contact_phone": "(212) 241-3300",
+          "contact_email": "amy.tiersten@mssm.edu"
+        },
+        {
+          "facility": "Icahn School of Medicine at Mount Sinai",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10029",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Amy Tiersten",
+          "contact_phone": null,
+          "contact_email": "amy.tiersten@mssm.edu"
+        },
+        {
+          "facility": "David H. Koch Center for Cancer Care at Memorial Sloan Kettering Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Sherry Shen",
+          "contact_phone": null,
+          "contact_email": "shens1@mskcc.org"
+        }
+      ],
+      "central_contact": {
+        "name": "Simon Daggett - Senior Vice President, Clinical Operations",
+        "phone": "(909) 374-3793",
+        "email": "clinicaltrials@leonabio.com"
+      }
+    },
+    {
+      "summary": "The patient is a 58-year-old postmenopausal woman with HR+ HER2-low metastatic breast cancer who progressed on first-line letrozole and palbociclib. She meets several key inclusion criteria (ECOG 1, acceptable counts, AST/ALT, and bilirubin), but there are important unknowns regarding the exact number of metastatic lesions for RECIST measurability, renal function (creatinine not resulted), and the trial's specific prior-treatment/CDK4/6 requirements since she has already received letrozole + palbociclib.",
+      "criteria": [
+        {
+          "criterion": "Biopsy proven diagnosis of HR+HER2- metastatic breast cancer with ER >10%",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Biopsy of liver lesion showed ER 90%, PR 40%, HER2 IHC 1+ (HER2-low) metastatic invasive ductal carcinoma | Trial: Biopsy proven diagnosis of HR+HER2- metastatic breast cancer. ER expression is >10%",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Metastatic disease with <= 5 sites of measurable disease by RECIST",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary reports bone metastases (spine, pelvis) and two liver lesions, but total number of sites and RECIST measurability are not specified.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Prior treatment and CDK4/6 eligibility criteria",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Trial requires progression after one line of endocrine therapy AND/OR being offered CDK4/6 inhibition for the first time. The patient already received letrozole + palbociclib as first-line metastatic therapy and progressed, making her prior exposure complex relative to the trial's specific phrasing.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Post-menopausal status",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: 58-year-old postmenopausal woman | Trial: Post-menopausal status defined as either 1) at least 2 years without menstrual period or 2) patients older than 50 with serological evidence... or female >= 18 post-menopausal",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status 0-1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG performance status 1 | Trial: Eastern Cooperative Oncology Group (ECOG) performance status 0-1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Absolute neutrophil count (ANC) >= 1500/uL",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ANC 2.1 (2,100/uL) | Trial: Absolute neutrophil count (ANC) >= 1500/uL",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Platelets >= 100,000/uL",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: platelets 190 (190,000/uL) | Trial: Platelets >= 100 000/uL",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Hemoglobin >= 9.0 g/dL",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: hemoglobin 11.8 g/dL | Trial: Hemoglobin >= 9.0 g/dL",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Renal Creatinine or measured/calculated creatinine clearance <= 1.5 x ULN or >= 30 mL/min",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient: Creatinine not yet resulted.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Total bilirubin <= 1.5 x ULN",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: bilirubin normal | Trial: Total bilirubin <= 1.5 x ULN",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "AST and ALT <= 2.5 x ULN",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: AST/ALT 1.4x ULN | Trial: AST (SGOT) and ALT (SGPT) <= 2.5 x ULN",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Current use of systemic chemotherapy, endocrine therapy or HER2-neu targeted therapy",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient started letrozole + palbociclib in April 2024 and progressed in October 2026, but it is not explicitly stated whether she is still actively taking them or if they have been discontinued prior to screening.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Any lesion > 5 cm in greatest diameter",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary mentions spine and pelvis bone metastases and two liver lesions, but size measurements for these lesions are not provided.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Patients with uncontrolled brain metastases",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No brain imaging on file; no neurologic symptoms | Trial: Patients with uncontrolled brain metastases",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "What are the exact size measurements of the liver lesions and bone metastases to rule out any lesion > 5 cm and assess RECIST measurability (<= 5 sites)?",
+        "What is the patient's current creatinine or creatinine clearance value?",
+        "Has the patient completely discontinued letrozole and palbociclib, and what is the exact washout timing?",
+        "Does the patient's prior exposure to letrozole and palbociclib in the first-line metastatic setting satisfy the trial's specific prior endocrine/CDK4/6 inclusion criteria?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 64,
+      "n_pass": 9,
+      "n_fail": 0,
+      "n_unknown": 5,
+      "n_unknown_important": 4,
+      "nct_id": "NCT04563507",
+      "title": "Combined Immunotherapies in Metastatic ER+ Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT04563507",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HR+ / HER2-low match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Weill Cornell Medicine",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Fabiana Gregucci, M.D.",
+          "contact_phone": "6469623110",
+          "contact_email": "fgr4002@med.cornell.edu"
+        },
+        {
+          "facility": "Brooklyn Methodist Hospital - NewYork Presbyterian",
+          "city": "New York",
+          "state": "New York",
+          "zip": "11215",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Izael Ni\u00f1o, M.S.",
+          "contact_phone": "929 470 9426",
+          "contact_email": "izn4001@med.cornell.edu"
+        },
+        {
+          "facility": "New York Presbyterian Hospital - Queens",
+          "city": "New York",
+          "state": "New York",
+          "zip": "11355",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Hina Ali, M.D.",
+          "contact_phone": null,
+          "contact_email": "hia4002@med.cornell.edu"
+        }
+      ],
+      "central_contact": {
+        "name": "Fabiana Gregucci, M.D.",
+        "phone": "646-962-3110",
+        "email": "fgr4002@med.cornell.edu"
+      }
+    },
+    {
+      "summary": "The patient is a 58-year-old woman with metastatic hormone receptor-positive breast cancer who progressed on first-line letrozole plus palbociclib in the metastatic setting. She fails the trial's prior systemic therapy requirement (having already received first-line therapy for metastatic disease) and has a PIK3CA mutation, whereas the trial requires PIK3CA non-mutated with chromosome 8p loss.",
+      "criteria": [
+        {
+          "criterion": "Locally advanced or metastatic breast cancer not amenable to curative surgery or radiation",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Metastatic invasive ductal carcinoma of the left breast with bone and liver metastases | Trial: Locally advanced or metastatic and not amenable to surgical or radiation therapy with curative intent",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Documented ER-positive and/or PR-positive tumor (>=1%)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ER 90%, PR 40% on liver biopsy | Trial: Documented ER-positive and/or PR-positive tumor (>=1%)",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No prior systemic therapy for locally advanced unresectable or metastatic breast cancer (mBC) and progressed on/within 12 months of adjuvant endocrine therapy",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Started first-line letrozole + palbociclib in April 2024 for metastatic disease, with progression in October 2026.",
+          "evidence": "Patient: Started first-line letrozole + palbociclib in April 2024 for metastatic disease | Trial: Participants must not have received any prior systemic therapy for locally advanced unresectable or metastatic breast cancer",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "Lack of a PIK3CA mutation and presence of heterozygous loss of chromosome 8p (central lab testing)",
+          "criterion": "Lack of PIK3CA mutation and presence of heterozygous loss of chromosome 8p (PIK3CAnmd and chr8p loss)",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Tumor NGS shows a PIK3CA H1047R mutation.",
+          "evidence": "Patient: Tumor NGS shows PIK3CA H1047R mutation | Trial: Documented both the lack of a PIK3CA mutation and the presence of heterozygous loss of chromosome 8p",
           "fail_confidence": "HIGH",
           "importance": null
         },
@@ -1184,61 +1258,69 @@
           "criterion": "Measurable disease per RECIST v1.1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Two liver lesions and bone metastases noted.",
+          "evidence": "Patient: Two liver lesions and bone metastases | Trial: Measurable disease per RECIST v1.1",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Metaplastic breast cancer",
+          "criterion": "Exclusion: Metaplastic breast cancer",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Invasive ductal carcinoma.",
+          "evidence": "Patient: Invasive ductal carcinoma | Trial: Metaplastic breast cancer",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Appropriate for treatment with cytotoxic chemotherapy at time of entry (e.g., visceral crisis)",
+          "criterion": "Exclusion: Radiotherapy within 2 weeks before randomization",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Dates of prior radiation from 2019 are remote, but exact date of any recent radiation is not specified.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Exclusion: Appropriate for treatment with cytotoxic chemotherapy at time of entry (e.g., visceral crisis)",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No visceral crisis reported; ECOG 1, liver enzymes 1.4x ULN, normal bilirubin.",
+          "evidence": "Patient: No prior chemotherapy for metastatic disease, no mention of visceral crisis; liver lesions present with AST/ALT 1.4x ULN | Trial: Appropriate for treatment with cytotoxic chemotherapy ... participants with visceral crisis",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Type 2 diabetes requiring ongoing systemic treatment or any history of Type 1 diabetes",
+          "criterion": "Exclusion: Type 2 diabetes requiring ongoing systemic treatment or history of Type 1 diabetes",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "HbA1c 5.9%; no history of diabetes or ongoing systemic treatment reported (history of well-controlled hypertension only).",
+          "evidence": "Patient: HbA1c 5.9%, no mention of diabetes or diabetes treatment | Trial: Type 2 diabetes requiring ongoing systemic treatment or history of Type 1 diabetes",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Known and untreated, or active CNS metastases",
+          "criterion": "Exclusion: Known and untreated, or active CNS metastases",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No neurologic symptoms; no brain imaging on file, but no active/untreated CNS symptoms reported.",
+          "evidence": "Patient: No neurologic symptoms, no brain imaging on file, no known CNS metastases | Trial: Known and untreated, or active CNS metastases",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "History of leptomeningeal disease or carcinomatous meningitis",
+          "criterion": "Exclusion: Any history of leptomeningeal disease or carcinomatous meningitis",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No history of leptomeningeal disease reported.",
+          "evidence": "Patient: No history of leptomeningeal disease | Trial: Any history of leptomeningeal disease or carcinomatous meningitis",
           "fail_confidence": null,
           "importance": null
         }
       ],
       "open_questions": [
-        "Confirm exact RECIST v1.1 measurability of liver lesions via official scan report.",
-        "Verify if any other metastatic biopsies or central lab testing were performed."
+        "Confirm creatinine level from pending labs.",
+        "Verify if any recent radiotherapy was administered within 2 weeks."
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
       "n_pass": 8,
       "n_fail": 2,
-      "n_unknown": 0,
+      "n_unknown": 1,
       "n_unknown_important": 0,
       "nct_id": "NCT07405801",
       "title": "A Phase II Study Evaluating the Efficacy and Safety of Inavolisib Plus Ribociclib Plus Fulvestrant Versus Placebo Plus Ribociclib Plus Fulvestrant in Participants With Advanced Breast Cancer",
@@ -1273,29 +1355,150 @@
       }
     },
     {
-      "summary": "The patient is a 58-year-old woman with metastatic HR+/HER2- breast cancer who has received first-line letrozole and palbociclib for metastatic disease. Because the trial requires patients who have not received prior systemic treatment in the advanced or metastatic setting and excludes prior CDK4/6 inhibitors for advanced disease, she fails key eligibility criteria.",
+      "summary": "The patient is a 58-year-old postmenopausal woman with ER+, HER2-low metastatic breast cancer who progressed on first-line letrozole plus palbociclib. Because this trial specifically requires patients who have not received prior systemic anti-cancer therapy for advanced breast cancer (first-line setting), she is ineligible. Additionally, her ESR1 mutation status is untested, and creatinine is pending.",
+      "criteria": [
+        {
+          "criterion": "Adult female or male participants",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: 58-year-old postmenopausal woman | Trial: Adult female or male participants",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ER+, HER2- locally advanced or metastatic breast cancer that is not amenable to curative therapy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Metastatic invasive ductal carcinoma, ER 90%, PR 40%, HER2 IHC 1+ | Trial: ER+, HER2- locally advanced or metastatic breast cancer",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Evaluable disease (measurable disease per RECIST 1.1 or bone-only disease)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Bone metastases and two liver lesions with progression | Trial: Evaluable disease",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "De novo advanced breast cancer or with disease recurrence occurring after 12 months of completing adjuvant endocrine therapy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Completed 5 years of adjuvant anastrozole in 2019, developed bone/liver metastases in March 2024 (>12 months later) | Trial: De novo advanced breast cancer or recurrence after 12 months of completing adjuvant endocrine therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG performance status 1 | Trial: ECOG performance status of 0 or 1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate hematologic, hepatic, and renal functions",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient: ANC 2.1, Hb 11.8, Plt 190, AST/ALT 1.4x ULN, bilirubin normal; creatinine not yet resulted | Trial: Adequate hematologic, hepatic, and renal functions",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Currently receiving or previously received systemic anti-cancer therapy for ER+, HER2- advanced breast cancer",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Started first-line letrozole + palbociclib in April 2024 for metastatic disease | Trial: Currently receiving or previously received systemic anti-cancer therapy for ER+, HER2- advanced breast cancer",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Previously received treatment with fulvestrant, elacestrant or an investigational endocrine therapy in any setting",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Prior endocrine therapy was anastrozole (adjuvant) and letrozole (first-line advanced), no fulvestrant or elacestrant mentioned | Trial: Previously received treatment with fulvestrant, elacestrant or investigational endocrine therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Symptomatic central nervous system metastases, carcinomatous meningitis, leptomeningeal disease, or a spinal cord compression that require immediate treatment",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No neurologic symptoms, no brain imaging on file | Trial: Symptomatic central nervous system metastases...",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Has the pending serum creatinine result been finalized to confirm adequate renal function?",
+        "Does the patient have any other prior lines of systemic therapy for advanced disease besides letrozole and palbociclib?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 7,
+      "n_fail": 1,
+      "n_unknown": 1,
+      "n_unknown_important": 0,
+      "nct_id": "NCT07085767",
+      "title": "Palazestrant in Combination With Ribociclib for the First-line Treatment of ER+/HER2- Advanced Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT07085767",
+      "phases": [
+        "PHASE3"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HR+ / HER2-low match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Clinical Trial Site",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10029",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Clinical Trial Site",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10032",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Olema Oncology, Inc.",
+        "phone": "415-651-7206",
+        "email": "OPERA-02@olema.com"
+      }
+    },
+    {
+      "summary": "The patient is a 58-year-old woman with HR+/HER2-low metastatic breast cancer who progressed on first-line letrozole plus palbociclib in the metastatic setting. Trial NCT07492641 explicitly requires patients who have NOT received prior treatment for advanced or metastatic disease, making her ineligible due to prior palbociclib and letrozole for metastatic disease.",
       "criteria": [
         {
           "criterion": "Histologically confirmed locally advanced or metastatic HR+ HER2- breast cancer",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Metastatic invasive ductal carcinoma with ER 90%, PR 40%, HER2 IHC 1+.",
+          "evidence": "Patient: Metastatic invasive ductal carcinoma of the left breast, ER 90%, PR 40%, HER2 IHC 1+ | Trial: Locally advanced or metastatic HR+ HER2- breast cancer",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Have not received prior systemic treatment in the advanced or metastatic setting",
+          "criterion": "No prior systemic treatment in the advanced or metastatic setting",
           "type": "exclusion",
           "status": "FAIL",
-          "evidence": "Patient started first-line letrozole plus palbociclib in April 2024 for metastatic disease and progressed.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "No prior treatment with any selective cyclin-dependent kinase 4 (CDK4) or cyclin-dependent kinase 2 (CDK2) targeting agent in any disease setting (with exception for adjuvant setting)",
-          "type": "exclusion",
-          "status": "FAIL",
-          "evidence": "Patient received palbociclib (a CDK4/6 inhibitor) for metastatic disease.",
+          "evidence": "Patient: Started first-line letrozole + palbociclib in April 2024 for metastatic disease with subsequent progression | Trial: Participants who have received prior systemic treatment in the advanced or metastatic setting",
           "fail_confidence": "HIGH",
           "importance": null
         },
@@ -1303,15 +1506,23 @@
           "criterion": "ECOG Performance Status of <= 1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG performance status 1.",
+          "evidence": "Patient: ECOG performance status 1 | Trial: ECOG Performance Status of <= 1",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Adequate organ function (AST/ALT, bilirubin, hematology, renal)",
+          "criterion": "Prior treatment with any selective CDK4 or CDK2 targeting agent in any disease setting",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Treated with palbociclib (a CDK4/6 inhibitor) in the metastatic setting | Trial: Prior treatment with any selective cyclin-dependent kinase 4 (CDK4) or cyclin-dependent kinase 2 (CDK2) targeting agent",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Adequate organ function and lab parameters",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "AST/ALT 1.4x ULN, ANC 2.1, Hgb 11.8, Plt 190, but serum creatinine is not yet resulted.",
+          "evidence": "Creatinine not yet resulted; AST/ALT are 1.4x ULN, but full organ function panel and exact lab cutoffs per protocol need verification.",
           "fail_confidence": null,
           "importance": "routine"
         },
@@ -1319,26 +1530,19 @@
           "criterion": "No active leptomeningeal disease or uncontrolled, untreated brain metastasis",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No brain imaging on file; no neurologic symptoms.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "At least 18 years of age",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "58-year-old postmenopausal woman.",
+          "evidence": "Patient: No brain imaging on file, no neurologic symptoms | Trial: Active leptomeningeal disease or uncontrolled, untreated brain metastasis",
           "fail_confidence": null,
           "importance": null
         }
       ],
       "open_questions": [
-        "Obtain final serum creatinine lab result to fully assess renal organ function."
+        "What are the exact protocol-defined thresholds for adequate organ function (AST/ALT, bilirubin, creatinine clearance)?",
+        "Does the protocol allow any prior lines of endocrine therapy plus CDK4/6 inhibitor in the advanced/metastatic setting under specific wash-out or progression-free interval conditions?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
-      "n_pass": 4,
+      "n_pass": 3,
       "n_fail": 2,
       "n_unknown": 1,
       "n_unknown_important": 0,
@@ -1385,13 +1589,145 @@
       }
     },
     {
-      "summary": "The patient is a 58-year-old woman with HR-positive, HER2-low (IHC 1+), PIK3CA-mutated advanced breast cancer who progressed on first-line letrozole and palbociclib after developing bone and liver metastases in March 2024. She is likely ineligible for this trial because the protocol explicitly excludes patients who have received prior systemic therapy for locally advanced unresectable or metastatic breast cancer, and she has already received letrozole plus palbociclib in the first-line metastatic setting.",
+      "summary": "The patient is a 58-year-old woman with metastatic HR-positive, HER2-low (IHC 1+) breast cancer with a PIK3CA mutation, progressing on first-line letrozole and palbociclib. She fits best into the BBO-10203 + Fulvestrant combination cohort for HR-positive, HER2-negative aBC (as HER2-low is typically treated under the HR+/HER2- umbrella for trials unless specifically requiring HER2+), but her eligibility is currently UNKNOWN regarding LVEF assessment, creatinine clearance, and exact cohort-specific prior treatment criteria.",
+      "criteria": [
+        {
+          "criterion": "Locally advanced and unresectable or metastatic HER2-positive advanced breast cancer, HR-positive/HER2-negative advanced breast cancer, or other listed advanced solid tumors",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Metastatic invasive ductal carcinoma of the breast, ER 90%, PR 40%, HER2 IHC 1+ (HER2-low) | Trial: HR-positive/HER2-negative advanced breast cancer or HER2-positive advanced breast cancer",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Measurable disease by RECIST v1.1 (except for HR-positive HER2-negative aBC where evaluable bone-only disease is permitted)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has bone metastases and two liver lesions, but RECIST v1.1 measurability of the liver lesions is not explicitly stated in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance status (PS) 0-1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG performance status 1 | Trial: ECOG PS 0-1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate LVEF assessed by ECHO or MUGA (BBO-10203 + Trastuzumab cohorts only)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "LVEF assessment is missing from the patient summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Stable brain metastases (if present)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: No brain imaging on file; no neurologic symptoms. (Implies no active/unstable brain metastases).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "BBO-10203 + Fulvestrant combination cohort patients with HR-positive, HER2-negative aBC: confirmed PIK3CA mutation, must have been treated with a CDK4/6i",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Tumor NGS shows PIK3CA H1047R mutation; treated with first-line letrozole + palbociclib (CDK4/6i) in the advanced setting with progression | Trial: confirmed PIK3CA mutation, must have been treated with a CDK4/6i",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "BBO-10203 + Fulvestrant + ribociclib combination cohort patients with HR-positive, HER2-negative aBC: confirmed PIK3CA mutation, no prior systemic therapy in the aBC setting permitted",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Started first-line letrozole + palbociclib in April 2024 with subsequent disease progression in the liver | Trial: no prior systemic therapy in the aBC setting permitted",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Patients with untreated and/or non-stable brain metastases",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No neurologic symptoms and no brain metastases reported | Trial: Patients with untreated and/or non-stable brain metastases",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate organ function and laboratory parameters",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Creatinine is not yet resulted; AST/ALT are 1.4x ULN, but specific trial thresholds for transaminases, bilirubin, and creatinine clearance are not detailed in the provided protocol text.",
+          "fail_confidence": null,
+          "importance": "routine"
+        }
+      ],
+      "open_questions": [
+        "What are the specific numerical laboratory cutoff values for organ function (AST/ALT, bilirubin, creatinine/CrCl) required by the protocol?",
+        "Has the creatinine lab result been finalized?",
+        "Is an echocardiogram or MUGA scan required for the chosen BBO-10203 + Fulvestrant cohort, and if so, what is the patient's LVEF?",
+        "Are the liver lesions confirmed to be measurable by RECIST v1.1?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 5,
+      "n_fail": 1,
+      "n_unknown": 3,
+      "n_unknown_important": 1,
+      "nct_id": "NCT06625775",
+      "title": "Open-Label Study of BBO-10203 in Subjects With Advanced Solid Tumors",
+      "url": "https://clinicaltrials.gov/study/NCT06625775",
+      "phases": [
+        "PHASE1"
+      ],
+      "relevance_score": 11,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HR+ / HER2-low match",
+        "PIK3CA mentioned",
+        "solid-tumor basket"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Columbia University Irving Medical Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10032",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "BBOT (BridgeBio Oncology Therapeutics)",
+        "phone": "650-405-8440",
+        "email": "Breaker-101ct.gov@bridgebiooncology.com"
+      }
+    },
+    {
+      "summary": "The patient is a 58-year-old woman with metastatic HR-positive, HER2-low (IHC 1+) invasive ductal breast cancer with a PIK3CA mutation, who progressed on first-line letrozole and palbociclib. She meets key criteria including ECOG performance status 1 and hormone receptor positivity, but is excluded due to having received prior systemic therapy for metastatic breast cancer (letrozole + palbociclib). Additionally, her eligibility is uncertain regarding measurable disease confirmation by RECIST v1.1 and adequate renal function laboratories.",
       "criteria": [
         {
           "criterion": "Histologically or cytologically confirmed carcinoma of the breast",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Metastatic invasive ductal carcinoma of the left breast",
+          "evidence": "Patient: metastatic invasive ductal carcinoma of the left breast | Trial: histologically or cytologically confirmed carcinoma of the breast",
           "fail_confidence": null,
           "importance": null
         },
@@ -1399,7 +1735,7 @@
           "criterion": "Documented ER-positive and/or PR-positive tumor",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Liver biopsy: ER 90%, PR 40%",
+          "evidence": "Patient: ER 90%, PR 40% | Trial: documented ER-positive and/or progesterone receptor-positive tumor",
           "fail_confidence": null,
           "importance": null
         },
@@ -1407,39 +1743,31 @@
           "criterion": "Documented HER2-negative tumor according to ASCO/CAP guidelines",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "HER2 IHC 1+ (HER2-low)",
+          "evidence": "Patient: HER2 IHC 1+ (HER2-low) is considered HER2-negative per clinical trial and ASCO/CAP definitions | Trial: documented HER2-negative tumor",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "PIK3CA-mutated advanced breast cancer",
+          "criterion": "Confirmation of biomarker eligibility (PIK3CA-mutated)",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Tumor NGS shows PIK3CA H1047R mutation",
+          "evidence": "Patient: Tumor NGS shows PIK3CA H1047R mutation | Trial: PIK3CA-mutated advanced breast cancer",
           "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No prior systemic therapy for locally advanced unresectable or metastatic breast cancer",
-          "type": "exclusion",
-          "status": "FAIL",
-          "evidence": "Started first-line letrozole + palbociclib in April 2024 for metastatic disease, with progression in October 2026.",
-          "fail_confidence": "HIGH",
           "importance": null
         },
         {
           "criterion": "Measurable disease per RECIST v1.1",
           "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Two liver lesions and bone metastases described on scans",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary mentions two liver lesions and bone metastases, but does not state if they meet RECIST v1.1 measurable criteria | Trial: Measurable disease per RECIST v1.1",
           "fail_confidence": null,
-          "importance": null
+          "importance": "important"
         },
         {
           "criterion": "Eastern Cooperative Oncology Group (ECOG) Performance Status of 0 or 1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG performance status 1",
+          "evidence": "Patient: ECOG performance status 1 | Trial: ECOG Performance Status of 0 or 1",
           "fail_confidence": null,
           "importance": null
         },
@@ -1447,15 +1775,23 @@
           "criterion": "Adequate hematologic and organ function within 14 days prior to study treatment",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Labs from Oct 2026 show ANC 2.1, Hgb 11.8, Plt 190, AST/ALT 1.4x ULN, bilirubin normal; creatinine not yet resulted, and exact date relative to upcoming treatment is not established.",
+          "evidence": "Patient: ANC 2.1, Hgb 11.8, Plt 190, AST/ALT 1.4x ULN, bilirubin normal, but creatinine not yet resulted | Trial: Adequate hematologic and organ function",
           "fail_confidence": null,
           "importance": "routine"
         },
         {
-          "criterion": "Type 2 diabetes requiring ongoing systemic treatment at study entry; or any history of Type 1 diabetes",
+          "criterion": "No prior systemic therapy for locally advanced unresectable or metastatic breast cancer",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Started first-line letrozole + palbociclib in April 2024 for metastatic disease | Trial: Any prior systemic therapy for locally advanced unresectable or metastatic breast cancer",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Type 2 diabetes requiring ongoing systemic treatment or any history of Type 1 diabetes",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "HbA1c 5.9%; no mention of diabetes diagnosis or systemic treatment (history of well-controlled hypertension only).",
+          "evidence": "Patient: HbA1c 5.9%, history of hypertension, no mention of diabetes diagnosis or treatment | Trial: Type 2 diabetes requiring ongoing systemic treatment or history of Type 1 diabetes",
           "fail_confidence": null,
           "importance": null
         },
@@ -1463,23 +1799,23 @@
           "criterion": "Known and untreated, or active CNS metastases",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "No neurologic symptoms, but no brain imaging is on file to rule out asymptomatic CNS metastases.",
+          "evidence": "Patient: No neurologic symptoms, but no brain imaging on file | Trial: Known and untreated, or active CNS metastases",
           "fail_confidence": null,
           "importance": "important"
         }
       ],
       "open_questions": [
-        "Confirm whether prior first-line treatment with letrozole plus palbociclib for metastatic disease strictly violates the exclusion criteria for this trial (which generally evaluates inavolisib in the first-line setting).",
-        "Obtain brain imaging to rule out CNS metastases, as none is currently on file.",
-        "Check pending creatinine lab results to confirm adequate renal function."
+        "Confirm whether the liver or bone lesions meet RECIST v1.1 measurable disease criteria.",
+        "Obtain pending creatinine lab results to verify adequate renal function.",
+        "Perform brain imaging (MRI or CT) to rule out active CNS metastases given the lack of prior brain imaging."
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
-      "n_pass": 7,
+      "n_pass": 6,
       "n_fail": 1,
-      "n_unknown": 2,
-      "n_unknown_important": 1,
+      "n_unknown": 3,
+      "n_unknown_important": 2,
       "nct_id": "NCT06790693",
       "title": "A Study Evaluating the Efficacy and Safety of Inavolisib Plus CDK4/6 Inhibitor and Letrozole vs Placebo + CDK4/6i and Letrozole in Participants With Endocrine-Sensitive PIK3CA-Mutated, Hormone Receptor-Positive, HER2-Negative Advanced Breast Cancer",
       "url": "https://clinicaltrials.gov/study/NCT06790693",
@@ -1557,150 +1893,13 @@
       }
     },
     {
-      "summary": "The patient is a 58-year-old postmenopausal woman with ER+/HER2-low metastatic breast cancer who progressed on first-line letrozole plus palbociclib. Because the trial specifically requires first-line treatment for advanced breast cancer and excludes patients who have previously received systemic anti-cancer therapy for advanced disease, she fails a major inclusion/exclusion criterion. Additionally, her recurrence occurred within 5 years of completing adjuvant endocrine therapy (anastrozole completed around 2024, diagnosed metastatic March 2024), which fails the de novo or recurrence >12 months after completing adjuvant ET requirement.",
+      "summary": "The patient is a 58-year-old woman with HR+/HER2-low metastatic breast cancer and a PIK3CA mutation, currently progressing on first-line letrozole + palbociclib. She is likely ineligible because the trial requires patients to have Type 2 diabetes (the summary notes HbA1c 5.9% and hypertension, but no history of Type 2 diabetes) and no prior systemic therapy for metastatic disease (she has already received letrozole + palbociclib).",
       "criteria": [
         {
-          "criterion": "ER+, HER2- locally advanced or metastatic breast cancer not amenable to curative therapy",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Metastatic invasive ductal carcinoma of the left breast, ER 90%, PR 40%, HER2 IHC 1+.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "De novo advanced breast cancer or with disease recurrence occurring after 12 months of completing adjuvant endocrine therapy",
+          "criterion": "Type 2 diabetes with fasting glucose < 185 mg/dL and HbA1c <= 8%",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Completed 5 years of adjuvant anastrozole and developed bone and liver metastases in March 2024, which is during or very shortly after adjuvant therapy, failing the requirement of recurrence after >12 months of completing adjuvant endocrine therapy.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "ECOG performance status of 0 or 1",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ECOG performance status 1.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Not currently receiving or previously received systemic anti-cancer therapy for ER+, HER2- advanced breast cancer",
-          "type": "exclusion",
-          "status": "FAIL",
-          "evidence": "Started first-line letrozole + palbociclib in April 2024 for metastatic disease and progressed.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Previously received treatment with fulvestrant, elacestrant or an investigational endocrine therapy in any setting",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Prior endocrine therapy was anastrozole and letrozole; no mention of fulvestrant, elacestrant, or investigational ET.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Symptomatic CNS metastases, carcinomatous meningitis, leptomeningeal disease, or spinal cord compression",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No neurologic symptoms; no brain imaging on file.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Adequate renal function",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Creatinine not yet resulted.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Adequate hematologic function",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ANC 2.1, hemoglobin 11.8, platelets 190.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Adequate hepatic function",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "AST/ALT 1.4x ULN, bilirubin normal.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Evaluable disease (measurable disease per RECIST 1.1 or bone-only disease)",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Two liver lesions and bone metastases (spine, pelvis).",
-          "fail_confidence": null,
-          "importance": null
-        }
-      ],
-      "open_questions": [
-        "What is the patient's current serum creatinine / renal function lab result?",
-        "Exact dates of completion of adjuvant anastrozole versus onset of metastatic recurrence to precisely evaluate the 12-month adjuvant ET washout window."
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Not eligible",
-      "fit_score": 0,
-      "n_pass": 7,
-      "n_fail": 2,
-      "n_unknown": 1,
-      "n_unknown_important": 1,
-      "nct_id": "NCT07085767",
-      "title": "Palazestrant in Combination With Ribociclib for the First-line Treatment of ER+/HER2- Advanced Breast Cancer",
-      "url": "https://clinicaltrials.gov/study/NCT07085767",
-      "phases": [
-        "PHASE3"
-      ],
-      "relevance_score": 8,
-      "relevance_reasons": [
-        "metastatic setting",
-        "HR+ / HER2-low match",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "Clinical Trial Site",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10029",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": null,
-          "contact_phone": null,
-          "contact_email": null
-        },
-        {
-          "facility": "Clinical Trial Site",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10032",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": null,
-          "contact_phone": null,
-          "contact_email": null
-        }
-      ],
-      "central_contact": {
-        "name": "Olema Oncology, Inc.",
-        "phone": "415-651-7206",
-        "email": "OPERA-02@olema.com"
-      }
-    },
-    {
-      "summary": "The patient is a 58-year-old woman with HR+/HER2-low metastatic breast cancer with a PIK3CA H1047R mutation who progressed on first-line letrozole plus palbociclib. She appears to fail the trial's core target of Type 2 diabetes (having only a history of well-controlled hypertension and an HbA1c of 5.9%) and has received prior systemic therapy for metastatic disease, which violates the requirement of no prior systemic therapy for advanced/metastatic disease.",
-      "criteria": [
-        {
-          "criterion": "Type 2 diabetes with laboratory fasting blood glucose < 185 mg/dL and HbA1c <= 8%",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Patient summary reports a history of well-controlled hypertension and HbA1c 5.9%, but no history of Type 2 diabetes.",
+          "evidence": "Patient: HbA1c is 5.9% with a history of hypertension, but no diagnosis or anti-hyperglycemic regimen for Type 2 diabetes is reported | Trial: Requires Type 2 diabetes with laboratory fasting blood glucose < 185 mg/dL and HbA1c <= 8% on stable anti-hyperglycemic regimen",
           "fail_confidence": "HIGH",
           "importance": null
         },
@@ -1708,7 +1907,7 @@
           "criterion": "No prior systemic therapy for locally advanced unresectable or metastatic disease",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Patient started first-line letrozole + palbociclib in April 2024 for metastatic disease.",
+          "evidence": "Patient: Started first-line letrozole + palbociclib in April 2024 for metastatic disease | Trial: No prior systemic therapy for locally advanced unresectable or metastatic disease",
           "fail_confidence": "HIGH",
           "importance": null
         },
@@ -1716,7 +1915,7 @@
           "criterion": "Confirmed diagnosis of HR+/HER2- breast cancer",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Liver lesion biopsy showed ER 90%, PR 40%, HER2 IHC 1+ (HER2-low).",
+          "evidence": "Patient: Liver biopsy shows ER 90%, PR 40%, HER2 IHC 1+ (HER2-low)",
           "fail_confidence": null,
           "importance": null
         },
@@ -1724,23 +1923,23 @@
           "criterion": "Confirmation of biomarker eligibility (detection of specified mutation(s) of PIK3CA via specified test)",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Tumor NGS showed PIK3CA H1047R mutation.",
+          "evidence": "Patient: Tumor NGS shows PIK3CA H1047R mutation",
           "fail_confidence": null,
           "importance": null
         },
         {
           "criterion": "Measurable disease per RECIST v1.1",
           "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Patient has bone metastases and two liver lesions.",
+          "status": "UNKNOWN",
+          "evidence": "Scans in October 2026 show progression in the liver and bone metastases, but exact measurements or RECIST v1.1 status are not detailed.",
           "fail_confidence": null,
-          "importance": null
+          "importance": "important"
         },
         {
           "criterion": "Eastern Cooperative Oncology Group (ECOG) Performance Status of 0-1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG performance status 1.",
+          "evidence": "Patient: ECOG performance status 1",
           "fail_confidence": null,
           "importance": null
         },
@@ -1748,15 +1947,23 @@
           "criterion": "Adequate hematologic and organ function within 14 days prior to initiation of study treatment",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Recent labs show ANC 2.1, Hgb 11.8, Plt 190, AST/ALT 1.4x ULN, bilirubin normal, but creatinine is not yet resulted and timing relative to study initiation needs confirmation.",
+          "evidence": "Creatinine not yet resulted; AST/ALT are 1.4x ULN; recent labs from Oct 2026 need to be confirmed within 14 days of treatment initiation.",
           "fail_confidence": null,
-          "importance": "important"
+          "importance": "routine"
+        },
+        {
+          "criterion": "Metaplastic breast cancer",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Metastatic invasive ductal carcinoma",
+          "fail_confidence": null,
+          "importance": null
         },
         {
           "criterion": "Any history of Type 1 diabetes",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No history of Type 1 diabetes reported.",
+          "evidence": "Patient: No history of Type 1 diabetes reported (history of hypertension only)",
           "fail_confidence": null,
           "importance": null
         },
@@ -1764,7 +1971,7 @@
           "criterion": "Any history of leptomeningeal disease or carcinomatous meningitis",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No history of leptomeningeal disease reported; no neurologic symptoms.",
+          "evidence": "Patient: No neurologic symptoms and no history of leptomeningeal disease reported",
           "fail_confidence": null,
           "importance": null
         },
@@ -1772,23 +1979,23 @@
           "criterion": "Known and untreated, or active central nervous system (CNS) metastases",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "No brain imaging on file, though patient has no neurologic symptoms.",
+          "evidence": "No brain imaging on file to definitively rule out asymptomatic CNS metastases, though patient has no neurologic symptoms.",
           "fail_confidence": null,
           "importance": "important"
         }
       ],
       "open_questions": [
-        "Does the patient have a diagnosis of Type 2 diabetes?",
-        "Has the patient received prior systemic therapy for metastatic disease (letrozole + palbociclib)?",
-        "What is the current creatinine result to confirm adequate organ function?",
-        "Is baseline brain imaging required to rule out active CNS metastases?"
+        "Does the patient have a documented diagnosis of Type 2 diabetes?",
+        "Has formal RECIST v1.1 evaluation been performed to confirm measurable disease?",
+        "What are the results of the creatinine lab?",
+        "Is brain imaging required to rule out asymptomatic CNS metastases?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
       "n_pass": 6,
       "n_fail": 2,
-      "n_unknown": 2,
+      "n_unknown": 3,
       "n_unknown_important": 2,
       "nct_id": "NCT07748208",
       "title": "A Study Evaluating the Safety of Inavolisib and Fulvestrant With or Without Palbociclib in Participants With Advanced Breast Cancer (ABC) and Type 2 Diabetes",
@@ -1823,98 +2030,115 @@
       }
     },
     {
-      "summary": "The patient is a 58-year-old postmenopausal woman with HR-positive, HER2-low metastatic breast cancer who progressed on first-line letrozole and palbociclib in the advanced setting. She meets several inclusion criteria such as ECOG performance status 1 and adequate organ function, but is excluded due to having received prior systemic anticancer therapy for advanced/metastatic breast cancer (letrozole plus palbociclib), whereas VIKTORIA-2 is a first-line study for advanced breast cancer.",
+      "summary": "The patient is a 58-year-old postmenopausal woman with HR-positive, HER2-low metastatic breast cancer who progressed on first-line letrozole and palbociclib in the advanced setting. She appears potentially eligible for VIKTORIA-2, but her prior CDK4/6 inhibitor exposure in the advanced setting (rather than purely adjuvant) and lack of formal RECIST v1.1 lesion measurement details require confirmation.",
       "criteria": [
         {
           "criterion": "Histologically or cytologically confirmed diagnosis of metastatic or locally advanced HR+/HER2- breast cancer",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Metastatic invasive ductal carcinoma of the left breast, ER 90%, PR 40%, HER2 IHC 1+ (HER2-negative range).",
+          "evidence": "Patient: metastatic invasive ductal carcinoma, ER 90%, PR 40%, HER2 IHC 1+ | Trial: HR+, HER2- advanced breast cancer",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Adult females, pre- and/or post-menopausal",
+          "criterion": "Adult female, postmenopausal",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "58-year-old postmenopausal woman.",
+          "evidence": "Patient: 58-year-old postmenopausal woman | Trial: Adult females, pre- and/or post-menopausal",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Prior treatment with systemic anticancer therapy for ABC (Advanced Breast Cancer)",
+          "criterion": "Progression of disease during or within/after adjuvant endocrine therapy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: developed bone and liver metastases 5 years after completing adjuvant anastrozole | Trial: progression after completing (neo)adjuvant ET",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate archival, fresh tumor tissue, or liquid biopsy for PIK3CA mutational status",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Tumor NGS performed showing PIK3CA H1047R mutation | Trial: tissue or liquid biopsy for PIK3CA analysis",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior treatment with systemic anticancer therapy for advanced breast cancer (ABC)",
           "type": "exclusion",
           "status": "FAIL",
-          "evidence": "Started first-line letrozole + palbociclib in April 2024 for metastatic disease.",
+          "evidence": "Patient: Started first-line letrozole + palbociclib in April 2024 for metastatic disease | Trial: Prior treatment with systemic anticancer therapy for ABC",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance status of 0-2",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ECOG performance status 1.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Subject has radiologically measurable disease according to RECIST v1.1",
+          "criterion": "Radiologically measurable disease according to RECIST v1.1",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Summary mentions spine, pelvis bone metastases and two liver lesions, but does not explicitly confirm if they meet RECIST v1.1 measurable criteria.",
+          "evidence": "Patient has bone metastases and two liver lesions, but specific measurements and RECIST v1.1 suitability are not stated in the summary.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "Adequate archival, fresh tumor tissue, or liquid biopsy for the analysis of PIK3CA mutational status",
+          "criterion": "ECOG performance status of 0-2",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Tumor NGS performed (PIK3CA H1047R mutation detected).",
+          "evidence": "Patient: ECOG performance status 1 | Trial: ECOG performance status of 0-2",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Adequate bone marrow, hepatic, renal and coagulation function",
+          "criterion": "Adequate bone marrow and hepatic function",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ANC 2.1, hemoglobin 11.8, platelets 190, AST/ALT 1.4x ULN, bilirubin normal | Trial: Adequate bone marrow and hepatic function",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate renal function",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "ANC, Hb, platelets, AST/ALT, and bilirubin are adequate, but creatinine has not yet resulted.",
+          "evidence": "Patient: Creatinine not yet resulted. Summary lacks renal function values.",
           "fail_confidence": null,
           "importance": "routine"
-        },
-        {
-          "criterion": "Subjects with type 1 diabetes, or uncontrolled type 2 diabetes requiring daily insulin therapy",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "HbA1c 5.9%, no mention of insulin-requiring diabetes.",
-          "fail_confidence": null,
-          "importance": null
         },
         {
           "criterion": "Known and untreated, or active, brain or leptomeningeal metastases",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "No brain imaging on file; patient is neurologically asymptomatic.",
+          "evidence": "Patient has no neurologic symptoms and no brain imaging on file; trial requires ruling out untreated/active brain metastases.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "Prior treatment with a PI3K, Akt, or mTOR inhibitor or any other SERD except fulvestrant",
+          "criterion": "Subjects with type 1 diabetes, or uncontrolled type 2 diabetes requiring daily insulin therapy",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Prior therapies include anastrozole, letrozole, and palbociclib; no PI3K/Akt/mTOR inhibitor or forbidden SERD mentioned.",
+          "evidence": "Patient: HbA1c 5.9%, no mention of insulin-dependent diabetes | Trial: uncontrolled type 2 diabetes requiring daily insulin therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior treatment with a PI3K, Akt, or mTOR inhibitor or any other selective estrogen receptor degrader",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Prior therapy included anastrozole, AC-T, radiation, letrozole, palbociclib (none are PI3K/Akt/mTOR inhibitors or SERDs) | Trial: Prior treatment with PI3K/Akt/mTOR inhibitor or SERD",
           "fail_confidence": null,
           "importance": null
         }
       ],
       "open_questions": [
-        "Do the liver lesions or bone lesions meet RECIST v1.1 criteria for measurable disease?",
-        "What is the patient's serum creatinine level?",
-        "Is brain imaging required and will it be performed to rule out untreated brain metastases given the lack of prior brain imaging?"
+        "Are the two liver lesions radiologically measurable per RECIST v1.1?",
+        "What are the results of the pending serum creatinine test?",
+        "Has the patient had brain imaging to definitively rule out active brain metastases?",
+        "Clarify whether the trial permits patients who have already received first-line therapy in the advanced setting, given that VIKTORIA-2 is positioned as a first-line study for advanced breast cancer."
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
-      "n_pass": 6,
+      "n_pass": 8,
       "n_fail": 1,
       "n_unknown": 3,
       "n_unknown_important": 2,
@@ -1951,100 +2175,77 @@
       }
     },
     {
-      "summary": "The patient is a 58-year-old postmenopausal woman with metastatic hormone receptor-positive, HER2-low breast cancer who progressed on first-line letrozole plus palbociclib. While she meets several criteria including ECOG performance status and lack of prior metastatic chemotherapy, she is likely ineligible because the trial specifically requires a documented germline or tumor loss-of-function mutation in BRCA1, BRCA2, or PALB2, whereas her tumor NGS only shows a PIK3CA mutation and germline status is unknown. Furthermore, she received prior palbociclib for more than 28 days as first-line therapy for metastatic disease, which violates the exclusion against prior systemic anti-cancer therapy for metastatic disease beyond 28 days of endocrine therapy.",
+      "summary": "The patient is a 58-year-old postmenopausal woman with HR-positive, HER2-low metastatic breast cancer who progressed on first-line letrozole plus palbociclib. She is likely ineligible due to prior systemic therapy for metastatic disease (letrozole plus palbociclib for over 2.5 years) and lack of documented germline BRCA1/2 or PALB2 mutation, as well as untested brain imaging status.",
       "criteria": [
         {
           "criterion": "HR-positive, HER2-negative advanced breast cancer",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Metastatic invasive ductal carcinoma, ER 90%, PR 40%, HER2 IHC 1+ (HER2-low).",
+          "evidence": "Patient: Metastatic invasive ductal carcinoma, ER 90%, PR 40%, HER2 IHC 1+ (HER2-low) | Trial: HR-positive, HER2-negative (IHC 0, 1+, 2+/ ISH Non-amplified) advanced breast cancer",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Documented germline or tumor loss of function mutation in BRCA1, BRCA2, or PALB2",
+          "criterion": "Documented germline or tumour loss of function mutation in BRCA1, BRCA2, or PALB2",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Tumor NGS shows PIK3CA H1047R mutation; summary states 'No known germline testing'.",
+          "evidence": "Tumor NGS shows PIK3CA H1047R mutation, but summary states 'No known germline testing' and does not report BRCA1, BRCA2, or PALB2 mutation status.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "ECOG performance status 0 or 1",
+          "criterion": "ECOG performance status of 0 or 1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG performance status 1.",
+          "evidence": "Patient: ECOG performance status 1 | Trial: ECOG performance status of 0 or 1",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Adequate organ and marrow function",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "ANC 2.1, Hgb 11.8, Plt 190, AST/ALT 1.4x ULN, bilirubin normal; creatinine not yet resulted.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Spinal cord compression, brain metastases, carcinomatous meningitis, or leptomeningeal disease",
+          "criterion": "No brain metastases",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "No neurologic symptoms, but no brain imaging on file.",
+          "evidence": "Patient has no neurologic symptoms, but summary notes 'No brain imaging on file' to rule out brain metastases.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "Prior treatment with systemic anti-cancer therapy for locoregionally recurrent or metastatic disease is not permitted, apart from treatment with ET for up to 28 days total",
+          "criterion": "Prior treatment with systemic anti-cancer therapy for locoregionally recurrent or metastatic disease is not permitted, apart from ET for up to 28 days total",
           "type": "exclusion",
           "status": "FAIL",
-          "evidence": "Started first-line letrozole + palbociclib in April 2024 and progressed in October 2026 (received a CDK4/6 inhibitor plus endocrine therapy for metastatic disease well beyond 28 days).",
+          "evidence": "Patient: Started first-line letrozole + palbociclib in April 2024 and received it until October 2026 (over 2.5 years of endocrine therapy plus CDK4/6 inhibitor for metastatic disease) | Trial: Prior treatment with systemic anti-cancer therapy for locoregionally recurrent or metastatic disease is not permitted, apart from treatment with ET for up to 28 days total before randomisation",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "History of another primary malignancy",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No history of another primary malignancy reported.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Evidence of active and uncontrolled hepatitis B and/or hepatitis C",
-          "type": "exclusion",
+          "criterion": "Adequate organ and marrow function (labs)",
+          "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Not mentioned in the patient summary.",
+          "evidence": "ANC, hemoglobin, platelets, and bilirubin are available, but serum creatinine has 'not yet resulted'.",
           "fail_confidence": null,
           "importance": "routine"
         },
         {
-          "criterion": "Evidence of active and uncontrolled HIV infection",
-          "type": "exclusion",
+          "criterion": "FFPE tumour tissue available",
+          "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Not mentioned in the patient summary.",
+          "evidence": "Liver lesion biopsy was performed in March 2024, but availability of archival FFPE tissue for study purposes is not explicitly stated.",
           "fail_confidence": null,
           "importance": "routine"
-        },
-        {
-          "criterion": "Cardiac criteria including history of arrhythmia and cardiovascular disease",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "History of well-controlled hypertension; no other cardiovascular disease or arrhythmia reported.",
-          "fail_confidence": null,
-          "importance": null
         }
       ],
       "open_questions": [
-        "Has germline genetic testing been performed to check for BRCA1, BRCA2, or PALB2 mutations?",
-        "What is the patient's serum creatinine result?",
-        "Has brain imaging been performed to formally rule out brain metastases?"
+        "What are the results of germline testing for BRCA1, BRCA2, and PALB2?",
+        "Has brain imaging (MRI or CT) been performed to definitively rule out brain metastases?",
+        "What is the patient's serum creatinine or creatinine clearance result?",
+        "Is archival FFPE tumor tissue available from the liver biopsy or primary surgery?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
-      "n_pass": 4,
+      "n_pass": 2,
       "n_fail": 1,
-      "n_unknown": 5,
+      "n_unknown": 4,
       "n_unknown_important": 2,
       "nct_id": "NCT06380751",
       "title": "Saruparib (AZD5305) Plus Camizestrant or Plus Endocrine Therapy, Compared With CDK4/6 Inhibitor Plus Endocrine Therapy or Plus Camizestrant in HR-Positive, HER2-Negative (IHC 0, 1+, 2+/ ISH Non-amplified), BRCA1, BRCA2, or PALB2m Advanced Breast Cancer",
@@ -2086,70 +2287,6 @@
         "name": "AstraZeneca Clinical Study Information Center",
         "phone": "1-877-240-9479",
         "email": "information.center@astrazeneca.com"
-      }
-    },
-    {
-      "summary": "Screening failed: Expecting value: line 74 column 21 (char 3337)",
-      "criteria": [],
-      "open_questions": [],
-      "model": null,
-      "category": "Unable to assess - screening error",
-      "fit_score": 0,
-      "n_pass": 0,
-      "n_fail": 0,
-      "n_unknown": 0,
-      "n_unknown_important": 0,
-      "nct_id": "NCT04563507",
-      "title": "Combined Immunotherapies in Metastatic ER+ Breast Cancer",
-      "url": "https://clinicaltrials.gov/study/NCT04563507",
-      "phases": [
-        "PHASE2"
-      ],
-      "relevance_score": 8,
-      "relevance_reasons": [
-        "metastatic setting",
-        "HR+ / HER2-low match",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "Weill Cornell Medicine",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10065",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Fabiana Gregucci, M.D.",
-          "contact_phone": "6469623110",
-          "contact_email": "fgr4002@med.cornell.edu"
-        },
-        {
-          "facility": "Brooklyn Methodist Hospital - NewYork Presbyterian",
-          "city": "New York",
-          "state": "New York",
-          "zip": "11215",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Izael Ni\u00f1o, M.S.",
-          "contact_phone": "929 470 9426",
-          "contact_email": "izn4001@med.cornell.edu"
-        },
-        {
-          "facility": "New York Presbyterian Hospital - Queens",
-          "city": "New York",
-          "state": "New York",
-          "zip": "11355",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Hina Ali, M.D.",
-          "contact_phone": null,
-          "contact_email": "hia4002@med.cornell.edu"
-        }
-      ],
-      "central_contact": {
-        "name": "Fabiana Gregucci, M.D.",
-        "phone": "646-962-3110",
-        "email": "fgr4002@med.cornell.edu"
       }
     }
   ]

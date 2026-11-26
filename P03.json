@@ -7,13 +7,11 @@
     "sex": "FEMALE",
     "menopausal_status": "premenopausal",
     "subtype": "HR+/HER2-",
-    "her2_low": null,
+    "her2_low": true,
     "disease_setting": "early",
     "biomarkers": [],
-    "prior_therapies": [
-      "lumpectomy with sentinel node biopsy"
-    ],
-    "lines_of_therapy_metastatic": 0,
+    "prior_therapies": [],
+    "lines_of_therapy_metastatic": null,
     "ecog": 0,
     "brain_metastases": "none",
     "notable_comorbidities": [],
@@ -23,7 +21,7 @@
     ]
   },
   "experiment": {
-    "timestamp_utc": "2026-11-22T18:57:48.248876+00:00",
+    "timestamp_utc": "2026-11-26T17:26:06.728660+00:00",
     "configured_model": "gemini-3.5-flash-lite",
     "models_actually_used": [
       "gemini-3.5-flash-lite"
@@ -33,7 +31,7 @@
     "trial_count": 183,
     "patient_record_sha256": "faea16dbe64a5ff48e5134899d213ceb34e0f7b1b8f19897ec12781f63fd903d",
     "parser_prompt_sha256": "6c358859eddf6a2344b24d6ec7a6be18339d417f9b9475fdb51d247512c7f339",
-    "screener_prompt_sha256": "0e5914f84b5c92fc28b72d1544c633b8924c380d2631bbf76fa38a86de83e59e"
+    "screener_prompt_sha256": "da38322c0a1602c45c0f4338c4d179af851404f4f9dfe2fe84e29963f8480dc2"
   },
   "complete": true,
   "funnel": {
@@ -48,183 +46,13 @@
   },
   "results": [
     {
-      "summary": "The patient is a 44-year-old premenopausal woman with newly diagnosed stage IIA HR-positive, HER2-negative invasive ductal carcinoma of the breast who has undergone lumpectomy and is evaluating adjuvant therapy. She appears to be a strong candidate for the Early-stage Breast Cancer cohort of trial NCT07310420, provided her baseline laboratory values, pregnancy status, and contraceptive measures meet protocol requirements. Open questions remain regarding specific lab results, body mass index, and consent/contraception details.",
+      "summary": "The patient is a 44-year-old premenopausal woman with newly diagnosed stage IIA ER-positive, HER2-negative invasive ductal carcinoma, status post lumpectomy with negative margins and 0/2 positive nodes, and an Oncotype DX recurrence score of 21. She meets primary diagnostic, biomarker, staging, and surgical margin criteria, and has not yet started systemic therapy or radiation. She appears to be an excellent candidate for this trial evaluating adjuvant chemotherapy plus ovarian suppression and endocrine therapy.",
       "criteria": [
         {
-          "criterion": "Age and gender: Female participants aged 18 to 55 years, inclusive",
+          "criterion": "Premenopausal female patient aged 18 or older",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "44-year-old premenopausal woman",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Hormone receptor positive (HR+): ER+ or PR+ defined as 1% to 100% positive via IHC",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ER 95%, PR 80%",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Participants must be of premenopausal status",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Premenopausal woman with regular menstrual cycles",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Performance status: ECOG performance status of 0 to 2",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ECOG 0",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Early-stage breast cancer diagnosis: Pathologically staged as Stage I, II, or III (T1-T4, N0-N3, M0)",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Stage IIA (pT2 pN0, 2.4 cm) invasive ductal carcinoma",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Postmenopausal: Naturally or surgically postmenopausal (exclusion)",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "44-year-old premenopausal woman with regular menstrual cycles",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Body mass index (BMI): <18 kg/m^2 or >35.0 kg/m^2 (exclusion)",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Height and weight / BMI are not reported in the summary.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Prior surgical or radiation procedures: History of bilateral oophorectomy or prior radiotherapy to the ovaries (exclusion)",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No prior history of oophorectomy or ovarian radiotherapy mentioned; underwent lumpectomy with sentinel node biopsy.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Hepatic function: ALT/AST and total bilirubin within acceptable limits",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Liver function tests (ALT, AST, total bilirubin) are not reported.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Renal function: Creatinine clearance >30 mL/min",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Serum creatinine or calculated creatinine clearance is not reported.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Hematologic parameters: Hgb >=8.0 g/dL, WBC >=3000/mm^3, Platelets >=100,000/mm^3, ANC >=1500/mm^3",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Complete blood count (CBC) parameters are not reported.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Pregnancy test: Negative serum pregnancy test at Screening and urine pregnancy test at Day -1",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Pregnancy test results are not reported.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Contraceptive use: Willing to use nonhormonal contraceptive methods throughout the trial if sexually active with a male partner",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Contraception plan is not mentioned in the summary.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Major surgery within 30 days prior to IP dosing (exclusion)",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Underwent lumpectomy in October 2026; depending on the exact date of IP dosing, this may need confirmation, but surgery was >30 days prior relative to current clinical context.",
-          "fail_confidence": null,
-          "importance": "important"
-        }
-      ],
-      "open_questions": [
-        "What are the patient's height and weight to calculate BMI?",
-        "What are the baseline laboratory results including complete blood count, renal function, and hepatic function?",
-        "What is the patient's pregnancy status and planned nonhormonal contraception method?",
-        "What is the exact date of the lumpectomy relative to planned trial enrollment/IP dosing?"
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Eligible",
-      "fit_score": 57,
-      "n_pass": 8,
-      "n_fail": 0,
-      "n_unknown": 6,
-      "n_unknown_important": 0,
-      "nct_id": "NCT07310420",
-      "title": "A Trial to Evaluate Ovarian Suppression Following Subcutaneous ZOLADEX 10.8 mg in Premenopausal Women With Early-stage and Advanced HR+ Breast Cancer",
-      "url": "https://clinicaltrials.gov/study/NCT07310420",
-      "phases": [
-        "PHASE1"
-      ],
-      "relevance_score": 5,
-      "relevance_reasons": [
-        "HR+ / HER2-low match",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "Chelsea Medical Center at Mount Sinai",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10011",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Paula Klein, MD",
-          "contact_phone": null,
-          "contact_email": null
-        },
-        {
-          "facility": "Montefiore Medical Center",
-          "city": "The Bronx",
-          "state": "New York",
-          "zip": "10467",
-          "site_status": "RECRUITING",
-          "distance_mi": 12.0,
-          "contact_name": "Jinyu Lu, MD",
-          "contact_phone": null,
-          "contact_email": null
-        }
-      ],
-      "central_contact": {
-        "name": "Christine Fredericks",
-        "phone": "1-888-600-8116",
-        "email": "christine.fredericks@tersera.com"
-      }
-    },
-    {
-      "summary": "The patient is a 44-year-old premenopausal woman with stage IIA (pT2 pN0) invasive ductal carcinoma of the breast, who has undergone a lumpectomy with negative margins and has an Oncotype DX recurrence score of 21, making her a potential fit for NCT05879926. Key eligibility requirements regarding age, menopausal status, tumor stage, hormone receptor/HER2 status, and surgery are satisfied, though confirmation of precise surgical interval dates and routine screening labs will be needed.",
-      "criteria": [
-        {
-          "criterion": "Premenopausal female age 18 or older",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "44-year-old premenopausal woman with regular menstrual cycles",
+          "evidence": "Patient is a 44-year-old premenopausal woman with regular menstrual cycles.",
           "fail_confidence": null,
           "importance": null
         },
@@ -232,15 +60,15 @@
           "criterion": "ECOG performance status <= 2",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG 0",
+          "evidence": "Patient has an ECOG performance status of 0.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Lumpectomy with histologically negative margins (no ink on tumor)",
+          "criterion": "Lumpectomy with histologically free margins (no ink on tumor)",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Underwent lumpectomy... margins negative",
+          "evidence": "Patient underwent lumpectomy in October 2026 with negative margins.",
           "fail_confidence": null,
           "importance": null
         },
@@ -248,63 +76,55 @@
           "criterion": "Axillary staging performed (SNB, TAD, or ALND)",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Underwent... sentinel node biopsy",
+          "evidence": "Patient underwent sentinel node biopsy.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Pathological tumor size pT1-3 (if N0, must be T1c or higher)",
+          "criterion": "Postoperative staging: pT1-3 (if N0, must be T1c or higher) and pN0-1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "pT2 (2.4 cm), pN0",
+          "evidence": "Patient's tumor is pT2 (2.4 cm) and pN0 (0/2 nodes positive).",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Pathological nodal status pN0 or pN1",
+          "criterion": "Node-negative Oncotype DX RS requirements (RS 21-25, or RS 16-20 with high clinical risk)",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "pN0, 0/2 nodes positive",
+          "evidence": "Patient is node-negative with an Oncotype DX recurrence score of 21.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Oncotype DX RS requirements for node-negative disease (RS 21-25 or RS 16-20 with high clinical risk)",
+          "criterion": "Tumor must be ER and/or PgR-positive (>= 1%)",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Oncotype DX recurrence score 21 in node-negative disease",
+          "evidence": "Tumor is ER 95% and PR 80%.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "ER and/or PgR positive by ASCO/CAP guidelines (>= 1%)",
+          "criterion": "Tumor must be HER2-negative",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ER 95%, PR 80%",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "HER2-negative by ASCO/CAP guidelines",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "HER2 IHC 2+ with FISH not amplified (HER2-negative)",
+          "evidence": "Tumor is HER2 IHC 2+ with FISH not amplified (HER2-negative).",
           "fail_confidence": null,
           "importance": null
         },
         {
           "criterion": "Interval between last surgery and pre-entry <= 16 weeks",
           "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Surgery was in October 2026, but exact pre-entry date is not specified to verify the 16-week window.",
+          "status": "PASS",
+          "evidence": "Patient underwent surgery in October 2026, which is within the 16-week window.",
           "fail_confidence": null,
-          "importance": "important"
+          "importance": null
         },
         {
           "criterion": "No prior radiation, chemotherapy, or biotherapy administered for current breast cancer",
-          "type": "inclusion",
+          "type": "exclusion",
           "status": "PASS",
-          "evidence": "Has not yet started radiation or any systemic therapy",
+          "evidence": "Has not yet started radiation or any systemic therapy.",
           "fail_confidence": null,
           "importance": null
         },
@@ -312,46 +132,46 @@
           "criterion": "No definitive clinical or radiologic evidence of metastatic disease",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Stage IIA (pT2 pN0), no distant metastasis mentioned",
+          "evidence": "Patient has newly diagnosed stage IIA (pT2 pN0) disease with no distant metastases mentioned.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Not pT4 or inflammatory breast cancer",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "pT2 invasive ductal carcinoma",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Adequate organ function and hematologic parameters (labs)",
+          "criterion": "Routine baseline laboratory values within protocol limits (ANC, platelets, hemoglobin, bilirubin, transaminases, GFR)",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "Routine lab values (ANC, platelets, hemoglobin, bilirubin, transaminases, GFR) are not reported in the summary.",
+          "evidence": "No specific laboratory values (CBC, liver function, renal function) are reported in the patient summary.",
           "fail_confidence": null,
           "importance": "routine"
         },
         {
-          "criterion": "No pregnancy or lactation at pre-entry",
+          "criterion": "Pregnancy test within 2 weeks prior to pre-entry / not pregnant or lactating",
           "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Premenopausal woman with regular menstrual cycles; no indication of pregnancy",
+          "status": "UNKNOWN",
+          "evidence": "Pregnancy test results within the last 2 weeks are not mentioned in the summary.",
           "fail_confidence": null,
-          "importance": null
+          "importance": "routine"
+        },
+        {
+          "criterion": "Intended radiation therapy declared prior to pre-entry",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Adjuvant radiation plan is currently under discussion and has not yet been formally declared.",
+          "fail_confidence": null,
+          "importance": "important"
         }
       ],
       "open_questions": [
-        "What is the exact scheduled date for study pre-entry to confirm it is within 16 weeks of the October 2026 lumpectomy?",
-        "Do baseline laboratory results (complete blood count, hepatic panel, and renal function) meet the study's required thresholds?",
-        "What is the intended radiation therapy plan and schedule?"
+        "Have baseline routine laboratory tests (CBC, liver function tests, renal function/GFR) been performed and do they meet the protocol limits?",
+        "Has a negative pregnancy test been documented within 2 weeks prior to pre-entry?",
+        "Has the intended radiation therapy plan been formally finalized and declared prior to study entry?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Likely eligible - needs review",
-      "fit_score": 87,
-      "n_pass": 13,
+      "fit_score": 79,
+      "n_pass": 11,
       "n_fail": 0,
-      "n_unknown": 2,
+      "n_unknown": 3,
       "n_unknown_important": 1,
       "nct_id": "NCT05879926",
       "title": "Evaluating the Addition of Adjuvant Chemotherapy to Ovarian Function Suppression Plus Endocrine Therapy in Premenopausal Patients With pN0-1, ER-Positive/HER2-Negative Breast Cancer and an Oncotype Recurrence Score Less Than or Equal to 25",
@@ -484,50 +304,339 @@
       }
     },
     {
-      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA, HR-positive, HER2-negative invasive ductal breast cancer who has undergone lumpectomy and has not yet started systemic therapy. She appears potentially eligible for this neoadjuvant/adjuvant chemo-immunotherapy trial, but her eligibility hinges crucially on whether her tumor has a MammaPrint High-2 (MP2) index score, which is currently unknown because an Oncotype DX score was performed instead.",
+      "summary": "The patient is a 44-year-old premenopausal woman with newly diagnosed stage IIA HR-positive, HER2-negative early-stage invasive ductal breast cancer who has undergone lumpectomy and is evaluating adjuvant therapy. She appears to fit the early-stage breast cancer cohort of trial NCT07310420, meeting criteria for age, hormone receptor status, premenopausal status, and performance status. However, organ function labs, contraceptive compliance, and exact surgical healing timelines require verification.",
       "criteria": [
         {
-          "criterion": "Histologically confirmed hormone receptor positive and HER2 negative breast cancer",
+          "criterion": "Age and gender: Female participants aged 18 to 55 years, inclusive",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ER 95%, PR 80%, HER2 IHC 2+ with FISH not amplified (HER2-negative).",
+          "evidence": "Patient: 44-year-old premenopausal woman | Trial: Female participants aged 18 to 55 years, inclusive",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Clinical stage II or III breast cancer",
+          "criterion": "Hormone receptor positive (HR+): ER+ or PR+ defined as 1% to 100% positive via IHC",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Newly diagnosed stage IIA (pT2 pN0, 2.4 cm) invasive ductal carcinoma.",
+          "evidence": "Patient: ER 95%, PR 80% | Trial: ER+ or PR+ defined as 1% to 100%",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Must not have metastatic disease (clinically M0 or Mx)",
+          "criterion": "Participants must be of premenopausal status",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Stage IIA with 0/2 nodes positive; no distant metastases reported.",
+          "evidence": "Patient: premenopausal woman with regular menstrual cycles | Trial: premenopausal status",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Must not have received any prior treatment for current breast cancer",
+          "criterion": "Early-stage breast cancer diagnosis: histologically confirmed unilateral/bilateral invasive adenocarcinoma, stage I, II, or III at definitive surgery",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Underwent lumpectomy; has not yet started radiation or any systemic therapy.",
+          "evidence": "Patient: stage IIA (pT2 pN0) invasive ductal carcinoma of the right breast | Trial: histologically confirmed invasive adenocarcinoma, staged as Stage I, II, or III",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "MammaPrint High Risk 2 (MP2) result",
+          "criterion": "Performance status: ECOG 0 to 2",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG 0 | Trial: ECOG performance status of 0 to 2",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Postmenopausal: naturally or surgically postmenopausal",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: 44-year-old premenopausal woman with regular menstrual cycles | Trial: not postmenopausal",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Body mass index (BMI): <18 kg/m^2 or >35.0 kg/m^2",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient height and weight are not provided in the summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Hepatic function: ALT/AST <2x ULN (no liver metastases) and total bilirubin <1.5x ULN",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Liver function laboratory values (ALT, AST, total bilirubin) are not reported.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Renal function: Creatinine clearance >30 mL/min",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Serum creatinine or creatinine clearance values are not reported.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Hematologic parameters: Hemoglobin >=8.0 g/dL, WBC >=3000/mm^3, Platelets >=100,000/mm^3, ANC >=1500/mm^3",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Complete blood count values (Hgb, WBC, platelets, ANC) are not reported.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Contraceptive use: willing to use nonhormonal contraceptive methods or practice true abstinence throughout trial",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient's contraceptive plans or sexual activity status are not mentioned.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Major surgery within 30 days prior to IP dosing or major surgical procedure planned during the trial",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient underwent lumpectomy in October 2026, but the exact date of planned IP dosing relative to the surgery is not yet established.",
+          "fail_confidence": null,
+          "importance": "important"
+        }
+      ],
+      "open_questions": [
+        "What are the patient's baseline laboratory values (complete blood count, hepatic function, renal function)?",
+        "What is the patient's height and weight to calculate BMI?",
+        "What is the patient's plan for nonhormonal contraception or abstinence during the trial?",
+        "When is the exact anticipated date for starting trial therapy relative to the lumpectomy performed in October 2026?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 50,
+      "n_pass": 6,
+      "n_fail": 0,
+      "n_unknown": 6,
+      "n_unknown_important": 1,
+      "nct_id": "NCT07310420",
+      "title": "A Trial to Evaluate Ovarian Suppression Following Subcutaneous ZOLADEX 10.8 mg in Premenopausal Women With Early-stage and Advanced HR+ Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT07310420",
+      "phases": [
+        "PHASE1"
+      ],
+      "relevance_score": 5,
+      "relevance_reasons": [
+        "HR+ / HER2-low match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Chelsea Medical Center at Mount Sinai",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10011",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Paula Klein, MD",
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Montefiore Medical Center",
+          "city": "The Bronx",
+          "state": "New York",
+          "zip": "10467",
+          "site_status": "RECRUITING",
+          "distance_mi": 12.0,
+          "contact_name": "Jinyu Lu, MD",
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Christine Fredericks",
+        "phone": "1-888-600-8116",
+        "email": "christine.fredericks@tersera.com"
+      }
+    },
+    {
+      "summary": "The patient is a 44-year-old woman with stage IIA (pT2 pN0, 2.4 cm) invasive ductal carcinoma of the right breast who underwent lumpectomy with negative margins in October 2026. She appears to meet key inclusion criteria including age, performance status, tumor stage/size, and prior upfront breast conservative surgery, though timing of radiation and certain physical/medical exclusions remain unverified.",
+      "criteria": [
+        {
+          "criterion": "Age >= 40 years",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: 44-year-old | Trial: Age >= 40 year",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Upfront breast conservative surgery",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Underwent lumpectomy with sentinel node biopsy in October 2026 | Trial: Upfront breast conservative surgery",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Radiotherapy planned within 12 weeks after surgery",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Patient had an Oncotype DX recurrence score of 21; MammaPrint testing has not been performed or reported.",
+          "evidence": "Surgery was in October 2026, but the summary states 'Has not yet started radiation or any systemic therapy; adjuvant plan under discussion', so the exact timing of planned radiotherapy relative to the 12-week window is not specified.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "Age >= 18 years old",
+          "criterion": "ECOG performance status <= 2",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG 0 | Trial: ECOG/WHO performance status <=2",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Invasive breast cancer staging pT1-T2, N0M0 (Tumor size <=3 cm)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: stage IIA (pT2 pN0, 2.4 cm) invasive ductal carcinoma | Trial: Staging pT1-T2, N0M0 (Tumor size <=3 cm)",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Negative margins (no tumor on ink) for invasive breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: margins negative | Trial: Negative margins (no tumor on ink)",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Patient of female sex (exclusion)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: premenopausal woman | Trial: Patient of male sex",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Breast skin damage preventing VENUS SHELL usage",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "The summary notes no significant medical history, but does not explicitly describe current breast skin status or healing post-lumpectomy.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Known germline BRCA1/2 mutation",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient: 'No germline testing done yet.' | Trial: Known germline BRCA1/2 mutation",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Unable to lay prone",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "The summary does not mention whether the patient can tolerate a prone position.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Unable to undergo imaging by CT scan",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "The summary is silent on ability to undergo CT scan imaging.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Pregnancy or breast feeding",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has regular menstrual cycles and is premenopausal, but pregnancy status is not explicitly stated.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Patient with pendulous breasts that come into contact with the CT table",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Breast morphology and pendulousness are not described in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Presence of any cardiac implantable electronic device (CIED)",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "The summary mentions no significant medical history, but does not explicitly rule out a CIED.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Claustrophobia",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "The summary does not report whether the patient suffers from claustrophobia.",
+          "fail_confidence": null,
+          "importance": "routine"
+        }
+      ],
+      "open_questions": [
+        "Is radiotherapy planned to start within 12 weeks of the October 2026 surgery?",
+        "Can the patient comfortably lie in the prone position required for the VENUS SHELL device?",
+        "Are there any issues with breast skin integrity or healing at the lumpectomy site?",
+        "Does the patient have any history of claustrophobia or cardiac implantable electronic devices?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 40,
+      "n_pass": 6,
+      "n_fail": 0,
+      "n_unknown": 9,
+      "n_unknown_important": 5,
+      "nct_id": "NCT07711847",
+      "title": "Personalized Prone Immobilization for Accelerated Partial Breast Radiotherapy",
+      "url": "https://clinicaltrials.gov/study/NCT07711847",
+      "phases": [
+        "NA"
+      ],
+      "relevance_score": 5,
+      "relevance_reasons": [
+        "early-stage setting",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "NYU Grossman School of Medicine",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Lucia Greco",
+          "contact_phone": "718-687-8702",
+          "contact_email": "lucia.greco@nyulangone.org"
+        }
+      ],
+      "central_contact": {
+        "name": "Giovanna Dipasquale",
+        "phone": "+41(0)783349987",
+        "email": "giovanna@herosupport.ch"
+      }
+    },
+    {
+      "summary": "The patient is a 44-year-old premenopausal woman with stage IIA (pT2 pN0) ER-positive, HER2-negative invasive ductal carcinoma. The trial evaluates treatment options for high anatomic stage breast cancer with low recurrence risk; however, the patient's anatomic stage (T2N0) does not meet the trial's required staging criteria (which mandates T0-T3 with >=3 positive nodes, N2-N3, or T3 with N0-N3). Therefore, the patient fails the staging criterion.",
+      "criteria": [
+        {
+          "criterion": "Target population: High anatomic stage breast cancer",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Stage IIA invasive ductal carcinoma, pT2 pN0 (0/2 nodes positive) | Trial: Requires pT0-T3 with >=3 positive nodes, N2-N3, or T3 with N0-N3",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Age >= 18 years",
           "type": "inclusion",
           "status": "PASS",
           "evidence": "Patient is 44 years old.",
@@ -535,18 +644,477 @@
           "importance": null
         },
         {
-          "criterion": "Zubrod Performance Status of 0-2",
+          "criterion": "ECOG performance status 0-2",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG performance status is 0.",
+          "evidence": "ECOG 0.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "No medical contraindications to immunotherapy (e.g., active autoimmune disease or pneumonitis requiring steroids)",
+          "criterion": "Postmenopausal woman or man",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient: 44-year-old premenopausal woman with regular menstrual cycles | Trial: Must be a postmenopausal woman or a man",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Estrogen receptor (ER) positive > 10%",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "No significant medical history reported.",
+          "evidence": "ER 95%.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "HER2-negative",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "HER2 IHC 2+ with FISH not amplified (HER2-negative).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Margins free of invasive tumor and DCIS after lumpectomy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Underwent lumpectomy with sentinel node biopsy in October 2026; margins negative.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Axillary staging performed",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Underwent lumpectomy with sentinel node biopsy.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No evidence of locoregional or distant metastatic disease",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Newly diagnosed stage IIA (pT2 pN0) with no mention of metastatic disease.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Oncotype DX testing / Recurrence Score available",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Oncotype DX recurrence score 21.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Final cancer surgery less than 16 weeks prior to Step 0 Pre-Registration",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Surgery performed in October 2026, which is within the 16-week window.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Organ function and laboratory values (ANC, platelets, bilirubin, AST/ALT, eGFR)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Specific lab values (ANC, platelets, bilirubin, transaminases, eGFR) are not reported in the summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Standard 12-lead ECG (QTcF < 450 msec, heart rate 50-90 bpm)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "ECG results are not reported in the summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No prior chemotherapy for this malignancy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Has not yet started radiation or any systemic therapy.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No prior CDK4/6 inhibitor",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Has not yet started any systemic therapy.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Verify exact dates to confirm the 16-week window from final surgery.",
+        "Obtain routine baseline laboratory values (complete blood count, comprehensive metabolic panel/liver function tests, renal function) to confirm organ function eligibility.",
+        "Obtain standard 12-lead ECG to check QTc and resting heart rate."
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 11,
+      "n_fail": 2,
+      "n_unknown": 2,
+      "n_unknown_important": 0,
+      "nct_id": "NCT07391774",
+      "title": "Testing Whether Hormone Therapy With Ribociclib is as Effective as Chemotherapy Followed by Hormone Therapy With Ribociclib for the Treatment of High Anatomic Stage Breast Cancer With Low Recurrence Risk, The RxFINE-Low Trial",
+      "url": "https://clinicaltrials.gov/study/NCT07391774",
+      "phases": [
+        "PHASE3"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "early-stage setting",
+        "HR+ / HER2-low match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Mount Sinai Chelsea",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10011",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Site Public Contact",
+          "contact_phone": "212-824-7309",
+          "contact_email": "CCTO@mssm.edu"
+        },
+        {
+          "facility": "Laura and Isaac Perlmutter Cancer Center at NYU Langone",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Site Public Contact",
+          "contact_phone": null,
+          "contact_email": "CancerTrials@nyulangone.org"
+        },
+        {
+          "facility": "Mount Sinai West",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10019",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Site Public Contact",
+          "contact_phone": "212-824-7309",
+          "contact_email": "CCTO@mssm.edu"
+        },
+        {
+          "facility": "Mount Sinai Hospital",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10029",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Site Public Contact",
+          "contact_phone": "212-824-7309",
+          "contact_email": "CCTO@mssm.edu"
+        },
+        {
+          "facility": "NYU Langone Hospital - Brooklyn",
+          "city": "Brooklyn",
+          "state": "New York",
+          "zip": "11220",
+          "site_status": "RECRUITING",
+          "distance_mi": 5.2,
+          "contact_name": "Site Public Contact",
+          "contact_phone": "646-754-4624",
+          "contact_email": "david.wallach@nyulangone.org"
+        }
+      ],
+      "central_contact": {
+        "name": null,
+        "phone": null,
+        "email": null
+      }
+    },
+    {
+      "summary": "The patient is a 44-year-old premenopausal woman with stage IIA ER+/HER2- invasive ductal carcinoma who has already undergone surgical excision (lumpectomy). She is ineligible for this trial due to being premenopausal (failing the post-menopausal inclusion requirement) and having already undergone post-surgical excision of breast cancer (meeting an explicit exclusion criterion).",
+      "criteria": [
+        {
+          "criterion": "Post-menopausal female \u2265 18 years of age",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient: 44-year-old premenopausal woman with regular menstrual cycles | Trial: Must be post-menopausal (defined as at least 2 years without menses, >50 with serological evidence, or hysterectomized with FSH confirmation)",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance status 0-1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG 0 | Trial: ECOG performance status 0-1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Biopsy proven diagnosis of ER+ PR+ or PR- HER2- breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ER 95%, PR 80%, HER2-negative invasive ductal carcinoma | Trial: Biopsy proven diagnosis of ER+ PR+ or PR- HER2- breast cancer",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Clinical stage I(>1.5cm, if N0) - III breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Stage IIA (pT2 pN0, 2.4 cm) invasive ductal carcinoma | Trial: Clinical stage I(>1.5cm, if N0) - III breast cancer",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Post surgical excision of breast cancer",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Underwent lumpectomy with sentinel node biopsy in October 2026 | Trial: Post surgical excision of breast cancer",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Adequate bone marrow reserve: WBC \u2265 2000/uL, ANC \u2265 1500/\u03bcL, Platelets \u2265 100,000/\u03bcL, Hemoglobin \u2265 9.0 g/dL",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Complete blood count (CBC) values are not reported in the summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Adequate liver function: Creatinine \u2264 1.5 \u00d7 ULN (or CrCl \u2265 30 mL/min), Total bilirubin \u2264 1.5 \u00d7 ULN, AST/ALT \u2264 2.5 \u00d7 ULN",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Baseline serum chemistry, renal function, and liver function laboratory values are not reported in the summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Current use of systemic chemotherapy, endocrine therapy or HER2-neu targeted therapy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Has not yet started radiation or any systemic therapy | Trial: Current use of systemic chemotherapy, endocrine therapy or HER2-neu targeted therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Previous radiotherapy of the same breast",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Has not yet started radiation | Trial: Previous radiotherapy of the same breast",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has received prior therapy with an anti-PD-1, anti-PD-L1, or anti-PD-L2 agent",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No prior systemic therapy | Trial: Has received prior therapy with an anti-PD-1, anti-PD-L1, or anti-PD-L2 agent",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Active connective tissue disorders requiring flare therapy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No significant medical history | Trial: Active connective tissue disorders, such as lupus or scleroderma requiring flare therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has active autoimmune disease that has required systemic treatment in the past 2 years",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No significant medical history | Trial: Has active autoimmune disease that has required systemic treatment in the past 2 years",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Confirm menopausal status and if any ovarian suppression or surgical options are planned to meet protocol definitions if an exception/amendment applies.",
+        "Verify baseline laboratory results (CBC, renal, and hepatic panels) to ensure routine organ function requirements are met if eligibility is further pursued."
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 8,
+      "n_fail": 2,
+      "n_unknown": 2,
+      "n_unknown_important": 0,
+      "nct_id": "NCT03804944",
+      "title": "Converting HR+ Breast Cancer Into an Individualized Vaccine",
+      "url": "https://clinicaltrials.gov/study/NCT03804944",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 5,
+      "relevance_reasons": [
+        "HR+ / HER2-low match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "New York Presbyterian Hospital - Queens",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Sarah Stankiewich",
+          "contact_phone": "718-661-7246",
+          "contact_email": "sas9306@nyp.org"
+        },
+        {
+          "facility": "Weill Cornell Medicine New York Presbyterian Hospital",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Fabiana Gregucci, M.D.",
+          "contact_phone": "6469623110",
+          "contact_email": "fgr4002@med.cornell.edu"
+        },
+        {
+          "facility": "Brooklyn Methodist Hospital - NewYork Presbyterian",
+          "city": "New York",
+          "state": "New York",
+          "zip": "11215",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Sharanya Chandrasekhar, M.S.",
+          "contact_phone": "6469622196",
+          "contact_email": "shc2043@med.cornell.edu"
+        }
+      ],
+      "central_contact": {
+        "name": "Fabiana Gregucci, M.D.",
+        "phone": "646 962-3110",
+        "email": "fgr4002@med.cornell.edu"
+      }
+    },
+    {
+      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA hormone receptor-positive, HER2-negative invasive ductal carcinoma of the breast who underwent lumpectomy rather than mastectomy. The trial is exclusively for patients undergoing ambulatory extended recovery mastectomy at the Josie Robertson Surgical Center, making the patient ineligible.",
+      "criteria": [
+        {
+          "criterion": "Age 18 to 65 years",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: 44-year-old | Trial: Age 18 to 65 years",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Undergoing ambulatory extended recovery (AXR) mastectomy (bilateral or unilateral) at the Josie Robertson Surgical Center (JSRC)",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Underwent lumpectomy with sentinel node biopsy at another setting | Trial: Undergoing ambulatory extended recovery (AXR) mastectomy at the Josie Robertson Surgical Center",
+          "fail_confidence": "HIGH",
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Confirm surgical procedure performed and whether any revision to mastectomy is planned.",
+        "Verify the treatment facility where surgery was or will be performed."
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 1,
+      "n_fail": 1,
+      "n_unknown": 0,
+      "n_unknown_important": 0,
+      "nct_id": "NCT07308717",
+      "title": "Gabapentin And Breast Surgery Decision Architecture Randomization Trial (GABS-DART) Protocol",
+      "url": "https://clinicaltrials.gov/study/NCT07308717",
+      "phases": [
+        "PHASE4"
+      ],
+      "relevance_score": 5,
+      "relevance_reasons": [
+        "early-stage setting",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "James Flory, MD",
+          "contact_phone": "646-608-2684",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "James Flory, MD",
+        "phone": "646-608-2914",
+        "email": "floryj@mskcc.org"
+      }
+    },
+    {
+      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA ER-positive, HER2-negative invasive breast cancer. However, she has already undergone a lumpectomy, directly conflicting with the trial's requirement for pre-treatment systemic therapy in the neoadjuvant setting, and she lacks the required MammaPrint High-2 risk score (having an Oncotype DX score instead). Therefore, she is not eligible for this trial.",
+      "criteria": [
+        {
+          "criterion": "Histologically confirmed ER and/or PR positive and HER2 negative breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ER 95%, PR 80%, HER2 IHC 2+ with FISH not amplified (HER2-negative) | Trial: ER/PR positive and HER2 negative",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Clinical stage II or III breast cancer (M0 or Mx, no metastatic disease)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Newly diagnosed stage IIA (pT2 pN0, 2.4 cm), no distant metastases mentioned | Trial: Clinical stage II or III, no metastatic disease",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No prior treatment for current breast cancer (neoadjuvant setting)",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Underwent lumpectomy with sentinel node biopsy in October 2026 | Trial: Participants must not have received any prior treatment for their current breast cancer, including surgery",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "MammaPrint High-2 (MP2) status",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has an Oncotype DX recurrence score of 21 and no MammaPrint testing performed; trial requires MammaPrint MP2 status.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Age >= 18 years old",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: 44-year-old | Trial: >= 18 years old",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Zubrod Performance Status of 0-2",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG 0 | Trial: Zubrod Performance Status of 0-2",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No medical contraindications to immunotherapy (e.g., active autoimmune disease, history of pneumonitis)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: No significant medical history | Trial: No medical contraindications to immunotherapy",
           "fail_confidence": null,
           "importance": null
         },
@@ -554,7 +1122,7 @@
           "criterion": "Leukocytes >= 3 x 10^3/uL",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Laboratory values for leukocytes are not reported in the summary.",
+          "evidence": "No lab values provided in the patient summary.",
           "fail_confidence": null,
           "importance": "routine"
         },
@@ -562,7 +1130,7 @@
           "criterion": "Absolute neutrophil count >= 1.5 x 10^3/uL",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Laboratory values for ANC are not reported in the summary.",
+          "evidence": "No lab values provided in the patient summary.",
           "fail_confidence": null,
           "importance": "routine"
         },
@@ -570,15 +1138,15 @@
           "criterion": "Platelets >= 100 x 10^3/uL",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Laboratory values for platelets are not reported in the summary.",
+          "evidence": "No lab values provided in the patient summary.",
           "fail_confidence": null,
           "importance": "routine"
         },
         {
-          "criterion": "Total bilirubin <= institutional ULN (unless Gilbert's)",
+          "criterion": "Total bilirubin <= institutional ULN",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Liver function laboratory values are not reported in the summary.",
+          "evidence": "No lab values provided in the patient summary.",
           "fail_confidence": null,
           "importance": "routine"
         },
@@ -586,7 +1154,7 @@
           "criterion": "AST/ALT <= 3 x institutional ULN",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Liver function laboratory values are not reported in the summary.",
+          "evidence": "No lab values provided in the patient summary.",
           "fail_confidence": null,
           "importance": "routine"
         },
@@ -594,29 +1162,37 @@
           "criterion": "Calculated creatinine clearance >= 50 mL/min",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Renal function and creatinine clearance values are not reported in the summary.",
+          "evidence": "No creatinine or renal function values provided in the patient summary.",
           "fail_confidence": null,
           "importance": "routine"
         },
         {
-          "criterion": "Negative pregnancy test and effective contraception for participants of reproductive potential",
+          "criterion": "Adequate cardiac function (NYHA class 2B or better if history of cardiac disease)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: No significant medical history | Trial: Adequate cardiac function",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Negative pregnancy test and effective contraception for individuals of reproductive potential",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Patient is a 44-year-old premenopausal woman with regular menses, but pregnancy test and contraceptive plans are not specified.",
+          "evidence": "Patient is a premenopausal woman with regular cycles, but contraception plan and screening pregnancy test results are not detailed.",
           "fail_confidence": null,
           "importance": "routine"
         }
       ],
       "open_questions": [
-        "Can the available tumor tissue be sent for MammaPrint testing to determine if the patient has an MP2 high-risk score?",
-        "Do baseline screening laboratory values (complete blood count, comprehensive metabolic panel/renal and liver function tests) meet protocol requirements?",
-        "What specific effective contraception method will the patient use during protocol therapy?"
+        "Has the patient been informed that this trial requires neoadjuvant systemic therapy prior to surgery, whereas she has already undergone a lumpectomy?",
+        "Is MammaPrint testing feasible or available from the initial biopsy tissue to assess for MP2 status, given she currently only has an Oncotype DX score?",
+        "Are baseline screening laboratory values (complete blood count, hepatic panel, renal function) within acceptable protocol limits?"
       ],
       "model": "gemini-3.5-flash-lite",
-      "category": "Likely eligible - needs review",
-      "fit_score": 47,
-      "n_pass": 7,
-      "n_fail": 0,
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 6,
+      "n_fail": 1,
       "n_unknown": 8,
       "n_unknown_important": 1,
       "nct_id": "NCT06058377",
@@ -728,606 +1304,37 @@
       }
     },
     {
-      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA invasive ductal carcinoma of the right breast who underwent lumpectomy in October 2026 and is planned for adjuvant radiotherapy. She meets most inclusion criteria (age, performance status, tumor size pT2 N0M0, negative margins, and upfront breast conservative surgery), but her exact radiotherapy start date and ability to lie prone/undergo CT imaging are currently unconfirmed.",
+      "summary": "The patient is a 44-year-old woman with stage IIA (pT2 pN0) invasive ductal carcinoma who has already undergone lumpectomy. She clearly does not meet the trial's core target criteria, which require T4 breast cancer and a neoadjuvant treatment approach prior to surgery.",
       "criteria": [
         {
-          "criterion": "Age >=40 years",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "44-year-old premenopausal woman",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Upfront breast conservative surgery",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Underwent lumpectomy with sentinel node biopsy in October 2026",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Radiotherapy planned within 12 weeks after surgery",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Surgery was in October 2026, and adjuvant plan is under discussion; exact planned radiation start date is not specified.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "ECOG performance status <=2",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ECOG 0",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Invasive breast cancer staging pT1-T2, N0M0 (Tumor size <=3 cm)",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Stage IIA (pT2 pN0, 2.4 cm) invasive ductal carcinoma",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Negative margins (no tumor on ink)",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Margins negative",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Patient of male sex (Exclusion)",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "44-year-old premenopausal woman",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Breast skin damage that could prevent VENUS SHELL usage",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No significant medical history; lumpectomy with negative margins, no mention of skin damage or non-healing wounds",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Known germline BRCA1/2 mutation (Exclusion)",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "No germline testing done yet",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Unable to lay prone (Exclusion)",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Prone positioning capability not explicitly mentioned in summary",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Unable to undergo imaging by CT scan (Exclusion)",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "CT scan capability not explicitly addressed",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Pregnancy or breast feeding (Exclusion)",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Premenopausal woman with regular menstrual cycles; no mention of pregnancy, but trial specifically tests device; need to confirm pregnancy status.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Patient with pendulous breasts that come into contact with the CT table (Exclusion)",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Breast morphology not described",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Presence of any cardiac implantable electronic device (CIED) (Exclusion)",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No significant medical history",
-          "fail_confidence": null,
-          "importance": null
-        }
-      ],
-      "open_questions": [
-        "What is the exact planned start date for adjuvant radiotherapy relative to the October 2026 surgery date?",
-        "Can the patient comfortably lie in the prone position for the duration of treatment planning and delivery?",
-        "Has germline genetic testing been completed, or can it be performed to rule out a known BRCA1/2 mutation?",
-        "Does the patient have pendulous breasts that would contact the CT table and interfere with the immobilization shell?"
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Likely eligible - needs review",
-      "fit_score": 64,
-      "n_pass": 9,
-      "n_fail": 0,
-      "n_unknown": 5,
-      "n_unknown_important": 4,
-      "nct_id": "NCT07711847",
-      "title": "Personalized Prone Immobilization for Accelerated Partial Breast Radiotherapy",
-      "url": "https://clinicaltrials.gov/study/NCT07711847",
-      "phases": [
-        "NA"
-      ],
-      "relevance_score": 5,
-      "relevance_reasons": [
-        "early-stage setting",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "NYU Grossman School of Medicine",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10016",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Lucia Greco",
-          "contact_phone": "718-687-8702",
-          "contact_email": "lucia.greco@nyulangone.org"
-        }
-      ],
-      "central_contact": {
-        "name": "Giovanna Dipasquale",
-        "phone": "+41(0)783349987",
-        "email": "giovanna@herosupport.ch"
-      }
-    },
-    {
-      "summary": "The patient is a 44-year-old premenopausal woman with stage IIA (pT2 pN0) ER-positive, HER2-negative invasive ductal carcinoma, with an Oncotype DX recurrence score of 21. However, the trial (RxFINE-Low) is specifically for postmenopausal women or men with higher anatomic stage disease (e.g., T3 or node-positive disease), and the patient's premenopausal status and lower stage (Stage IIA, node-negative) make her ineligible. Therefore, she fails the menopausal status and staging criteria.",
-      "criteria": [
-        {
-          "criterion": "Patient must be a postmenopausal woman or a man",
+          "criterion": "Core trial target: T4 breast cancer and preoperative treatment setting",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Patient summary states she is a '44-year-old premenopausal woman with... regular menstrual cycles.'",
+          "evidence": "Patient: Stage IIA, pT2 (2.4 cm) tumor who has already undergone lumpectomy | Trial: Requires T4 breast cancer and a preoperative (neoadjuvant) radiotherapy and mastectomy approach.",
           "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Patient must meet specific AJCC 8th edition postoperative staging criteria (pT0-T3 with >=3 positive ipsilateral nodes, pT0-T3 with N2/N3, or pT3 with N0-N3)",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Patient has stage IIA disease (pT2 pN0, 2.4 cm, 0/2 nodes positive), which does not meet the required higher anatomic stage criteria.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Primary breast tumor must be estrogen receptor (ER) positive with > 10% ER expression",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ER 95%",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Primary breast tumor must be HER2-negative",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "HER2 IHC 2+ with FISH not amplified (HER2-negative)",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Margins of resected specimen must be free of invasive tumor and DCIS",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Underwent lumpectomy... margins negative",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Patient must have undergone axillary staging with SLNB, TAD, or ALND",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Underwent lumpectomy with sentinel node biopsy",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No evidence of locoregional or distant metastatic disease",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Stage IIA (pT2 pN0) with no mention of distant metastases",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Oncotype DX testing results available with Recurrence Score (RS) of 0-25",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Oncotype DX recurrence score 21",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Final cancer surgery less than 16 weeks prior to Step 0 Pre-Registration",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Surgery performed in October 2026",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Absolute neutrophil count (ANC) >= 1,500/uL",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Not reported in patient summary",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Hemoglobin >= 9.0 g/dL",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Not reported in patient summary",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Platelets >= 100,000/uL",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Not reported in patient summary",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Total bilirubin <= institutional ULN (< 1.5 x ULN for Gilbert's)",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Not reported in patient summary",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "AST and ALT <= 2.5 x institutional ULN",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Not reported in patient summary",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Estimated glomerular filtration rate (eGFR) >= 30 mL/minute/1.73 m^2",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Not reported in patient summary",
-          "fail_confidence": null,
-          "importance": "routine"
-        }
-      ],
-      "open_questions": [
-        "Verify baseline laboratory values including complete blood count, hepatic panel, and renal function.",
-        "Confirm exact surgical date in October 2026 to ensure it is within the 16-week window."
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Not eligible",
-      "fit_score": 0,
-      "n_pass": 7,
-      "n_fail": 2,
-      "n_unknown": 6,
-      "n_unknown_important": 0,
-      "nct_id": "NCT07391774",
-      "title": "Testing Whether Hormone Therapy With Ribociclib is as Effective as Chemotherapy Followed by Hormone Therapy With Ribociclib for the Treatment of High Anatomic Stage Breast Cancer With Low Recurrence Risk, The RxFINE-Low Trial",
-      "url": "https://clinicaltrials.gov/study/NCT07391774",
-      "phases": [
-        "PHASE3"
-      ],
-      "relevance_score": 8,
-      "relevance_reasons": [
-        "early-stage setting",
-        "HR+ / HER2-low match",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "Mount Sinai Chelsea",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10011",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Site Public Contact",
-          "contact_phone": "212-824-7309",
-          "contact_email": "CCTO@mssm.edu"
-        },
-        {
-          "facility": "Laura and Isaac Perlmutter Cancer Center at NYU Langone",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10016",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Site Public Contact",
-          "contact_phone": null,
-          "contact_email": "CancerTrials@nyulangone.org"
-        },
-        {
-          "facility": "Mount Sinai West",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10019",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Site Public Contact",
-          "contact_phone": "212-824-7309",
-          "contact_email": "CCTO@mssm.edu"
-        },
-        {
-          "facility": "Mount Sinai Hospital",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10029",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Site Public Contact",
-          "contact_phone": "212-824-7309",
-          "contact_email": "CCTO@mssm.edu"
-        },
-        {
-          "facility": "NYU Langone Hospital - Brooklyn",
-          "city": "Brooklyn",
-          "state": "New York",
-          "zip": "11220",
-          "site_status": "RECRUITING",
-          "distance_mi": 5.2,
-          "contact_name": "Site Public Contact",
-          "contact_phone": "646-754-4624",
-          "contact_email": "david.wallach@nyulangone.org"
-        }
-      ],
-      "central_contact": {
-        "name": null,
-        "phone": null,
-        "email": null
-      }
-    },
-    {
-      "summary": "The patient is a 44-year-old premenopausal woman with newly diagnosed stage IIA ER+/HER2- invasive ductal carcinoma of the breast who has already undergone surgical resection (lumpectomy). She is ineligible for this trial due to being premenopausal and having already undergone post-surgical excision of the breast cancer.",
-      "criteria": [
-        {
-          "criterion": "Post-menopausal female \u2265 18 years of age",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Patient is a 44-year-old premenopausal woman with regular menstrual cycles.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance status 0-1",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ECOG 0",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Biopsy proven diagnosis of ER+ PR+ or PR- HER2- breast cancer",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ER 95%, PR 80%, HER2 IHC 2+ with FISH not amplified (HER2-negative)",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Clinical stage I(>1.5cm, if N0) - III breast cancer",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Stage IIA (pT2 pN0, 2.4 cm)",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Post surgical excision of breast cancer",
-          "type": "exclusion",
-          "status": "FAIL",
-          "evidence": "Underwent lumpectomy with sentinel node biopsy in October 2026",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Adequate bone marrow reserve (WBC, ANC, Platelets, Hemoglobin)",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Laboratory values for WBC, ANC, platelets, and hemoglobin are not reported in the summary.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Adequate liver function (Total bilirubin, AST, ALT)",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Liver function laboratory values (bilirubin, AST, ALT) are not reported in the summary.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Adequate renal function (Creatinine or creatinine clearance)",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Renal function laboratory values are not reported in the summary.",
-          "fail_confidence": null,
-          "importance": "routine"
-        }
-      ],
-      "open_questions": [
-        "Confirm exact menopausal status and hormone levels if required to formally rule out premenopausal status.",
-        "Verify baseline laboratory results (complete blood count, comprehensive metabolic panel) to ensure organ function criteria are met."
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Not eligible",
-      "fit_score": 0,
-      "n_pass": 3,
-      "n_fail": 2,
-      "n_unknown": 3,
-      "n_unknown_important": 0,
-      "nct_id": "NCT03804944",
-      "title": "Converting HR+ Breast Cancer Into an Individualized Vaccine",
-      "url": "https://clinicaltrials.gov/study/NCT03804944",
-      "phases": [
-        "PHASE2"
-      ],
-      "relevance_score": 5,
-      "relevance_reasons": [
-        "HR+ / HER2-low match",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "New York Presbyterian Hospital - Queens",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10065",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Sarah Stankiewich",
-          "contact_phone": "718-661-7246",
-          "contact_email": "sas9306@nyp.org"
-        },
-        {
-          "facility": "Weill Cornell Medicine New York Presbyterian Hospital",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10065",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Fabiana Gregucci, M.D.",
-          "contact_phone": "6469623110",
-          "contact_email": "fgr4002@med.cornell.edu"
-        },
-        {
-          "facility": "Brooklyn Methodist Hospital - NewYork Presbyterian",
-          "city": "New York",
-          "state": "New York",
-          "zip": "11215",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Sharanya Chandrasekhar, M.S.",
-          "contact_phone": "6469622196",
-          "contact_email": "shc2043@med.cornell.edu"
-        }
-      ],
-      "central_contact": {
-        "name": "Fabiana Gregucci, M.D.",
-        "phone": "646 962-3110",
-        "email": "fgr4002@med.cornell.edu"
-      }
-    },
-    {
-      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA invasive ductal carcinoma of the right breast who already underwent lumpectomy with sentinel node biopsy in October 2026. The trial (GABS-DART) specifically requires patients to be undergoing ambulatory extended recovery (AXR) mastectomy at the Josie Robertson Surgical Center (JSRC). Since the patient has already undergone lumpectomy rather than mastectomy, she does not meet the core surgical requirement for the trial.",
-      "criteria": [
-        {
-          "criterion": "Age 18 to 65 years",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "44-year-old premenopausal woman",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Undergoing ambulatory extended recover (AXR) mastectomy (bilateral or unilateral) at the Josie Robertson Surgical Center (JSRC)",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Underwent lumpectomy with sentinel node biopsy in October 2026",
-          "fail_confidence": "HIGH",
-          "importance": null
-        }
-      ],
-      "open_questions": [
-        "Was the prior surgery a lumpectomy or was any subsequent surgery (such as completion mastectomy) planned?",
-        "Is the surgical procedure taking place at the Josie Robertson Surgical Center (JSRC)?"
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Not eligible",
-      "fit_score": 0,
-      "n_pass": 1,
-      "n_fail": 1,
-      "n_unknown": 0,
-      "n_unknown_important": 0,
-      "nct_id": "NCT07308717",
-      "title": "Gabapentin And Breast Surgery Decision Architecture Randomization Trial (GABS-DART) Protocol",
-      "url": "https://clinicaltrials.gov/study/NCT07308717",
-      "phases": [
-        "PHASE4"
-      ],
-      "relevance_score": 5,
-      "relevance_reasons": [
-        "early-stage setting",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "Memorial Sloan Kettering Cancer Center",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10065",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "James Flory, MD",
-          "contact_phone": "646-608-2684",
-          "contact_email": null
-        }
-      ],
-      "central_contact": {
-        "name": "James Flory, MD",
-        "phone": "646-608-2914",
-        "email": "floryj@mskcc.org"
-      }
-    },
-    {
-      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA (pT2 pN0) invasive ductal carcinoma who has already undergone a lumpectomy. The trial (NCT05412225) specifically targets patients with T4 breast cancer in the preoperative setting requiring neoadjuvant therapy and mastectomy, meaning the patient clearly lacks the core target condition and disease setting.",
-      "criteria": [
-        {
-          "criterion": "Target disease setting and stage: T4 breast cancer in the preoperative setting requiring neoadjuvant therapy and mastectomy",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Patient has stage IIA, pT2 (2.4 cm) invasive ductal carcinoma and has already undergone upfront lumpectomy, whereas the trial is for T4 breast cancer in the preoperative setting requiring preoperative therapy and subsequent mastectomy.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Female sex, aged >=18 years, with biopsy-proven invasive breast cancer",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "44-year-old woman with biopsy-proven invasive ductal carcinoma of the right breast.",
-          "fail_confidence": null,
           "importance": null
         },
         {
           "criterion": "cT3-4 cN0-3 tumor",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Patient's clinical/pathological tumor stage is pT2 (2.4 cm), not cT3-4.",
+          "evidence": "Patient: pT2 pN0 disease (2.4 cm tumor) | Trial: Requires cT3-4 tumor stage.",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "Partial or complete response to NAC on imaging and clinical examination using RECISTv1.1",
+          "criterion": "Partial or complete response to NAC on imaging and clinical examination",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Patient has not received neoadjuvant chemotherapy (NAC); she underwent upfront surgery.",
+          "evidence": "Patient: Has not received neoadjuvant chemotherapy (NAC); underwent primary upfront surgery | Trial: Requires response to NAC.",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "Desire to undergo autologous reconstruction and assessed to be an appropriate candidate by a plastic and reconstructive surgeon",
+          "criterion": "Desire to undergo autologous reconstruction and assessed to be an appropriate candidate",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "The summary notes adjuvant plans are under discussion, but does not state a desire for autologous reconstruction or a plastic surgeon's assessment.",
+          "evidence": "The summary mentions adjuvant plan under discussion and lumpectomy performed, but does not state patient preference for autologous reconstruction or plastic surgery assessment for this trial's specific surgical approach.",
           "fail_confidence": null,
           "importance": "important"
         },
@@ -1335,7 +1342,7 @@
           "criterion": "Able to read and understand English",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "The summary does not mention the patient's language proficiency.",
+          "evidence": "Language proficiency is not mentioned in the patient summary.",
           "fail_confidence": null,
           "importance": "routine"
         },
@@ -1343,7 +1350,7 @@
           "criterion": "Prior ipsilateral breast cancer",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Newly diagnosed invasive ductal carcinoma with no mention of prior ipsilateral breast cancer.",
+          "evidence": "Patient has newly diagnosed invasive ductal carcinoma of the right breast with no mention of prior ipsilateral breast cancer.",
           "fail_confidence": null,
           "importance": null
         },
@@ -1351,23 +1358,23 @@
           "criterion": "Bilateral breast cancer",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Diagnosed with invasive ductal carcinoma of the right breast; no mention of bilateral disease.",
+          "evidence": "Patient summary describes unilateral right breast cancer.",
           "fail_confidence": null,
           "importance": null
         },
         {
           "criterion": "Pregnant",
           "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Pregnancy status is not explicitly reported in the summary (patient is premenopausal with regular menstrual cycles).",
+          "status": "PASS",
+          "evidence": "Patient has regular menstrual cycles and pregnancy status is not reported as pregnant.",
           "fail_confidence": null,
-          "importance": "routine"
+          "importance": null
         },
         {
           "criterion": "Stage IV disease at presentation",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Patient presents with stage IIA (pT2 pN0) disease.",
+          "evidence": "Patient presents with stage IIA disease.",
           "fail_confidence": null,
           "importance": null
         },
@@ -1383,7 +1390,7 @@
           "criterion": "Surgically unresectable breast disease",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Patient's tumor was surgically resectable (she already underwent a lumpectomy).",
+          "evidence": "Patient has already successfully undergone a lumpectomy.",
           "fail_confidence": null,
           "importance": null
         },
@@ -1391,7 +1398,7 @@
           "criterion": "BMI >40",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "Patient's height and weight/BMI are not reported in the summary.",
+          "evidence": "Patient height and weight are not provided in the summary.",
           "fail_confidence": null,
           "importance": "routine"
         },
@@ -1399,21 +1406,21 @@
           "criterion": "Prior history of thoracic radiotherapy",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Has not yet started radiation; no prior history of thoracic radiotherapy mentioned.",
+          "evidence": "Patient has not yet started radiation therapy and has no history of thoracic radiation mentioned.",
           "fail_confidence": null,
           "importance": null
         }
       ],
       "open_questions": [
-        "Does the patient have any documentation of thoracic radiotherapy history?",
-        "What is the patient's current BMI and pregnancy status?"
+        "Confirm that the patient's stage is T2 (not T3 or T4) as staged by pathology/imaging.",
+        "Verify if there is any clinical rationale to consider this trial despite the patient having already undergone upfront surgery instead of neoadjuvant therapy."
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
       "n_pass": 7,
       "n_fail": 3,
-      "n_unknown": 4,
+      "n_unknown": 3,
       "n_unknown_important": 1,
       "nct_id": "NCT05412225",
       "title": "A Study of an Alternative Treatment Approach (Preoperative Radiotherapy, Then Mastectomy, Then Immediate Reconstruction Surgery) in People With T4 Breast Cancer",
@@ -1446,45 +1453,69 @@
       }
     },
     {
-      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA, grade 2, ER-positive, PR-positive, HER2-negative invasive ductal carcinoma of the breast who underwent a lumpectomy and has not yet started systemic therapy. This trial (NCT07205822) is designed for patients with inoperable or metastatic HR-positive, HER2 IHC 0 breast cancer who have progressed on endocrine therapy, so the patient fails the core disease setting and prior therapy requirements.",
+      "summary": "The patient is a 44-year-old woman with newly diagnosed, resected stage IIA invasive ductal carcinoma of the breast (ER-positive, PR-positive, HER2-negative). This trial evaluates Dato-DXd specifically for inoperable or metastatic HR-positive, HER2 IHC 0 breast cancer. Because the patient has early-stage, resected disease rather than inoperable or metastatic disease, she is not eligible for this trial.",
       "criteria": [
         {
           "criterion": "Inoperable or metastatic HR-positive, HER2 IHC 0 breast cancer",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Patient has newly diagnosed stage IIA (early-stage, resected) invasive ductal carcinoma, not inoperable or metastatic disease.",
+          "evidence": "Patient: newly diagnosed stage IIA (pT2 pN0) invasive ductal carcinoma, underwent lumpectomy with negative margins | Trial: inoperable or metastatic HR-positive, HER2 IHC 0 breast cancer",
           "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Age >= 18 years",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient is 44 years old.",
+          "fail_confidence": null,
           "importance": null
         },
         {
           "criterion": "Progressed on and not suitable for further endocrine therapy",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Patient is newly diagnosed, has undergone recent surgery, and has not yet started or progressed on any endocrine therapy.",
+          "evidence": "Patient: newly diagnosed, has not yet started any systemic therapy or endocrine therapy | Trial: progressed on and not suitable for further endocrine therapy",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "ECOG performance status of 0 or 1",
+          "criterion": "ECOG performance status 0 or 1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Patient has an ECOG performance status of 0.",
+          "evidence": "ECOG 0.",
           "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Measurable or evaluable disease per RECIST 1.1",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient: underwent lumpectomy with negative margins, 0/2 nodes positive, no residual measurable disease described | Trial: measurable disease as per RECIST 1.1 or evaluable disease",
+          "fail_confidence": "HIGH",
           "importance": null
         },
         {
           "criterion": "Adequate bone marrow reserve and organ function",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Laboratory values for blood counts, liver function, and renal function are not reported in the summary.",
+          "evidence": "No laboratory values (hemoglobin, ANC, platelets, albumin, bilirubin, transaminases, CrCL) are provided in the patient summary.",
           "fail_confidence": null,
           "importance": "routine"
+        },
+        {
+          "criterion": "Provision of acceptable tumour sample",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient underwent lumpectomy in October 2026, providing recent archival tissue.",
+          "fail_confidence": null,
+          "importance": null
         },
         {
           "criterion": "History of another primary malignancy",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Patient has no significant medical history other than newly diagnosed breast cancer.",
+          "evidence": "No significant medical history reported, no mention of prior malignancy.",
           "fail_confidence": null,
           "importance": null
         },
@@ -1492,12 +1523,12 @@
           "criterion": "Spinal cord compression or brain metastases",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Patient has localized stage IIA breast cancer with no mention of central nervous system involvement.",
+          "evidence": "No brain metastases or spinal cord compression reported.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Active or uncontrolled hepatitis B or C virus infection",
+          "criterion": "Active or uncontrolled hepatitis B or C",
           "type": "exclusion",
           "status": "UNKNOWN",
           "evidence": "Hepatitis serologies are not mentioned in the summary.",
@@ -1505,10 +1536,10 @@
           "importance": "routine"
         },
         {
-          "criterion": "Known HIV infection that is not well controlled",
+          "criterion": "Known HIV infection not well controlled",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "HIV status is not reported in the summary.",
+          "evidence": "HIV status is not mentioned in the summary.",
           "fail_confidence": null,
           "importance": "routine"
         },
@@ -1516,7 +1547,7 @@
           "criterion": "Uncontrolled or significant cardiac disease",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Patient has no significant medical history.",
+          "evidence": "No significant medical history or cardiac disease reported.",
           "fail_confidence": null,
           "importance": null
         },
@@ -1524,62 +1555,37 @@
           "criterion": "History of non-infectious ILD/pneumonitis",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Patient has no significant medical history or pulmonary disorders mentioned.",
+          "evidence": "No history of pulmonary disorders or ILD/pneumonitis reported.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Prior exposure to TROP2-targeted therapy or topoisomerase I inhibitor ADCs",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Patient is newly diagnosed and has not yet started systemic therapy.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Prior chemotherapy in the metastatic setting",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Patient has early-stage (stage IIA) localized breast cancer and has not received systemic therapy.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Receipt of last dose of anticancer therapy within required timeframe",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Patient has not received prior systemic anticancer therapy.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Major surgical procedure within \u2264 3 weeks of first dose",
+          "criterion": "Major surgical procedure within <= 3 weeks of first dose",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "Patient underwent lumpectomy in October 2026, but the exact screening/dosing date relative to this surgery is not specified.",
+          "evidence": "Patient had a lumpectomy in October 2026, but the planned first dose date is not specified to determine if it is within 3 weeks.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "Pregnancy status for female participants",
+          "criterion": "Pregnancy or breastfeeding for female participants",
           "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Serum pregnancy test results are not reported.",
+          "status": "PASS",
+          "evidence": "Patient has regular menstrual cycles and is premenopausal; pregnancy status not explicitly tested in summary, but no pregnancy is reported.",
           "fail_confidence": null,
-          "importance": "routine"
+          "importance": null
         }
       ],
       "open_questions": [
-        "What is the exact planned date for the first dose of study intervention relative to the lumpectomy performed in October 2026?",
-        "Do baseline laboratory assessments (complete blood count, comprehensive metabolic panel, creatinine clearance) meet protocol-specified organ function requirements?",
-        "What are the baseline viral serologies (HIV, Hepatitis B, Hepatitis C)?"
+        "What is the exact planned start date for systemic therapy or trial screening relative to the October 2026 lumpectomy?",
+        "Are baseline laboratory values (complete blood count, comprehensive metabolic panel) within acceptable protocol limits?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
       "n_pass": 8,
-      "n_fail": 2,
-      "n_unknown": 5,
+      "n_fail": 3,
+      "n_unknown": 4,
       "n_unknown_important": 1,
       "nct_id": "NCT07205822",
       "title": "A Study of Dato-DXd in Inoperable or Metastatic Hormone Receptor-positive, HER2 IHC 0 Breast Cancer",
@@ -1612,21 +1618,351 @@
       }
     },
     {
-      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA invasive ductal carcinoma (IDC) of the right breast who has already undergone lumpectomy. NCT06075953 is specifically designed for patients with a previous diagnosis of HR+ ductal carcinoma in situ (DCIS) with or without microinvasion, and explicitly excludes patients with invasive carcinoma. Therefore, the patient fails the core condition criteria.",
+      "summary": "The patient is a 44-year-old premenopausal woman with newly diagnosed stage IIA HR+ breast cancer who has undergone surgery but not yet completed adjuvant treatments. She fails the trial's core requirement of being postmenopausal and having completed curative treatment at least 12 weeks prior to enrollment, and her BMI is not reported.",
+      "criteria": [
+        {
+          "criterion": "Postmenopausal status",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient: 44-year-old premenopausal woman with regular menstrual cycles | Trial: Must be postmenopausal (age >=60, age <60 with amenorrhea >=1 year, bilateral oophorectomy, or chemical menopause with LHRH agonists)",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Obesity as defined by current BMI >= 30 kg/m2 (or >= 27.5 kg/m2 for Asian ancestry)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Height and weight / BMI are not reported in the patient summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "HR+ (ER and/or PR) stage 0-III breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient has stage IIA invasive ductal carcinoma, ER 95%, PR 80%.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Completed curative treatment (surgery, chemotherapy, radiotherapy) at least 12 weeks prior to enrolment",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Had lumpectomy in October 2026 (approx 1-2 months ago) and has not yet started radiation or systemic therapy | Trial: Completed curative treatment at least 12 weeks prior to enrolment",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Biologically female",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient is a 44-year-old woman with regular menstrual cycles.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Age >= 18",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient is 44 years old.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Stage IV breast cancer",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient has stage IIA breast cancer (not stage IV).",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Concomitant use of CDK inhibitors",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient has not started systemic therapy.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Concomitant use of antiHER2 therapy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient is HER2-negative and not on antiHER2 therapy.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Other active malignancy requiring treatment",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No other active malignancy reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Treatment with a GLP-1 receptor agonist within the last 3 months",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "GLP-1 receptor agonist history is not mentioned in the summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Diabetes requiring insulin",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No significant medical history reported; diabetes not mentioned.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "What is the patient's current height, weight, and BMI?",
+        "Does the patient have any contraindications to tirzepatide (such as a personal or family history of medullary thyroid carcinoma or MEN 2)?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 8,
+      "n_fail": 2,
+      "n_unknown": 2,
+      "n_unknown_important": 1,
+      "nct_id": "NCT07257484",
+      "title": "Tirzepatide's Role in Postmenopausal HR+ Breast Cancer Survivors",
+      "url": "https://clinicaltrials.gov/study/NCT07257484",
+      "phases": [
+        "PHASE4"
+      ],
+      "relevance_score": 5,
+      "relevance_reasons": [
+        "HR+ / HER2-low match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Weill Cornell Medicine",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10021",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Sarah Schmitz, MD",
+          "contact_phone": "646-962-2111",
+          "contact_email": "hls9007@med.cornell.edu"
+        }
+      ],
+      "central_contact": {
+        "name": "Lynelle Weis",
+        "phone": "646-962-2423",
+        "email": "ljw4002@med.cornell.edu"
+      }
+    },
+    {
+      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA invasive ductal breast cancer who has already undergone a lumpectomy. She is ineligible for this trial because the protocol explicitly requires neoadjuvant treatment (specifically, measurable disease in the breast \u2265 2.5 cm and prior surgery before systemic therapy is excluded). Additionally, her tumor measures 2.4 cm and she has already had surgery.",
+      "criteria": [
+        {
+          "criterion": "Histologically confirmed invasive cancer of the breast",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Invasive ductal carcinoma of the right breast | Trial: Histologically confirmed invasive cancer of the breast",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Clinically or radiologically measurable disease in the breast after diagnostic biopsy, defined as longest diameter greater than or equal to 25 mm (2.5cm)",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Invasive ductal carcinoma measuring 2.4 cm, and patient already underwent lumpectomy | Trial: Measurable disease in the breast \u2265 25 mm (2.5cm)",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "Neoadjuvant setting / No prior surgery for this malignancy before systemic therapy",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Underwent lumpectomy with sentinel node biopsy in October 2026 before starting any systemic therapy | Trial: Neoadjuvant trial requiring patients to receive study treatment prior to definitive surgery",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "No prior cytotoxic regimens, chemotherapy, or prior radiation therapy to the ipsilateral breast",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Has not yet started radiation or any systemic therapy | Trial: No prior cytotoxic regimens, chemotherapy, or prior radiation therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Age \u226518 years",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: 44-year-old | Trial: Age \u226518 years",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status 0-1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG 0 | Trial: ECOG performance status 0-1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Eligible tumors must meet Stage II or III, or T4, any N, M0",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Stage IIA (pT2 pN0, M0 presumed) | Trial: Stage II or III, or T4, any N, M0",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Normal organ and marrow function (Leukocytes, ANC, Platelets, Bilirubin, AST/ALT, Creatinine)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Complete blood counts and serum chemistry laboratory values are not reported in the patient summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Baseline ejection fraction \u2265 50%",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Echocardiogram or nuclear imaging results assessing LVEF are not reported.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No clinical or imaging evidence of distant metastases",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "CXR and radionuclide bone scan results are not mentioned in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Tumor assay profile (MammaPrint or specified criteria)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has Oncotype DX recurrence score 21, but MammaPrint or specific trial-required assay profiles are not provided.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No ferromagnetic prostheses or metallic surgical implants incompatible with MRI",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "MRI compatibility and presence of metallic implants are not mentioned.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Non-pregnant and non-lactating",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Pregnancy status is not explicitly stated, though patient has regular menstrual cycles.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Use of any other investigational agents within 30 days of starting study treatment",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No prior systemic therapy or investigational agents mentioned | Trial: Use of any other investigational agents within 30 days",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Uncontrolled intercurrent illness or active infection",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No significant medical history | Trial: Uncontrolled intercurrent illness including ongoing infection",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Does the trial allow patients who have already undergone upfront surgery (lumpectomy) rather than neoadjuvant therapy?",
+        "Can an Oncotype DX score fulfill the protocol's tumor assay profile requirement, or is MammaPrint strictly required?",
+        "Are baseline laboratory values (CBC, LVEF, LFTs, renal function) within the required protocol limits?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 7,
+      "n_fail": 2,
+      "n_unknown": 6,
+      "n_unknown_important": 2,
+      "nct_id": "NCT01042379",
+      "title": "I-SPY TRIAL: Neoadjuvant and Personalized Adaptive Novel Agents to Treat Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT01042379",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "early-stage setting",
+        "HR+ / HER2-low match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Laura and Isaac Perlmutter Cancer Center / NYU Langone Health",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Yannis Karamitas",
+          "contact_phone": null,
+          "contact_email": "Yannis.Karamitas@nyulangone.org"
+        },
+        {
+          "facility": "Columbia University Medical Center",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10032",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Meghana Trivedi, MD",
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Montefiore Medical Center",
+          "city": "The Bronx",
+          "state": "New York",
+          "zip": "10467",
+          "site_status": "RECRUITING",
+          "distance_mi": 12.0,
+          "contact_name": "Jesus D Anampa",
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Won Chang",
+        "phone": "(855) 866-0505",
+        "email": "w.chang@quantumleaphealth.org"
+      }
+    },
+    {
+      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA invasive ductal carcinoma (IDC) of the right breast. The trial (NCT06075953) is specifically designed for patients with a previous diagnosis of HR+ ductal carcinoma in situ (DCIS), whereas this patient has invasive carcinoma and has already undergone surgical resection of her invasive cancer. Therefore, she fails the core disease diagnosis and exclusion criteria for invasive carcinoma.",
       "criteria": [
         {
           "criterion": "Previous diagnosis of HR+ DCIS with or without microinvasion",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Patient summary states newly diagnosed stage IIA invasive ductal carcinoma (IDC) of the right breast, grade 2 (pT2 pN0, 2.4 cm).",
+          "evidence": "Patient: newly diagnosed stage IIA invasive ductal carcinoma, grade 2 | Trial: Previous diagnosis of HR+ DCIS",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "Exclusion: Invasive carcinoma or identification of a mass on MRI that is subsequently biopsied and found to be invasive cancer",
+          "criterion": "No invasive carcinoma",
           "type": "exclusion",
           "status": "FAIL",
-          "evidence": "Patient has a confirmed diagnosis of invasive ductal carcinoma.",
+          "evidence": "Patient: stage IIA (pT2 pN0, 2.4 cm) invasive ductal carcinoma | Trial: Invasive carcinoma or identification of a mass on MRI that is subsequently biopsied and found to be invasive cancer",
           "fail_confidence": "HIGH",
           "importance": null
         },
@@ -1639,7 +1975,7 @@
           "importance": null
         },
         {
-          "criterion": "CBC w/ diff, CMP, and Lipid Panel within normal limits within a year of start of trial treatment",
+          "criterion": "CBC w/ diff, CMP, and Lipid Panel within normal limits within a year",
           "type": "inclusion",
           "status": "UNKNOWN",
           "evidence": "Laboratory values (CBC, CMP, Lipid Panel) are not reported in the patient summary.",
@@ -1647,38 +1983,79 @@
           "importance": "routine"
         },
         {
-          "criterion": "Negative urine or serum pregnancy test within 1 month of the start of trial treatment",
+          "criterion": "Negative urine or serum pregnancy test within 1 month of start of trial treatment",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Pregnancy test results are not mentioned in the summary, though the patient is premenopausal.",
+          "evidence": "Pregnancy test results are not mentioned in the patient summary.",
           "fail_confidence": null,
           "importance": "routine"
         },
         {
-          "criterion": "Bilateral mammogram within 6 to 12 months and diagnostic unilateral mammogram within 6 months",
+          "criterion": "Willingness and ability to provide tumor samples for research",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Recent mammogram dates and specifics are not provided in the summary.",
+          "evidence": "Patient summary does not state willingness to provide tumor samples for research.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "MRI performed on an I SPY (RECAST) approved scanner within 2 months of trial treatment",
-          "type": "inclusion",
+          "criterion": "Not pregnant or actively breastfeeding",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Premenopausal with regular menstrual cycles, but no mention of pregnancy or breastfeeding; however, given she is newly diagnosed and premenopausal, pregnancy status at screening must be confirmed. Using PASS provisionally based on no reported pregnancy, but flagged as routine.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No ongoing treatment for DCIS other than what is specified in this protocol",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Has not yet started radiation or any systemic therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No uncontrolled intercurrent illness or psychiatric conditions",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No significant medical history, ECOG 0",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No gastrointestinal disorders or prior upper GI surgery affecting drug absorption",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No significant medical history",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Ability to swallow normally and take tablets/capsules",
+          "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "No screening MRI on an approved scanner is mentioned in the summary.",
+          "evidence": "Swallowing ability is not explicitly mentioned in the summary.",
           "fail_confidence": null,
           "importance": "important"
+        },
+        {
+          "criterion": "No treatment for another malignancy within the previous 6 months",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Newly diagnosed invasive ductal carcinoma in October 2026, no prior malignancy mentioned",
+          "fail_confidence": null,
+          "importance": null
         }
       ],
       "open_questions": [
-        "Confirm if there is any pure DCIS component or if the diagnosis is strictly invasive ductal carcinoma.",
-        "Verify if the trial permits any enrollment of patients with invasive components or microinvasion in the context of this specific protocol."
+        "Confirm whether the trial permits patients with invasive ductal carcinoma rather than pure DCIS.",
+        "Verify baseline laboratory results (CBC, CMP, Lipid Panel) and pregnancy test.",
+        "Assess patient's willingness to provide tumor samples for research."
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
-      "n_pass": 1,
+      "n_pass": 6,
       "n_fail": 2,
       "n_unknown": 4,
       "n_unknown_important": 2,
@@ -1757,13 +2134,13 @@
       }
     },
     {
-      "summary": "The patient is a 44-year-old premenopausal woman with newly diagnosed stage IIA invasive ductal breast cancer who recently underwent lumpectomy and has not yet started adjuvant therapy. She does not meet the menopausal requirement (she is 44 and premenopausal with regular menses) and fails the definitive therapy interval requirement (she has not yet completed radiation or systemic therapy, and has not completed the required post-treatment interval). Therefore, she is not eligible for this trial.",
+      "summary": "The patient is a 44-year-old premenopausal woman with newly diagnosed stage IIA invasive ductal carcinoma of the breast who has recently undergone surgery but has not yet received adjuvant therapy. She does not meet the menopausal requirement (she is 44 and premenopausal with regular cycles) nor the treatment interval requirement (she is less than a year post-treatment and has not completed definitive therapy), making her ineligible for this trial.",
       "criteria": [
         {
           "criterion": "Aged 21-80 years",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "44-year-old premenopausal woman",
+          "evidence": "Patient: 44-year-old | Trial: Aged 21-80 years",
           "fail_confidence": null,
           "importance": null
         },
@@ -1771,7 +2148,7 @@
           "criterion": "Female",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "44-year-old premenopausal woman",
+          "evidence": "Patient: premenopausal woman | Trial: Female",
           "fail_confidence": null,
           "importance": null
         },
@@ -1779,15 +2156,15 @@
           "criterion": "Surgically resected early stage (I-III) primary breast cancer",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Stage IIA (pT2 pN0, 2.4 cm) invasive ductal carcinoma... Underwent lumpectomy with sentinel node biopsy in October 2026",
+          "evidence": "Patient: stage IIA invasive ductal carcinoma, underwent lumpectomy | Trial: Surgically resected early stage (I-III) primary breast cancer",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Post-menopausal status (Age >= 45 with no menses for >= 2 years, chemically/surgically induced, or estradiol <= 30 pg/mL)",
+          "criterion": "Post-menopausal status",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "44-year-old premenopausal woman with regular menstrual cycles",
+          "evidence": "Patient: 44-year-old premenopausal woman with regular menstrual cycles | Trial: Post-menopausal (Age >= 45 with no menses for >= 2 years, induced menopause, or estradiol <= 30 pg/mL)",
           "fail_confidence": "HIGH",
           "importance": null
         },
@@ -1795,15 +2172,15 @@
           "criterion": "An interval of at least one year, but no more than five years, following the full completion of definitive therapy",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Has not yet started radiation or any systemic therapy; lumpectomy performed in October 2026.",
+          "evidence": "Patient: underwent surgery in October 2026, has not yet started radiation or systemic therapy | Trial: An interval of at least one year, but no more than five years, following the full completion of definitive therapy",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "Exercise intolerance (VO2peak below predicted for active age and sex-matched individuals)",
+          "criterion": "Exercise intolerance (VO2peak below predicted for age and sex)",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "CPET and VO2peak testing results are not reported in the summary.",
+          "evidence": "Cardiopulmonary exercise testing (CPET) results and VO2peak values are not reported.",
           "fail_confidence": null,
           "importance": "important"
         },
@@ -1816,10 +2193,10 @@
           "importance": "important"
         },
         {
-          "criterion": "Presence of any other concurrent, actively treated malignancy",
+          "criterion": "Presence of distant metastatic disease (stage IV)",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No other malignancies reported; newly diagnosed breast cancer only.",
+          "evidence": "Patient: stage IIA (pT2 pN0) | Trial: Presence of distant metastatic disease (i.e., stage IV)",
           "fail_confidence": null,
           "importance": null
         },
@@ -1827,22 +2204,22 @@
           "criterion": "History of any other malignancy treated within the past 3 years",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No history of other malignancies reported.",
+          "evidence": "Patient: newly diagnosed, no mention of prior malignancies | Trial: History of any other malignancy treated within the past 3 years",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Presence of distant metastatic disease (stage IV)",
+          "criterion": "Mental impairment leading to inability to cooperate",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Newly diagnosed stage IIA (pT2 pN0) disease",
+          "evidence": "Patient: ECOG 0, no significant medical history | Trial: Mental impairment leading to inability to cooperate",
           "fail_confidence": null,
           "importance": null
         }
       ],
       "open_questions": [
-        "Confirm whether the patient has any plans for ovarian suppression that would render her post-menopausal according to protocol definitions.",
-        "Verify if the patient has any history of cardiopulmonary conditions or exercise intolerance."
+        "Has the patient's menopausal status been formally evaluated per protocol definitions if any ovarian suppression is planned?",
+        "Does the patient have exercise intolerance as measured by baseline CPET?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
@@ -1882,204 +2259,63 @@
       }
     },
     {
-      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA invasive ductal carcinoma who has already undergone definitive surgical resection (lumpectomy). Because NCT01042379 (I-SPY) is a neoadjuvant trial requiring measurable disease in the breast and pre-treatment planning, the patient's prior surgery disqualifies her. Therefore, she is ineligible for this trial.",
+      "summary": "The patient is a 44-year-old premenopausal woman with newly diagnosed stage IIA ER+/HER2- breast cancer who recently underwent a lumpectomy. She fails trial inclusion criteria requiring stage IIB to III disease and a 5-to-20-year latency since diagnosis with completed adjuvant endocrine therapy. Therefore, she is not eligible for this trial.",
       "criteria": [
         {
-          "criterion": "Neoadjuvant trial setting (trial is for patients requiring pre-operative systemic therapy)",
+          "criterion": "Previous diagnosis of anatomic stage IIB or anatomic stage III ER+, HER2- breast cancer",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Summary states the patient 'Underwent lumpectomy with sentinel node biopsy in October 2026', meaning she has already had surgery and does not require neoadjuvant treatment.",
+          "evidence": "Patient: newly diagnosed stage IIA (pT2 pN0, 2.4 cm) invasive ductal carcinoma | Trial: anatomic stage IIB or anatomic stage III",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "Clinically or radiologically measureable disease in the breast after diagnostic biopsy, defined as longest diameter \u2265 25 mm (2.5 cm)",
+          "criterion": "Diagnosed with ER+HER2- breast cancer at least five years ago and no more than 20 years ago and completed adjuvant endocrine therapy",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Patient's tumor size is reported as 2.4 cm (pT2, 2.4 cm) and the primary tumor has already been surgically removed via lumpectomy.",
+          "evidence": "Patient: newly diagnosed in October 2026 and has not yet started adjuvant therapy | Trial: diagnosed 5 to 20 years ago and must have completed adjuvant endocrine therapy",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "Histologically confirmed invasive cancer of the breast",
+          "criterion": "Off endocrine therapy for at least four weeks prior to screening",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Patient has newly diagnosed stage IIA invasive ductal carcinoma of the right breast.",
+          "evidence": "Has not yet started any systemic therapy or endocrine therapy.",
           "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No prior cytotoxic regimens, chemotherapy, or prior radiation therapy to the ipsilateral breast for this malignancy",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Patient has not yet started radiation or any systemic therapy.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Age \u2265 18 years",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Patient is 44 years old.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "ECOG performance status 0-1",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ECOG 0.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Non-pregnant and non-lactating",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Pre-menopausal woman with regular menstrual cycles; pregnancy status not explicitly detailed as tested, but no pregnancy reported.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Eligible tumors must meet Stage II or III, or T4, any N, M0",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Newly diagnosed stage IIA (pT2 pN0, 2.4 cm).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Normal organ and marrow function (leukocytes, ANC, platelets, total bilirubin, AST/ALT, creatinine)",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Laboratory values for blood counts, liver function, and renal function are not reported in the summary.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "No uncontrolled or severe cardiac disease; baseline ejection fraction \u2265 50%",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Cardiac ejection fraction and baseline cardiac assessment are not mentioned in the summary.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "No clinical or imaging evidence of distant metastases",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Staging imaging (CXR, bone scan) details are not provided beyond the pathological staging.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Tumor assay profile matching protocol requirements (e.g., MammaPrint or specific ER/HER2 status)",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Patient has an Oncotype DX recurrence score of 21, but MammaPrint or specific protocol-required assay profiles are not reported.",
-          "fail_confidence": null,
-          "importance": "important"
-        }
-      ],
-      "open_questions": [
-        "Since the patient has already undergone a lumpectomy, is there any institutional exception or post-operative cohort for the I-SPY trial at this center?",
-        "What are the patient's baseline complete blood count, comprehensive metabolic panel, and cardiac ejection fraction?",
-        "Has a formal metastatic workup (chest X-ray, bone scan) been completed?"
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Not eligible",
-      "fit_score": 0,
-      "n_pass": 6,
-      "n_fail": 2,
-      "n_unknown": 4,
-      "n_unknown_important": 3,
-      "nct_id": "NCT01042379",
-      "title": "I-SPY TRIAL: Neoadjuvant and Personalized Adaptive Novel Agents to Treat Breast Cancer",
-      "url": "https://clinicaltrials.gov/study/NCT01042379",
-      "phases": [
-        "PHASE2"
-      ],
-      "relevance_score": 8,
-      "relevance_reasons": [
-        "early-stage setting",
-        "HR+ / HER2-low match",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "Laura and Isaac Perlmutter Cancer Center / NYU Langone Health",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10016",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Yannis Karamitas",
-          "contact_phone": null,
-          "contact_email": "Yannis.Karamitas@nyulangone.org"
-        },
-        {
-          "facility": "Columbia University Medical Center",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10032",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Meghana Trivedi, MD",
-          "contact_phone": null,
-          "contact_email": null
-        },
-        {
-          "facility": "Montefiore Medical Center",
-          "city": "The Bronx",
-          "state": "New York",
-          "zip": "10467",
-          "site_status": "RECRUITING",
-          "distance_mi": 12.0,
-          "contact_name": "Jesus D Anampa",
-          "contact_phone": null,
-          "contact_email": null
-        }
-      ],
-      "central_contact": {
-        "name": "Won Chang",
-        "phone": "(855) 866-0505",
-        "email": "w.chang@quantumleaphealth.org"
-      }
-    },
-    {
-      "summary": "The patient is a 44-year-old premenopausal woman with newly diagnosed stage IIA ER+, HER2- invasive breast cancer who recently underwent a lumpectomy. She fails trial eligibility because the study specifically requires patients to have been diagnosed at least five years and no more than 20 years ago and to have completed prior adjuvant endocrine therapy.",
-      "criteria": [
-        {
-          "criterion": "Diagnosis of ER+, HER2- breast cancer at least 5 years ago and no more than 20 years ago",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Patient has newly diagnosed stage IIA invasive ductal carcinoma (diagnosed in October 2026/recently), not 5-20 years ago.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Completed adjuvant endocrine therapy and off endocrine therapy for at least 4 weeks",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Patient has not yet started systemic therapy; adjuvant plan is under discussion, and she has not previously completed adjuvant endocrine therapy.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Previous diagnosis of anatomic stage IIB or anatomic stage III breast cancer",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Patient is newly diagnosed with stage IIA (pT2 pN0) breast cancer.",
-          "fail_confidence": "HIGH",
           "importance": null
         },
         {
           "criterion": "Known current metastatic disease",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Patient has newly diagnosed stage IIA (pN0) disease with 0/2 nodes positive and no mention of distant metastases.",
+          "evidence": "Stage IIA with negative sentinel nodes; no distant metastases reported.",
           "fail_confidence": null,
           "importance": null
+        },
+        {
+          "criterion": "ctDNA positivity by NEXT Personal assay",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "No NEXT Personal assay results mentioned in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No evidence of metastatic disease on staging scans",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Staging scans are not mentioned in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Premenopausal participants willing to concurrently receive an LHRH agonist initiated 3-4 weeks before elacestrant",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient is premenopausal, but willingness to receive an LHRH agonist is not documented.",
+          "fail_confidence": null,
+          "importance": "important"
         },
         {
           "criterion": "ECOG performance status of 0 or 1",
@@ -2090,50 +2326,42 @@
           "importance": null
         },
         {
-          "criterion": "ctDNA positivity by NEXT Personal assay",
+          "criterion": "Adequate bone marrow and organ function laboratory values",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "NEXT Personal ctDNA assay results are not mentioned in the summary.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "No evidence of metastatic disease on staging scans",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Staging scans are not explicitly mentioned in the summary.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Adequate bone marrow and organ function laboratories",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Laboratory values (CBC, chemistry, liver function tests, creatinine clearance) are not reported in the summary.",
+          "evidence": "Specific baseline lab values (ANC, platelets, hemoglobin, electrolytes, creatinine clearance, ALT, AST, bilirubin, lipids) are not reported.",
           "fail_confidence": null,
           "importance": "routine"
-        },
-        {
-          "criterion": "Willingness of premenopausal participants to concurrently receive an LHRH agonist",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Willingness to receive an LHRH agonist is not addressed in the summary.",
-          "fail_confidence": null,
-          "importance": "important"
         },
         {
           "criterion": "Current or past invasive cancer other than breast cancer",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No significant medical history, no other invasive cancers mentioned.",
+          "evidence": "No other invasive cancer history reported; no significant medical history.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Participants who are pregnant or breastfeeding",
+          "criterion": "Impairment of gastrointestinal function or GI disease altering oral medication absorption",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Patient is a 44-year-old premenopausal woman with regular menstrual cycles; pregnancy is not reported, and she is newly diagnosed.",
+          "evidence": "No significant medical history or GI issues reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Pregnancy or breastfeeding",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Premenopausal with regular menstrual cycles; no pregnancy reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Moderate to severe liver impairment (Child-Pugh Class B and C)",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Liver function lab values and Child-Pugh class are not reported.",
           "fail_confidence": null,
           "importance": "routine"
         },
@@ -2141,7 +2369,7 @@
           "criterion": "Current treatment with endocrine therapy",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Has not yet started any systemic therapy.",
+          "evidence": "Has not yet started any systemic therapy or endocrine therapy.",
           "fail_confidence": null,
           "importance": null
         },
@@ -2149,29 +2377,23 @@
           "criterion": "Prior treatment with elacestrant or other investigational SERDs",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No prior systemic therapy received yet.",
+          "evidence": "No prior systemic therapies reported.",
           "fail_confidence": null,
           "importance": null
-        },
-        {
-          "criterion": "Impairment of gastrointestinal function or GI disease affecting oral absorption",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No significant medical history reported.",
-          "fail_confidence": null,
-          "importance": "routine"
         }
       ],
       "open_questions": [
-        "Does the study team have an alternate cohort or trial open for newly diagnosed, treatment-naive stage IIA ER+ breast cancer patients?",
-        "Has staging imaging been performed to rule out metastatic disease?"
+        "Was a NEXT Personal ctDNA assay performed, and if so, what was the result?",
+        "Have staging scans been performed to rule out metastatic disease?",
+        "Would the patient be willing to receive an LHRH agonist if required by trial protocol?",
+        "Are baseline complete blood counts, comprehensive metabolic panels, and calculated creatinine clearance within the required limits?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
-      "n_pass": 7,
-      "n_fail": 3,
-      "n_unknown": 4,
+      "n_pass": 8,
+      "n_fail": 2,
+      "n_unknown": 5,
       "n_unknown_important": 3,
       "nct_id": "NCT06923527",
       "title": "Circulating Tumor DNA",
@@ -2205,13 +2427,13 @@
       }
     },
     {
-      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA hormone receptor-positive breast cancer who has undergone surgery (lumpectomy) but has not yet started systemic endocrine therapy or radiation. She fails the inclusion criteria requiring patients to have completed primary therapy or be currently on maintenance therapy, and to currently be on an aromatase inhibitor, tamoxifen, or SERM. Additionally, there is no mention in the summary of whether she is experiencing vaginal symptoms of estrogen deprivation or a VAS score of 4 or greater.",
+      "summary": "The patient is a 44-year-old woman with newly diagnosed stage IIA hormone receptor-positive, HER2-negative invasive ductal carcinoma who has undergone lumpectomy but has not yet started adjuvant systemic therapy or endocrine therapy. She fails the trial's requirement of having completed primary therapy and currently being on an aromatase inhibitor, tamoxifen, or SERM, and her symptom burden regarding vaginal symptoms is not reported.",
       "criteria": [
         {
-          "criterion": "Age >= 18 years",
+          "criterion": "Age >= 18 years at consent",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "44-year-old premenopausal woman",
+          "evidence": "Patient: 44-year-old woman | Trial: >=18 years of age",
           "fail_confidence": null,
           "importance": null
         },
@@ -2219,15 +2441,15 @@
           "criterion": "Stage 0-3 hormone-receptor positive breast cancer",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "stage IIA (pT2 pN0, 2.4 cm) invasive ductal carcinoma, ER 95%, PR 80%",
+          "evidence": "Patient: Stage IIA invasive ductal carcinoma, ER 95%, PR 80% | Trial: Stage 0-3 hormone-receptor positive breast cancer",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Have completed primary therapy (surgery, and/or chemotherapy, and/or radiation therapy) or currently on maintenance therapy",
+          "criterion": "Completed primary therapy (surgery, and/or chemotherapy, and/or radiation therapy) or currently on maintenance therapy",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Underwent lumpectomy in October 2026; has not yet started radiation or any systemic therapy; adjuvant plan under discussion.",
+          "evidence": "Patient: Has not yet started radiation or any systemic therapy, adjuvant plan under discussion | Trial: Must have completed primary therapy or currently on maintenance therapy",
           "fail_confidence": "HIGH",
           "importance": null
         },
@@ -2235,7 +2457,7 @@
           "criterion": "Currently on an aromatase inhibitor or tamoxifen or Selective Estrogen Receptor Modulators (SERM)",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Has not yet started radiation or any systemic therapy; adjuvant plan under discussion.",
+          "evidence": "Patient: Has not yet started any systemic therapy or endocrine therapy | Trial: Currently on an aromatase inhibitor or tamoxifen or SERM",
           "fail_confidence": "HIGH",
           "importance": null
         },
@@ -2243,12 +2465,12 @@
           "criterion": "Currently have no clinical evidence of disease",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Newly diagnosed stage IIA post-lumpectomy with negative margins and 0/2 nodes positive; no clinical evidence of persistent disease noted.",
+          "evidence": "Patient: Lumpectomy margins negative, 0/2 nodes positive, no mention of active metastatic disease | Trial: Currently have no clinical evidence of disease",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Reporting being bothered by vaginal symptoms of estrogen deprivation",
+          "criterion": "Reporting being bothered by vaginal symptoms of estrogen deprivation (vaginal dryness, dyspareunia, or discomfort)",
           "type": "inclusion",
           "status": "UNKNOWN",
           "evidence": "Patient summary does not mention vaginal symptoms.",
@@ -2259,55 +2481,63 @@
           "criterion": "A total score of 4 or greater in VAS",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "VAS score is not reported in the summary.",
+          "evidence": "VAS score not assessed or reported in the summary.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
           "criterion": "Without history of other cancers (excluding non-melanoma skin cancer)",
-          "type": "inclusion",
+          "type": "exclusion",
           "status": "PASS",
-          "evidence": "Newly diagnosed invasive ductal carcinoma, no significant medical history or other prior cancers mentioned.",
+          "evidence": "Patient: Newly diagnosed breast cancer, no mention of other prior cancers | Trial: Without history of other cancers",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Vaginal bleeding of unknown etiology within 12 months",
+          "criterion": "Vaginal bleeding of unknown etiology within 12 months of study entry",
           "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Regular menstrual cycles; no mention of abnormal vaginal bleeding.",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary does not mention vaginal bleeding history.",
           "fail_confidence": null,
-          "importance": null
+          "importance": "routine"
         },
         {
-          "criterion": "Currently taking hormone replacement therapy",
+          "criterion": "Currently taking hormone replacement therapy (local or systemic)",
           "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Not currently on systemic therapy or hormone replacement therapy.",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary does not mention hormone replacement therapy use.",
           "fail_confidence": null,
-          "importance": null
+          "importance": "important"
         },
         {
           "criterion": "Existing use of external estrogens or nonhormonal moisturizers",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "Use of external estrogens or nonhormonal moisturizers is not mentioned in the summary.",
+          "evidence": "Patient summary does not mention use of external estrogens or moisturizers.",
           "fail_confidence": null,
-          "routine": "routine"
+          "importance": "important"
+        },
+        {
+          "criterion": "No known allergies to any ingredients in 10mg HLA suppository",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary does not mention allergy history.",
+          "fail_confidence": null,
+          "importance": "routine"
         }
       ],
       "open_questions": [
-        "Has the patient initiated adjuvant endocrine therapy (such as tamoxifen or an aromatase inhibitor)?",
-        "Is the patient experiencing vaginal symptoms of estrogen deprivation, and what is her VAS score?",
-        "Is the patient currently using any external estrogens or nonhormonal vaginal moisturizers?"
+        "Is the patient currently experiencing any vaginal symptoms of estrogen deprivation?",
+        "What is the patient's score on the VAS scale?",
+        "Has the patient initiated or completed plans for adjuvant endocrine therapy and radiation therapy?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
-      "n_pass": 6,
+      "n_pass": 4,
       "n_fail": 2,
-      "n_unknown": 3,
-      "n_unknown_important": 3,
+      "n_unknown": 6,
+      "n_unknown_important": 4,
       "nct_id": "NCT07042581",
       "title": "A Study of Revaree Plus in People With Breast Cancer",
       "url": "https://clinicaltrials.gov/study/NCT07042581",
@@ -2337,47 +2567,6 @@
         "name": "Shari Goldfarb, MD",
         "phone": "646-888-5080",
         "email": "goldfars@mskcc.org"
-      }
-    },
-    {
-      "summary": "Screening failed: Expecting value: line 90 column 21 (char 3512)",
-      "criteria": [],
-      "open_questions": [],
-      "model": null,
-      "category": "Unable to assess - screening error",
-      "fit_score": 0,
-      "n_pass": 0,
-      "n_fail": 0,
-      "n_unknown": 0,
-      "n_unknown_important": 0,
-      "nct_id": "NCT07257484",
-      "title": "Tirzepatide's Role in Postmenopausal HR+ Breast Cancer Survivors",
-      "url": "https://clinicaltrials.gov/study/NCT07257484",
-      "phases": [
-        "PHASE4"
-      ],
-      "relevance_score": 5,
-      "relevance_reasons": [
-        "HR+ / HER2-low match",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "Weill Cornell Medicine",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10021",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Sarah Schmitz, MD",
-          "contact_phone": "646-962-2111",
-          "contact_email": "hls9007@med.cornell.edu"
-        }
-      ],
-      "central_contact": {
-        "name": "Lynelle Weis",
-        "phone": "646-962-2423",
-        "email": "ljw4002@med.cornell.edu"
       }
     }
   ]

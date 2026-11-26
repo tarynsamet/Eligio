@@ -31,11 +31,12 @@
       "type 2 diabetes"
     ],
     "missing_information": [
-      "brain metastases status"
+      "brain metastases status",
+      "organ function (beyond labs within normal limits)"
     ]
   },
   "experiment": {
-    "timestamp_utc": "2026-11-22T19:09:31.282263+00:00",
+    "timestamp_utc": "2026-11-26T17:31:10.703649+00:00",
     "configured_model": "gemini-3.5-flash-lite",
     "models_actually_used": [
       "gemini-3.5-flash-lite"
@@ -45,7 +46,7 @@
     "trial_count": 183,
     "patient_record_sha256": "65584b5bbd41fe84cd44c5bab230864db865180f7b4614c94367b1fe0fd213b7",
     "parser_prompt_sha256": "6c358859eddf6a2344b24d6ec7a6be18339d417f9b9475fdb51d247512c7f339",
-    "screener_prompt_sha256": "0e5914f84b5c92fc28b72d1544c633b8924c380d2631bbf76fa38a86de83e59e"
+    "screener_prompt_sha256": "da38322c0a1602c45c0f4338c4d179af851404f4f9dfe2fe84e29963f8480dc2"
   },
   "complete": true,
   "funnel": {
@@ -60,159 +61,13 @@
   },
   "results": [
     {
-      "summary": "The patient is a 67-year-old man with metastatic HR+/HER2- breast cancer who progressed on first-line endocrine therapy plus a CDK4/6 inhibitor and has not received prior chemotherapy for metastatic disease, meeting key inclusion criteria. However, eligibility regarding central confirmation of hormone receptor status, exact progression details on the prior endocrine regimen, and specific organ function laboratory values remain unknown.",
+      "summary": "The patient is a 67-year-old man with metastatic ER+/HER2- breast cancer, an ESR1 Y537S mutation, and progression on first-line AI plus ribociclib. While he meets several key inclusion criteria, eligibility cannot be fully confirmed due to missing information regarding measurable disease status under RECIST 1.1 and the duration of disease control on his first-line AI/CDK4/6 inhibitor therapy.",
       "criteria": [
         {
-          "criterion": "Unresectable locally advanced or metastatic centrally-confirmed HR+/HER2- breast cancer",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Patient has metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0), but central laboratory confirmation is not reported.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Radiographic disease progression on one or more lines of endocrine therapy for advanced/metastatic disease, with one in combination with a CDK4/6 inhibitor",
+          "criterion": "Men or pre-/postmenopausal women with locally advanced/metastatic ER+ breast cancer progressing on AI + palbociclib/ribociclib as first hormonal treatment",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Bone-only metastatic recurrence in 2023 treated first-line with anastrozole + leuprolide + ribociclib with progression in September 2026.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Chemotherapy candidate",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Patient has progressed on endocrine therapy and is being evaluated for subsequent systemic therapy.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "ECOG performance status of 0 to 1 assessed within 7 days before randomization",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ECOG 1.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Adequate organ function",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Summary states 'Labs within normal limits', but specific laboratory values (hematology, hepatic, renal) and the exact assessment date relative to randomization are not provided.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Has received prior chemotherapy for unresectable locally advanced or metastatic breast cancer",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Prior treatment for metastatic disease was anastrozole + leuprolide + ribociclib; no prior chemotherapy for advanced disease is reported.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Has breast cancer amenable to treatment with curative intent",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Patient has metastatic breast cancer.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Has experienced an early recurrence (<6 months after completing adjuvant/neoadjuvant chemotherapy)",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Initial stage II disease in 2020 was treated with surgery and tamoxifen (no adjuvant chemotherapy mentioned).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Has symptomatic advanced/metastatic visceral spread at risk of rapidly evolving into life-threatening complications",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Patient has bone-only metastatic recurrence; no visceral spread is reported.",
-          "fail_confidence": null,
-          "importance": null
-        }
-      ],
-      "open_questions": [
-        "Is central confirmation of HR+/HER2- status available or can a sample be sent for central testing?",
-        "What are the specific numerical lab values for hematologic, hepatic, and renal function to formally confirm adequate organ function?",
-        "Was radiographic progression on the anastrozole + leuprolide + ribociclib regimen formally documented per RECIST or investigator assessment?"
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Likely eligible - needs review",
-      "fit_score": 78,
-      "n_pass": 7,
-      "n_fail": 0,
-      "n_unknown": 2,
-      "n_unknown_important": 1,
-      "nct_id": "NCT06312176",
-      "title": "A Study of Sacituzumab Tirumotecan (MK-2870) as a Single Agent and in Combination With Pembrolizumab (MK-3475) Versus Treatment of Physician's Choice in Participants With HR+/HER2- Unresectable Locally Advanced or Metastatic Breast Cancer (MK-2870-010)",
-      "url": "https://clinicaltrials.gov/study/NCT06312176",
-      "phases": [
-        "PHASE3"
-      ],
-      "relevance_score": 8,
-      "relevance_reasons": [
-        "metastatic setting",
-        "HR+ / HER2-low match",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "Laura and Isaac Perlmutter Cancer Center-Hematology and Oncology ( Site 0068)",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10016",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Study Coordinator",
-          "contact_phone": "212-731-6000",
-          "contact_email": null
-        },
-        {
-          "facility": "NYU Langone Health - Brooklyn ( Site 0089)",
-          "city": "Brooklyn",
-          "state": "New York",
-          "zip": "11220",
-          "site_status": "RECRUITING",
-          "distance_mi": 5.2,
-          "contact_name": "Study Coordinator",
-          "contact_phone": "212-731-6000",
-          "contact_email": null
-        }
-      ],
-      "central_contact": {
-        "name": "Toll Free Number",
-        "phone": "1-888-577-8839",
-        "email": "Trialsites@msd.com"
-      }
-    },
-    {
-      "summary": "The patient is a 67-year-old man with ER+/HER2- metastatic breast cancer and an ESR1 Y537S mutation who progressed on an aromatase inhibitor and ribociclib. While he meets several key inclusion criteria, eligibility cannot be fully determined due to missing information regarding measurable disease per RECIST 1.1 and the duration of disease control on his prior AI/CDKi combination.",
-      "criteria": [
-        {
-          "criterion": "Pre- or postmenopausal women or men",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "67-year-old man",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "ER+ breast cancer with progression on an AI plus palbociclib or ribociclib as first hormonal treatment for metastatic disease",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Bone-only metastatic recurrence in 2023 treated first-line with anastrozole + leuprolide + ribociclib with progression in September 2026.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Histological or cytological confirmation of ER+/HER2- disease",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0).",
+          "evidence": "Patient: 67-year-old man with metastatic ER+/HER2- breast cancer who progressed on anastrozole + ribociclib (first-line for metastatic disease) | Trial: Pre- or postmenopausal women or men with locally advanced/metastatic ER+ breast cancer with progression on an AI plus palbociclib or ribociclib as first hormonal treatment",
           "fail_confidence": null,
           "importance": null
         },
@@ -220,31 +75,31 @@
           "criterion": "No evidence of progression for at least 6 months on an AI/CDKi combination for advanced breast cancer",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Summary states treatment started in 2023 and progressed in September 2026, but the exact duration of clinical benefit or progression-free interval on the AI/CDKi combination is not explicitly specified.",
+          "evidence": "Summary states initial stage II in 2020, bone-only recurrence in 2023 treated with anastrozole + ribociclib with progression in September 2026, but does not specify the exact duration of disease control before progression.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "At least 1 or more ESR1 point mutations in the ESR1 ligand binding domain assessed in ctDNA or tissue",
+          "criterion": "At least 1 ESR1 point mutation in ligand binding domain assessed in ctDNA or tissue",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Circulating tumor DNA (Guardant360, October 2026) shows ESR1 Y537S mutation.",
+          "evidence": "Patient: Guardant360 ctDNA (October 2026) shows ESR1 Y537S mutation | Trial: At least 1 or more ESR1 point mutations in the ESR1 ligand binding domain",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "At least 1 measurable (according to RECIST 1.1) lesion with or without non-measurable lesions",
+          "criterion": "At least 1 measurable lesion according to RECIST 1.1",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Patient has 'bone-only metastatic recurrence', but the summary does not state whether there is a measurable soft tissue or bone lesion according to RECIST 1.1.",
+          "evidence": "Summary states 'bone-only metastatic recurrence in 2023', but does not specify whether these bone lesions meet RECIST 1.1 criteria for measurability (e.g., presence of an identifiable soft tissue component).",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance score of 0 or 1",
+          "criterion": "ECOG performance score of 0 or 1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG 1",
+          "evidence": "Patient: ECOG 1 | Trial: Eastern Cooperative Oncology Group (ECOG) performance score of 0 or 1",
           "fail_confidence": null,
           "importance": null
         },
@@ -252,39 +107,71 @@
           "criterion": "Adequate organ function",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Labs within normal limits.",
+          "evidence": "Patient: Labs within normal limits | Trial: Adequate organ function",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Prior progression of disease on abemaciclib, fulvestrant, or other selective estrogen receptor degrader (SERD) therapy",
+          "criterion": "Able to swallow tablets",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary mentions no difficulty swallowing, but tablet swallowing ability is not explicitly stated.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Visceral crisis in need of cytotoxic chemotherapy",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Prior treatment was anastrozole + leuprolide + ribociclib; no prior abemaciclib, fulvestrant, or SERD mentioned.",
+          "evidence": "Patient: Bone-only metastatic recurrence without mention of visceral crisis | Trial: Visceral crisis in need of cytotoxic chemotherapy",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Any significant co-morbidity that would impact the study or the subject's safety, including significant malabsorption",
+          "criterion": "Prior progression of disease on abemaciclib, fulvestrant, or other SERD therapy",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "History of type 2 diabetes controlled on metformin; no significant co-morbidities impacting study safety noted.",
+          "evidence": "Patient: Prior treatment was anastrozole + leuprolide + ribociclib (no prior abemaciclib, fulvestrant, or SERD) | Trial: Prior progression of disease on abemaciclib, fulvestrant, or other selective estrogen receptor degrader (SERD) therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of long QTc syndrome or QTc > 480 msec",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary states labs are within normal limits, but does not report ECG results or QTc interval.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Active systemic bacterial or fungal infection requiring IV antibiotics/antifungals",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No active infection reported; labs within normal limits | Trial: Active systemic bacterial or fungal infection requiring IV antibiotics or antifungals",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of malignancy within the past 5 years (excluding breast cancer, basal/squamous cell skin)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Initial stage II breast cancer in 2020 (6 years ago); no other malignancies reported | Trial: History of malignancy within the past 5 years (excluding breast cancer...)",
           "fail_confidence": null,
           "importance": null
         }
       ],
       "open_questions": [
-        "Did the patient maintain disease control for at least 6 months on first-line anastrozole and ribociclib?",
-        "Does the patient have at least one measurable lesion according to RECIST 1.1 (such as a measurable soft-tissue component associated with the bone metastases)?",
-        "Are there any baseline laboratory abnormalities (such as fasting triglycerides or cholesterol) not captured by 'labs within normal limits'?"
+        "What was the exact duration of stable disease/lack of progression on first-line anastrozole + ribociclib?",
+        "Do the bone-only metastatic lesions include a measurable soft tissue component according to RECIST 1.1?",
+        "What is the patient's baseline QTc interval on screening ECG?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Likely eligible - needs review",
-      "fit_score": 80,
+      "fit_score": 67,
       "n_pass": 8,
       "n_fail": 0,
-      "n_unknown": 2,
-      "n_unknown_important": 2,
+      "n_unknown": 4,
+      "n_unknown_important": 3,
       "nct_id": "NCT05696626",
       "title": "Evaluation of Lasofoxifene Combined With Abemaciclib Compared With Fulvestrant Combined With Abemaciclib in Locally Advanced or Metastatic ER+/HER2- Breast Cancer With an ESR1 Mutation",
       "url": "https://clinicaltrials.gov/study/NCT05696626",
@@ -340,209 +227,557 @@
       }
     },
     {
-      "summary": "The patient is a 67-year-old man with HR-positive, HER2-negative metastatic breast cancer with an ESR1 mutation and wild-type PIK3CA, who progressed after first-line anastrozole, leuprolide, and ribociclib. While he meets the general diagnosis, ECOG, and prior SoC progression criteria for the Monotherapy Cohort, he has a PIK3CA wild-type tumor which disqualifies him from the PIK3CA-mutant combination cohorts, and his prior CDK4/6i exposure conflicts with the naive-setting combination cohort. Key open questions include whether he is eligible for the Monotherapy Cohort and whether LVEF is adequate if a trastuzumab combination is considered.",
+      "summary": "The patient is a 67-year-old man with HR+/HER2- metastatic breast cancer who progressed on first-line endocrine therapy plus a CDK4/6 inhibitor and has not received prior chemotherapy for metastatic disease. He appears to meet the core inclusion criteria including hormone receptor status, prior line of therapy with a CDK4/6 inhibitor, and ECOG performance status of 1, though central confirmation of biomarkers and formal lab values are needed to confirm eligibility.",
       "criteria": [
         {
-          "criterion": "Locally advanced and unresectable or metastatic HER2-positive advanced breast cancer (aBC), HR-positive/HER2-negative advanced breast cancer, KRAS mutant advanced colorectal cancer (aCRC), or KRAS mutant advanced non-small cell lung cancer (aNSCLC)",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0)",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Measurable disease by RECIST v1.1 (except for HR-positive HER2-negative aBC where evaluable bone-only disease is permitted)",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Bone-only metastatic recurrence in 2023; trial permits evaluable bone-only disease for HR-positive, HER2-negative aBC",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance status (PS) 0-1",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ECOG 1",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Monotherapy Cohort patients with HR-positive, HER2-negative aBC: Must have progression on, or disease recurrence after at least one line of SOC treatment",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Treated first-line with anastrozole + leuprolide + ribociclib with progression in September 2026",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "BBO-10203 + Fulvestrant combination cohort patients with HR-positive, HER2-negative aBC: confirmed PIK3CA mutation",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Circulating tumor DNA shows PIK3CA wild-type",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "BBO-10203 + Fulvestrant + ribociclib combination cohort patients with HR-positive, HER2-negative aBC: confirmed PIK3CA mutation, no prior systemic therapy in the aBC setting permitted",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "PIK3CA wild-type and prior systemic therapy in the advanced setting (anastrozole + leuprolide + ribociclib)",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Adequate LVEF assessed by ECHO or MUGA (BBO-10203 + Trastuzumab cohorts only)",
+          "criterion": "Has unresectable locally advanced or metastatic centrally-confirmed hormone receptor positive (HR+)/human epidermal growth factor receptor 2 negative (HER2-) breast cancer",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "LVEF and assessment method are not reported in the patient summary",
+          "evidence": "Patient has metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0), but central confirmation is pending.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Has radiographic disease progression on one or more lines of endocrine therapy for unresectable locally advanced/metastatic HR+/HER2- breast cancer, with one in combination with a CDK4/6 inhibitor",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient had bone-only metastatic recurrence treated first-line with anastrozole + leuprolide + ribociclib with radiographic progression in September 2026.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Is a chemotherapy candidate",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient summary indicates eligibility for systemic therapy with no contraindications to chemotherapy mentioned.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has an eastern cooperative oncology group (ECOG) performance status of 0 to 1 assessed within 7 days before randomization",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient has an ECOG performance status of 1.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has adequate organ function",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary states 'Labs within normal limits' but specific values and dates for organ function tests required by the protocol are not provided.",
           "fail_confidence": null,
           "importance": "routine"
         },
         {
-          "criterion": "Stable brain metastases",
-          "type": "inclusion",
+          "criterion": "Has breast cancer amenable to treatment with curative intent",
+          "type": "exclusion",
           "status": "PASS",
-          "evidence": "No mention of brain metastases, thus no untreated or unstable brain metastases (effectively met or not applicable)",
+          "evidence": "Patient has metastatic breast cancer, which is not amenable to treatment with curative intent.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Patients with untreated and/or non-stable brain metastases",
+          "criterion": "Has experienced an early recurrence (<6 months after completing adjuvant/neoadjuvant chemotherapy) and therefore is eligible to receive second-line (2L) treatment",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No brain metastases reported",
+          "evidence": "Patient was initially stage II in 2020 treated with surgery and tamoxifen (no adjuvant chemotherapy mentioned), with bone-only recurrence in 2023.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has experienced symptomatic advanced/metastatic visceral spread at risk of rapidly evolving into life-threatening complications",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient has bone-only metastatic recurrence; no visceral spread is reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Has received prior chemotherapy for unresectable locally advanced or metastatic breast cancer",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient received prior anastrozole + leuprolide + ribociclib for metastatic disease; no prior chemotherapy for advanced disease is reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Active autoimmune disease that has required systemic treatment in the past 2 years",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary mentions type 2 diabetes controlled on metformin, but does not explicitly state whether there is any active autoimmune disease.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "History of (noninfectious) pneumonitis/interstitial lung disease that requires steroids, or has current pneumonitis/interstitial lung disease",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "The summary does not mention a history of pneumonitis or interstitial lung disease.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Has an active infection requiring systemic therapy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No active infection requiring systemic therapy is reported.",
           "fail_confidence": null,
           "importance": null
         }
       ],
       "open_questions": [
-        "Is the patient being considered specifically for the BBO-10203 Monotherapy Cohort, given that PIK3CA-mutant combination cohorts are ruled out?",
-        "What is the patient's baseline LVEF assessed by ECHO or MUGA if a trastuzumab-containing arm is contemplated?",
-        "Are there any other actionable or protocol-defined mutations in the ctDNA assay that affect cohort placement?"
+        "Is central laboratory confirmation of HR+ and HER2- status available?",
+        "What are the specific numerical lab values for organ function to confirm they meet trial thresholds?",
+        "Does the patient have any history of autoimmune disease or interstitial lung disease?"
       ],
       "model": "gemini-3.5-flash-lite",
-      "category": "Not eligible",
-      "fit_score": 0,
-      "n_pass": 6,
-      "n_fail": 2,
-      "n_unknown": 1,
-      "n_unknown_important": 0,
-      "nct_id": "NCT06625775",
-      "title": "Open-Label Study of BBO-10203 in Subjects With Advanced Solid Tumors",
-      "url": "https://clinicaltrials.gov/study/NCT06625775",
+      "category": "Likely eligible - needs review",
+      "fit_score": 67,
+      "n_pass": 8,
+      "n_fail": 0,
+      "n_unknown": 4,
+      "n_unknown_important": 3,
+      "nct_id": "NCT06312176",
+      "title": "A Study of Sacituzumab Tirumotecan (MK-2870) as a Single Agent and in Combination With Pembrolizumab (MK-3475) Versus Treatment of Physician's Choice in Participants With HR+/HER2- Unresectable Locally Advanced or Metastatic Breast Cancer (MK-2870-010)",
+      "url": "https://clinicaltrials.gov/study/NCT06312176",
       "phases": [
-        "PHASE1"
+        "PHASE3"
       ],
-      "relevance_score": 11,
+      "relevance_score": 8,
       "relevance_reasons": [
         "metastatic setting",
         "HR+ / HER2-low match",
-        "PIK3CA mentioned",
-        "solid-tumor basket"
+        "breast-specific"
       ],
       "nyc_sites": [
         {
-          "facility": "Columbia University Irving Medical Center",
+          "facility": "Laura and Isaac Perlmutter Cancer Center-Hematology and Oncology ( Site 0068)",
           "city": "New York",
           "state": "New York",
-          "zip": "10032",
+          "zip": "10016",
           "site_status": "RECRUITING",
           "distance_mi": 0.1,
-          "contact_name": null,
-          "contact_phone": null,
+          "contact_name": "Study Coordinator",
+          "contact_phone": "212-731-6000",
           "contact_email": null
         },
         {
-          "facility": "Memorial Sloan Kettering Cancer Center",
+          "facility": "NYU Langone Health - Brooklyn ( Site 0089)",
+          "city": "Brooklyn",
+          "state": "New York",
+          "zip": "11220",
+          "site_status": "RECRUITING",
+          "distance_mi": 5.2,
+          "contact_name": "Study Coordinator",
+          "contact_phone": "212-731-6000",
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "Toll Free Number",
+        "phone": "1-888-577-8839",
+        "email": "Trialsites@msd.com"
+      }
+    },
+    {
+      "summary": "The patient is a 67-year-old man with metastatic HR+/HER2- breast cancer who has progressed on first-line endocrine therapy plus a CDK4/6 inhibitor. He appears potentially eligible for the Phase II HR+/HER2- breast cancer cohort, but key information regarding prior lines of systemic metastatic therapy, exact endocrine therapy details, measurable disease vs. lytic bone lesions, and specific laboratory values is needed.",
+      "criteria": [
+        {
+          "criterion": "Age >= 18 years old",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: 67-year-old man | Trial: Age >= 18 years old",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Phase II HR+/HER2- aBC with disease progression on an aromatase inhibitor or tamoxifen in combination with a CDK4/6 inhibitor for unresectable/metastatic disease with no more than 2 lines of endocrine therapy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Metastatic HR+/HER2- breast cancer with bone-only recurrence in 2023 treated with anastrozole + leuprolide + ribociclib with progression in Sept 2026 | Trial: HR+/HER2- aBC with disease progression on an AI or tamoxifen plus a CDK4/6i for unresectable/metastatic disease with no more than 2 lines of endocrine therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Measurable disease by RECIST v1.1 OR at least one predominantly lytic bone lesion if no measurable disease is present",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary states 'Bone-only metastatic recurrence', but does not specify if there are measurable soft-tissue lesions or if the bone lesions are predominantly lytic and suitable for assessment.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Previous treatment with a CDK2 inhibitor at any time",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Treated with anastrozole + leuprolide + ribociclib (CDK4/6 inhibitor); no mention of prior CDK2 inhibitor | Trial: Previous treatment with a CDK2 inhibitor at any time",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate bone marrow and/or organ functions with out-of-range laboratory values",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Labs within normal limits | Trial: Inadequate bone marrow and/or organ functions with out-of-range laboratory values",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Clinically significant, uncontrolled heart disease and/or cardiac repolarization abnormality including MI, CABG, long QT syndrome",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "The summary notes normal labs and history of type 2 diabetes, but is silent on cardiac history, history of MI, CABG, or QT abnormalities.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Presence of symptomatic CNS metastases or CNS metastases requiring local therapy or increasing corticosteroids",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "The summary mentions bone-only metastatic recurrence, but does not explicitly state the absence of CNS metastases.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Patients with symptomatic visceral disease or any disease burden that makes the patient ineligible for endocrine-based therapy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Bone-only metastatic recurrence without symptomatic visceral disease | Trial: Patients with symptomatic visceral disease or disease burden making them ineligible for endocrine-based therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Patients who could not tolerate the prescribed dose of ribociclib during a previous course, requiring dose reduction or permanent discontinuation due to AEs",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "The summary states he progressed on ribociclib in September 2026, but does not report whether he experienced dose reductions or intolerance during treatment.",
+          "fail_confidence": null,
+          "importance": "important"
+        }
+      ],
+      "open_questions": [
+        "Does the patient have measurable disease per RECIST v1.1 or specifically lytic bone lesions?",
+        "Did the patient require any dose reductions or experience intolerance during prior ribociclib treatment?",
+        "Is there any history of CNS metastases or significant cardiac disease/QT prolongation?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 56,
+      "n_pass": 5,
+      "n_fail": 0,
+      "n_unknown": 4,
+      "n_unknown_important": 3,
+      "nct_id": "NCT06726148",
+      "title": "Study of ECI830 Single Agent or in Combination in Patients With Advanced HR+/HER2- Breast Cancer and in Patients With Other Advanced Solid Tumors",
+      "url": "https://clinicaltrials.gov/study/NCT06726148",
+      "phases": [
+        "PHASE1",
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HR+ / HER2-low match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10017",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": "Sam Stefanik",
+          "contact_phone": null,
+          "contact_email": "stefanis@mskcc.org"
+        }
+      ],
+      "central_contact": {
+        "name": "Novartis Pharmaceuticals",
+        "phone": "1-888-669-6682",
+        "email": "novartis.email@novartis.com"
+      }
+    },
+    {
+      "summary": "The patient is a 67-year-old man with hormone receptor-positive, HER2-negative metastatic breast cancer who progressed on first-line endocrine therapy and ribociclib. While he meets several criteria such as age and ECOG performance status, eligibility is uncertain regarding the specific pattern of metastatic progression (isolated site of disease progression on FDG PET scan and prior 6-month sustained response to systemic therapy).",
+      "criteria": [
+        {
+          "criterion": "Metastatic breast cancer, biopsy proven with ER+/HER2- defined as >5% ER+ staining",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0) | Trial: Metastatic breast cancer, biopsy proven, ER+/HER2- defined as >5% ER+ staining",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "History of at least 6 months, sustained response to systemic therapy (clinically or radiographically defined as complete or stable response without progression)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Bone-only metastatic recurrence in 2023 treated first-line with anastrozole + leuprolide + ribociclib with progression in September 2026, but the specific duration of the sustained response before progression is not stated.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Isolated site of disease progression on FDG PET scan",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Progression in September 2026 is noted, but whether it is an isolated site of progression and whether it was evaluated by FDG PET scan are not stated.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "ECOG performance status 0-1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG 1 | Trial: ECOG performance status 0-1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Age 18 or older",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: 67-year-old man | Trial: Age 18 or older",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Intracranial disease (including previous intracranial involvement)",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient summary does not report any intracranial disease or brain metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Serious medical comorbidity precluding radiation, including connective tissue disorders",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: History of type 2 diabetes controlled on metformin; no connective tissue disorders or other serious radiation-precluding comorbidities reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Previous radiotherapy to the intended treatment site that precludes developing a treatment plan that respects normal tissue tolerances",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Prior radiation history is not mentioned in the summary.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Consented to 12-245",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Protocol 12-245 consent status is not mentioned.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Pregnancy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient is a 67-year-old male.",
+          "fail_confidence": null,
+          "importance": null
+        }
+      ],
+      "open_questions": [
+        "Was the disease progression in September 2026 documented as an isolated site of progression on an FDG PET scan?",
+        "Did the patient achieve at least 6 months of sustained response to first-line systemic therapy prior to progression?",
+        "Has the patient received any prior radiotherapy to the intended site of SBRT?",
+        "Has the patient consented or is the patient willing to consent to protocol 12-245?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Likely eligible - needs review",
+      "fit_score": 60,
+      "n_pass": 6,
+      "n_fail": 0,
+      "n_unknown": 4,
+      "n_unknown_important": 4,
+      "nct_id": "NCT05534438",
+      "title": "A Study on Adding Precisely Targeted Radiation Therapy (Stereotactic Body Radiation Therapy) to the Usual Treatment Approach (Drug Therapy) in People With Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT05534438",
+      "phases": [
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HR+ / HER2-low match",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Memorial Sloan Kettering Cancer Center (All Protocol Activities)",
           "city": "New York",
           "state": "New York",
           "zip": "10065",
           "site_status": "RECRUITING",
           "distance_mi": 0.1,
-          "contact_name": null,
-          "contact_phone": null,
+          "contact_name": "Amy Xu, MD, PhD",
+          "contact_phone": "646-888-6863",
           "contact_email": null
         }
       ],
       "central_contact": {
-        "name": "BBOT (BridgeBio Oncology Therapeutics)",
-        "phone": "650-405-8440",
-        "email": "Breaker-101ct.gov@bridgebiooncology.com"
+        "name": "Amy Xu, MD, PhD",
+        "phone": "646-888-6863",
+        "email": "xua@mskcc.org"
       }
     },
     {
-      "summary": "The patient is a 67-year-old man with metastatic HR-positive, HER2-negative breast cancer with an ESR1 mutation, who progressed on anastrozole plus ribociclib. He fails trial eligibility because tumor tissue testing shows PIK3CA wild-type, while the trial requires genetic alterations in PIK3CA, AKT1, or PTEN.",
+      "summary": "The patient is a 67-year-old man with metastatic HR-positive, HER2-negative breast cancer who experienced disease progression on first-line therapy. He meets several key inclusion criteria such as age, ECOG 1, and prior systemic therapy progression, but key information regarding measurable disease status per RECIST v1.1 is missing.",
       "criteria": [
         {
-          "criterion": "Advanced (locoregionally recurrent or metastatic) breast cancer not amenable to curative therapy",
+          "criterion": "Age >= 18 years",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Patient summary states 'metastatic hormone receptor-positive, HER2-negative breast cancer... Bone-only metastatic recurrence in 2023'",
+          "evidence": "Patient: 67-year-old man | Trial: age >= 18 years",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Presence of genetic alterations in PIK3CA/AKT1/PTEN in participants' tumor tissue",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Circulating tumor DNA (Guardant360, October 2026) shows 'PIK3CA wild-type; no BRCA alterations' and does not mention AKT1 or PTEN alterations.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "At least 1 prior line of endocrine therapy for advanced/metastatic disease or recurrence/progression during or within 12 months of adjuvant endocrine therapy",
+          "criterion": "Histologically or cytologically confirmed advanced solid cancer excluding primary CNS tumors",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Treated first-line for bone-only metastatic recurrence with anastrozole + leuprolide + ribociclib with progression.",
+          "evidence": "Patient: Metastatic hormone receptor-positive, HER2-negative breast cancer | Trial: advanced solid cancer excluding primary CNS tumors",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Progression on previous CDK4/6 inhibitor treatment in combination with fulvestrant or aromatase inhibitor",
+          "criterion": "Measurable disease per RECIST v1.1",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary notes bone-only metastatic recurrence in 2023, but does not specify if lesions meet RECIST v1.1 measurability criteria.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "ECOG performance status 0-1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Treated with anastrozole (aromatase inhibitor) + ribociclib (CDK4/6 inhibitor) with progression in September 2026.",
+          "evidence": "Patient: ECOG 1 | Trial: ECOG performance status 0-1",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Active or newly diagnosed central nervous system metastases",
+          "criterion": "Progression on or after or intolerance to most recent systemic therapy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: progressed in September 2026 on anastrozole + leuprolide + ribociclib | Trial: progression on or after or intolerance to most recent systemic therapy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No investigational agent within 3 weeks or 5 half-lives prior to first dose",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary does not report whether recent or concurrent investigational agents were used.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Life expectancy of at least 3 months",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary does not explicitly state the patient's estimated life expectancy.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No continuous corticosteroids at prednisone-equivalent dose >10 mg/day",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Patient summary does not mention any central nervous system metastases.",
+          "evidence": "Patient: No mention of systemic corticosteroid use; controlled type 2 diabetes on metformin | Trial: Receiving continuous corticosteroids at prednisone-equivalent dose >10 mg/day",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Advanced, symptomatic visceral spread at risk of life-threatening complications",
+          "criterion": "No definitive radiotherapy within 6 weeks and palliative radiation within 2 weeks prior to first dose",
           "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Patient has 'Bone-only metastatic recurrence in 2023', no visceral spread reported.",
+          "status": "UNKNOWN",
+          "evidence": "Summary does not mention recent radiotherapy history.",
           "fail_confidence": null,
-          "importance": null
+          "importance": "routine"
+        },
+        {
+          "criterion": "No symptomatic untreated or progressing brain metastases",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary does not mention whether brain imaging was performed or if brain metastases are present.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No impairment of GI function or GI disease altering absorption, bowel obstruction within 6 months, or peritoneal fluid drainage within 8 weeks",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary does not report gastrointestinal function, history of bowel obstruction, or peritoneal fluid drainage.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No QTc interval >470 msec, congenital long QT syndrome, or QT-prolonging medications/risk factors",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary does not provide ECG parameters or a complete concomitant medication list beyond metformin.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No history of recent MI, unstable angina, or significant cardiac disease",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary does not report cardiac history.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No active or chronic infection including HIV, hepatitis B, hepatitis C, or tuberculosis",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary is silent regarding active or chronic infections.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "No prohibited concurrent medications (PPIs, strong CYP3A inhibitors/inducers, P-gp inhibitors, therapeutic coumarin anticoagulants)",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary only notes metformin; full concomitant medication list is not provided.",
+          "fail_confidence": null,
+          "importance": "important"
         }
       ],
       "open_questions": [
-        "Confirm if tissue biopsy (rather than only circulating tumor DNA) was tested for PIK3CA, AKT1, or PTEN alterations."
+        "Do the patient's bone metastases qualify as measurable disease per RECIST v1.1?",
+        "What is the patient's complete concomitant medication list to check for prohibited PPIs, strong CYP3A inhibitors/inducers, P-gp inhibitors, and QT-prolonging drugs?",
+        "Has the patient had a baseline brain MRI to rule out untreated or progressing brain metastases?",
+        "Are there any baseline ECG results available to assess QTc interval?"
       ],
       "model": "gemini-3.5-flash-lite",
-      "category": "Not eligible",
-      "fit_score": 0,
+      "category": "Likely eligible - needs review",
+      "fit_score": 33,
       "n_pass": 5,
-      "n_fail": 1,
-      "n_unknown": 0,
-      "n_unknown_important": 0,
-      "nct_id": "NCT06638307",
-      "title": "A First-in-Human Study of MEN2312 in Adults With Advanced Breast Cancer",
-      "url": "https://clinicaltrials.gov/study/NCT06638307",
+      "n_fail": 0,
+      "n_unknown": 10,
+      "n_unknown_important": 5,
+      "nct_id": "NCT06395519",
+      "title": "A Study of PARG Inhibitor ETX-19477 in Patients With Advanced Solid Malignancies",
+      "url": "https://clinicaltrials.gov/study/NCT06395519",
       "phases": [
-        "PHASE1"
+        "PHASE1",
+        "PHASE2"
       ],
-      "relevance_score": 9,
+      "relevance_score": 11,
       "relevance_reasons": [
         "metastatic setting",
-        "PIK3CA mentioned",
-        "breast-specific"
+        "HR+ / HER2-low match",
+        "BRCA mentioned",
+        "solid-tumor basket"
       ],
       "nyc_sites": [
         {
@@ -552,7 +787,7 @@
           "zip": "10016",
           "site_status": "RECRUITING",
           "distance_mi": 0.1,
-          "contact_name": "Nancy Chan",
+          "contact_name": "Nancy Chan, MD",
           "contact_phone": null,
           "contact_email": null
         },
@@ -563,162 +798,173 @@
           "zip": "10065",
           "site_status": "RECRUITING",
           "distance_mi": 0.1,
-          "contact_name": "Sherry Shen",
-          "contact_phone": null,
-          "contact_email": null
-        },
-        {
-          "facility": "Perlmutter Cancer Center - Sunset Park",
-          "city": "Brooklyn",
-          "state": "New York",
-          "zip": "11220",
-          "site_status": "RECRUITING",
-          "distance_mi": 5.2,
-          "contact_name": "Nancy Chan",
+          "contact_name": "Ezra Y Rosen, MD, PhD",
           "contact_phone": null,
           "contact_email": null
         }
       ],
       "central_contact": {
-        "name": "Stemline Trials",
-        "phone": "1-877-332-7961",
-        "email": "clinicaltrials@menarinistemline.com"
+        "name": "858 Therapeutics, Inc.",
+        "phone": "(858) 987-8380",
+        "email": "dmccormick@8five8tx.com"
       }
     },
     {
-      "summary": "The patient is a 67-year-old man with metastatic HR-positive, HER2-negative breast cancer with an ESR1 mutation, but wild-type PIK3CA and no BRCA alterations, who has received one prior line of endocrine therapy and CDK4/6 inhibition. He is being evaluated for NCT05417594, specifically Module 1 (such as Part A) or Module 3, which require a predicted loss of function mutation in a homologous recombination repair gene (e.g., BRCA1, BRCA2, PALB2, RAD51C, RAD51D), a criterion he does not meet based on his negative BRCA status and lack of listed HRR mutations.",
+      "summary": "The patient is a 67-year-old man with metastatic HR-positive, HER2-negative breast cancer who has progressed on first-line endocrine therapy and ribociclib. While he meets several criteria such as ECOG performance status 1 and normal labs, he is ineligible due to prior treatment history: he has received ribociclib (a CDK4/6 inhibitor/targeted therapy) and anastrozole in the metastatic setting, but more importantly, exclusion criterion 16(iii) prohibits any prior chemotherapy in the metastatic setting, though his prior therapy history needs careful review against specific definitions. Furthermore, organ function numerical thresholds and baseline staging details require verification.",
       "criteria": [
         {
-          "criterion": "Histologically or cytologically confirmed HER2-negative carcinoma of the breast with recurrent locally advanced or metastatic disease and evidence of a predicted loss of function germline or tumour mutation in BRCA1, BRCA2, PALB2, RAD51C, or RAD51D (Module 1 / Module 3)",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Patient summary states 'PIK3CA wild-type; no BRCA alterations' and lists no BRCA1, BRCA2, PALB2, RAD51C, or RAD51D mutations (only ESR1 Y537S).",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Eastern Cooperative Oncology Group performance status (ECOG PS) of 0 or 1",
+          "criterion": "Inoperable or metastatic HR-positive, HER2 IHC 0 breast cancer",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Patient summary states 'ECOG 1'.",
+          "evidence": "Patient: metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0) | Trial: Inoperable or metastatic HR-positive, HER2 IHC 0 breast cancer",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Adequate organ and marrow function",
+          "criterion": "Progressed on and not suitable for further endocrine therapy per investigator assessment",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Patient summary notes 'Labs within normal limits'.",
+          "evidence": "Patient: progression in September 2026 on first-line anastrozole + leuprolide + ribociclib | Trial: Progressed on and not suitable for further endocrine therapy",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Must have evaluable disease",
+          "criterion": "ECOG performance status of 0 or 1 with no deterioration over the previous 2 weeks",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Patient summary notes 'Bone-only metastatic recurrence in 2023', which serves as evaluable/measurable disease.",
+          "evidence": "Patient: ECOG 1 | Trial: ECOG performance status of 0 or 1",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Participants with insulin-dependent diabetes are excluded (Module 1 Part A exclusion)",
-          "type": "exclusion",
-          "status": "FAIL",
-          "evidence": "Patient summary states 'History of type 2 diabetes controlled on metformin', but it is unconfirmed if insulin is used or if it is insulin-dependent.",
-          "fail_confidence": "LOW",
-          "importance": null
-        },
-        {
-          "criterion": "Have received > one prior line of therapy in any setting with a PARPi-based regimen",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Prior treatment was tamoxifen and anastrozole + leuprolide + ribociclib; no prior PARPi therapy mentioned.",
+          "criterion": "Adequate organ function and bone marrow reserve within 7 days before first dose",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary states 'Labs within normal limits' but lacks specific dated numerical values for Hb, ANC, platelets, albumin, bilirubin, transaminases, and calculated CrCL within 7 days before the first dose.",
           "fail_confidence": null,
-          "importance": null
+          "importance": "important"
         },
         {
-          "criterion": "Active infection including hepatitis B, hepatitis C and human immunodeficiency virus (HIV)",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No history of active viral infections reported; labs within normal limits.",
+          "criterion": "Measurable disease as per RECIST 1.1 or evaluable disease",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary notes a 'Bone-only metastatic recurrence in 2023', but does not specify if the bone lesions are measurable per RECIST 1.1 (e.g., lytic or mixed lytic-blastic lesions with a soft tissue component) or evaluable.",
           "fail_confidence": null,
-          "importance": null
+          "importance": "important"
         },
         {
-          "criterion": "History of another primary malignancy",
+          "criterion": "Provision of acceptable tumour sample (newly acquired biopsy or latest archival)",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary mentions circulating tumor DNA (Guardant360, October 2026) but does not state whether a fresh or recent tissue sample is available or if a fresh biopsy is planned.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No prior TROP2-targeted therapy",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Only breast cancer diagnosed in 2020 is reported.",
+          "evidence": "Patient: prior therapy includes tamoxifen, anastrozole, leuprolide, and ribociclib; no mention of TROP2-targeted therapy | Trial: Any TROP2-targeted therapy",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Must be suitable for treatment with a PARPi",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Suitability for a PARPi typically depends on a deleterious BRCA or HRR mutation, which the patient lacks ('no BRCA alterations').",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Adequate organ and marrow function (in the absence of transfusions or growth factor support within 14 days)",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Patient summary states 'Labs within normal limits'.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Participants with leptomeningeal disease (LMD) unless low volume or previously treated and asymptomatic",
+          "criterion": "No prior treatment containing a chemotherapeutic agent targeting topoisomerase I",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No mention of leptomeningeal disease; presentation is bone-only metastatic recurrence.",
+          "evidence": "Patient: prior therapy includes tamoxifen, anastrozole, leuprolide, and ribociclib; no topoisomerase I inhibitor chemotherapy | Trial: Any treatment containing a chemotherapeutic agent targeting topoisomerase I",
           "fail_confidence": null,
           "importance": null
+        },
+        {
+          "criterion": "No prior chemotherapy in the metastatic setting",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: metastatic setting treated with anastrozole + leuprolide + ribociclib (endocrine therapy and targeted therapy, not chemotherapy) | Trial: Any chemotherapy in the metastatic setting",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No history of another primary malignancy within 3 years",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: initially stage II breast cancer in 2020 treated with curative intent; no other primary malignancy reported | Trial: History of another primary malignancy except for malignancy treated with curative intent within 3 years",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No spinal cord compression or brain metastases",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary does not mention whether brain metastases or spinal cord compression are present or absent.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No history of non-infectious ILD/pneumonitis or current ILD/pneumonitis",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient summary is silent on history of ILD, pneumonitis, or current pulmonary imaging findings.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "No uncontrolled or significant cardiac disease",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: no reported history of myocardial infarction, unstable angina, NYHA class II-IV heart failure, uncontrolled hypertension, or significant arrhythmias | Trial: Uncontrolled or significant cardiac disease",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Concomitant chronic systemic corticosteroids <= 10 mg/day prednisone equivalent",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: history of type 2 diabetes controlled on metformin; no systemic corticosteroid use mentioned | Trial: Concomitant use of chronic systemic corticosteroids > 10 mg/day of prednisone or equivalent",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Receipt of last dose of anticancer therapy within required washout window",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient: progression noted in September 2026 on anastrozole + leuprolide + ribociclib, but exact date of the last dose of anticancer therapy before screening is not provided.",
+          "fail_confidence": null,
+          "importance": "important"
         }
       ],
       "open_questions": [
-        "Does the patient have any broader genomic testing (such as comprehensive panel assessing PALB2, RAD51C/D) beyond the Guardant360 ctDNA test mentioned?",
-        "Is the patient's type 2 diabetes managed with any insulin therapy, or strictly oral medications like metformin?",
-        "Are there any baseline measurable soft tissue/visceral lesions in addition to the bone-only metastases for RECIST evaluation?"
+        "What are the exact numerical laboratory values for hemoglobin, ANC, platelets, albumin, total bilirubin, transaminases, and calculated creatinine clearance within 7 days of screening?",
+        "Do the bone-only metastases meet RECIST 1.1 criteria for measurable disease (e.g., identifiable soft tissue component)?",
+        "What is the exact date of the last dose of ribociclib/endocrine therapy prior to screening?",
+        "Is there any history of brain metastases or active pulmonary conditions such as interstitial lung disease?",
+        "Is a fresh tumour biopsy feasible, or will archival tissue be used per protocol requirements?"
       ],
       "model": "gemini-3.5-flash-lite",
-      "category": "Not eligible",
-      "fit_score": 0,
-      "n_pass": 8,
-      "n_fail": 3,
-      "n_unknown": 0,
-      "n_unknown_important": 0,
-      "nct_id": "NCT05417594",
-      "title": "Study of AZD9574 as Monotherapy and in Combination With Anti-cancer Agents in Participants With Advanced Solid Malignancies",
-      "url": "https://clinicaltrials.gov/study/NCT05417594",
+      "category": "Likely eligible - needs review",
+      "fit_score": 60,
+      "n_pass": 9,
+      "n_fail": 0,
+      "n_unknown": 6,
+      "n_unknown_important": 6,
+      "nct_id": "NCT07205822",
+      "title": "A Study of Dato-DXd in Inoperable or Metastatic Hormone Receptor-positive, HER2 IHC 0 Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT07205822",
       "phases": [
-        "PHASE1",
-        "PHASE2"
+        "PHASE3"
       ],
       "relevance_score": 8,
       "relevance_reasons": [
         "metastatic setting",
-        "BRCA mentioned",
-        "solid-tumor basket"
+        "HR+ / HER2-low match",
+        "breast-specific"
       ],
       "nyc_sites": [
         {
           "facility": "Research Site",
           "city": "New York",
           "state": "New York",
-          "zip": "10040",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": null,
-          "contact_phone": null,
-          "contact_email": null
-        },
-        {
-          "facility": "Research Site",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10065",
+          "zip": "10021",
           "site_status": "RECRUITING",
           "distance_mi": 0.1,
           "contact_name": null,
@@ -733,21 +979,29 @@
       }
     },
     {
-      "summary": "The patient is a 67-year-old man with hormone receptor-positive, HER2-negative advanced breast cancer with a bone-only metastatic recurrence and an ESR1 mutation, but ctDNA testing confirms PIK3CA wild-type. Because this trial specifically requires PIK3CA-mutated advanced breast cancer and the patient has prior systemic therapy for metastatic disease, the patient fails multiple key criteria.",
+      "summary": "The patient is a 67-year-old man with hormone receptor-positive, HER2-negative advanced breast cancer who experienced progression on first-line therapy (anastrozole + leuprolide + ribociclib). However, the trial requires PIK3CA-mutated disease, whereas the patient's ctDNA is PIK3CA wild-type and has an ESR1 mutation instead. Additionally, the patient has type 2 diabetes requiring ongoing systemic treatment, which directly violates an exclusion criterion.",
       "criteria": [
         {
-          "criterion": "PIK3CA mutation required for trial eligibility",
+          "criterion": "PIK3CA-mutated advanced breast cancer",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Guardant360 ctDNA from October 2026 shows PIK3CA wild-type.",
+          "evidence": "Patient: ctDNA shows PIK3CA wild-type | Trial: Endocrine-Sensitive PIK3CA-Mutated advanced breast cancer",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "No prior systemic therapy for locally advanced unresectable or metastatic breast cancer",
+          "criterion": "Histologically or cytologically confirmed carcinoma of the breast, HR-positive and HER2-negative",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "67-year-old man with metastatic HR-positive (ER 100%, PR 60%), HER2-negative (IHC 0) breast cancer.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior systemic therapy for locally advanced unresectable or metastatic breast cancer",
           "type": "exclusion",
           "status": "FAIL",
-          "evidence": "Patient had bone-only metastatic recurrence treated first-line with anastrozole + leuprolide + ribociclib.",
+          "evidence": "Patient: Received first-line anastrozole + leuprolide + ribociclib for bone-only metastatic recurrence | Trial: Any prior systemic therapy for locally advanced unresectable or metastatic breast cancer",
           "fail_confidence": "HIGH",
           "importance": null
         },
@@ -755,16 +1009,16 @@
           "criterion": "Type 2 diabetes requiring ongoing systemic treatment at the time of study entry",
           "type": "exclusion",
           "status": "FAIL",
-          "evidence": "History of type 2 diabetes controlled on metformin.",
+          "evidence": "Patient: History of type 2 diabetes controlled on metformin | Trial: Type 2 diabetes requiring ongoing systemic treatment at the time of study entry",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "Histologically or cytologically confirmed carcinoma of the breast, HR-positive, HER2-negative",
+          "criterion": "Measurable disease per RECIST v1.1",
           "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0).",
-          "fail_confidence": null,
+          "status": "FAIL",
+          "evidence": "Patient: Bone-only metastatic recurrence in 2023 | Trial: Measurable disease per RECIST v1.1 (bone-only disease is often non-measurable unless a lytic component has a soft tissue component meeting criteria)",
+          "fail_confidence": "LOW",
           "importance": null
         },
         {
@@ -776,15 +1030,7 @@
           "importance": null
         },
         {
-          "criterion": "Measurable disease per RECIST v1.1",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Bone-only metastatic recurrence in 2023 (bone metastases are typically non-target or non-measurable unless there is a measurable soft tissue component, which is not stated).",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Adequate hematologic and organ function within 14 days prior to initiation of study treatment",
+          "criterion": "Adequate hematologic and organ function within 14 days prior to study treatment",
           "type": "inclusion",
           "status": "PASS",
           "evidence": "Labs within normal limits.",
@@ -792,36 +1038,52 @@
           "importance": null
         },
         {
-          "criterion": "De-novo HR+, HER2- ABC, or relapsed after at least 2 years of standard endocrine therapy with specific disease-free interval",
+          "criterion": "History of leptomeningeal disease or carcinomatous meningitis",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No mention of leptomeningeal disease; metastatic site specified as bone-only.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Known and untreated, or active CNS metastases",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Bone-only metastatic recurrence; no mention of CNS metastases.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Consent to provide fresh or archival tumor tissue specimen",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Initial stage II in 2020 treated with tamoxifen, recurrence in 2023; exact duration of adjuvant endocrine therapy and disease-free interval are not explicitly detailed.",
+          "evidence": "Not mentioned whether the patient consents to provide tissue.",
           "fail_confidence": null,
-          "importance": "important"
+          "importance": "routine"
         }
       ],
       "open_questions": [
-        "Confirm whether there is any measurable soft tissue component to the bone metastases to satisfy RECIST v1.1 measurability.",
-        "Verify the exact start and stop dates of adjuvant tamoxifen therapy to check the 2-year duration and 1-year disease-free interval requirement."
+        "Does the bone-only metastatic recurrence include any measurable soft tissue component per RECIST v1.1?",
+        "Is the patient willing to discontinue metformin or switch to an allowed alternative if diabetes management permits?",
+        "Are there any other tissue samples available for biomarker confirmation?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
-      "n_pass": 3,
+      "n_pass": 5,
       "n_fail": 4,
       "n_unknown": 1,
-      "n_unknown_important": 1,
+      "n_unknown_important": 0,
       "nct_id": "NCT06790693",
       "title": "A Study Evaluating the Efficacy and Safety of Inavolisib Plus CDK4/6 Inhibitor and Letrozole vs Placebo + CDK4/6i and Letrozole in Participants With Endocrine-Sensitive PIK3CA-Mutated, Hormone Receptor-Positive, HER2-Negative Advanced Breast Cancer",
       "url": "https://clinicaltrials.gov/study/NCT06790693",
       "phases": [
         "PHASE3"
       ],
-      "relevance_score": 12,
+      "relevance_score": 8,
       "relevance_reasons": [
         "metastatic setting",
         "HR+ / HER2-low match",
-        "PIK3CA mentioned",
         "breast-specific"
       ],
       "nyc_sites": [
@@ -888,29 +1150,29 @@
       }
     },
     {
-      "summary": "The patient is a 67-year-old man with HR+/HER2- metastatic breast cancer who progressed on first-line ribociclib and aromatase inhibitor therapy. However, ctDNA testing shows PIK3CA wild-type, failing the trial's core inclusion requirement for a PIK3CA mutation, and he also has type 2 diabetes requiring medication, which triggers an exclusion criterion.",
+      "summary": "The patient is a 67-year-old man with metastatic HR+/HER2- breast cancer who experienced progression on first-line anastrozole plus ribociclib and harbors an ESR1 mutation with PIK3CA wild-type status. The trial evaluates treatments specifically for PIK3CA-mutant HR+/HER2- breast cancer and excludes patients with type 2 diabetes requiring antihyperglycemic medication. Consequently, the patient is ineligible due to lack of a required PIK3CA mutation and presence of treated type 2 diabetes on metformin.",
       "criteria": [
         {
-          "criterion": "Presence of one or more known primary oncogenic PIK3CA mutation(s)",
+          "criterion": "Locally advanced or metastatic PIK3CA-mutant HR+/HER2- breast cancer",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Guardant360 ctDNA from October 2026 shows PIK3CA wild-type (ESR1 Y537S mutation present, but PIK3CA is wild-type).",
+          "evidence": "Patient: Guardant360 ctDNA shows PIK3CA wild-type | Trial: Patient has one or more known primary oncogenic PIK3CA mutation(s)",
           "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Histologically or cytologically confirmed diagnosis of HR+/HER2- locally advanced or metastatic breast cancer",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0).",
-          "fail_confidence": null,
           "importance": null
         },
         {
           "criterion": "ECOG performance status of 0-1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG 1.",
+          "evidence": "ECOG 1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Histologically or cytologically confirmed diagnosis of HR+/HER2- locally advanced or metastatic breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0)",
           "fail_confidence": null,
           "importance": null
         },
@@ -918,98 +1180,79 @@
           "criterion": "Measurable disease per RECIST v1.1 or evaluable bone-only disease",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Bone-only metastatic recurrence in 2023.",
+          "evidence": "Bone-only metastatic recurrence in 2023",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Prior treatment history and progression requirements for HR+/HER2- advanced breast cancer",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Progressed on first-line anastrozole + leuprolide + ribociclib in the metastatic setting.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Adult males, pre- and/or post-menopausal females (with GnRH agonist if male/pre-menopausal)",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "67-year-old man taking leuprolide (a GnRH agonist) with his aromatase inhibitor.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Exclusion: Type 2 diabetes requiring antihyperglycemic medication, or fasting plasma glucose >= 140 mg/dL, or HbA1c >= 7.0%",
+          "criterion": "Type 2 diabetes requiring antihyperglycemic medication, or fasting plasma glucose >= 140 mg/dL, or HbA1c >= 7.0%",
           "type": "exclusion",
           "status": "FAIL",
-          "evidence": "History of type 2 diabetes controlled on metformin.",
+          "evidence": "Patient: History of type 2 diabetes controlled on metformin | Trial: Type 2 diabetes requiring antihyperglycemic medication",
           "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "Exclusion: Prior treatment with PIK3, AKT, or mTOR inhibitors",
-          "type": "exclusion",
+          "criterion": "Adult males, pre- and/or post-menopausal females",
+          "type": "inclusion",
           "status": "PASS",
-          "evidence": "Prior treatment was only tamoxifen and anastrozole + leuprolide + ribociclib.",
+          "evidence": "67-year-old man",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Exclusion: Known activating AKT mutations, loss-of-function PTEN mutations, or loss of PTEN expression",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Guardant360 ctDNA mentions ESR1 and PIK3CA status, but PTEN and AKT mutation status are not reported.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Exclusion: Clinically significant, uncontrolled cardiovascular disease",
+          "criterion": "Prior treatment with PIK3, AKT, or mTOR inhibitors",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No cardiovascular disease reported; labs within normal limits.",
+          "evidence": "Prior treatment limited to tamoxifen, anastrozole, leuprolide, and ribociclib",
           "fail_confidence": null,
-          "importance": "routine"
+          "importance": null
         },
         {
-          "criterion": "Exclusion: Past medical history of interstitial lung disease or radiation pneumonitis requiring steroids",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "No mention of interstitial lung disease or history of pneumonitis in the summary.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "Exclusion: Known active uncontrolled or symptomatic CNS metastases",
-          "type": "exclusion",
+          "criterion": "Prior lines of endocrine therapy in (neo)adjuvant or ABC setting",
+          "type": "inclusion",
           "status": "PASS",
-          "evidence": "Bone-only metastatic recurrence described; no brain metastases mentioned.",
+          "evidence": "Tamoxifen in adjuvant setting, anastrozole in ABC setting",
           "fail_confidence": null,
-          "importance": "routine"
+          "importance": null
+        },
+        {
+          "criterion": "Only 1 prior line of CDK4/6 inhibitor therapy",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Treated first-line with anastrozole + leuprolide + ribociclib",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Labs within normal limits (organ function)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Labs within normal limits",
+          "fail_confidence": null,
+          "importance": null
         }
       ],
       "open_questions": [
-        "Confirm whether any tissue-based comprehensive genomic profiling was performed that might show a PIK3CA mutation not detected on the Guardant360 ctDNA assay.",
-        "Verify the patient's current HbA1c and fasting plasma glucose levels to assess the severity and control of type 2 diabetes relative to study exclusion thresholds.",
-        "Check PTEN and AKT mutation status from available genomic reports."
+        "Confirm whether any archival tissue or alternative testing reveals a PIK3CA mutation, as liquid biopsy (Guardant360) can occasionally yield false negatives."
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
       "n_pass": 8,
       "n_fail": 2,
-      "n_unknown": 2,
-      "n_unknown_important": 1,
+      "n_unknown": 0,
+      "n_unknown_important": 0,
       "nct_id": "NCT06982521",
       "title": "Phase 3 Study of RLY-2608 + Fulvestrant vs Capivasertib + Fulvestrant as Treatment for Locally Advanced or Metastatic PIK3CA-mutant HR+/HER2- Breast Cancer",
       "url": "https://clinicaltrials.gov/study/NCT06982521",
       "phases": [
         "PHASE3"
       ],
-      "relevance_score": 12,
+      "relevance_score": 8,
       "relevance_reasons": [
         "metastatic setting",
         "HR+ / HER2-low match",
-        "PIK3CA mentioned",
         "breast-specific"
       ],
       "nyc_sites": [
@@ -1065,18 +1308,18 @@
       }
     },
     {
-      "summary": "The patient is a 67-year-old man with metastatic HR-positive, HER2-negative breast cancer who previously progressed on first-line endocrine therapy plus a CDK4/6 inhibitor (ribociclib). However, the trial requires a documented germline or tumor loss-of-function mutation in BRCA1, BRCA2, or PALB2, and the patient's ctDNA test explicitly shows no BRCA alterations, making him ineligible for this biomarker-driven study.",
+      "summary": "The patient is a 67-year-old man with HR+/HER2- metastatic breast cancer who has already received first-line systemic therapy for advanced/metastatic disease (anastrozole, leuprolide, and ribociclib with progression). Because this trial specifically requires patients who have not received prior treatment for advanced or metastatic disease, the patient fails the primary eligibility criterion.",
       "criteria": [
         {
-          "criterion": "Adult males, pre/peri-menopausal and/or post-menopausal, and adult females",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "67-year-old man",
-          "fail_confidence": null,
+          "criterion": "Have not received prior systemic treatment in the advanced or metastatic setting",
+          "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Received first-line metastatic treatment with anastrozole + leuprolide + ribociclib with progression | Trial: Participants who have received prior systemic treatment in the advanced or metastatic setting",
+          "fail_confidence": "HIGH",
           "importance": null
         },
         {
-          "criterion": "Histologically or cytologically documented diagnosis of HR-positive, HER2-negative breast cancer",
+          "criterion": "Histologically confirmed locally advanced or metastatic HR+ HER2- breast cancer",
           "type": "inclusion",
           "status": "PASS",
           "evidence": "Metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0)",
@@ -1084,31 +1327,23 @@
           "importance": null
         },
         {
-          "criterion": "Advanced breast cancer with either locally advanced disease not amenable to curative treatment or metastatic disease",
+          "criterion": "Age at least 18 years",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Bone-only metastatic recurrence in 2023",
+          "evidence": "67-year-old man",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "ECOG performance status of 0 or 1 with no deterioration over the previous 2 weeks",
+          "criterion": "ECOG Performance Status of <= 1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG 1; no mention of recent deterioration",
+          "evidence": "ECOG 1",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Documented germline tumour loss of function mutation in BRCA1, BRCA2, or PALB2",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Circulating tumor DNA (Guardant360, October 2026) shows... no BRCA alterations.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Adequate organ and marrow function",
+          "criterion": "Adequate organ function",
           "type": "inclusion",
           "status": "PASS",
           "evidence": "Labs within normal limits",
@@ -1116,65 +1351,47 @@
           "importance": null
         },
         {
-          "criterion": "FFPE tumour tissue from each participant",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Initial stage II in 2020 treated with mastectomy implies tissue exists, but availability of FFPE block for study is not explicitly stated.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "History of another primary malignancy",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No history of another primary malignancy reported",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Spinal cord compression, brain metastases, carcinomatous meningitis, or leptomeningeal disease",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Bone-only metastatic recurrence; no brain metastases mentioned",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Prior treatment with systemic anti-cancer therapy for locoregionally recurrent or metastatic disease is not permitted, apart from treatment with ET for up to 28 days total before randomisation",
+          "criterion": "No prior treatment with any selective CDK4 or CDK2 targeting agent",
           "type": "exclusion",
           "status": "FAIL",
-          "evidence": "Treated first-line with anastrozole + leuprolide + ribociclib for metastatic recurrence, which exceeds permitted prior systemic therapies for advanced disease.",
+          "evidence": "Patient: Treated with ribociclib (a CDK4/6 inhibitor) in the metastatic setting | Trial: Participants who have received prior treatment with any selective cyclin-dependent kinase 4 or 2 targeting agent",
           "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "No active leptomeningeal disease or uncontrolled, untreated brain metastasis",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Bone-only metastatic recurrence; no mention of brain or leptomeningeal metastases",
+          "fail_confidence": null,
           "importance": null
         }
       ],
       "open_questions": [
-        "Verify if any archival FFPE tissue from the 2020 mastectomy or 2023 recurrence is available for trial submission.",
-        "Confirm whether germline genetic testing was performed to definitively rule out BRCA1/2 or PALB2 mutations beyond the ctDNA assay."
+        "Are there any expanded access or other cohorts available for patients who have progressed on prior CDK4/6 inhibitors?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
-      "n_pass": 7,
+      "n_pass": 5,
       "n_fail": 2,
-      "n_unknown": 1,
-      "n_unknown_important": 1,
-      "nct_id": "NCT06380751",
-      "title": "Saruparib (AZD5305) Plus Camizestrant or Plus Endocrine Therapy, Compared With CDK4/6 Inhibitor Plus Endocrine Therapy or Plus Camizestrant in HR-Positive, HER2-Negative (IHC 0, 1+, 2+/ ISH Non-amplified), BRCA1, BRCA2, or PALB2m Advanced Breast Cancer",
-      "url": "https://clinicaltrials.gov/study/NCT06380751",
+      "n_unknown": 0,
+      "n_unknown_important": 0,
+      "nct_id": "NCT07492641",
+      "title": "BGB-43395 Plus Letrozole Versus CDK4/6i Plus Letrozole for Patients With Advanced or Metastatic HR+/HER2- Breast Cancer Who Have Not Received Prior Treatment for Advanced or Metastatic Disease",
+      "url": "https://clinicaltrials.gov/study/NCT07492641",
       "phases": [
         "PHASE3"
       ],
-      "relevance_score": 12,
+      "relevance_score": 8,
       "relevance_reasons": [
         "metastatic setting",
         "HR+ / HER2-low match",
-        "BRCA mentioned",
         "breast-specific"
       ],
       "nyc_sites": [
         {
-          "facility": "Research Site",
+          "facility": "Nyu Langone Health Perlmutter Cancer Center 34Th Street",
           "city": "New York",
           "state": "New York",
           "zip": "10016",
@@ -1185,198 +1402,31 @@
           "contact_email": null
         },
         {
-          "facility": "Research Site",
-          "city": "New York",
+          "facility": "Nyu Langone Health Perlmutter Cancer Center Sunset Park",
+          "city": "Brooklyn",
           "state": "New York",
-          "zip": "10065",
+          "zip": "11220",
           "site_status": "RECRUITING",
-          "distance_mi": 0.1,
+          "distance_mi": 5.2,
           "contact_name": null,
           "contact_phone": null,
           "contact_email": null
         }
       ],
       "central_contact": {
-        "name": "AstraZeneca Clinical Study Information Center",
-        "phone": "1-877-240-9479",
-        "email": "information.center@astrazeneca.com"
+        "name": "Study Director",
+        "phone": "877-828-5568",
+        "email": "clinicaltrials@beonemed.com"
       }
     },
     {
-      "summary": "The patient is a 67-year-old man with HR-positive, HER2-negative metastatic breast cancer who experienced progression on first-line aromatase inhibitor plus ribociclib for advanced disease. He is ineligible for this trial because he has already received prior systemic anticancer therapy for advanced breast cancer (Inclusion 3 / Exclusion 3 conflict) and has non-measurable bone-only disease.",
+      "summary": "The patient is a 67-year-old man with hormone receptor-positive, HER2-negative metastatic breast cancer who experienced bone-only recurrence in 2023 after completing adjuvant tamoxifen (started in 2020), followed by progression on first-line anastrozole plus ribociclib in 2026. This trial requires participants to be receiving first-line treatment for advanced breast cancer and excludes patients who have previously received systemic anti-cancer therapy for advanced ER+/HER2- breast cancer; therefore, the patient fails due to prior first-line metastatic therapy.",
       "criteria": [
-        {
-          "criterion": "Metastatic or locally advanced HR+/HER2- breast cancer",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "67-year-old man with metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Adult females or males with appropriate LHRH agonist use if applicable",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Adult male, currently treated with leuprolide.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Prior treatment with systemic anticancer therapy for advanced breast cancer (ABC)",
-          "type": "exclusion",
-          "status": "FAIL",
-          "evidence": "Bone-only metastatic recurrence in 2023, treated first-line with anastrozole + leuprolide + ribociclib with progression.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Radiologically measurable disease according to RECIST v1.1. Nonmeasurable bone-only disease not eligible.",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Bone-only metastatic recurrence in 2023; summary does not mention measurable soft tissue components.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Eastern Cooperative Oncology Group (ECOG) performance status of 0-2",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ECOG 1.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Adequate archival, fresh tumor tissue, or liquid biopsy for the analysis of PIK3CA mutational status",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Circulating tumor DNA (Guardant360, October 2026) shows PIK3CA wild-type.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No prior treatment with a PI3K, Akt, or mTOR inhibitor or any other SERD except fulvestrant in (neo)adjuvant setting",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Prior therapy consisted of tamoxifen, anastrozole, leuprolide, and ribociclib (none of which are PI3K/Akt/mTOR inhibitors or other SERDs).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No type 1 diabetes, or uncontrolled type 2 diabetes requiring daily insulin therapy",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "History of type 2 diabetes controlled on metformin (does not require daily insulin therapy).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Life expectancy of at least >6 months",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Life expectancy is not explicitly stated in the summary.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Adequate bone marrow, hepatic, renal and coagulation function",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Labs within normal limits.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No known and untreated, or active, brain or leptomeningeal metastases",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Brain imaging or history of brain metastases is not mentioned.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "No history of clinically significant cardiovascular abnormalities",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Cardiovascular history is not detailed beyond normal labs.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "No known, clinically significant ophthalmic conditions",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Ophthalmic history is not mentioned.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "No history of drug-induced symptomatic interstitial lung disease (pneumonitis) or hepatitis",
-          "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "Pulmonary and hepatitis history are not explicitly addressed.",
-          "fail_confidence": null,
-          "importance": "routine"
-        }
-      ],
-      "open_questions": [
-        "Does the patient have any measurable soft tissue lesions per RECIST v1.1, or is the bone-only disease strictly non-measurable?",
-        "Confirm the exact details of prior imaging to verify whether any lytic or mixed lytic/blastic bone lesions with a measurable soft tissue component are present."
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Not eligible",
-      "fit_score": 0,
-      "n_pass": 7,
-      "n_fail": 2,
-      "n_unknown": 5,
-      "n_unknown_important": 1,
-      "nct_id": "NCT06757634",
-      "title": "Phase 3 Study of Gedatolisib as First-Line Treatment for Patients With HR-Positive, HER2-Negative Advanced Breast Cancer (VIKTORIA-2)",
-      "url": "https://clinicaltrials.gov/study/NCT06757634",
-      "phases": [
-        "PHASE3"
-      ],
-      "relevance_score": 12,
-      "relevance_reasons": [
-        "metastatic setting",
-        "HR+ / HER2-low match",
-        "PIK3CA mentioned",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "Weill Cornell Medical College - NewYork-Presbyterian Hospital",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10065",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": null,
-          "contact_phone": null,
-          "contact_email": null
-        }
-      ],
-      "central_contact": {
-        "name": "Nadene Zack, MS",
-        "phone": "844-310-3900",
-        "email": "viktoria-2_trial@celcuity.com"
-      }
-    },
-    {
-      "summary": "The patient is a 67-year-old man with metastatic HR+/HER2- breast cancer who experienced bone-only recurrence in 2023 after adjuvant tamoxifen, followed by progression on first-line anastrozole plus ribociclib in 2026. Because the trial explicitly evaluates palazestrant with ribociclib for the *first-line* treatment of advanced breast cancer and excludes patients who have received prior systemic anti-cancer therapy for advanced disease, the patient fails this key treatment-history requirement.",
-      "criteria": [
-        {
-          "criterion": "First-line treatment setting for advanced breast cancer (no prior systemic anti-cancer therapy for advanced disease)",
-          "type": "exclusion",
-          "status": "FAIL",
-          "evidence": "Patient was treated first-line with anastrozole + leuprolide + ribociclib with progression in September 2026, meaning he has already received systemic therapy for advanced breast cancer.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
         {
           "criterion": "Adult female or male participants",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "67-year-old man.",
+          "evidence": "Patient is a 67-year-old man.",
           "fail_confidence": null,
           "importance": null
         },
@@ -1384,31 +1434,31 @@
           "criterion": "ER+, HER2- locally advanced or metastatic breast cancer",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0).",
+          "evidence": "Patient has metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0).",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Evaluable disease (measurable disease per RECIST 1.1 or bone-only disease)",
+          "criterion": "Evaluable disease (measurable per RECIST 1.1 or bone-only disease)",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Bone-only metastatic recurrence in 2023.",
+          "evidence": "Patient has bone-only metastatic recurrence.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "De novo advanced breast cancer or disease recurrence occurring after 12 months of completing adjuvant endocrine therapy",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Initially stage II in 2020 treated with adjuvant tamoxifen, with bone-only recurrence in 2023 (greater than 12 months later).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Disease recurrence during adjuvant endocrine therapy",
+          "criterion": "First-line treatment for ER+/HER2- advanced breast cancer / No prior systemic anti-cancer therapy for advanced disease",
           "type": "exclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Treated first-line with anastrozole + leuprolide + ribociclib with progression in September 2026 | Trial: Trial is for first-line treatment of ER+/HER2- advanced breast cancer and excludes patients previously treated with systemic anti-cancer therapy for advanced disease.",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "De novo advanced breast cancer or recurrence after >12 months of completing adjuvant endocrine therapy",
+          "type": "inclusion",
           "status": "PASS",
-          "evidence": "Recurrence occurred in 2023 after completing adjuvant therapy initiated in 2020, not during adjuvant endocrine therapy.",
+          "evidence": "Initially stage II in 2020 treated with adjuvant tamoxifen, with bone-only recurrence in 2023 (greater than 12 months after completion).",
           "fail_confidence": null,
           "importance": null
         },
@@ -1429,10 +1479,10 @@
           "importance": null
         },
         {
-          "criterion": "Male participants must be willing to take a GnRH (or LHRH) agonist",
+          "criterion": "Male participants willing to take a GnRH (or LHRH) agonist",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Patient received leuprolide previously, but willingness to continue GnRH agonist per trial protocol is not explicitly stated.",
+          "evidence": "Patient received leuprolide previously with anastrozole, but current willingness to take a GnRH agonist specifically for this trial protocol is not explicitly stated.",
           "fail_confidence": null,
           "importance": "important"
         },
@@ -1440,35 +1490,27 @@
           "criterion": "Previously received treatment with fulvestrant, elacestrant or an investigational endocrine therapy",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Prior endocrine therapy consisted of tamoxifen and anastrozole; no mention of fulvestrant, elacestrant, or investigational endocrine therapy.",
+          "evidence": "Prior treatments were tamoxifen and anastrozole.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Any contraindications to letrozole and ribociclib",
+          "criterion": "Symptomatic central nervous system metastases, carcinomatous meningitis, leptomeningeal disease, or spinal cord compression",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Patient previously received ribociclib and anastrozole (an aromatase inhibitor similar to letrozole) without documented contraindications.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Symptomatic CNS metastases, carcinomatous meningitis, leptomeningeal disease, or spinal cord compression",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Bone-only metastatic recurrence noted; no mention of CNS involvement.",
+          "evidence": "Bone-only metastatic recurrence; no mention of CNS metastases or leptomeningeal disease.",
           "fail_confidence": null,
           "importance": null
         }
       ],
       "open_questions": [
-        "Confirm whether the patient is willing to continue taking a GnRH agonist as required for male participants.",
-        "Verify if any prior treatment or clinical trial exposure counts as systemic anti-ancer therapy for advanced disease that would violate the first-line requirement."
+        "Confirm the exact dates and durations of adjuvant tamoxifen therapy to verify the >12 months recurrence interval.",
+        "Verify whether the patient is willing to continue or take a GnRH agonist as required by the protocol."
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
-      "n_pass": 10,
+      "n_pass": 8,
       "n_fail": 1,
       "n_unknown": 1,
       "n_unknown_important": 1,
@@ -1515,13 +1557,307 @@
       }
     },
     {
-      "summary": "The patient is a 67-year-old man with HR-positive, HER2-negative metastatic breast cancer with a bone-only recurrence, who has a documented ESR1 mutation but PIK3CA wild-type status on ctDNA. Because this trial specifically requires a documented primary oncogenic PIK3CA mutation, the patient fails this mandatory inclusion criterion.",
+      "summary": "The patient is a 67-year-old man with metastatic HR-positive, HER2-negative breast cancer with an ESR1 mutation and bone-only recurrence, progressing on first-line endocrine therapy and CDK4/6 inhibition. He is being evaluated for Module 1, Part A of trial NCT05417594, which requires HER2-negative breast cancer with a homologous recombination repair (HRR) gene mutation. Because his ctDNA shows no BRCA alterations and HRR mutation status beyond BRCA is unknown, eligibility cannot be confirmed.",
+      "criteria": [
+        {
+          "criterion": "Histologically or cytologically confirmed HER2-negative carcinoma of the breast with recurrent locally advanced or metastatic disease",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0) | Trial: Histologically or cytologically confirmed HER2-negative carcinoma of the breast with recurrent locally advanced or metastatic disease",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Evidence of a predicted loss of function germline or tumour mutation in one of the following homologous recombination repair genes: BRCA1, BRCA2, PALB2, RAD51C or RAD51D",
+          "type": "inclusion",
+          "status": "FAIL",
+          "fail_confidence": "HIGH",
+          "evidence": "Patient: Circulating tumor DNA (Guardant360, October 2026) shows no BRCA alterations and an ESR1 Y537S mutation | Trial: Evidence of a predicted loss of function germline or tumour mutation in BRCA1, BRCA2, PALB2, RAD51C, or RAD51D",
+          "importance": null
+        },
+        {
+          "criterion": "Eastern Cooperative Oncology Group performance status (ECOG PS) with no deterioration over the previous 2 weeks",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG 1 with no reported deterioration | Trial: Eastern Cooperative Oncology Group performance status (ECOG PS) with no deterioration over the previous 2 weeks",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Adequate organ and marrow function",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Labs within normal limits | Trial: Adequate organ and marrow function",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Must have evaluable disease",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Bone-only metastatic recurrence in 2023, progressing in September 2026 | Trial: Must have evaluable disease",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Must be suitable for treatment with a PARPi",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Suitability for PARPi depends on HRR mutation status, which is currently negative for BRCA alterations and unknown for PALB2, RAD51C, and RAD51D.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Must be capable of eating a high fat meal and adhering to fasting restrictions",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "The patient summary does not mention dietary capabilities or fasting adherence.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Have received > one prior line of therapy in any setting with a PARPi-based regimen",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Prior treatment was limited to mastectomy, tamoxifen, and anastrozole + leuprolide + ribociclib (no prior PARPi) | Trial: Have received > one prior line of therapy in any setting with a PARPi-based regimen",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Participants with an INR >1.5 unless the patient is receiving non-vitamin K antagonist oral anticoagulants",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Coagulation studies (INR) are not reported in the patient summary.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Participants with leptomeningeal disease (LMD) unless the LMD is of low volume or is previously treated and the participant is asymptomatic or minimal symptoms",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Bone-only metastatic recurrence with no mention of leptomeningeal disease | Trial: Participants with leptomeningeal disease (LMD)",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Participants with insulin-dependent diabetes",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: History of type 2 diabetes controlled on metformin (non-insulin-dependent) | Trial: Participants with insulin-dependent diabetes",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Currently on ARA treatment",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "The summary does not mention whether the patient is currently on aldose reductase inhibitor (ARA) treatment.",
+          "fail_confidence": null,
+          "importance": "routine"
+        }
+      ],
+      "open_questions": [
+        "Does comprehensive genomic profiling or germline testing show any predicted loss-of-function mutations in PALB2, RAD51C, or RAD51D beyond BRCA?",
+        "What are the patient's current baseline laboratory values, specifically coagulation parameters (INR)?",
+        "Is the patient capable of eating a high-fat meal and adhering to study fasting restrictions?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 7,
+      "n_fail": 1,
+      "n_unknown": 4,
+      "n_unknown_important": 1,
+      "nct_id": "NCT05417594",
+      "title": "Study of AZD9574 as Monotherapy and in Combination With Anti-cancer Agents in Participants With Advanced Solid Malignancies",
+      "url": "https://clinicaltrials.gov/study/NCT05417594",
+      "phases": [
+        "PHASE1",
+        "PHASE2"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "metastatic setting",
+        "BRCA mentioned",
+        "solid-tumor basket"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Research Site",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10040",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Research Site",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "AstraZeneca Clinical Study Information Center",
+        "phone": "1-877-240-9479",
+        "email": "information.center@astrazeneca.com"
+      }
+    },
+    {
+      "summary": "The patient is a 67-year-old man with HR-positive, HER2-negative metastatic breast cancer, an ESR1 Y537S mutation, wild-type PIK3CA, and no BRCA alterations, who progressed on first-line endocrine therapy plus ribociclib. He appears to meet basic inclusion criteria regarding diagnosis, stage, and ECOG status, but likely fails the trial's mandatory inclusion requirement for a germline or tumor loss-of-function mutation in BRCA1, BRCA2, or PALB2, as ctDNA shows no BRCA alterations.",
+      "criteria": [
+        {
+          "criterion": "Adult males and females",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: 67-year-old man | Trial: Adult females... and adult males",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "HR-positive, HER2-negative breast cancer",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ER 100%, PR 60%, HER2 IHC 0 | Trial: Histologically or cytologically documented diagnosis of HR-positive, HER2-negative breast cancer",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Advanced breast cancer (locally advanced or metastatic)",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Bone-only metastatic recurrence in 2023 | Trial: Advanced breast cancer with either locally advanced disease not amenable to curative treatment or metastatic disease",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "ECOG performance status of 0 or 1",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: ECOG 1 | Trial: ECOG performance status of 0 or 1",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Documented germline tumour loss of function mutation in BRCA1, BRCA2, or PALB2",
+          "type": "inclusion",
+          "status": "FAIL",
+          "evidence": "Patient: Circulating tumor DNA shows no BRCA alterations | Trial: Documented germline tumour loss of function mutation in BRCA1, BRCA2, or PALB2",
+          "fail_confidence": "HIGH",
+          "importance": null
+        },
+        {
+          "criterion": "FFPE tumour tissue available",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary states initial stage II surgery in 2020 and a Guardant360 ctDNA test in October 2026, but does not explicitly confirm the availability of FFPE tumor tissue.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Adequate organ and marrow function",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Patient: Labs within normal limits | Trial: Adequate organ and marrow function",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No history of another primary malignancy",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: No other primary malignancy mentioned | Trial: History of another primary malignancy",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No brain metastases, spinal cord compression, or leptomeningeal disease",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Patient: Bone-only metastatic recurrence | Trial: Spinal cord compression, brain metastases, carcinomatous meningitis, or leptomeningeal disease",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Prior treatment with systemic anti-cancer therapy for metastatic disease restrictions",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Trial permits ET for up to 28 days before randomisation, but patient received first-line anastrozole + leuprolide + ribociclib with progression. It is unclear if prior ribociclib for metastatic disease violates specific line-of-therapy limits for this trial cohort.",
+          "fail_confidence": null,
+          "importance": "important"
+        }
+      ],
+      "open_questions": [
+        "Does the patient have any documented germline or tumor loss-of-function mutation in BRCA1, BRCA2, or PALB2 from a comprehensive tissue test (the summary only mentions no BRCA alterations on ctDNA)?",
+        "Is FFPE tissue available for the study?",
+        "What are the exact prior treatment dates and lines for metastatic disease to confirm compliance with prior therapy and washout criteria?"
+      ],
+      "model": "gemini-3.5-flash-lite",
+      "category": "Not eligible",
+      "fit_score": 0,
+      "n_pass": 7,
+      "n_fail": 1,
+      "n_unknown": 2,
+      "n_unknown_important": 2,
+      "nct_id": "NCT06380751",
+      "title": "Saruparib (AZD5305) Plus Camizestrant or Plus Endocrine Therapy, Compared With CDK4/6 Inhibitor Plus Endocrine Therapy or Plus Camizestrant in HR-Positive, HER2-Negative (IHC 0, 1+, 2+/ ISH Non-amplified), BRCA1, BRCA2, or PALB2m Advanced Breast Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT06380751",
+      "phases": [
+        "PHASE3"
+      ],
+      "relevance_score": 12,
+      "relevance_reasons": [
+        "metastatic setting",
+        "HR+ / HER2-low match",
+        "BRCA mentioned",
+        "breast-specific"
+      ],
+      "nyc_sites": [
+        {
+          "facility": "Research Site",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10016",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        },
+        {
+          "facility": "Research Site",
+          "city": "New York",
+          "state": "New York",
+          "zip": "10065",
+          "site_status": "RECRUITING",
+          "distance_mi": 0.1,
+          "contact_name": null,
+          "contact_phone": null,
+          "contact_email": null
+        }
+      ],
+      "central_contact": {
+        "name": "AstraZeneca Clinical Study Information Center",
+        "phone": "1-877-240-9479",
+        "email": "information.center@astrazeneca.com"
+      }
+    },
+    {
+      "summary": "The patient is a 67-year-old man with hormone receptor-positive, HER2-negative metastatic breast cancer, bone-only recurrence, prior progression on anastrozole/ribociclib, and a Guardant360 ctDNA result showing an ESR1 Y537S mutation but PIK3CA wild-type. Because this trial requires a documented oncogenic PIK3CA mutation and the patient's ctDNA is PIK3CA wild-type, he fails the core biomarker inclusion criterion. Additionally, his diabetes managed on metformin conflicts with the protocol's exclusion criterion regarding diabetes medications.",
       "criteria": [
         {
           "criterion": "Documented primary oncogenic PIK3CA mutation in blood and/or tumor",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Circulating tumor DNA (Guardant360, October 2026) shows PIK3CA wild-type.",
+          "evidence": "Patient: Circulating tumor DNA shows PIK3CA wild-type | Trial: One or more documented primary oncogenic PIK3CA mutation(s) in blood and/or tumor",
           "fail_confidence": "HIGH",
           "importance": null
         },
@@ -1529,47 +1865,79 @@
           "criterion": "ECOG performance status of 0-1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG 1.",
+          "evidence": "ECOG 1",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "HR+, HER2- unresectable or metastatic breast cancer",
+          "criterion": "Diagnosis of HR+, HER2- unresectable or metastatic breast cancer",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0).",
+          "evidence": "Metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0)",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Type 1 or Type 2 diabetes requiring antihyperglycemic medication, or fasting plasma glucose >=140 mg/dL and HbA1c >=7.0%",
+          "criterion": "Type 1 or Type 2 diabetes requiring antihyperglycemic medication",
           "type": "exclusion",
-          "status": "UNKNOWN",
-          "evidence": "History of type 2 diabetes controlled on metformin, but current fasting plasma glucose and HbA1c values are not reported.",
-          "fail_confidence": null,
-          "importance": "important"
+          "status": "FAIL",
+          "evidence": "Patient: History of type 2 diabetes controlled on metformin | Trial: Type 1 or Type 2 diabetes requiring antihyperglycemic medication",
+          "fail_confidence": "HIGH",
+          "importance": null
         },
         {
           "criterion": "Evaluable or measurable disease per RECIST v1.1",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Bone-only metastatic recurrence in 2023 is noted, but specific RECIST v1.1 evaluation of lesion measurability is not provided.",
+          "evidence": "Summary mentions bone-only metastatic recurrence, but does not specify if lesions are evaluable or measurable per RECIST v1.1.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
-          "criterion": "Prior treatment history: >=1 CDK4/6 inhibitor and >=1 antiestrogen therapy",
+          "criterion": "Prior treatment history requirements for breast cancer combination arms (endocrine therapy, CDK4/6 inhibitor lines)",
           "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Prior treatment includes tamoxifen (adjuvant) and anastrozole + ribociclib (metastatic), but exact treatment dates, durations, and precise line counts for all prior therapies are not fully detailed to match specific cohort rules.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Archived tumor tissue availability or willingness to undergo pretreatment tumor biopsy",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Summary mentions Guardant360 ctDNA but does not state the availability of archived tumor tissue or willingness for a biopsy.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Prior treatment with PI3K\u03b1, AKT, or mTOR inhibitors",
+          "type": "exclusion",
           "status": "PASS",
-          "evidence": "Treated first-line with anastrozole + leuprolide + ribociclib (Aromatase inhibitor + CDK4/6 inhibitor + GnRH agonist).",
+          "evidence": "No prior PI3K\u03b1, AKT, or mTOR inhibitors mentioned in the treatment history.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Mean resting corrected QT interval (QTc) >460 msec or QTcF >=450 msec",
+          "criterion": "Prior treatment with immune checkpoint inhibitors",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No prior immune checkpoint inhibitors mentioned in the treatment history.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Past medical history of or ongoing ILD, or pneumonitis requiring intervention",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "Electrocardiogram and QTc interval values are not reported.",
+          "evidence": "Summary is silent regarding history of interstitial lung disease or pneumonitis.",
+          "fail_confidence": null,
+          "importance": "routine"
+        },
+        {
+          "criterion": "Mean resting corrected QT interval (QTc) >460 msec or QTcF \u2265450 msec",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "No ECG or QTc interval data provided.",
           "fail_confidence": null,
           "importance": "routine"
         },
@@ -1577,30 +1945,30 @@
           "criterion": "CNS metastases or primary CNS tumor associated with progressive neurologic symptoms",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Summary reports bone-only metastatic recurrence with no mention of CNS metastases.",
+          "evidence": "Bone-only metastatic recurrence; no mention of CNS metastases.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Labs within normal limits / adequate organ function",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Labs within normal limits.",
+          "criterion": "Fasting plasma glucose \u2265140 mg/dL and HbA1c \u22657.0%",
+          "type": "exclusion",
+          "status": "UNKNOWN",
+          "evidence": "Labs are stated as 'within normal limits', but exact fasting glucose and HbA1c values are not provided.",
           "fail_confidence": null,
-          "importance": null
+          "importance": "routine"
         }
       ],
       "open_questions": [
-        "Was tissue-based genomic testing performed that might identify a PIK3CA mutation not detected on the Guardant360 ctDNA assay?",
-        "What are the patient's current fasting plasma glucose and HbA1c levels given the history of type 2 diabetes on metformin?",
-        "Do the bone-only metastatic lesions meet RECIST v1.1 criteria for evaluable or measurable disease?"
+        "Was tissue testing performed that might show a PIK3CA mutation discordant with the ctDNA result?",
+        "What are the patient's exact HbA1c and fasting glucose levels off or on metformin?",
+        "Are the bone-only metastatic lesions measurable or evaluable per RECIST v1.1?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
       "n_pass": 5,
-      "n_fail": 1,
-      "n_unknown": 3,
+      "n_fail": 2,
+      "n_unknown": 6,
       "n_unknown_important": 2,
       "nct_id": "NCT05216432",
       "title": "First-in-Human Study of Mutant-selective PI3K\u03b1 Inhibitor, RLY-2608, as a Single Agent in Patients With Advanced Solid Tumors and in Combination With Endocrine Therapy +/- a CDK4/6 or CDK4 Inhibitor in Patients With Advanced Solid Tumors or Advanced Breast Cancer",
@@ -1608,11 +1976,10 @@
       "phases": [
         "PHASE1"
       ],
-      "relevance_score": 12,
+      "relevance_score": 8,
       "relevance_reasons": [
         "metastatic setting",
         "HR+ / HER2-low match",
-        "PIK3CA mentioned",
         "breast-specific"
       ],
       "nyc_sites": [
@@ -1657,149 +2024,29 @@
       }
     },
     {
-      "summary": "The patient is a 67-year-old man with metastatic HR-positive, HER2-negative breast cancer who has progressed on first-line endocrine and CDK4/6 inhibitor therapy and has a PIK3CA wild-type tumor. However, he fails the trial's prior systemic therapy requirement (which requires patients to have received no prior systemic therapy for advanced/metastatic breast cancer) and has type 2 diabetes requiring ongoing systemic treatment, which is an explicit exclusion criterion.",
+      "summary": "The patient is a 67-year-old man with metastatic HR-positive breast cancer who has progressed on first-line endocrine therapy plus a CDK4/6 inhibitor, but he has HER2 IHC 0 status (HER2-negative) and no reported membrane staining, which conflicts with the trial's core requirement for HER2-low or HER2-ultralow disease. Additionally, key information regarding measurable disease, specific HER2 testing method, and exact washout timelines is missing.",
       "criteria": [
         {
-          "criterion": "Histologically or cytologically confirmed locally advanced or metastatic breast cancer",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Metastatic hormone receptor-positive, HER2-negative breast cancer",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Documented ER-positive and/or PR-positive tumor (>=1%)",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "ER 100%, PR 60%",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No prior systemic therapy for locally advanced unresectable or metastatic breast cancer",
+          "criterion": "HR-positive, HER2-low or HER2-ultralow unresectable or metastatic breast cancer",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Patient received first-line treatment for bone-only metastatic recurrence in 2023 with anastrozole + leuprolide + ribociclib.",
+          "evidence": "Patient: Metastatic breast cancer with HER2 IHC 0 | Trial: Requires HER2-low (IHC 2+/ISH- or IHC 1+) or HER2-ultralow (IHC 0 with membrane staining in >0 and <=10% of cells) in the unresectable or metastatic setting",
           "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "Confirmed biomarker eligibility: lack of PIK3CA mutation and presence of heterozygous loss of chromosome 8p per central laboratory testing",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "PIK3CA wild-type on local circulating tumor DNA (Guardant360); central laboratory testing and chromosome 8p loss status are not reported.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Measurable disease per RECIST v1.1",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Bone-only metastatic recurrence in 2023; RECIST v1.1 measurability of the bone lesions is not specified.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Type 2 diabetes requiring ongoing systemic treatment at the time of study entry excluded",
-          "type": "exclusion",
-          "status": "FAIL",
-          "evidence": "History of type 2 diabetes controlled on metformin.",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "No known and untreated, or active Central nervous system (CNS) metastases",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No mention of CNS metastases; bone-only metastatic recurrence.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "No history of leptomeningeal disease or carcinomatous meningitis",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "No history of leptomeningeal disease reported.",
-          "fail_confidence": null,
-          "importance": null
-        }
-      ],
-      "open_questions": [
-        "Can central laboratory testing be performed to confirm PIK3CA wild-type status and evaluate for chromosome 8p loss?",
-        "Are the bone metastases considered measurable per RECIST v1.1 (e.g., presence of an associated soft tissue component)?",
-        "Can the patient's type 2 diabetes management be adjusted or evaluated regarding the protocol's prohibition of ongoing systemic treatment?"
-      ],
-      "model": "gemini-3.5-flash-lite",
-      "category": "Not eligible",
-      "fit_score": 0,
-      "n_pass": 4,
-      "n_fail": 2,
-      "n_unknown": 2,
-      "n_unknown_important": 2,
-      "nct_id": "NCT07405801",
-      "title": "A Phase II Study Evaluating the Efficacy and Safety of Inavolisib Plus Ribociclib Plus Fulvestrant Versus Placebo Plus Ribociclib Plus Fulvestrant in Participants With Advanced Breast Cancer",
-      "url": "https://clinicaltrials.gov/study/NCT07405801",
-      "phases": [
-        "PHASE2"
-      ],
-      "relevance_score": 12,
-      "relevance_reasons": [
-        "metastatic setting",
-        "HR+ / HER2-low match",
-        "PIK3CA mentioned",
-        "breast-specific"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "Queens Hospital Cancer Center",
-          "city": "Jamaica",
-          "state": "New York",
-          "zip": "11432",
-          "site_status": "RECRUITING",
-          "distance_mi": 10.6,
-          "contact_name": null,
-          "contact_phone": null,
-          "contact_email": null
-        }
-      ],
-      "central_contact": {
-        "name": "Reference Study ID Number: CO46274 https://forpatients.roche.com/ No attachments to email below.",
-        "phone": "888-662-6728",
-        "email": "global-roche-genentech-trials@gene.com"
-      }
-    },
-    {
-      "summary": "The patient is a 67-year-old man with metastatic HR-positive breast cancer who received a CDK4/6 inhibitor and endocrine therapy, but his HER2 status is documented as IHC 0 (HER2-negative), which conflicts with the trial's requirement for HER2-low or HER2-ultralow expression. Therefore, the patient fails the core HER2 status inclusion criterion.",
-      "criteria": [
-        {
-          "criterion": "HER2 status assessed as HER2-low or HER2-ultralow in the unresectable or metastatic setting",
-          "type": "inclusion",
-          "status": "FAIL",
-          "evidence": "Patient summary states HER2 IHC 0, whereas the trial requires HER2-low (IHC 2+/ISH- or IHC 1+) or HER2-ultralow (IHC 0 with >0 and <=10% membrane staining).",
-          "fail_confidence": "HIGH",
-          "importance": null
-        },
-        {
-          "criterion": "HR+ in the unresectable or metastatic setting (ER or PgR >= 1%)",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Patient has hormone receptor-positive metastatic breast cancer (ER 100%, PR 60%).",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
-          "criterion": "Unresectable or metastatic breast cancer",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Patient has bone-only metastatic recurrence in 2023.",
-          "fail_confidence": null,
           "importance": null
         },
         {
           "criterion": "Documented radiologic disease progression per RECIST v1.1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Progression on anastrozole + leuprolide + ribociclib in September 2026.",
+          "evidence": "Bone-only metastatic recurrence in 2023, treated first-line with anastrozole + leuprolide + ribociclib with progression in September 2026.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Documented refractoriness to endocrine therapy in the unresectable or metastatic setting",
+          "type": "inclusion",
+          "status": "PASS",
+          "evidence": "Disease progression on first-line anastrozole + leuprolide + ribociclib in September 2026.",
           "fail_confidence": null,
           "importance": null
         },
@@ -1812,18 +2059,10 @@
           "importance": null
         },
         {
-          "criterion": "Documented refractoriness to endocrine therapy",
-          "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Disease progression on endocrine therapy plus CDK4/6 inhibitor in the metastatic setting.",
-          "fail_confidence": null,
-          "importance": null
-        },
-        {
           "criterion": "No prior chemotherapy for unresectable or metastatic breast cancer",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Prior treatments listed are tamoxifen and anastrozole + leuprolide + ribociclib; no chemotherapy mentioned for metastatic disease.",
+          "evidence": "Treated with mastectomy and tamoxifen initially, then first-line endocrine therapy + ribociclib; no metastatic chemotherapy mentioned.",
           "fail_confidence": null,
           "importance": null
         },
@@ -1836,74 +2075,90 @@
           "importance": null
         },
         {
-          "criterion": "Pretreatment tumor tissue sample collection requirement",
+          "criterion": "At least 1 measurable lesion on CT or MRI per RECIST v1.1",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "A Guardant360 ccfDNA test from October 2026 is mentioned, but whether a suitable archival or fresh tissue biopsy sample is available is not stated.",
-          "fail_confidence": null,
-          "importance": "important"
-        },
-        {
-          "criterion": "Presence of >=1 measurable lesion on CT or MRI per RECIST v1.1",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Summary mentions bone-only metastatic recurrence, but does not specify if lesions meet RECIST v1.1 measurability.",
+          "evidence": "The summary mentions a 'bone-only metastatic recurrence' but does not specify if there are measurable lesions per RECIST v1.1.",
           "fail_confidence": null,
           "importance": "important"
         },
         {
           "criterion": "Adequate bone marrow reserve and organ function",
           "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "Summary notes 'Labs within normal limits' but specific values within 7 days prior to first dose are not provided.",
-          "fail_confidence": null,
-          "importance": "routine"
-        },
-        {
-          "criterion": "No prior treatment with an anti-HER3 antibody and/or ADC with a topoisomerase I inhibitor",
-          "type": "exclusion",
           "status": "PASS",
-          "evidence": "Prior treatments are tamoxifen, anastrozole, leuprolide, and ribociclib; no anti-HER3 or topoisomerase I inhibitor ADC reported.",
+          "evidence": "Labs within normal limits.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "No history of interstitial lung disease (ILD)/pneumonitis",
-          "type": "exclusion",
+          "criterion": "Pretreatment tumor tissue sample availability",
+          "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "No mention of ILD or pneumonitis history in the patient summary.",
+          "evidence": "Guardant360 ccfDNA is mentioned, but the availability of a suitable tissue biopsy (archival or fresh) is not stated.",
           "fail_confidence": null,
-          "importance": "routine"
+          "importance": "important"
+        },
+        {
+          "criterion": "No prior treatment with anti-HER3 antibody or topoisomerase I inhibitor ADC",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Prior treatments listed are tamoxifen, anastrozole, leuprolide, and ribociclib; no anti-HER3 or topoisomerase I inhibitor ADC mentioned.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "No history of ILD/pneumonitis",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "No history of ILD or pneumonitis reported.",
+          "fail_confidence": null,
+          "importance": null
+        },
+        {
+          "criterion": "Not receiving chronic systemic corticosteroids >10 mg prednisone daily equivalent",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "History of type 2 diabetes controlled on metformin; no systemic corticosteroids mentioned.",
+          "fail_confidence": null,
+          "importance": null
         },
         {
           "criterion": "No active brain metastases or spinal cord compression",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Summary describes bone-only metastatic recurrence without mention of brain metastases or spinal cord compression.",
+          "evidence": "Bone-only metastatic recurrence; no brain metastases or spinal cord compression reported.",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "Adequate washout period of prior treatment before randomization",
+          "criterion": "Adequate washout period for prior systemic therapies",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "Exact dates of last doses for prior hormonal therapy are not specified.",
+          "evidence": "Exact dates of the last doses of prior hormonal therapy and ribociclib relative to screening/enrollment are not provided.",
           "fail_confidence": null,
           "importance": "important"
+        },
+        {
+          "criterion": "No history of other active malignancy within 3 years",
+          "type": "exclusion",
+          "status": "PASS",
+          "evidence": "Initial breast cancer stage II in 2020 (greater than 3 years ago); no other active malignancies reported.",
+          "fail_confidence": null,
+          "importance": null
         }
       ],
       "open_questions": [
-        "Does the local HER2 IHC 0 result include any membrane staining in >0 and <=10% of cancer cells to qualify as HER2-ultralow?",
-        "Is there a tumor tissue sample available from the metastatic setting (archival or fresh) that can be used for central or local HER2 confirmation?",
-        "Are there measurable bone lesions per RECIST v1.1?",
-        "What are the exact recent laboratory values and LVEF to confirm organ function and cardiac status?"
+        "Was the HER2 IHC 0 score evaluated for any faint membrane staining (HER2-ultralow criteria: >0 and <=10% cells with membrane staining)?",
+        "Are there measurable bone lesions or other sites of disease per RECIST v1.1?",
+        "Is a fresh or archival tumor tissue biopsy available for screening?",
+        "What are the exact dates of the last administration of prior endocrine therapy and ribociclib?"
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
-      "n_pass": 9,
+      "n_pass": 11,
       "n_fail": 1,
-      "n_unknown": 5,
+      "n_unknown": 3,
       "n_unknown_important": 3,
       "nct_id": "NCT07701941",
       "title": "A Study of Patritumab Deruxtecan (HER3-DXd) in Combination With Trastuzumab Deruxtecan (T-DXd) in Participants With HR-Positive, HER2-Low or HER2-Ultralow Unresectable or Metastatic Breast Cancer",
@@ -1912,11 +2167,10 @@
         "PHASE1",
         "PHASE2"
       ],
-      "relevance_score": 16,
+      "relevance_score": 12,
       "relevance_reasons": [
         "metastatic setting",
         "HR+ / HER2-low match",
-        "PIK3CA mentioned",
         "BRCA mentioned",
         "breast-specific"
       ],
@@ -1940,21 +2194,29 @@
       }
     },
     {
-      "summary": "The patient is a 67-year-old man with hormone receptor-positive, HER2-negative metastatic breast cancer who has received prior first-line endocrine and CDK4/6 inhibitor therapy, and whose tumor is PIK3CA wild-type. He is ineligible for this trial because the protocol explicitly requires patients to have received no prior systemic therapy for locally advanced unresectable or metastatic disease, and requires PIK3CA mutation eligibility whereas the patient is PIK3CA wild-type.",
+      "summary": "The patient is a 67-year-old man with metastatic HR+/HER2- breast cancer, an ESR1 mutation, PIK3CA wild-type status, and type 2 diabetes. He fails the trial's prior systemic therapy requirement because he has already received first-line therapy for metastatic disease, and he fails the biomarker requirement because he is PIK3CA wild-type while the trial requires a PIK3CA mutation for the investigational triplet.",
       "criteria": [
         {
           "criterion": "Confirmed diagnosis of HR+/HER2- breast cancer",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "Metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0)",
+          "evidence": "Patient: metastatic hormone receptor-positive, HER2-negative breast cancer (ER 100%, PR 60%, HER2 IHC 0) | Trial: Confirmed diagnosis of HR+/HER2- breast cancer",
           "fail_confidence": null,
           "importance": null
         },
         {
-          "criterion": "No prior systemic therapy for locally advanced unresectable or metastatic disease",
+          "criterion": "Type 2 diabetes with laboratory fasting blood glucose < 185 mg/dL and HbA1c <= 8% on stable anti-hyperglycemic regimen",
+          "type": "inclusion",
+          "status": "UNKNOWN",
+          "evidence": "Patient has type 2 diabetes controlled on metformin, but specific laboratory values for fasting blood glucose and HbA1c are not provided.",
+          "fail_confidence": null,
+          "importance": "important"
+        },
+        {
+          "criterion": "Eligible for triplet of inavolisib, fulvestrant and palbociclib: no prior systemic therapy for locally advanced unresectable or metastatic disease",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Bone-only metastatic recurrence in 2023, treated first-line with anastrozole + leuprolide + ribociclib with progression in September 2026.",
+          "evidence": "Patient: Bone-only metastatic recurrence in 2023, treated first-line with anastrozole + leuprolide + ribociclib | Trial: no prior systemic therapy for locally advanced unresectable or metastatic disease",
           "fail_confidence": "HIGH",
           "importance": null
         },
@@ -1962,23 +2224,15 @@
           "criterion": "Confirmation of biomarker eligibility (detection of specified mutation(s) of PIK3CA via specified test)",
           "type": "inclusion",
           "status": "FAIL",
-          "evidence": "Circulating tumor DNA (Guardant360, October 2026) shows ESR1 Y537S mutation; PIK3CA wild-type",
+          "evidence": "Patient: Circulating tumor DNA shows ESR1 Y537S mutation; PIK3CA wild-type | Trial: detection of specified mutation(s) of PIK3CA via specified test",
           "fail_confidence": "HIGH",
           "importance": null
-        },
-        {
-          "criterion": "Type 2 diabetes with laboratory fasting blood glucose < 185 mg/dL and HbA1c <= 8% on stable anti-hyperglycemic regimen",
-          "type": "inclusion",
-          "status": "UNKNOWN",
-          "evidence": "History of type 2 diabetes controlled on metformin, but specific fasting blood glucose and HbA1c values are not reported.",
-          "fail_confidence": null,
-          "importance": "important"
         },
         {
           "criterion": "Measurable disease per RECIST v1.1",
           "type": "inclusion",
           "status": "UNKNOWN",
-          "evidence": "Bone-only metastatic recurrence is mentioned, but specific details on whether lesions meet RECIST v1.1 measurable criteria (e.g., lytic or mixed with a soft-tissue component) are missing.",
+          "evidence": "Patient has bone-only metastatic recurrence, but it is not explicitly stated if lesions are measurable per RECIST v1.1.",
           "fail_confidence": null,
           "importance": "important"
         },
@@ -1986,23 +2240,23 @@
           "criterion": "Eastern Cooperative Oncology Group (ECOG) Performance Status of 0-1",
           "type": "inclusion",
           "status": "PASS",
-          "evidence": "ECOG 1",
+          "evidence": "Patient: ECOG 1 | Trial: ECOG Performance Status of 0-1",
           "fail_confidence": null,
           "importance": null
         },
         {
           "criterion": "Adequate hematologic and organ function within 14 days prior to initiation of study treatment",
           "type": "inclusion",
-          "status": "PASS",
-          "evidence": "Labs within normal limits",
+          "status": "UNKNOWN",
+          "evidence": "Patient: Labs within normal limits, but specific recent dates and exact values within 14 days of treatment are not provided.",
           "fail_confidence": null,
-          "importance": null
+          "importance": "routine"
         },
         {
           "criterion": "Any history of Type 1 diabetes",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "History of type 2 diabetes controlled on metformin",
+          "evidence": "Patient: History of type 2 diabetes | Trial: Any history of Type 1 diabetes",
           "fail_confidence": null,
           "importance": null
         },
@@ -2010,23 +2264,15 @@
           "criterion": "Severe hyper- or hypoglycemia event within 6 months of initiation of study treatment",
           "type": "exclusion",
           "status": "UNKNOWN",
-          "evidence": "Diabetes is noted as controlled on metformin, but recent severe hypo- or hyperglycemia events are not explicitly mentioned.",
+          "evidence": "Patient has type 2 diabetes, but history of severe hyper- or hypoglycemia events within the past 6 months is not mentioned.",
           "fail_confidence": null,
           "importance": "important"
-        },
-        {
-          "criterion": "Metaplastic breast cancer",
-          "type": "exclusion",
-          "status": "PASS",
-          "evidence": "Metastatic hormone receptor-positive, HER2-negative breast cancer (not stated as metaplastic)",
-          "fail_confidence": null,
-          "importance": null
         },
         {
           "criterion": "Any history of leptomeningeal disease or carcinomatous meningitis",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "No mention of leptomeningeal disease; recurrence is bone-only.",
+          "evidence": "Patient summary does not mention leptomeningeal disease or carcinomatous meningitis.",
           "fail_confidence": null,
           "importance": null
         },
@@ -2034,21 +2280,22 @@
           "criterion": "Known and untreated, or active central nervous system (CNS) metastases",
           "type": "exclusion",
           "status": "PASS",
-          "evidence": "Bone-only metastatic recurrence; no CNS metastases described.",
+          "evidence": "Patient summary describes bone-only metastatic recurrence with no mention of CNS metastases.",
           "fail_confidence": null,
           "importance": null
         }
       ],
       "open_questions": [
-        "What are the patient's recent fasting blood glucose and HbA1c values?",
-        "Do the bone metastases include any measurable soft-tissue components per RECIST v1.1?"
+        "Verify exact fasting blood glucose and HbA1c values to confirm diabetes control criteria.",
+        "Confirm whether the bone metastases meet RECIST v1.1 criteria for measurable disease.",
+        "Obtain recent laboratory results within 14 days prior to planned treatment initiation."
       ],
       "model": "gemini-3.5-flash-lite",
       "category": "Not eligible",
       "fit_score": 0,
-      "n_pass": 7,
+      "n_pass": 5,
       "n_fail": 2,
-      "n_unknown": 3,
+      "n_unknown": 4,
       "n_unknown_important": 3,
       "nct_id": "NCT07748208",
       "title": "A Study Evaluating the Safety of Inavolisib and Fulvestrant With or Without Palbociclib in Participants With Advanced Breast Cancer (ABC) and Type 2 Diabetes",
@@ -2056,11 +2303,10 @@
       "phases": [
         "PHASE2"
       ],
-      "relevance_score": 12,
+      "relevance_score": 8,
       "relevance_reasons": [
         "metastatic setting",
         "HR+ / HER2-low match",
-        "PIK3CA mentioned",
         "breast-specific"
       ],
       "nyc_sites": [
@@ -2080,61 +2326,6 @@
         "name": "Reference Study ID Number: GO45322 https://forpatients.roche.com/ No attachments to email below.",
         "phone": "888-662-6728 (U.S. and Canada)",
         "email": "global-roche-genentech-trials@gene.com"
-      }
-    },
-    {
-      "summary": "Screening failed: Invalid criterion type at 14",
-      "criteria": [],
-      "open_questions": [],
-      "model": null,
-      "category": "Unable to assess - screening error",
-      "fit_score": 0,
-      "n_pass": 0,
-      "n_fail": 0,
-      "n_unknown": 0,
-      "n_unknown_important": 0,
-      "nct_id": "NCT06395519",
-      "title": "A Study of PARG Inhibitor ETX-19477 in Patients With Advanced Solid Malignancies",
-      "url": "https://clinicaltrials.gov/study/NCT06395519",
-      "phases": [
-        "PHASE1",
-        "PHASE2"
-      ],
-      "relevance_score": 11,
-      "relevance_reasons": [
-        "metastatic setting",
-        "HR+ / HER2-low match",
-        "BRCA mentioned",
-        "solid-tumor basket"
-      ],
-      "nyc_sites": [
-        {
-          "facility": "Laura & Isaac Perlmutter Cancer Center at NYU Langone Health",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10016",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Nancy Chan, MD",
-          "contact_phone": null,
-          "contact_email": null
-        },
-        {
-          "facility": "Memorial Sloan Kettering Cancer Center",
-          "city": "New York",
-          "state": "New York",
-          "zip": "10065",
-          "site_status": "RECRUITING",
-          "distance_mi": 0.1,
-          "contact_name": "Ezra Y Rosen, MD, PhD",
-          "contact_phone": null,
-          "contact_email": null
-        }
-      ],
-      "central_contact": {
-        "name": "858 Therapeutics, Inc.",
-        "phone": "(858) 987-8380",
-        "email": "dmccormick@8five8tx.com"
       }
     }
   ]
